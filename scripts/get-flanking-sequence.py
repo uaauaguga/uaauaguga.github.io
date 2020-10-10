@@ -49,7 +49,7 @@ for query in tqdm(queries):
         seed_start = right_length
     else:
         seed_start = left_length
-    seed_end = left_length+seed_length
+    seed_end = seed_start + seed_length
     seqIdOut = gbid + ":" + "-".join([str(start0),str(end0)]) + ":" + "-".join([str(seed_start),str(seed_end)])
     print(">"+seqIdOut,file=f)
     print(seq.seq,file=f)
