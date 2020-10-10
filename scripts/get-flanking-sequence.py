@@ -43,15 +43,14 @@ for query in tqdm(queries):
     # Right position, 0 based coordiante
     right_length = min(args.length - left_length,remain)
     right_pos = end + right_length
-    seed_start = left_length
-    seed_end = left_length+seed_length
-    seqIdOut = gbid + ":" + "-".join([str(start0),str(end0)]) + ":" + "-".join([str(seed_start),str(seed_end)])
     seq = faObj[gbid][left_pos:right_pos]
     if strand == "-":
         seq = seq.reverse.complement
+        seed_start = right_length
+    else:
+        seed_start = left_length
+    seed_end = left_length+seed_length
+    seqIdOut = gbid + ":" + "-".join([str(start0),str(end0)]) + ":" + "-".join([str(seed_start),str(seed_end)])
     print(">"+seqIdOut,file=f)
     print(seq.seq,file=f)
 f.close()
-    
-
-
