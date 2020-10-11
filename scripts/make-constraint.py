@@ -6,9 +6,6 @@ import os
 import sys
 
 
-
-
-
 def loadPairs(path,preserveSS=True):
     """Load base pairs and sequence from .ct file"""
     pairs = []
@@ -66,6 +63,27 @@ def adjustPairs(pairs,unpaired,offset):
     return adjuated_pairs,adjusted_unpaired
 
 
+def checkPairing(seq,pairs):
+    canonical = set([("A","U"),("A","T"),
+                    ("C","G"),
+                    ("G","U"),("G","T"),("G","C"),
+                    ("T","A"),("T","G"),
+                    ("U","A"),("U","G")])
+    pairs_filtered = set()
+    n_noncanonical = 0
+    for x,y in pairs:
+        pair = seq[int(x)-1],seq[int(y)-1]
+        if pair  in canonical:
+            pairs_filtered.add((x,y))
+        else:
+            print(x,y,"\t",pair[0],pair[1])
+            n_noncanonical += 1
+    print("{} non conanical base pairing in the seed structure was removed".format(n_noncanonical))
+    return pairs_filtered
+        
+
+
+
 def makeRNAstructureConstraint(pairs,unpaired):
     """
     Make constrain file in RNA structure" 
@@ -95,8 +113,8 @@ def makeViennaRNAConstraint(pairs,unpaired,length):
     const = list(length*".")
     for x,y in pairs:
         x_,y_ = (x-1,y-1) if x < y else (y-1,x-1)
-        const[x_] = "<"
-        const[y_] = ">"
+        const[x_] = "("
+        const[y_] = ")"
     for ss in unpaired:
         const[ss-1] = "x"
     const_ = ""
@@ -121,7 +139,7 @@ def main():
     offset = start
     seed_length = end - start
     if not os.path.exists(args.ct_file):
-        print("Error, {} does not exist.".format(ctPath))
+        print("Error, {} does not exist.".format(args.ct_file))
         sys.exit(1)
     elif not os.path.exists(args.fasta):
         print("Error, {} does not exist".format(args.fasta))
@@ -130,24 +148,25 @@ def main():
         seqid,full_seq = loadFasta(args.fasta)
         length = len(full_seq)
         seed_seq,pairs,unpaired = loadPairs(args.ct_file,preserveSS=args.preserve_single)
+        pairs = checkPairing(seed_seq,pairs)
+        #print(seed_length,len(seed_seq))
         if len(seed_seq)!=seed_length:
             print("Inconsistent seed length for ct file and seed length")
             sys.exit(2)
-        print("Seed:")
-        print(seed_seq)
-        #print(full_seq)
-        print(full_seq[start:end])
+        #print("Seed:")
+        #print(seed_seq)
+        #print(full_seq[start:end])
         pairs_adjusted,unpaired_adjusted = adjustPairs(pairs,unpaired,int(offset))
         f = open(output,"w")
         if args.format == "RNAstructure":
-            const = makeRNAstructureConstraint(pairs_adjusted,unpaired_adjuste)
-            f.write(">"+seqid+"\n")
-            f.write(seq+"\n")
+            const = makeRNAstructureConstraint(pairs_adjusted,unpaired_adjusted)
             f.write(const+"\n")
         elif args.format=="ViennaRNA":
             const = makeViennaRNAConstraint(pairs_adjusted,unpaired_adjusted,length) 
+            f.write(">"+seqid+"\n")
+            f.write(full_seq+"\n")
             f.write(const+"\n")
-        print(const)
+        #print(const)
         f.close()
 
 
