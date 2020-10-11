@@ -89,13 +89,13 @@ def makeRNAstructureConstraint(pairs,unpaired):
     Make constrain file in RNA structure" 
     """
     const = ""
-    const += "DS:\n-1\n"
-    const += "SS:\n"
+    const += "DS:\n-1\n" # No double strand constraint
+    const += "SS:\n"     # Single strand constraint
     for ss in unpaired:
         const += "{}\n".format(ss)
     const += "-1\n"
     const += "Mod:\n-1\n"
-    const += "Pairs:\n"
+    const += "Pairs:\n"  # Pairing constraint
     for x,y in pairs:
         const += "{} {}\n".format(x,y)
     const += "-1 -1\n"
@@ -107,8 +107,10 @@ def makeViennaRNAConstraint(pairs,unpaired,length):
     """
     . No constraint
     x Force unpaired
-    < Force left pair
-    > Force right pair
+    ( Force left pair
+    ) Force right pair
+    < Force to be paired, and at left side
+    > Force to be paired, and at right side
     """
     const = list(length*".")
     for x,y in pairs:
