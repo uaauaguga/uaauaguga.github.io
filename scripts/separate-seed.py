@@ -1,8 +1,15 @@
-from Bio import AlignIO
-from io import StringIO
+#!/usr/bin/env python
 from tqdm import tqdm
-inSeed = "Rfam/seeds/concatenated/Rfam.seed" 
-outDir = "Rfam/seeds/separated" 
+import argparse
+
+parser = argparse.ArgumentParser(description='Convert stockholm format to dot bracket format.')
+parser.add_argument('--input', '-i',required=True,help="Input path, read from stdin by default.")
+parser.add_argument('--outdir','-o',required=True,help="Output path, print to stdout by default.")
+args = parser.parse_args()
+
+
+inSeed = args.input
+outDir = args.outdir
 with open(inSeed,encoding="ISO-8859-1") as f:
     content = None
     accession = 'NA'

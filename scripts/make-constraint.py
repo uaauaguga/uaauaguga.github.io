@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import argparse
 import tqdm
 import re
@@ -6,7 +7,7 @@ import os
 import sys
 
 
-def loadPairs(path,preserveSS=True):
+def loadPairs(path):
     """Load base pairs and sequence from .ct file"""
     pairs = []
     unpaired = []
@@ -115,6 +116,7 @@ def makeViennaRNAConstraint(pairs,unpaired,length):
     const = list(length*".")
     for x,y in pairs:
         x_,y_ = (x-1,y-1) if x < y else (y-1,x-1)
+        print(length,x_,y_)
         const[x_] = "("
         const[y_] = ")"
     for ss in unpaired:
@@ -134,7 +136,6 @@ def main():
     parser.add_argument('--fasta','-fa',required=True,help="Input fasta file for folding")
     parser.add_argument('--format','-f',type=str,default="RNAstructure",choices=["RNAstructure","ViennaRNA"],help="Constraint of the format")
     parser.add_argument('--output','-o',required=True,help="Output constraint file")
-    parser.add_argument('--preserve-single','-ps',action="store_true",help="Keep both double strand and single strand in the structure",default=True)
     args = parser.parse_args()
     start,end = args.start,args.end
     output = args.output
@@ -149,7 +150,7 @@ def main():
     else:
         seqid,full_seq = loadFasta(args.fasta)
         length = len(full_seq)
-        seed_seq,pairs,unpaired = loadPairs(args.ct_file,preserveSS=args.preserve_single)
+        seed_seq,pairs,unpaired = loadPairs(args.ct_file)
         pairs = checkPairing(seed_seq,pairs)
         #print(seed_length,len(seed_seq))
         if len(seed_seq)!=seed_length:
