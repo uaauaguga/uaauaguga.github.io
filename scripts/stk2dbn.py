@@ -58,7 +58,7 @@ def main():
                 ungapped_structure += current_structure[i]
                 ungapped_sequence += sequence[i]
         checkDBN(ungapped_structure)
-        name  = "|".join([record.annotations["accession"],str(record.annotations["start"]),str(record.annotations["end"])])
+        name  = record.annotations["accession"] + ":" + str(record.annotations["start"]) + ":" + str(record.annotations["end"])
         
         fout.write(">" + name + "\n")
         fout.write(ungapped_sequence + "\n")
