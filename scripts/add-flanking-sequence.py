@@ -182,6 +182,7 @@ def main():
     parser.add_argument('--flanking-length', '-fl', type=int, help = "Flanking length of simulated sequence")
     parser.add_argument('--seed','-s',type=int,default=777, help = "Seed for random flanking sequencing generation")
     parser.add_argument('--fasta', '-f', type=str, help = "Whether / Where to write fasta file (if the specified output format is not fasta format)" )
+    parser.add_argument('--locations','-loc',type=str,required=True,help = "Location of the motif in the flanked sequence")
     args = parser.parse_args()
 
     np.random.seed(args.seed)
@@ -210,6 +211,8 @@ def main():
         f_fasta = open(args.output,"w")
         print("Output fasta file with flanking sequence.")
 
+    fbed = open(args.locations,"w")
+
 
     if args.in_format == "dbn":
         structureDict = loadPairsFromDBN(args.input)
@@ -221,7 +224,9 @@ def main():
             pairs, unpaired = adjustPairs(pairs,unpaired,offset)
             flanking_sequence = getRandomSequence(args.flanking_length)
             sequence_flanked = flanking_sequence[:offset] + sequence + flanking_sequence[offset:]
-            name = name + ":" + str(offset) + "-" + str(offset + len(sequence))
+            start, end = str(offset),str(offset + len(sequence))
+            name = name + ":" + start + "-" + end
+            fbed.write("\t".join([name,start,end])+"\n")
             path = os.path.join(outdir,name + ".CON")
             if args.out_format == "RNAstructure":
                 constraint = makeRNAstructureConstraint(pairs,unpaired)
@@ -242,7 +247,9 @@ def main():
             flanking_sequence = getRandomSequence(args.flanking_length)
             offset = np.random.randint(args.flanking_length)
             sequence_flanked = flanking_sequence[:offset] + sequence + flanking_sequence[offset:]
-            name = name + ":" + str(offset) + "-" + str(offset + len(sequence))
+            start, end = str(offset),str(offset + len(sequence))
+            name = name + ":" + start + "-" + end
+            fbed.write("\t".join([name,start,end])+"\n")
             f_fasta.write(">" + name + "\n")
             f_fasta.write(sequence_flanked.replace("U","T") + "\n")
     if args.fasta is not None or args.out_format == "fasta":

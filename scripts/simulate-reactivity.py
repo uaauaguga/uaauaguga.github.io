@@ -18,10 +18,10 @@ parser.add_argument('--model','-m',help="Trained model for simulation",default="
 args = parser.parse_args()
 
 
-
+print("Load model ...")
 with open(args.model, 'rb') as fmdl:
     model =  pickle.load(fmdl)
-
+print("Done .")
 fout = open(args.output,"w")
 
 first_entry = True
@@ -30,6 +30,7 @@ with open(args.input) as fin:
         line = line.strip()
         if line.startswith(">"):
             name = line.replace(">","")
+            print("Processing {} ...".format(name))
             line = next(fin)
             sequence = line.strip()
             line = next(fin)

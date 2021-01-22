@@ -1,10 +1,11 @@
 source := seed-alignments
 method := ViennaRNA
 flanking := 100
-
 outdir := benchmark/datasets/$(source)/$(rfamid)/$(method)-$(flanking)
+PY27 := /BioII/lulab_b/jinyunfan/anaconda3/envs/shaker-env-py27/bin/python 
 
-all: $(outdir)/folded.dot
+
+all: $(outdir)/shaker.shape
 
 
 benchmark/motif-structure/$(source)/$(rfamid).dot: benchmark/alignments/$(source)/$(rfamid).stk
@@ -12,10 +13,10 @@ benchmark/motif-structure/$(source)/$(rfamid).dot: benchmark/alignments/$(source
 	scripts/stk2dbn.py -i $^ -o $@
 	@echo -e "Done ."
 
-$(outdir)/constraint $(outdir)/sequence.fa : benchmark/motif-structure/$(source)/$(rfamid).dot
+$(outdir)/constraint $(outdir)/sequence.fa $(outdir)/locations.bed : benchmark/motif-structure/$(source)/$(rfamid).dot
 	@echo -e "Add flanking sequence ..."
 	mkdir -p $(outdir)
-	scripts/add-flanking-sequence.py -i $^ --output $(outdir)/constraint --flanking-length $(flanking) -of $(method) --fasta $(outdir)/sequence.fa
+	scripts/add-flanking-sequence.py -i $^ --output $(outdir)/constraint --flanking-length $(flanking) -of $(method) --fasta $(outdir)/sequence.fa --locations $(outdir)/locations.bed
 	@echo -e "Done ."
 
 $(outdir)/folded.dot: $(outdir)/constraint $(outdir)/sequence.fa
@@ -24,3 +25,7 @@ $(outdir)/folded.dot: $(outdir)/constraint $(outdir)/sequence.fa
 	@echo -e "Done ."
 
 
+$(outdir)/shaker.shape: $(outdir)/folded.dot
+	@echo  -e "Simulate SHAPE reacitivity with shaker ..."
+	$(PY27) scripts/simulate-reactivity.py -i $^ -o $@
+	@echo -e "Done ."
