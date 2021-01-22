@@ -1,0 +1,26 @@
+source := seed-alignments
+method := ViennaRNA
+flanking := 100
+
+outdir := benchmark/datasets/$(source)/$(rfamid)/$(method)-$(flanking)
+
+all: $(outdir)/folded.dot
+
+
+benchmark/motif-structure/$(source)/$(rfamid).dot: benchmark/alignments/$(source)/$(rfamid).stk
+	@echo -e "Convert stk to dot bracket notation ..."
+	scripts/stk2dbn.py -i $^ -o $@
+	@echo -e "Done ."
+
+$(outdir)/constraint $(outdir)/sequence.fa : benchmark/motif-structure/$(source)/$(rfamid).dot
+	@echo -e "Add flanking sequence ..."
+	mkdir -p $(outdir)
+	scripts/add-flanking-sequence.py -i $^ --output $(outdir)/constraint --flanking-length $(flanking) -of $(method) --fasta $(outdir)/sequence.fa
+	@echo -e "Done ."
+
+$(outdir)/folded.dot: $(outdir)/constraint $(outdir)/sequence.fa
+	@echo -e "Fold sequence ..."
+	scripts/fold.py --fasta $(outdir)/sequence.fa -m $(method) --constraint $(outdir)/constraint --tmp-dir tmp/$(source)-$(rfamid)-$(method)-$(flanking) --enforce --output $(outdir)/folded.dot
+	@echo -e "Done ."
+
+

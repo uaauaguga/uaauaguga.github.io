@@ -65,8 +65,9 @@ def main():
     args = parser.parse_args()
 
     align = AlignIO.read(args.input, "stockholm")
-    deWUSS = dict(zip("([{<-._,:~>}])","((((......))))"))
+    deWUSS = dict(zip("([{<-._,:~Aa>}])","((((........))))"))
     structure_WUSS = align.column_annotations["secondary_structure"]
+    #print(structure_WUSS)
     L = len(structure_WUSS)
     structure_dbn = ""
 
