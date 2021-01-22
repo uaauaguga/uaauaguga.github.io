@@ -128,12 +128,12 @@ def makeRNAstructureConstraint(pairs,unpaired):
     const += "DS:\n-1\n" # No double strand constraint
     const += "SS:\n"     # Single strand constraint
     for ss in unpaired:
-        const += "{}\n".format(ss)
+        const += "{}\n".format(ss+1)
     const += "-1\n"
     const += "Mod:\n-1\n"
     const += "Pairs:\n"  # Pairing constraint
     for x,y in pairs:
-        const += "{} {}\n".format(x,y)
+        const += "{} {}\n".format(x+1,y+1)
     const += "-1 -1\n"
     const += "FMN:\n-1\n"
     const += "Forbids:\n-1 -1"
@@ -151,11 +151,12 @@ def makeViennaRNAConstraint(pairs,unpaired,length):
     """
     const = list(length*".")
     for x,y in pairs:
-        x_,y_ = (x-1,y-1) if x < y else (y-1,x-1)
-        const[x_] = "("
-        const[y_] = ")"
+        if x > y:
+            x, y = y, x
+        const[x] = "("
+        const[y] = ")"
     for ss in unpaired:
-        const[ss-1] = "x"
+        const[ss] = "x"
     return "".join(const)
 
 
@@ -183,8 +184,8 @@ def main():
     parser.add_argument('--fasta', '-f', type=str, help = "Whether / Where to write fasta file (if the specified output format is not fasta format)" )
     args = parser.parse_args()
 
-    
     np.random.seed(args.seed)
+   
 
     if not os.path.exists(args.input):
         print("Error, {} does not exist.".format(args.input))
@@ -196,14 +197,11 @@ def main():
         print("Input is fasta file .") 
 
 
-    if args.out_format == "ViennaRNA":
-        fout = open(args.output,"w")
-        print("Output ViennaRNA constraint file.")
-    elif args.out_format == "RNAstructure":
+    if args.out_format == "RNAstructure" or args.out_format == "ViennaRNA":
         outdir = args.output
         if not os.path.exists(outdir):
             os.mkdir(outdir)
-        print("Output RNAstructure constraint files.")
+        print("Write {} constraint to {}".format(args.out_format,outdir))
 
     if args.fasta is not None and args.out_format != "fasta":
         f_fasta = open(args.fasta,"w")
@@ -224,19 +222,20 @@ def main():
             flanking_sequence = getRandomSequence(args.flanking_length)
             sequence_flanked = flanking_sequence[:offset] + sequence + flanking_sequence[offset:]
             name = name + ":" + str(offset) + "-" + str(offset + len(sequence))
+            path = os.path.join(outdir,name + ".CON")
             if args.out_format == "RNAstructure":
                 constraint = makeRNAstructureConstraint(pairs,unpaired)
-                path = os.path.join(outdir,name + ".CON")
                 with open(path,"w") as fout:
                     fout.write(constraint)
             elif args.out_format == "ViennaRNA":
-                fout.write(">" + name + "\n")
-                fout.write(sequence_flanked + "\n")
                 constraint = makeViennaRNAConstraint(pairs,unpaired,len(sequence_flanked))
-                fout.write(constraint + "\n")
+                with open(path,"w") as fout:
+                    fout.write(">" + name + "\n")
+                    fout.write(sequence_flanked.replace("U","T") + "\n")
+                    fout.write(constraint + "\n")
             if args.fasta is not None or args.out_format == "fasta":
                 f_fasta.write(">" + name + "\n")
-                f_fasta.write(sequence_flanked + "\n")
+                f_fasta.write(sequence_flanked.replace("U","T") + "\n")
     elif args.in_format == "fasta":
         sequenceDict = loadFasta(args.input)
         for name,sequence in sequenceDict.items():
@@ -244,6 +243,8 @@ def main():
             offset = np.random.randint(args.flanking_length)
             sequence_flanked = flanking_sequence[:offset] + sequence + flanking_sequence[offset:]
             name = name + ":" + str(offset) + "-" + str(offset + len(sequence))
+            f_fasta.write(">" + name + "\n")
+            f_fasta.write(sequence_flanked.replace("U","T") + "\n")
     if args.fasta is not None or args.out_format == "fasta":
         f_fasta.close()
     fout.close()
