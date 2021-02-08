@@ -3,14 +3,16 @@ method := ViennaRNA
 flanking := 100
 outdir := benchmark/datasets/$(source)/$(rfamid)/$(method)-$(flanking)
 PY27 := /BioII/lulab_b/jinyunfan/anaconda3/envs/shaker-env-py27/bin/python 
-
+identity_filter := #-f 0.8
+sampling := #-s 50
 
 all: $(outdir)/shaker.shape
 
 
 benchmark/motif-structure/$(source)/$(rfamid).dot: benchmark/alignments/$(source)/$(rfamid).stk
+	mkdir -p benchmark/alignments/$(source)
 	@echo -e "Convert stk to dot bracket notation ..."
-	scripts/stk2dbn.py -i $^ -o $@
+	scripts/stk2dbn.py -i $^ -o $@ $(identity_filter) $(sampling)
 	@echo -e "Done ."
 
 $(outdir)/constraint $(outdir)/sequence.fa $(outdir)/locations.bed : benchmark/motif-structure/$(source)/$(rfamid).dot

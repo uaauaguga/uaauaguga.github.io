@@ -16,4 +16,21 @@ scripts/add-flanking-sequence.py -i RF00032.dot --output RF00032.RNAstructure.co
 scripts/add-flanking-sequence.py -i test/RF00032.dot --output test/RF00032.ViennaRNA.const --flanking-length 100 -of ViennaRNA --fasta test/RF00032.ViennaRNA.fa
 
 scripts/fold.py --fasta  test/RF00032.ViennaRNA.fa -m ViennaRNA --constraint test/RF00032.ViennaRNA.const --tmp-dir test/RF00032.ViennaRNA.tmp --enforce --output test/RF00032.ViennaRNA.dot
-``` 
+```
+
+
+## Curation of reference structure of some structural noncoding RNA 
+- Get sequence id in seed alignemnts `run/get-seed-ids.sh`
+- Get reference structure
+```{bash}
+run/get-reference-structure-of-model-organism.py --output data/reference-structure/model-organism/homo-sapien-reference-structure.dot --taxid 9606
+run/get-reference-structure-of-model-organism.py --output data/reference-structure/model-organism/mus-musculus-structure.dot --taxid 10090
+run/get-reference-structure-of-model-organism.py --output data/reference-structure/model-organism/saccharomyces-cerevisiae.dot --taxid 4932
+run/get-reference-structure-of-model-organism.py --output data/reference-structure/model-organism/oryza-sativa.dot --taxid 4530
+run/get-reference-structure-of-model-organism.py --output data/reference-structure/model-organism/arabidopsis-thaliana.dot --taxid 3702
+for file in $(ls dbn);do cat dbn/${file} | grep -v '^[\.\(]' > fasta/${file%%.*}.fa ;done
+mkdir -p fasta-filtered
+for file in $(ls fasta);do cd-hit -c 0.7 -i fasta/${file} -o fasta-filtered/${file};done
+```
+
+

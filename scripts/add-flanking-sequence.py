@@ -254,7 +254,6 @@ def main():
             f_fasta.write(sequence_flanked.replace("U","T") + "\n")
     if args.fasta is not None or args.out_format == "fasta":
         f_fasta.close()
-    fout.close()
 
 
 if __name__ == "__main__":
