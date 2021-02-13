@@ -1,2 +1,3 @@
-## Hello World
-- Hey you
+---
+layout: home
+---
