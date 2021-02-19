@@ -4,6 +4,7 @@ import subprocess
 import os
 import math
 import logging 
+import sys
 
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] %(name)s: %(message)s')
 logger = logging.getLogger('build index')
@@ -25,16 +26,21 @@ def star(args):
     genomeChrBinNbits = min(18,int(math.log2(avgL)))
     if not os.path.exists(args.prefix):
         os.makedirs(args.prefix)
+    if  os.path.exists(args.tmp_dir):
+        logger.info("The specified tmp dir already exists .")
+        sys.exit(1)        
+    if not os.path.exists(os.path.dirname(args.tmp_dir)):
+        os.makedirs(os.path.dirname(args.tmp_dir))
     if args.gtf is not None:
         logger.info("Genome annotation provided in gtf format .")
         logger.info("Build star sequence index ...")
-        cmd = ["STAR","--runMode","genomeGenerate","--genomeDir",args.prefix,"--genomeFastaFiles",args.fasta,"--genomeSAindexNbases",str(genomeSAindexNbases),"--genomeChrBinNbits",str(genomeChrBinNbits),"--sjdbGTFfile",args.gtf,"--runThreadN",str(args.threads)]
+        cmd = ["STAR","--runMode","genomeGenerate","--genomeDir",args.prefix,"--genomeFastaFiles",args.fasta,"--genomeSAindexNbases",str(genomeSAindexNbases),"--genomeChrBinNbits",str(genomeChrBinNbits),"--sjdbGTFfile",args.gtf,"--runThreadN",str(args.threads),"--outTmpDir",args.tmp_dir]
         logger.info("Run: "+" ".join(cmd))
         subprocess.run(cmd)
     else:
         logger.info("Genome annotation not provided .")
         logger.info("Build star sequence index ...")
-        cmd = ["STAR","--runMode","genomeGenerate","--genomeDir",args.prefix,"--genomeFastaFiles",args.fasta,"--genomeSAindexNbases",str(genomeSAindexNbases),"--genomeChrBinNbits",str(genomeChrBinNbits),"--runThreadN",str(args.threads)]
+        cmd = ["STAR","--runMode","genomeGenerate","--genomeDir",args.prefix,"--genomeFastaFiles",args.fasta,"--genomeSAindexNbases",str(genomeSAindexNbases),"--genomeChrBinNbits",str(genomeChrBinNbits),"--runThreadN",str(args.threads),"--outTmpDir",args.tmp_dir]
         logger.info("Run: "+" ".join(cmd))
         subprocess.run(cmd)
     logger.info("Done .")
@@ -55,7 +61,8 @@ def main():
     parser.add_argument('--aligner','-a',required=True,choices=["star","bowtie2"],help="Aligner for index building")
     parser.add_argument('--gtf','-g',help="Path of genome annotation, only work for STAR genome index building")
     parser.add_argument('--prefix', '-o', required=True, help = "Prefix of the index")
-    parser.add_argument('--threads','-t',type=int,default=1,help="Threads used for index building")
+    parser.add_argument('--threads','-p',type=int,default=1,help="Threads used for index building")
+    parser.add_argument('--tmp-dir','-t',default="tmp",help="Tmp-dir for build STAR index")
     args = parser.parse_args()
     if args.aligner == "star":
         star(args)

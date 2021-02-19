@@ -30,7 +30,16 @@ run/get-reference-structure-of-model-organism.py --output data/reference-structu
 run/get-reference-structure-of-model-organism.py --output data/reference-structure/model-organism/arabidopsis-thaliana.dot --taxid 3702
 for file in $(ls dbn);do cat dbn/${file} | grep -v '^[\.\(]' > fasta/${file%%.*}.fa ;done
 mkdir -p fasta-filtered
-for file in $(ls fasta);do cd-hit -c 0.7 -i fasta/${file} -o fasta-filtered/${file};done
+for file in $(ls fasta);do cd-hit -c 0.8 -i fasta/${file} -o fasta-filtered/${file};done
 ```
 
 
+## Weeks lab 2018 reference genome
+```{bash}
+scripts/download-sequence.py --query U00096 --fasta genome/source/U00096.2.fa
+```
+
+## Determine the locations of sequence with reference structure relative to genome
+```{bash}
+psl2sam.pl  arabidopsis-thaliana.psl | sort | uniq | awk '{print $1}' | sort | uniq -c
+```

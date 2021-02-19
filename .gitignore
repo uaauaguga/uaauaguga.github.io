@@ -1,4 +1,8 @@
 *.ipynb
+*.txt
+*.dot
+*.fa
+*.shape
 genome
 data
 output
