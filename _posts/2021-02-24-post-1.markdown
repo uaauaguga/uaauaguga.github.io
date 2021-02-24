@@ -2,6 +2,7 @@
 layout: post
 title:  "Topics on GLM"
 date:   2021-02-24 12:24:31 +0800
+usemathjax: true
 categories: jekyll update
 ---
 
