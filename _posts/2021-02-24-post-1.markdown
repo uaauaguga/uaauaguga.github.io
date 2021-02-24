@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "Topics on GLM"
+date:   2021-02-24 12:24:31 +0800
+categories: jekyll update
+---
+
+## Topics on Generalized Linear Model
+
+### Useful R and python packages
+
+### Reference
+
+
+ 
