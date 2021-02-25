@@ -51,7 +51,7 @@ categories: jekyll update
   y = np.random.gamma(shape=shape, scale=scale)
   ```
   - Histogram of simulated data
-  - ![image]({{site.url}}/images/2021-02-25-simulated.png)
+  - ![image]({{site.baseurl}}/images/2021-02-25-simulated.png)
 
 - Fit glm model
   ```python
@@ -75,7 +75,7 @@ categories: jekyll update
   x1_pred = np.random.gamma(shape=shape, scale=scale,size=y[mask].shape[0])
   ```
   - Histogram of predicted data
-  ![image]({{site.url}}/images/2021-02-25-glm-predicted.png)
+  ![image]({{site.baseurl}}/images/2021-02-25-glm-predicted.png)
 
 
 ### Reference
