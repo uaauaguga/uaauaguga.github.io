@@ -105,12 +105,12 @@ categories: jekyll update
   N <- 1000
   rate <- shape.hat.mass/predict(gamma.glm,data.frame(x=c(1.3)))
   sampled <- rgamma(N,rate=rate,shape=shape.hat.mass)
-```
+  ```
 
 ### Reference
-- [1] https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels
-- [2] https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family
-- [3] https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels
-- [4] https://en.wikipedia.org/wiki/Gamma_distribution
+- <https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels>
+- <https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family>
+- <https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels>
+- <https://en.wikipedia.org/wiki/Gamma_distribution>
 
  
