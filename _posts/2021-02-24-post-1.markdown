@@ -30,7 +30,7 @@ categories: jekyll update
   - intercept is 0.5
   - cofficient is 0.8
 
-  ```{python}
+  ```python
   ## Import packages 
   import statsmodels.api as sm
   import matplotlib.pyplot as plt 
@@ -61,20 +61,20 @@ categories: jekyll update
   ```
 
 - The estimated shape parameter
-  ```{python}
+  ```python
   1/model.scale # 1.9845020937600035 ~ 2
   ```
 
 - Simulate data when covariate is 1 using the fitted parameters
   - model.predict generate predicted $$\mu$$
-  ```{python}
+  ```python
   shape = 1/model.scale
   mean = model.predict(exog=np.array([[1,1]]))
   scale = mean/shape
   x1_pred = np.random.gamma(shape=shape, scale=scale,size=y[mask].shape[0])
   ```
   - Histogram of predicted data
-  ![image](/_site/assets/image/topic-in-glm/predicted-data.png)
+  ![image](_site/assets/image/topic-in-glm/predicted-data.png)
 
 
 ### Reference
