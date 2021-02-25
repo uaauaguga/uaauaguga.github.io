@@ -22,7 +22,7 @@ categories: jekyll update
 - In `statsmodels`, `scale` has a distinct meaning, the estimated dispersion $$\phi=1/\alpha$$ called `scale`
   - The actual scale $$\theta$$ can be calculated from model's predicted mean $$\mu$$
 - MASS package provide more precised estimation of the fixed shape patrameter
-  - https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html
+  - <https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html>
 
 ### Simulate data
 - In the following setting
