@@ -78,7 +78,8 @@ categories: jekyll update
   - ![image]({{site.baseurl}}/images/2021-02-25-glm-predicted.png)
 
 ### Doing Similar Things in R
-- ```{r}
+  - Simulate data with known parameter and fit with GLM
+  ```R
   # Fit gamma glm with simulated data
   set.seed(1)
   x <- runif(50000, min = 0, max = 100)
