@@ -79,6 +79,7 @@ categories: jekyll update
 
 ### Doing Similar Things in R
   - Simulate data with known parameter and fit with GLM
+
   ```R
   # Fit gamma glm with simulated data
   set.seed(1)
