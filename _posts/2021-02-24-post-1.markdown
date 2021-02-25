@@ -77,6 +77,33 @@ categories: jekyll update
   - Histogram of predicted data
   - ![image]({{site.baseurl}}/images/2021-02-25-glm-predicted.png)
 
+### Doing Similar Things in R
+- ```{r}
+  # Fit gamma glm with simulated data
+  set.seed(1)
+  x <- runif(50000, min = 0, max = 100)
+  mask <- (x>50)
+  x[mask] = 1;x[!mask] = 0
+  a <- 0.5;b <- 0.8
+  y_true <- a + b * x
+  shape <- 2
+  scale <- y_true/shape
+  y <- rgamma(n = length(x), shape = shape, scale = scale)
+  gamma.glm <- glm(y ~ x, family = Gamma(link = "identity"))
+
+  # Cofficient in glm.summarized should nearly idetical to the simulation setting
+  glm.summarized <- summary(gamma.glm)
+  shape.hat.glm <- 1/glm.summarized$dispersion
+
+  # MASS use MLE to get shape estimation claimed to be more accurate
+  library(MASS)
+  shape.hat.mass <- MASS::gamma.shape(gamma.glm)$alpha
+
+  # Sampling data from fitted model
+  N <- 1000
+  rate <- shape.hat.mass/predict(gamma.glm,data.frame(x=c(1.3)))
+  sampled <- rgamma(N,rate=rate,shape=shape.hat.mass)
+```
 
 ### Reference
 - [1] https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels
