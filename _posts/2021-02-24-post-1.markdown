@@ -7,11 +7,78 @@ categories: jekyll update
 ---
 
 ## Topics on Generalized Linear Model
-$$ E=mc^2 $$
 
-### Useful R and python packages
+- A simple OLS is usually not sufficient to capture the variations in data, as some of its assumptions, like constant variation, cannot be fullfilled.
+- GLM has wide applications in bioinformatics and other fields
+
+
+## The parametrization of gamma distribution
+- Gamma distribution commonly has two type of parametrization
+  - Shape $$\alpha$$ and rate $$\beta$$
+  - Shape $$k$$ and scale $$\theta$$
+  - $$\theta=1/\beta$$
+- In GLM, the mean $$\mu = \alpha/\beta = \alpha\theta$$ and shape $$\alpha$$ parametrization  was used
+- The Gamma GLM in both R and python `statsmodel` assume constant shape $$\alpha$$, and inverse of $$\alpha$$ is called dispersion $$\phi=1/\alpha$$
+- In `statsmodels`, `scale` has a distinct meaning, the estimated dispersion $$\phi=1/\alpha$$ called `scale`
+  - The actual scale $$\theta$$ can be calculated from model's predicted mean $$\mu$$
+- MASS package provide more precised estimation of the fixed shape patrameter
+  - https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html
+
+### Simulate data
+- In the following setting
+  - fixed shape $$\alpha=2$$ 
+  - intercept is 0.5
+  - cofficient is 0.8
+  ```{python}
+  ## Import packages 
+  import statsmodels.api as sm
+  import matplotlib.pyplot as plt 
+  import scipy.stats as stats 
+  import numpy as np
+
+  # Generate data
+  np.random.seed(1)
+  x=np.random.uniform(0,100,50000)
+  mask = (x>50)
+  x[mask],x[~mask] = 1,0
+  x2 = sm.add_constant(x)
+  a,b = 0.5,0.8
+  y_true = a+b*x
+  # Add error 
+  shape = 2 
+  scale = y_true/shape 
+  y = np.random.gamma(shape=shape, scale=scale)
+  ```
+  - Histogram of simulated data
+  ![image](/_site/assets/image/topic-in-glm/simulated-data.png)
+- Fit glm model
+  ```{python}
+  # Fit gamma glm with identity link function
+  glm =  sm.GLM(y, x2, family=sm.families.Gamma(sm.genmod.families.links.identity()))
+  model = glm.fit() 
+  ```
+
+- The estimated shape parameter
+  ```{python}
+  1/model.scale # 1.9845020937600035 ~ 2
+  ```
+
+- Simulate data when covariate is 1 using the fitted parameters
+  - model.predict generate predicted $$\mu$$
+  ```{python}
+  shape = 1/model.scale
+  mean = model.predict(exog=np.array([[1,1]]))
+  scale = mean/shape
+  x1_pred = np.random.gamma(shape=shape, scale=scale,size=y[mask].shape[0])
+  ```
+  - Histogram of predicted data
+  ![image](/_site/assets/image/topic-in-glm/predicted-data.png)
+
 
 ### Reference
-
+- [1] https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels
+- [2] https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family
+- [3] https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels
+- [4] https://en.wikipedia.org/wiki/Gamma_distribution
 
  
