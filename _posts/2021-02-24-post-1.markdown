@@ -16,7 +16,7 @@ categories: jekyll update
 - Gamma distribution commonly has two type of parametrization
   - Shape $$\alpha$$ and rate $$\beta$$
   - Shape $$k$$ and scale $$\theta$$
-  - $$\theta=1/\beta$$
+  - Rate and shape follows $$\theta=1/\beta$$
 - In GLM, the mean $$\mu = \alpha/\beta = \alpha\theta$$ and shape $$\alpha$$ parametrization  was used
 - The Gamma GLM in both R and python `statsmodel` assume constant shape $$\alpha$$, and inverse of $$\alpha$$ is called dispersion $$\phi=1/\alpha$$
 - In `statsmodels`, `scale` has a distinct meaning, the estimated dispersion $$\phi=1/\alpha$$ called `scale`
@@ -29,6 +29,7 @@ categories: jekyll update
   - fixed shape $$\alpha=2$$ 
   - intercept is 0.5
   - cofficient is 0.8
+
   ```{python}
   ## Import packages 
   import statsmodels.api as sm
@@ -50,9 +51,10 @@ categories: jekyll update
   y = np.random.gamma(shape=shape, scale=scale)
   ```
   - Histogram of simulated data
-  ![image](/_site/assets/image/topic-in-glm/simulated-data.png)
+  - ![image](_site/assets/image/topic-in-glm/simulated-data.png)
+
 - Fit glm model
-  ```{python}
+  ```python
   # Fit gamma glm with identity link function
   glm =  sm.GLM(y, x2, family=sm.families.Gamma(sm.genmod.families.links.identity()))
   model = glm.fit() 
