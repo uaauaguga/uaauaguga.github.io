@@ -1,15 +1,10 @@
 ---
 layout: post
-title:  "Topics on GLM"
+title:  "Gamma Regression"
 date:   2021-02-24 12:24:31 +0800
 usemathjax: true
 categories: jekyll update
 ---
-
-## Topics on Generalized Linear Model
-
-- A simple OLS is usually not sufficient to capture the variations in data, as some of its assumptions, like constant variation, cannot be fullfilled.
-- GLM has wide applications in bioinformatics and other fields
 
 
 ## The parametrization of gamma distribution
