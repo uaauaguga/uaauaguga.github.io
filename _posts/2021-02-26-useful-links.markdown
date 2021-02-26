@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Usefull Links"
+title:  "Useful Links"
 date:   2021-02-26 12:32:11 +0800
 usemathjax: false
 categories: jekyll update
