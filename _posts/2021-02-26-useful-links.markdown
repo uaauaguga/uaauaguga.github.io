@@ -23,14 +23,24 @@ categories: jekyll update
   - <https://github.com/BenLangmead/comp-genomics-class>
   - <https://github.com/BenLangmead/ads1-notebooks>
 
-## Softwares/tools, documentation and benchmark studies
+## Softwares/tools
+### Tools
+  - Reads mapping
+  - Metagenomic classification
+### Review/Benchmark study
+  - Reads mapping
+    - Simulation-based comprehensive benchmarking of RNA-seq aligners <https://www.nature.com/articles/nmeth.4106>
+  - Metagenomics classification
+    - LEMMI: A continuous benchmarking platform for metagenomics classifiers <https://genome.cshlp.org/content/early/2020/07/01/gr.260398.119>
 
 
 
 ## Data Resources
-  ### Reference sequence and annotation
+
+### Reference sequence and annotation
   - <https://hgdownload.soe.ucsc.edu/downloads.html>
   - <https://uswest.ensembl.org/info/data/ftp/index.html>
   - <https://www.gencodegenes.org/>
-  ### Datasets
+
+### Datasets
   - [GEO](https://www.ncbi.nlm.nih.gov/geo/)
