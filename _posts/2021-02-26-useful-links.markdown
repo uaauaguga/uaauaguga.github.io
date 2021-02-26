@@ -24,3 +24,13 @@ categories: jekyll update
   - <https://github.com/BenLangmead/ads1-notebooks>
 
 ## Softwares/tools, documentation and benchmark studies
+
+
+
+## Data Resources
+  ### Reference sequence and annotation
+  - <https://hgdownload.soe.ucsc.edu/downloads.html>
+  - <https://uswest.ensembl.org/info/data/ftp/index.html>
+  - <https://www.gencodegenes.org/>
+  ### Datasets
+  - [GEO](https://www.ncbi.nlm.nih.gov/geo/)
