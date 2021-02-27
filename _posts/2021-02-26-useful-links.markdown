@@ -24,14 +24,23 @@ categories: jekyll update
   - <https://github.com/BenLangmead/ads1-notebooks>
 
 ## Softwares/tools
+
+### Useful links
+  - JHU's software list <https://ccb.jhu.edu/software.shtml>
+
 ### Tools
   - Reads mapping
   - Metagenomic classification
+
 ### Review/Benchmark study
   - Reads mapping
     - Simulation-based comprehensive benchmarking of RNA-seq aligners <https://www.nature.com/articles/nmeth.4106>
   - Metagenomics classification
     - LEMMI: A continuous benchmarking platform for metagenomics classifiers <https://genome.cshlp.org/content/early/2020/07/01/gr.260398.119>
+  - General RNA-seq analysis
+    - A survey of best practices for RNA-seq data analysis <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8>
+  - Methylation analysis
+    
 
 
 
