@@ -24,6 +24,8 @@ categories: jekyll update
   - <http://www.langmead-lab.org/teaching-materials/>
   - <https://github.com/BenLangmead/comp-genomics-class>
   - <https://github.com/BenLangmead/ads1-notebooks>
+- RNA-seq related
+  - <https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html>
 
 ## Softwares/tools
 
