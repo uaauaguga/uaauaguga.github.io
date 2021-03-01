@@ -1,4 +1,393 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-14T14:06:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2021/02/14/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-02-14T13:47:31+08:00</published><updated>2021-02-14T13:47:31+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/14/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/14/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-02-28T19:59:04+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Tree Comparisons</title><link href="http://localhost:4000/jekyll/update/2021/02/28/tree-comparison.html" rel="alternate" type="text/html" title="Tree Comparisons" /><published>2021-02-28T14:54:30+08:00</published><updated>2021-02-28T14:54:30+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/28/tree-comparison</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/28/tree-comparison.html">&lt;h2 id=&quot;tree-comparisons&quot;&gt;Tree Comparisons&lt;/h2&gt;
+
+&lt;h2 id=&quot;tree-edit-model&quot;&gt;Tree edit model&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Finding a series of edit operations that
+transforms one input tree into the other with minimum overall
+cost, defined as the accumulated cost of the basic edit operations.&lt;/li&gt;
+  &lt;li&gt;Basic edit operations
+    &lt;ul&gt;
+      &lt;li&gt;replacements&lt;/li&gt;
+      &lt;li&gt;insertions&lt;/li&gt;
+      &lt;li&gt;deletion&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Tree alignment
+    &lt;ul&gt;
+      &lt;li&gt;give two input trees, create a super tree to minimize the cost&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Tree edit
+    &lt;ul&gt;
+      &lt;li&gt;give two input trees, find a common subtree to minimize the cost&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;implementations&quot;&gt;Implementations&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Zhang-Shasha algorithm
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.grantjenks.com/wiki/_media/ideas:simple_fast_algorithms_for_the_editing_distance_between_tree_and_related_problems.pdf&quot;&gt;http://www.grantjenks.com/wiki/_media/ideas:simple_fast_algorithms_for_the_editing_distance_between_tree_and_related_problems.pdf&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://zhang-shasha.readthedocs.io/en/latest/&quot;&gt;https://zhang-shasha.readthedocs.io/en/latest/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;A tutorial &lt;a href=&quot;https://arxiv.org/pdf/1805.06869.pdf&quot;&gt;https://arxiv.org/pdf/1805.06869.pdf&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;example-applications&quot;&gt;Example applications&lt;/h2&gt;
+
+&lt;h3 id=&quot;rna-structural-comparison&quot;&gt;RNA structural comparison&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;RNAdistance&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Calculate distances between RNA secondary structures&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.tbi.univie.ac.at/RNA/RNAdistance&quot;&gt;https://www.tbi.univie.ac.at/RNA/RNAdistance&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;RNAforester&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;compare RNA secondary structures via forest alignment&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.tbi.univie.ac.at/RNA/RNAforester&quot;&gt;https://www.tbi.univie.ac.at/RNA/RNAforester&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gardenia&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Multiple alignment of RNA secondary structure&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://bioinfo.lifl.fr/RNA/gardenia/gardenia.php&quot;&gt;https://bioinfo.lifl.fr/RNA/gardenia/gardenia.php&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tracking-clonal-evolution-of-tumor-cells&quot;&gt;Tracking clonal evolution of tumor cells&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Detecting evolutionary patterns of cancers using consensus trees &lt;a href=&quot;https://doi.org/10.1093/bioinformatics/btaa801&quot;&gt;https://doi.org/10.1093/bioinformatics/btaa801&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Tree Comparisons</summary></entry><entry><title type="html">Convolutions In Python</title><link href="http://localhost:4000/jekyll/update/2021/02/27/understanding-convolution.html" rel="alternate" type="text/html" title="Convolutions In Python" /><published>2021-02-27T12:33:15+08:00</published><updated>2021-02-27T12:33:15+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/27/understanding-convolution</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/27/understanding-convolution.html">&lt;h2 id=&quot;convolution-operation-in-python&quot;&gt;Convolution Operation in Python&lt;/h2&gt;
+
+&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Continuous case:&lt;/p&gt;
+
+\[(f*g)(t) := \int_{-\infty}^{\infty}f(\tau)g(t-\tau)d\tau = \int_{-\infty}^{\infty}f(t-\tau)g(\tau)d\tau\]
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Discrete case&lt;/p&gt;
+
+\[(f*g)[n]:=\sum_{m=-\infty}^{\infty}f[m]g[n-m]=\sum_{m=-\infty}^{\infty}f[n-m]g[m]\]
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Relation to polynomial multiplication&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;We have:&lt;/p&gt;
+
+\[\begin{align*}
+ &amp;amp;(1+2x+3x^2)(3+2x+2x^2) \\
+=&amp;amp; 3(1+2x+3x^2) + 2x(1+2x+3x^2) + 2x^2(1+2x+3x^2) \\
+=&amp;amp; 3 + (3*2+2)x + (3*3+2*2+2)x^2 + (2*3+2*2)x^3 + 2*3x^4 \\
+=&amp;amp; 3 + 8x + 15x^2 + 10x^3 + 6x^4
+\end{align*}\]
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#array([ 3,  8, 15, 10,  6])
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Polynomial multiplication is equivalent to convolution of their coefficients …&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Relation to  cross correlation&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Cross correlation is defined as&lt;/p&gt;
+
+\[(f*g)(t):=\int_{-\infty}^{\infty}\overline{f(\tau)}g(t+\tau)d\tau \\\]
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;\(\overline{f(t)}\) is complex conjugate of \(f(t)\)&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Cross correlation of \(f(t)\) and \(g(t)\) is equivalent to convolution of \(\overline{f(-t)}\) and \(g(t)\)&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;implementations&quot;&gt;Implementations&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numpy.convolve&lt;/code&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;## https://numpy.org/doc/stable/reference/generated/numpy.convolve.html
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;full&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#array([0. , 1. , 2.5, 4. , 1.5]) N+M-1
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;same&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#array([1. , 2.5, 4. ]) max(M, N)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;valid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#array([2.5]) max(M, N) - min(M, N) + 1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scipy.signal.convolve&lt;/code&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Similar to numpy&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scipy.signal.convolve2d&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scipy.signal.fftconvolve&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A naive toy implementation for the “valid” mode convolution and cross correlation&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Reverse the kernel, sliding and get inner products&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;convolution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;crosscorrelation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;applications&quot;&gt;Applications&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Smoothing with a moving average kernel&lt;/li&gt;
+  &lt;li&gt;Image processing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Convolution&quot;&gt;https://en.wikipedia.org/wiki/Convolution&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Cross-correlation&quot;&gt;https://en.wikipedia.org/wiki/Cross-correlation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.convolve.html&quot;&gt;https://numpy.org/doc/stable/reference/generated/numpy.convolve.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html&quot;&gt;https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://home.cse.ust.hk/~dekai/271/notes/L03/L03.pdf&quot;&gt;http://home.cse.ust.hk/~dekai/271/notes/L03/L03.pdf&lt;/a&gt; polynomial multiplication and convolution&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/1603.07285.pdf&quot;&gt;https://arxiv.org/pdf/1603.07285.pdf&lt;/a&gt; A guide to convolution arithmetic for deep learning&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Convolution Operation in Python</summary></entry><entry><title type="html">Useful Links</title><link href="http://localhost:4000/jekyll/update/2021/02/26/useful-links.html" rel="alternate" type="text/html" title="Useful Links" /><published>2021-02-26T12:32:11+08:00</published><updated>2021-02-26T12:32:11+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/26/useful-links</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/26/useful-links.html">&lt;h2 id=&quot;under-consistent-updating-&quot;&gt;Under consistent updating …&lt;/h2&gt;
+
+&lt;h2 id=&quot;bioinformatics-related-journals&quot;&gt;Bioinformatics Related Journals&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://genomebiology.biomedcentral.com/articles&quot;&gt;Genome Biology&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://academic.oup.com/bioinformatics&quot;&gt;Bioinformatics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://academic.oup.com/nar&quot;&gt;Nucleic Acids Research&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://academic.oup.com/bib&quot;&gt;Briefings in Bioinformatics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://genome.cshlp.org/content/current&quot;&gt;Genome Research&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nature.com/subjects/biological-sciences/ncomms&quot;&gt;Nature Communication&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nature.com/nbt/&quot;&gt;Nature Biotechnology&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.cell.com/cell-systems/home&quot;&gt;Cell Systems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tutorials-and-lectures-materials&quot;&gt;Tutorials and Lectures materials&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Notes by Ben Langmead lab
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.langmead-lab.org/teaching-materials/&quot;&gt;http://www.langmead-lab.org/teaching-materials/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/BenLangmead/comp-genomics-class&quot;&gt;https://github.com/BenLangmead/comp-genomics-class&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/BenLangmead/ads1-notebooks&quot;&gt;https://github.com/BenLangmead/ads1-notebooks&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;RNA-seq related
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html&quot;&gt;https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;softwarestools&quot;&gt;Softwares/tools&lt;/h2&gt;
+
+&lt;h3 id=&quot;useful-links&quot;&gt;Useful links&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;JHU’s software list &lt;a href=&quot;https://ccb.jhu.edu/software.shtml&quot;&gt;https://ccb.jhu.edu/software.shtml&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tools&quot;&gt;Tools&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reads mapping&lt;/li&gt;
+  &lt;li&gt;Metagenomic classification&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reviewbenchmark-study&quot;&gt;Review/Benchmark study&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Reads mapping
+    &lt;ul&gt;
+      &lt;li&gt;Simulation-based comprehensive benchmarking of RNA-seq aligners &lt;a href=&quot;https://www.nature.com/articles/nmeth.4106&quot;&gt;https://www.nature.com/articles/nmeth.4106&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Metagenomics classification
+    &lt;ul&gt;
+      &lt;li&gt;LEMMI: A continuous benchmarking platform for metagenomics classifiers &lt;a href=&quot;https://genome.cshlp.org/content/early/2020/07/01/gr.260398.119&quot;&gt;https://genome.cshlp.org/content/early/2020/07/01/gr.260398.119&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;General RNA-seq analysis
+    &lt;ul&gt;
+      &lt;li&gt;A survey of best practices for RNA-seq data analysis &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8&quot;&gt;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Methylation analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;data-resources&quot;&gt;Data Resources&lt;/h2&gt;
+
+&lt;h3 id=&quot;reference-sequence-and-annotation&quot;&gt;Reference sequence and annotation&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hgdownload.soe.ucsc.edu/downloads.html&quot;&gt;https://hgdownload.soe.ucsc.edu/downloads.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://uswest.ensembl.org/info/data/ftp/index.html&quot;&gt;https://uswest.ensembl.org/info/data/ftp/index.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gencodegenes.org/&quot;&gt;https://www.gencodegenes.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;datasets&quot;&gt;Datasets&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/geo/&quot;&gt;GEO&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Under consistent updating …</summary></entry><entry><title type="html">Gamma Regression</title><link href="http://localhost:4000/jekyll/update/2021/02/24/post-1.html" rel="alternate" type="text/html" title="Gamma Regression" /><published>2021-02-24T12:24:31+08:00</published><updated>2021-02-24T12:24:31+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/24/post-1</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/24/post-1.html">&lt;h2 id=&quot;the-parametrization-of-gamma-distribution&quot;&gt;The parametrization of gamma distribution&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Gamma distribution commonly has two type of parametrization
+    &lt;ul&gt;
+      &lt;li&gt;Shape \(\alpha\) and rate \(\beta\)&lt;/li&gt;
+      &lt;li&gt;Shape \(k\) and scale \(\theta\)&lt;/li&gt;
+      &lt;li&gt;Rate and shape follows \(\theta=1/\beta\)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In GLM, the mean \(\mu = \alpha/\beta = \alpha\theta\) and shape \(\alpha\) parametrization  was used&lt;/li&gt;
+  &lt;li&gt;The Gamma GLM in both R and python &lt;code class=&quot;highlighter-rouge&quot;&gt;statsmodel&lt;/code&gt; assume constant shape \(\alpha\), and inverse of \(\alpha\) is called dispersion \(\phi=1/\alpha\)&lt;/li&gt;
+  &lt;li&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;statsmodels&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;scale&lt;/code&gt; has a distinct meaning, the estimated dispersion \(\phi=1/\alpha\) called &lt;code class=&quot;highlighter-rouge&quot;&gt;scale&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;The actual scale \(\theta\) can be calculated from model’s predicted mean \(\mu\)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;MASS package provide more precised estimation of the fixed shape patrameter
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html&quot;&gt;https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;simulate-data&quot;&gt;Simulate data&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;In the following setting
+    &lt;ul&gt;
+      &lt;li&gt;fixed shape \(\alpha=2\)&lt;/li&gt;
+      &lt;li&gt;intercept is 0.5&lt;/li&gt;
+      &lt;li&gt;cofficient is 0.8&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;## Import packages 
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;statsmodels.api&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt; 
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy.stats&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stats&lt;/span&gt; 
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Generate data
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_constant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.8&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;y_true&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Add error 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y_true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt; 
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gamma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Histogram of simulated data&lt;/li&gt;
+      &lt;li&gt;&lt;img src=&quot;/images/2021-02-25-simulated.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Fit glm model
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Fit gamma glm with identity link function
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GLM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;family&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;families&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Gamma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genmod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;families&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;identity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;glm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The estimated shape parameter
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# 1.9845020937600035 ~ 2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Simulate data when covariate is 1 using the fitted parameters
+    &lt;ul&gt;
+      &lt;li&gt;model.predict generate predicted \(\mu\)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x1_pred&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gamma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Histogram of predicted data&lt;/li&gt;
+      &lt;li&gt;&lt;img src=&quot;/images/2021-02-25-glm-predicted.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;doing-similar-things-in-r&quot;&gt;Doing Similar Things in R&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Simulate data with known parameter and fit with GLM&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Fit gamma glm with simulated data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set.seed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;runif&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;50000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.8&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y_true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y_true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgamma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gamma.glm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;family&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Gamma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;identity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+  &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Cofficient in glm.summarized should nearly idetical to the simulation setting&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glm.summarized&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gamma.glm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape.hat.glm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glm.summarized&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dispersion&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+  &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# MASS use MLE to get shape estimation claimed to be more accurate&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MASS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape.hat.mass&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MASS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gamma.shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gamma.glm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alpha&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+  &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Sampling data from fitted model&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rate&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape.hat.mass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gamma.glm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data.frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sampled&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgamma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape.hat.mass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels&quot;&gt;https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family&quot;&gt;https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels&quot;&gt;https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Gamma_distribution&quot;&gt;https://en.wikipedia.org/wiki/Gamma_distribution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">The parametrization of gamma distribution Gamma distribution commonly has two type of parametrization Shape \(\alpha\) and rate \(\beta\) Shape \(k\) and scale \(\theta\) Rate and shape follows \(\theta=1/\beta\) In GLM, the mean \(\mu = \alpha/\beta = \alpha\theta\) and shape \(\alpha\) parametrization was used The Gamma GLM in both R and python statsmodel assume constant shape \(\alpha\), and inverse of \(\alpha\) is called dispersion \(\phi=1/\alpha\) In statsmodels, scale has a distinct meaning, the estimated dispersion \(\phi=1/\alpha\) called scale The actual scale \(\theta\) can be calculated from model’s predicted mean \(\mu\) MASS package provide more precised estimation of the fixed shape patrameter https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html</summary></entry><entry><title type="html">Purpose for these posts</title><link href="http://localhost:4000/jekyll/update/2021/02/15/post-1.html" rel="alternate" type="text/html" title="Purpose for these posts" /><published>2021-02-15T13:47:31+08:00</published><updated>2021-02-15T13:47:31+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/15/post-1</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/15/post-1.html">&lt;ul&gt;
+  &lt;li&gt;这些post可能主要是编程，生物信息，统计和音乐方面的笔记&lt;/li&gt;
+  &lt;li&gt;估计不会有人看，只是给自己做一个记i录&lt;/li&gt;
+  &lt;li&gt;每一条post都会持续更新&lt;/li&gt;
+  &lt;li&gt;希望能保持一周更新至少一次的频率…&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">这些post可能主要是编程，生物信息，统计和音乐方面的笔记 估计不会有人看，只是给自己做一个记i录 每一条post都会持续更新 希望能保持一周更新至少一次的频率…</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2021/02/14/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-02-14T13:47:31+08:00</published><updated>2021-02-14T13:47:31+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/14/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/14/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
 
@@ -14,7 +403,4 @@
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2021/02/13/post-1.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-02-13T13:47:31+08:00</published><updated>2021-02-13T13:47:31+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/13/post-1</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/13/post-1.html">&lt;h2 id=&quot;is-anybody-out-there&quot;&gt;Is anybody out there?&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Yes&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Is anybody out there? Yes</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>

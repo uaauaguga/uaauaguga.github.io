@@ -43,7 +43,7 @@ blockquote { color: #828282; border-left: 4px solid #e8e8e8; padding-left: 15px;
 blockquote > :last-child { margin-bottom: 0; }
 
 /** Code formatting */
-pre, code { font-size: 15px; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #eef; }
+pre, code { font-size: 15px; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #f8f8f8; }
 
 code { padding: 1px 5px; }
 
@@ -154,7 +154,7 @@ table td { border: 1px solid #e8e8e8; }
 /** Syntax highlighting styles */
 .highlight { background: #fff; }
 
-.highlighter-rouge .highlight { background: #eef; }
+.highlighter-rouge .highlight { background: #f8f8f8; }
 
 .highlight .c { color: #998; font-style: italic; }
 

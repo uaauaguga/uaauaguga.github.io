@@ -27,16 +27,19 @@ url: "https://uaauaguga.github.io" # the base hostname & protocol for your site,
 twitter_username: jekyllrb
 github_username:  uaauaguga
 
+
 # Build settings
 # theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 markdown: kramdown
 
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.

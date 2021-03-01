@@ -11,11 +11,41 @@ categories: jekyll update
 ### Definition
 
 - Continuous case: 
-  - $$f(t*g)(t) := \int_{-\infty}^{\infty}f(\tau)g(t-\tau)d\tau = \int_{-\infty}^{\infty}f(t-\tau)g(\tau)d\tau$$
+
+  $$(f*g)(t) := \int_{-\infty}^{\infty}f(\tau)g(t-\tau)d\tau = \int_{-\infty}^{\infty}f(t-\tau)g(\tau)d\tau$$
+
 - Discrete case
-  - $$(f*g)[n]=\sum_{m=-\infty}^{\infty}f[m]g[n-m]$$
+
+   $$(f*g)[n]:=\sum_{m=-\infty}^{\infty}f[m]g[n-m]=\sum_{m=-\infty}^{\infty}f[n-m]g[m]$$
+
 - Relation to polynomial multiplication
+
+  - We have:
+
+    $$
+    \begin{align*}
+     &(1+2x+3x^2)(3+2x+2x^2) \\
+    =& 3(1+2x+3x^2) + 2x(1+2x+3x^2) + 2x^2(1+2x+3x^2) \\
+    =& 3 + (3*2+2)x + (3*3+2*2+2)x^2 + (2*3+2*2)x^3 + 2*3x^4 \\
+    =& 3 + 8x + 15x^2 + 10x^3 + 6x^4
+    \end{align*}
+    $$
+
+  - ```python
+    np.convolve([1,2,3],[3,2,2]) #array([ 3,  8, 15, 10,  6])
+    ```
+
+  - Polynomial multiplication is equivalent to convolution of their coefficients ...
+
 - Relation to  cross correlation
+
+  - Cross correlation is defined as 
+
+    $$(f*g)(t):=\int_{-\infty}^{\infty}\overline{f(\tau)}g(t+\tau)d\tau \\$$
+
+  - $$\overline{f(t)}$$ is complex conjugate of $$f(t)$$
+  
+  - Cross correlation of $$f(t)$$ and $$g(t)$$ is equivalent to convolution of $$\overline{f(-t)}$$ and $$g(t)$$
 
 ### Implementations
 - `numpy.convolve`
@@ -60,3 +90,12 @@ categories: jekyll update
 
 - Smoothing with a moving average kernel
 - Image processing
+
+## Reference
+
+1. <https://en.wikipedia.org/wiki/Convolution>
+2. <https://en.wikipedia.org/wiki/Cross-correlation>
+3. <https://numpy.org/doc/stable/reference/generated/numpy.convolve.html>
+4. <https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html>
+5. <http://home.cse.ust.hk/~dekai/271/notes/L03/L03.pdf> polynomial multiplication and convolution
+6.  <https://arxiv.org/pdf/1603.07285.pdf> A guide to convolution arithmetic for deep learning

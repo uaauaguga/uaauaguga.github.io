@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Gamma Regression | Jin’s Post</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Gamma Regression" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The parametrization of gamma distribution Gamma distribution commonly has two type of parametrization Shape \(\alpha\) and rate \(\beta\) Shape \(k\) and scale \(\theta\) Rate and shape follows \(\theta=1/\beta\) In GLM, the mean \(\mu = \alpha/\beta = \alpha\theta\) and shape \(\alpha\) parametrization was used The Gamma GLM in both R and python statsmodel assume constant shape \(\alpha\), and inverse of \(\alpha\) is called dispersion \(\phi=1/\alpha\) In statsmodels, scale has a distinct meaning, the estimated dispersion \(\phi=1/\alpha\) called scale The actual scale \(\theta\) can be calculated from model’s predicted mean \(\mu\) MASS package provide more precised estimation of the fixed shape patrameter https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html" />
+<meta property="og:description" content="The parametrization of gamma distribution Gamma distribution commonly has two type of parametrization Shape \(\alpha\) and rate \(\beta\) Shape \(k\) and scale \(\theta\) Rate and shape follows \(\theta=1/\beta\) In GLM, the mean \(\mu = \alpha/\beta = \alpha\theta\) and shape \(\alpha\) parametrization was used The Gamma GLM in both R and python statsmodel assume constant shape \(\alpha\), and inverse of \(\alpha\) is called dispersion \(\phi=1/\alpha\) In statsmodels, scale has a distinct meaning, the estimated dispersion \(\phi=1/\alpha\) called scale The actual scale \(\theta\) can be calculated from model’s predicted mean \(\mu\) MASS package provide more precised estimation of the fixed shape patrameter https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html" />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2021/02/24/post-1.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2021/02/24/post-1.html" />
+<meta property="og:site_name" content="Jin’s Post" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-24T12:24:31+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Gamma Regression" />
+<script type="application/ld+json">
+{"description":"The parametrization of gamma distribution Gamma distribution commonly has two type of parametrization Shape \\(\\alpha\\) and rate \\(\\beta\\) Shape \\(k\\) and scale \\(\\theta\\) Rate and shape follows \\(\\theta=1/\\beta\\) In GLM, the mean \\(\\mu = \\alpha/\\beta = \\alpha\\theta\\) and shape \\(\\alpha\\) parametrization was used The Gamma GLM in both R and python statsmodel assume constant shape \\(\\alpha\\), and inverse of \\(\\alpha\\) is called dispersion \\(\\phi=1/\\alpha\\) In statsmodels, scale has a distinct meaning, the estimated dispersion \\(\\phi=1/\\alpha\\) called scale The actual scale \\(\\theta\\) can be calculated from model’s predicted mean \\(\\mu\\) MASS package provide more precised estimation of the fixed shape patrameter https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html","@type":"BlogPosting","url":"http://localhost:4000/jekyll/update/2021/02/24/post-1.html","headline":"Gamma Regression","dateModified":"2021-02-24T12:24:31+08:00","datePublished":"2021-02-24T12:24:31+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2021/02/24/post-1.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Jin's Post" /><!-- for mathjax support -->
+  
+     <script type="text/x-mathjax-config">
+       MathJax.Hub.Config({
+       TeX: { equationNumbers: { autoNumber: "AMS" } }
+       });
+     </script>
+     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Jin&#39;s Post</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Gamma Regression</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-02-24T12:24:31+08:00" itemprop="datePublished">Feb 24, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="the-parametrization-of-gamma-distribution">The parametrization of gamma distribution</h2>
+<ul>
+  <li>Gamma distribution commonly has two type of parametrization
+    <ul>
+      <li>Shape \(\alpha\) and rate \(\beta\)</li>
+      <li>Shape \(k\) and scale \(\theta\)</li>
+      <li>Rate and shape follows \(\theta=1/\beta\)</li>
+    </ul>
+  </li>
+  <li>In GLM, the mean \(\mu = \alpha/\beta = \alpha\theta\) and shape \(\alpha\) parametrization  was used</li>
+  <li>The Gamma GLM in both R and python <code class="highlighter-rouge">statsmodel</code> assume constant shape \(\alpha\), and inverse of \(\alpha\) is called dispersion \(\phi=1/\alpha\)</li>
+  <li>In <code class="highlighter-rouge">statsmodels</code>, <code class="highlighter-rouge">scale</code> has a distinct meaning, the estimated dispersion \(\phi=1/\alpha\) called <code class="highlighter-rouge">scale</code>
+    <ul>
+      <li>The actual scale \(\theta\) can be calculated from model’s predicted mean \(\mu\)</li>
+    </ul>
+  </li>
+  <li>MASS package provide more precised estimation of the fixed shape patrameter
+    <ul>
+      <li><a href="https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html">https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="simulate-data">Simulate data</h3>
+<ul>
+  <li>In the following setting
+    <ul>
+      <li>fixed shape \(\alpha=2\)</li>
+      <li>intercept is 0.5</li>
+      <li>cofficient is 0.8</li>
+    </ul>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## Import packages 
+</span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span> 
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="n">stats</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="c1"># Generate data
+</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">50000</span><span class="p">)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span><span class="mf">0.8</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">x</span>
+<span class="c1"># Add error 
+</span><span class="n">shape</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">scale</span> <span class="o">=</span> <span class="n">y_true</span><span class="o">/</span><span class="n">shape</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>Histogram of simulated data</li>
+      <li><img src="/images/2021-02-25-simulated.png" alt="image" /></li>
+    </ul>
+  </li>
+  <li>Fit glm model
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Fit gamma glm with identity link function
+</span><span class="n">glm</span> <span class="o">=</span>  <span class="n">sm</span><span class="o">.</span><span class="n">GLM</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">Gamma</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">genmod</span><span class="o">.</span><span class="n">families</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">identity</span><span class="p">()))</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">glm</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span> 
+</code></pre></div>    </div>
+  </li>
+  <li>The estimated shape parameter
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">scale</span> <span class="c1"># 1.9845020937600035 ~ 2
+</span></code></pre></div>    </div>
+  </li>
+  <li>Simulate data when covariate is 1 using the fitted parameters
+    <ul>
+      <li>model.predict generate predicted \(\mu\)</li>
+    </ul>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">shape</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">scale</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">exog</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]]))</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">mean</span><span class="o">/</span><span class="n">shape</span>
+<span class="n">x1_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>Histogram of predicted data</li>
+      <li><img src="/images/2021-02-25-glm-predicted.png" alt="image" /></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="doing-similar-things-in-r">Doing Similar Things in R</h3>
+<ul>
+  <li>Simulate data with known parameter and fit with GLM</li>
+</ul>
+
+<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="c1"># Fit gamma glm with simulated data</span><span class="w">
+  </span><span class="n">set.seed</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="w">
+  </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">runif</span><span class="p">(</span><span class="m">50000</span><span class="p">,</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w">
+  </span><span class="n">mask</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="m">50</span><span class="p">)</span><span class="w">
+  </span><span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="n">x</span><span class="p">[</span><span class="o">!</span><span class="n">mask</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="w">
+  </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.5</span><span class="p">;</span><span class="n">b</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.8</span><span class="w">
+  </span><span class="n">y_true</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w">
+  </span><span class="n">shape</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">2</span><span class="w">
+  </span><span class="n">scale</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">y_true</span><span class="o">/</span><span class="n">shape</span><span class="w">
+  </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rgamma</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scale</span><span class="p">)</span><span class="w">
+  </span><span class="n">gamma.glm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">glm</span><span class="p">(</span><span class="n">y</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">family</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gamma</span><span class="p">(</span><span class="n">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"identity"</span><span class="p">))</span><span class="w">
+
+  </span><span class="c1"># Cofficient in glm.summarized should nearly idetical to the simulation setting</span><span class="w">
+  </span><span class="n">glm.summarized</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">summary</span><span class="p">(</span><span class="n">gamma.glm</span><span class="p">)</span><span class="w">
+  </span><span class="n">shape.hat.glm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">/</span><span class="n">glm.summarized</span><span class="o">$</span><span class="n">dispersion</span><span class="w">
+
+  </span><span class="c1"># MASS use MLE to get shape estimation claimed to be more accurate</span><span class="w">
+  </span><span class="n">library</span><span class="p">(</span><span class="n">MASS</span><span class="p">)</span><span class="w">
+  </span><span class="n">shape.hat.mass</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">MASS</span><span class="o">::</span><span class="n">gamma.shape</span><span class="p">(</span><span class="n">gamma.glm</span><span class="p">)</span><span class="o">$</span><span class="n">alpha</span><span class="w">
+
+  </span><span class="c1"># Sampling data from fitted model</span><span class="w">
+  </span><span class="n">N</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1000</span><span class="w">
+  </span><span class="n">rate</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">shape.hat.mass</span><span class="o">/</span><span class="n">predict</span><span class="p">(</span><span class="n">gamma.glm</span><span class="p">,</span><span class="n">data.frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1.3</span><span class="p">)))</span><span class="w">
+  </span><span class="n">sampled</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rgamma</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">rate</span><span class="o">=</span><span class="n">rate</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="n">shape.hat.mass</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="reference">Reference</h3>
+<ul>
+  <li><a href="https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels">https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels</a></li>
+  <li><a href="https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family">https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family</a></li>
+  <li><a href="https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels">https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Gamma_distribution">https://en.wikipedia.org/wiki/Gamma_distribution</a></li>
+</ul>
+
+
+  </div><a class="u-url" href="/jekyll/update/2021/02/24/post-1.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Jin&#39;s Post</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Jin&#39;s Post</li><li><a class="u-email" href="mailto:jinyf1998@163.com">jinyf1998@163.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/uaauaguga"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">uaauaguga</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Notes &amp; blogs</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
