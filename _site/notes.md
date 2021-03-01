@@ -26,3 +26,6 @@ jekyll requires RubyGems version >= 2.7.0. Try 'gem update --system' to update R
 - https://stackoverflow.com/questions/13626143/how-to-upgrade-rubygems
 bundle update --bundler
 https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/installation.md
+
+
+- 今天为啥总是没法push
