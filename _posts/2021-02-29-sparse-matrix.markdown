@@ -1,14 +1,16 @@
 ---
 layout: post
-title:  "Manipulate Large Sparse Matrix"
+title:  "Manipulate Large Matrix"
 date:   2021-03-01 15:44:40 +0800
 usemathjax: false
 categories: jekyll update
 ---
 
-## Manipulate Large Sparse Matrix
+## Sparse Matrix
+- Most of large matrices are sparse, and some functions are designed for manipulate such matrices
 
 ### Sparse matrix in scipy
+
 - Mutiple type of sparse matrix is available in scipy
 - <https://docs.scipy.org/doc/scipy/reference/sparse.html>
 - Quote here
@@ -46,6 +48,16 @@ coo.toarray()
 #       [0, 2, 0, 0],
 #       [0, 0, 0, 0],
 #       [0, 0, 0, 1]])
+```
+
+### io of sparse matrix in scipy
+- The [Matrix Market](https://math.nist.gov/MatrixMarket/formats.html) format
+
+```python
+# Follow the last code block
+from scipy.io import mmread,mmwrite
+mmwrite("test.mtx",coo)
+coo_ = mmread("test.mtx")
 ```
 
 
@@ -144,13 +156,72 @@ matrix = pd.DataFrame.sparse.from_spmatrix(sparse_matrix,index=genes,columns=sam
 ```R
 library(Matrix)
 M <- Matrix(10 + 1:28, 4, 7)
+# M is a dgeMatrix (Real matrices in general storage mode)
 (M2 <- cBind(-1, M))
+# Since R version 3.2.0, base's cbind() should work fine with S4 objects
+# cBind is deprecated
 M2[, c(2,4:6)] <- 0
 M2[2, ] <- 0
 M2 <- rBind(0, M2, 0)
 M2[1:2,2] <- M2[3,4:5] <- NA
 sM <- as(M2, "sparseMatrix")
+# sM is a dgCMatrix (general, numeric, sparse matrices in the (sorted) compressed sparse column format)
+## summary returns a triplet representation of sparse matrix
+table <- summary(sM)
+# head(table)
+#> head(table,4)
+#4 x 8 sparse Matrix of class "dgCMatrix", with 20 entries 
+#  i j  x
+#1 1 1 -1
+#2 2 1 -1
+#3 3 1 -1
 ```
 
-- `dgTMatrix` in `Matrix` is similar to `coo_matrix` in `scipy` 
+#### Write and load sparse matrix in R
+- The Matrix have similar function as in scipy.io
+```R
+# Follow the last block
+# Write sparse matrix in MatrixMarket format
+writeMM(sM,"test.mtx")
+MTX <- readMM("test.mtx")
+# The loaded matrix is a dgTMatrix
+```
 
+- There are also bioconductor package designed for handling single cell sparse data, [DropletUtils](https://bioconductor.org/packages/release/bioc/vignettes/DropletUtils/inst/doc/DropletUtils.html) for example
+
+
+## Non-Sparse cases
+
+- When the memory is limitted, large dense matrix cannot be directly loaded into memory at once
+- <https://pythonspeed.com/articles/mmap-vs-zarr-hdf5/>
+
+### HDF5 solution
+- [h5py](https://docs.h5py.org/en/stable/) manipulate h5 files in python
+  - Aims to mapping hdf5 file to numpy arrays
+  - Their [quick start guide](https://docs.h5py.org/en/stable/quick.html)
+- A tutorial [Python and HDF5](https://1lib.us/book/2210532/3fd153)
+- A hello world example
+
+```python
+import h5py
+f = h5py.File("testfile.hdf5","w")
+dset = f.create_dataset("dataset",data=np.random.randn(1000,1000),compression="gzip")
+f.close()
+```
+
+- [pytables](https://www.pytables.org/) a scientific database package based on HDF5
+
+
+- Command line tools for check hdf5 file
+  - <https://anaconda.org/conda-forge/hdf5>
+  - h5dump
+  - h5ls
+- [rhdf5](http://bioconductor.org/packages/release/bioc/vignettes/rhdf5/inst/doc/rhdf5.html) allows accessing hdf5 files in R
+
+
+### Other potential solution
+
+- Out memory version of pandas dataframe
+
+- [dask](https://docs.dask.org/en/latest/), <https://github.com/dask/dask>
+- [vaex](https://vaex.io/), <https://github.com/vaexio/vaex>

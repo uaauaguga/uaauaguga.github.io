@@ -1,6 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-01T21:49:18+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Manipulate Large Sparse Matrix</title><link href="http://localhost:4000/jekyll/update/2021/03/01/sparse-matrix.html" rel="alternate" type="text/html" title="Manipulate Large Sparse Matrix" /><published>2021-03-01T15:44:40+08:00</published><updated>2021-03-01T15:44:40+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/01/sparse-matrix</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/01/sparse-matrix.html">&lt;h2 id=&quot;manipulate-large-sparse-matrix&quot;&gt;Manipulate Large Sparse Matrix&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-02T16:27:27+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Manipulate Large Matrix</title><link href="http://localhost:4000/jekyll/update/2021/03/01/sparse-matrix.html" rel="alternate" type="text/html" title="Manipulate Large Matrix" /><published>2021-03-01T15:44:40+08:00</published><updated>2021-03-01T15:44:40+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/01/sparse-matrix</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/01/sparse-matrix.html">&lt;h2 id=&quot;sparse-matrix&quot;&gt;Sparse Matrix&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Most of large matrices are sparse, and some functions are designed for manipulate such matrices&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;sparse-matrix-in-scipy&quot;&gt;Sparse matrix in scipy&lt;/h3&gt;
+
 &lt;ul&gt;
   &lt;li&gt;Mutiple type of sparse matrix is available in scipy&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.scipy.org/doc/scipy/reference/sparse.html&quot;&gt;https://docs.scipy.org/doc/scipy/reference/sparse.html&lt;/a&gt;&lt;/li&gt;
@@ -55,6 +59,17 @@
 #       [0, 0, 0, 0],
 #       [0, 0, 0, 1]])
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;io-of-sparse-matrix-in-scipy&quot;&gt;io of sparse matrix in scipy&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;a href=&quot;https://math.nist.gov/MatrixMarket/formats.html&quot;&gt;Matrix Market&lt;/a&gt; format&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Follow the last code block
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;scipy.io&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mmread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mmwrite&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;mmwrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;test.mtx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;coo_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mmread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;test.mtx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;sparse-matrix-in-pandas&quot;&gt;Sparse matrix in pandas&lt;/h3&gt;
 &lt;h4 id=&quot;convert-a-dense-dataframe-to-sparse-dataframe&quot;&gt;Convert a dense dataframe to sparse dataframe&lt;/h4&gt;
@@ -145,24 +160,95 @@
 &lt;ul&gt;
   &lt;li&gt;Based on &lt;a href=&quot;https://cran.r-project.org/web/packages/Matrix/Matrix.pdf&quot;&gt;Matrix&lt;/a&gt; package&lt;/li&gt;
   &lt;li&gt;A tutorial on Matrix package &lt;a href=&quot;https://cran.r-project.org/web/packages/Matrix/vignettes/Intro2Matrix.pdf&quot;&gt;https://cran.r-project.org/web/packages/Matrix/vignettes/Intro2Matrix.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Matrix is not in R base, the priority is “recommended”, same as MASS package
-    &lt;h4 id=&quot;convert-a-condense-matrix-to-sparse-matrix&quot;&gt;Convert a condense Matrix to sparse Matrix&lt;/h4&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Matrix is not in R base, the priority is “recommended”, same as MASS package&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h4 id=&quot;convert-a-condense-matrix-to-sparse-matrix&quot;&gt;Convert a condense Matrix to sparse Matrix&lt;/h4&gt;
 
 &lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# M is a dgeMatrix (Real matrices in general storage mode)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cBind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Since R version 3.2.0, base's cbind() should work fine with S4 objects&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# cBind is deprecated&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rBind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NA&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sM&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sparseMatrix&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# sM is a dgCMatrix (general, numeric, sparse matrices in the (sorted) compressed sparse column format)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;## summary returns a triplet representation of sparse matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# head(table)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; head(table,4)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#4 x 8 sparse Matrix of class &quot;dgCMatrix&quot;, with 20 entries &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  i j  x&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#1 1 1 -1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#2 2 1 -1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#3 3 1 -1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;h4 id=&quot;write-and-load-sparse-matrix-in-r&quot;&gt;Write and load sparse matrix in R&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dgTMatrix&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;Matrix&lt;/code&gt; is similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;coo_matrix&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;scipy&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Manipulate Large Sparse Matrix</summary></entry><entry><title type="html">Tree Comparisons</title><link href="http://localhost:4000/jekyll/update/2021/02/28/tree-comparison.html" rel="alternate" type="text/html" title="Tree Comparisons" /><published>2021-02-28T14:54:30+08:00</published><updated>2021-02-28T14:54:30+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/28/tree-comparison</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/28/tree-comparison.html">&lt;h2 id=&quot;tree-comparisons&quot;&gt;Tree Comparisons&lt;/h2&gt;
+  &lt;li&gt;The Matrix have similar function as in scipy.io
+    &lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Follow the last block&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Write sparse matrix in MatrixMarket format&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;writeMM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test.mtx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MTX&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readMM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test.mtx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# The loaded matrix is a dgTMatrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;There are also bioconductor package designed for handling single cell sparse data, &lt;a href=&quot;https://bioconductor.org/packages/release/bioc/vignettes/DropletUtils/inst/doc/DropletUtils.html&quot;&gt;DropletUtils&lt;/a&gt; for example&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;non-sparse-cases&quot;&gt;Non-Sparse cases&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;When the memory is limitted, large dense matrix cannot be directly loaded into memory at once&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pythonspeed.com/articles/mmap-vs-zarr-hdf5/&quot;&gt;https://pythonspeed.com/articles/mmap-vs-zarr-hdf5/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hdf5-solution&quot;&gt;HDF5 solution&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.h5py.org/en/stable/&quot;&gt;h5py&lt;/a&gt; manipulate h5 files in python
+    &lt;ul&gt;
+      &lt;li&gt;Aims to mapping hdf5 file to numpy arrays&lt;/li&gt;
+      &lt;li&gt;Their &lt;a href=&quot;https://docs.h5py.org/en/stable/quick.html&quot;&gt;quick start guide&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;A tutorial &lt;a href=&quot;https://1lib.us/book/2210532/3fd153&quot;&gt;Python and HDF5&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;A hello world example&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;h5py&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;h5py&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;testfile.hdf5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;w&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dset&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create_dataset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataset&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compression&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gzip&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.pytables.org/&quot;&gt;pytables&lt;/a&gt; a scientific database package based on HDF5&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Command line tools for check hdf5 file
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://anaconda.org/conda-forge/hdf5&quot;&gt;https://anaconda.org/conda-forge/hdf5&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;h5dump&lt;/li&gt;
+      &lt;li&gt;h5ls&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://bioconductor.org/packages/release/bioc/vignettes/rhdf5/inst/doc/rhdf5.html&quot;&gt;rhdf5&lt;/a&gt; allows accessing hdf5 files in R&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;other-potential-solution&quot;&gt;Other potential solution&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Out memory version of pandas dataframe&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.dask.org/en/latest/&quot;&gt;dask&lt;/a&gt;, &lt;a href=&quot;https://github.com/dask/dask&quot;&gt;https://github.com/dask/dask&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vaex.io/&quot;&gt;vaex&lt;/a&gt;, &lt;a href=&quot;https://github.com/vaexio/vaex&quot;&gt;https://github.com/vaexio/vaex&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Sparse Matrix Most of large matrices are sparse, and some functions are designed for manipulate such matrices</summary></entry><entry><title type="html">Tree Comparisons</title><link href="http://localhost:4000/jekyll/update/2021/02/28/tree-comparison.html" rel="alternate" type="text/html" title="Tree Comparisons" /><published>2021-02-28T14:54:30+08:00</published><updated>2021-02-28T14:54:30+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/28/tree-comparison</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/28/tree-comparison.html">&lt;h2 id=&quot;tree-comparisons&quot;&gt;Tree Comparisons&lt;/h2&gt;
 
 &lt;h2 id=&quot;tree-edit-model&quot;&gt;Tree edit model&lt;/h2&gt;
 &lt;ul&gt;
