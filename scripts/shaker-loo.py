@@ -9,12 +9,13 @@ from eden import graph as eg
 from scipy.stats import spearmanr
 from sklearn.metrics import roc_auc_score
 import numpy as np
-
+from utilities import loadRecords
 import sys
 
-parser = argparse.ArgumentParser(description='Train SHAKER model')
+parser = argparse.ArgumentParser(description='Perform LOO Cross-Validation with SHAKER')
 parser.add_argument('--input', '-i',required=True, help="Input fasta like file")
-parser.add_argument('--output','-o',required=True,help="Result of cross validation")
+parser.add_argument('--performance','-p',required=True,help="Result of cross validation")
+parser.add_argument('--reactivity','-r',required=True,help="Predicted reactivities")
 args = parser.parse_args()
 
 def RMSE(predictions, targets):
@@ -30,32 +31,11 @@ def AUC(structure,reactivity):
     idx = np.where(~np.isnan(reactivity))[0]
     return roc_auc_score(unpaired[idx],reactivity[idx])
 
-
-def load_records(path,data_type ="sequence,structure,reactivity"):
-    data_types = data_type.split(",")
-    n_data_types = len(data_types)
-    records = defaultdict(dict)
-    with open(path) as f:
-        for line in f:
-            try:
-                assert line.startswith(">")
-            except:
-                print "The input data is not consistent to specified data_type parameter"
-            seq_id = line.strip()[1:].strip()
-            for data_type in data_types:
-                data = next(f).strip()
-                if data_type == "reactivity":
-                    data = np.array(data.split(",")).astype(float)
-                records[seq_id][data_type] = data
-    return records
-
-
 def main(args):
     print "Load input data ..."
-    records = load_records(args.input) 
+    records = loadRecords(args.input) 
     data = {}
     for name in records.keys():
-        print records[name].keys()
         data[name] = [records[name]["reactivity"],records[name]["sequence"],records[name]["structure"]]
         reactivity = []
         for x in data[name][0]:
@@ -67,8 +47,10 @@ def main(args):
     print "Done ."
     print "Train SHAKER model ..."
     
-    fout = open(args.output,"w") if args.output != "-" else sys.stdout
-    fout.write("\t".join(["name","spearmanr","p-value","AUROC-observed-reactivity","AUROC-predicted-reactivity","RMSE"])+"\n")
+    fperformance = open(args.performance,"w") if args.performance != "-" else sys.stdout
+    fperformance.write("\t".join(["name","spearmanr","p-value","AUROC-observed-reactivity","AUROC-predicted-reactivity","RMSE"])+"\n")
+    
+    fout = open(args.reactivity,"w")
     
     for name in data.keys():
         print name;
@@ -81,6 +63,8 @@ def main(args):
         graph = util.sequence_dotbracket_to_graph(data[name][1],data[name][2])
         embedding = eg.vertex_vectorize([graph])[0]
         reactivity_pred = model.predict(embedding).reshape(-1)
+        fout.write(">"+name+"\n")
+        fout.write(",".join(np.round(reactivity_pred,3).astype(str))+"\n")
         reactivity = np.array(data[name][0]).astype(float)
         structure = data[name][2]
         auc = AUC(structure,reactivity)
@@ -90,7 +74,8 @@ def main(args):
         reactivity_pred = reactivity_pred[~nan_mask]
         corr,p = spearmanr(reactivity_pred,reactivity)
         rmse = RMSE(reactivity_pred,reactivity) 
-        fout.write("\t".join([name,str(corr),str(p),str(auc),str(auc_pred),str(rmse)])+"\n")
+        fperformance.write("\t".join([name,str(corr),str(p),str(auc),str(auc_pred),str(rmse)])+"\n")
+    fperformance.close()
     fout.close()
 
 

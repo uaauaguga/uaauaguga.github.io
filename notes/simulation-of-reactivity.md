@@ -7,7 +7,10 @@
 
 - Enter SHAKER environment
   - `conda activate shaker-env-py27`
+  ```{bash}
+  scripts/shaker-loo.py --input data/reactivity/patteRNA-weeks.txt --performance test/reactivity-simulation/shaker-performance.txt --reactivity test/reactivity-simulation/shaker-loo.shape
+  ```
+  - Under infernal env
   ```{bash} 
-  scripts/shaker-fit.py --dot-bracket data/ShaKer/data/RNA16.dbn --reactivity data/ShaKer/data/RNA16.react -m RNA16.pkl
-  scripts/simulate-reactivity.py -i data/ShaKer/data/RNA20.dbn -m RNA16.pkl -o RNA20-prected.react
-   ```
+  scripts/fit-genextreme.py --dataset data/reactivity/patteRNA-weeks.txt --statistics patteRNA-weeks-fit-statistics.txt --model patteRNA-weeks-genextreme.pkl
+  ```

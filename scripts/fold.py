@@ -43,6 +43,8 @@ def Fold(fasta_path,dbn_path,constraint_path=None,shape_path=None):
     code = proc.poll()
     if code != 0:
         print(" ".join(cmd) + " failed")
+    else:
+        print("Folding {} finished".format(fasta_path))
     return code
 
 def runRNAstructureFold(args):
@@ -80,6 +82,9 @@ def runRNAstructureFold(args):
         workers.append(pool.apply_async(func=Fold, args=(sequence_path,structure_path,constraint_path,shape_path)))
     for worker in workers:
         code = worker.get() 
+    outdir = os.path.dirname(args.output)
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
     concatdbn(dbn_dir,args.output)
     #shutil.rmtree(args.tmp_dir)
     print("Done .")
@@ -149,6 +154,9 @@ def runViennaRNAPackageRNAfold(args):
         workers.append(pool.apply_async(func=RNAfold,args=(fasta_path,dbn_path,constraint_path,shape_path)))
     for i,worker in enumerate(workers):
         code = worker.get()
+    outdir = os.path.dirname(args.output)
+    if not os.path.exists(outdir):
+        os.makedirs(outdir)
     concatdbn(dbn_dir,args.output)
     #shutil.rmtree(args.tmp_dir)
     print("Done .")

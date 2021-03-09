@@ -19,6 +19,27 @@ def prepareDataset(dataDict):
         dataset[seq_id] = getKmer(structure,reactivity,flankingL = 2)
     return dataset
 
+def simulate(pairing,modelDict):
+    reactivity = np.zeros(len(pairing))
+    pairing = "UU" + pairing + "UU"
+    for idx in range(len(reactivity)):
+        structure = pairing[idx:idx+5]
+        reactivity[idx] = modelDict[structure].rvs()
+        #if reactivity[idx] > 100:
+            #print(structure,reactivity[idx])
+    reactivity[reactivity<0] = 0
+    idx95 = reactivity.argsort()[int(reactivity.shape[0]*0.95)]
+    reactivity[reactivity > reactivity[idx95]] = reactivity[idx95]
+
+    #reactivity.argsort()
+    # Apply a weighted sliding window smoothing
+    #smoothed = np.convolve(reactivity,np.array([1/6,2/3,1/6]), mode='valid')
+    # Recover the original length of the array
+    #reactivity = np.concatenate([np.array([reactivity[0]]),smoothed,np.array([reactivity[-1]])])
+
+    return reactivity
+
+
 def fitting(dataset,frequency=200):
     reactivities = []
     
@@ -31,8 +52,9 @@ def fitting(dataset,frequency=200):
             reactivities.append((structure_contexts[i],reactivity[i],seq_id))
     reactivities = pd.DataFrame.from_records(reactivities)
     reactivities.columns = ["structure-context","reactivity","sequence-id"]
-    # Only use reactivity larger than zero
-    reactivities = reactivities[reactivities["reactivity"]>0]
+    #r = reactivities["reactivity"].values
+    #r[r<0] = 0
+    #reactivities["reactivity"] = r
     # Get instances number of each structure context
     structure_contexts = reactivities["structure-context"].unique()
     n_context = structure_contexts.shape[0]
@@ -64,6 +86,10 @@ def fitting(dataset,frequency=200):
             dubious_instances.append(structure_context)
             continue
         model = genextreme(shape,location,scale)
+        if structure_context == "PPPPP":
+            print(shape,location,scale)
+            x = model.rvs(10000)
+            print((x>10).sum()/x.shape[0])
         modelDict[structure_context] = model
         likelihoodsDict[structure_context] = not_frequent_reactivities.groupby("structure-context").apply(lambda x:np.log(model.pdf(x["reactivity"].values)).sum())
 
@@ -116,9 +142,11 @@ def fitting(dataset,frequency=200):
 def main():
     parser = argparse.ArgumentParser(description='Simulate reactivity from generalized extreme value distribution of different 5mers')
     parser.add_argument('--dataset', '-d',required=True, help="Input fasta like file contains sequence,structure and reactivity")
+    parser.add_argument('--input','-i',required=True,help="RNA secondary structure in dot bracket notation to simulate")
+    parser.add_argument('--output','-o',required=True,help="Where to store simulated reactivity")
     parser.add_argument('--frequency', '-f',type=int,default=200,help="Merge structure context with instance lower than this value")
     parser.add_argument('--statistics', '-s',required=True,help="Statistics for instance assignment")
-    parser.add_argument('--model','-m',required=True,help="Model output")
+    #parser.add_argument('--model','-m',required=True,help="Model output")
     args = parser.parse_args()
 
     print("Load input data ...")
@@ -131,11 +159,25 @@ def main():
     print("Model fitting ...")
     modelDict,statistics = fitting(dataset,args.frequency)
     statistics.to_csv(args.statistics,sep="\t")
+
+    print("Perform simulation ...")
+    for seq_id in dataDict.keys():
+        pairing = dataDict[seq_id]["pairing"]
+        _ = simulate(pairing,modelDict)
+
+    print("Load input data ...")
+    structureDict = loadRecords(args.input,data_type ="sequence,structure")
+    structureDict = annotatePairing(structureDict)
+
+    print("Perform simulation ...")
+    for seq_id in structureDict.keys():
+        pairing = structureDict[seq_id]["pairing"]
+        structureDict[seq_id]["reactivity"] = simulate(pairing,modelDict)
+    print("Done .")
+
+    writeRecords(structureDict,args.output,"sequence,structure,reactivity")
     
-    with open(args.model, 'wb') as f:
-        pickle.dump(modelDict, f)
- 
-    
+
 if __name__ == "__main__":
     main()
 

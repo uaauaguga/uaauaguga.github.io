@@ -2,21 +2,7 @@
 import argparse
 from Bio import AlignIO
 import numpy as np
-
-def checkDBN(s):
-    """
-    Check whether a dot bracket notation represents a valid secondary structure
-    """
-    stack = []
-    for c in s:
-        if c == "(":
-            stack.append(c)
-        elif c == ")":
-            _ = stack.pop()
-        else:
-            continue
-    assert len(stack) == 0
-
+from utilities import checkDBN 
 
 def getIdentity(s1,s2):
     assert len(s1) == len(s2)
