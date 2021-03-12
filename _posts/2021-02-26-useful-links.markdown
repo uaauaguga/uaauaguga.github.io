@@ -43,8 +43,15 @@ categories: jekyll update
     - LEMMI: A continuous benchmarking platform for metagenomics classifiers <https://genome.cshlp.org/content/early/2020/07/01/gr.260398.119>
   - General RNA-seq analysis
     - A survey of best practices for RNA-seq data analysis <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8>
+  - Chimeric RNA detection
+      - 2019-Genome-Biology-Accuracy assessment of fusion transcript detection via read-mapping and de novo fusion transcript assembly-based methods
+      - https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1842-9
+  - Structural Variation calling from DNA-seq data
+      - 2019-Genome-Biology-Comprehensive evaluation of structural variation detection algorithms for whole genome sequencing
+      - https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1720-5
+      - 2019-Nature-Communication-Comprehensive evaluation and characterisation of short read general-purpose structural variant calling software
+      - https://www.nature.com/articles/s41467-019-11146-4
   - Methylation analysis
-    
 
 
 
