@@ -5,50 +5,57 @@ import os
 import sys
 import logging
 import re
+from Bio import AlignIO
+import pandas as pd
+
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] %(name)s: %(message)s')
 logger = logging.getLogger('Run motif finder')
 
 
+def extendSeqName(trucatedSeqNames,fastaPath):
+    fullNames = []
+    with open(fastaPath) as f:
+        for line in f:
+            if line.startswith(">"):
+                fullNames.append(line.strip().replace(">",""))
+    nameMapping = {}
+    for trucatedSeqName in trucatedSeqNames:
+        for fullName in fullNames:
+            if fullName.find(trucatedSeqName) == 0:
+                nameMapping[trucatedSeqName] = fullName
+                break
+    return nameMapping
 
-def prepareFasta(args,U2T=False,T2U=False):
+def prepareFasta(args,useT=True):
     fasta_path = os.path.join(args.outdir,"sequences.fa")
     ffasta = open(fasta_path,"w")
-    for dbfile in os.listdir(args.indir):
-        with open(os.path.join(args.indir,dbfile)) as f:
-            for i,line in enumerate(f):
-                if i == 0:
-                    line = line.replace(":","=")
-                    ffasta.write(line)
-                elif i == 1:
-                    if U2T:
-                        line = line.replace("U","T")
-                    elif T2U:
-                        line = line.replace("T","U")
-                    #line = re.sub(r"[NRKSWY]","A",line) currently used for MEMERIS as a dirty fix
-                    ffasta.write(line)
-                else:
-                    continue
+    with open(args.input) as f:
+        for line in f:
+            assert line.startswith(">")
+            if args.algorithm == "RNApromo":
+                line = line.replace(":","=")
+            ffasta.write(line)
+            line = next(f)
+            if useT:
+                line = line.replace("U","T")
+            else:
+                line = line.replace("T","U")
+                #line = re.sub(r"[NRKSWY]","A",line) currently used for MEMERIS as a dirty fix
+            ffasta.write(line)
+            #line = next(f)
+            _ = next(f)
+            #ffasta.write(line)
     ffasta.close()
     return os.path.join(os.getcwd(),fasta_path)
 
 def BEAM(args):
     dbn_path = os.path.join(args.outdir,"sequences.dot")
-    fdbn = open(dbn_path,"w")    
-
     if args.use_reference_structure:
         logger.info("Reference structure provided .")
-        for dbfile in os.listdir(args.indir):
-            with open(os.path.join(args.indir,dbfile)) as f:
-                for i,line in enumerate(f):
-                    if i == 0:
-                        line = line.replace(":","=")
-                        fdbn.write(line.split(" ")[0]+"\n")
-                    elif i == 2:
-                        fdbn.write(line.split(" ")[0]+"\n")
-                    else:
-                        fdbn.write(line.replace("T","U"))
+        subprocess.run(["cp",args.input,dbn_path])
     else:
         logger.info("Reference structure not provided, fold use RNAfold")
+        fdbn = open(dbn_path,"w")
         fastaPath = prepareFasta(args)
         foldedPath = os.path.join(args.outdir,"sequences.folded.dot")
         with open(foldedPath,"w") as f:
@@ -60,7 +67,7 @@ def BEAM(args):
                 else:
                     fdbn.write(line)
         os.remove(foldedPath)
-    fdbn.close()
+        fdbn.close()
        
     bearEncoderPath = "/BioII/lulab_b/jinyunfan/software/beam/BearEncoder.new.jar"
     beamPath = "/BioII/lulab_b/jinyunfan/software/beam/BEAM_release2.5.0.jar"
@@ -82,11 +89,44 @@ def BEAM(args):
     if args.number is not None:
         cmds += ["-M",str(args.number)]
     logger.info("Running "+" ".join(cmds))
-    subprocess.run(cmds)
-    
+    subprocess.run(cmds) 
     os.chdir(cwd)
     logger.info("Done .")
 
+    def getFinalMotif(path):
+        with open(path) as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("#motif"):
+                    motif = next(f)
+                    motif = motif.strip()
+                    break
+                else:
+                    continue
+        return motif
+
+    def getMotifLocations(path):
+        ## Return: sequence name, 0 based [start, end)
+        records = []
+        with open(path) as f:
+            for line in f:
+                line = line.strip()
+                if len(line) == 0:
+                    break
+                if line.startswith("BEAR"):
+                    continue
+                fields = line.split("\t")
+                seqName,start,end = fields[1],int(fields[3]),int(fields[4])
+                seqName = re.sub(r"\$\d+$","",seqName)
+                records.append((seqName,start,end))
+        locations = pd.DataFrame.from_records(records)
+        locations.columns = ["sequence_id","start","end"]
+        return locations
+
+    finalMotifPath = os.path.join(args.outdir,"results/sequences/sequences_summary.txt")
+    motifLocationPath = os.path.join(args.outdir,"results/sequences/benchmark/motifs/sequences_m1_run1.txt")
+    locations = getMotifLocations(motifLocationPath)
+    return locations
 
 def RNApromo(args):
     if not os.path.exists(args.outdir):
@@ -98,22 +138,26 @@ def RNApromo(args):
     RNApromoPath = "/BioII/lulab_b/jinyunfan/software/RNApromo/rnamotifs08_motif_finder.pl"
     cmds = [RNApromoPath,"-positive_seq",fasta_path,"-output_dir",os.path.join(args.outdir,"results")]
     if args.use_reference_structure:
-        refStructurePath = os.path.join(args.outdir,"ref_structure.tab")
-        refStructuref = open(refStructurePath,"w")
-        logger.info("Reference structure provided, use provided structure for motif finding.")
-        for dbfile in os.listdir(args.indir):
-            with open(os.path.join(args.indir,dbfile)) as f:
-                for i,line in enumerate(f):
-                    line = line.strip()
-                    if i%3 == 0:
-                        name = line.replace(">","").replace(":","=")
-                    elif i%3 == 2:
-                        structure = line.split(" ")[0]
-                        print(name,"0",structure,sep="\t",file=refStructuref)
-        refStructuref.close()
-        cmds += ["-positive_struct",refStructurePath]
+        logger.info("Reference structure provided .")
+        source_dbn = args.input
     else:
-        logger.info("Reference structure not provided, use RNApromo internal structure prediction tool.")
+        logger.info("Reference structure not provided, fold using RNAfold")
+        source_dbn = os.path.join(args.outdir,"sequences.dot")
+        fdbn = open(source_dbn,"w")
+        subprocess.run(["RNAfold","--noPS",fasta_path],stdout=fdbn)
+        fdbn.close()
+    positive_structure_path = os.path.join(args.outdir,"ref_structure.tab")
+    positive_structure_f = open(positive_structure_path,"w")
+    with open(source_dbn) as f:
+        for i,line in enumerate(f):
+            line = line.strip()
+            if i%3 == 0:
+                name = line.replace(">","").replace(":","=")
+            elif i%3 == 2:
+                structure = line.split(" ")[0]
+                print(name,"0",structure,sep="\t",file=positive_structure_f)
+    positive_structure_f.close()
+    cmds += ["-positive_struct",positive_structure_path]
     if args.min_length is not None:
         cmds += ["-min",str(args.min_length)]
     if args.max_length is not None:
@@ -123,25 +167,54 @@ def RNApromo(args):
     logger.info(" ".join(cmds))
     subprocess.run(cmds)
     logger.info("Done .")
+    locationsPath = os.path.join(args.outdir,"results","locs_1.xls") 
+    locations = pd.read_csv(locationsPath,sep="\t",index_col=0)
+    fastaPath = os.path.join(args.outdir,"sequences.fa")
+    nameMapping = pd.Series(extendSeqName(list(locations.index),fastaPath))
+    locations.index = nameMapping.loc[locations.index]
+    locations = locations.loc[:,["Start","End"]] 
+    locations.index.name = "sequence_id"
+    locations.columns = ["start","end"]
+    locations["end"] = locations["end"]+1
+    locations.index = locations.index.map(lambda x:x.replace("=",":"))
+    locations.reset_index(inplace=True)
+    return locations
 
 def CMfinder(args):
     logger.info("Prepare input sequences ...")
     fasta_path = prepareFasta(args)
     logger.info("Done .")
     logger.info("Run CMfinder ...")
-    #cmfinderPath = "/BioII/lulab_b/jinyunfan/software/cmfinder-0.4.1.18/bin/cmfinder.pl" 
-    cmfinderPath = "/BioII/lulab_b/jinyunfan/software/cmfinder-0.4.1.18/bin/cmfinder04.pl"
+    #cmfinderPath = "/BioII/lulab_b/jinyunfan/software/cmfinder-0.4.1.18/bin/cmfinder04.pl"
+    cmfinderPath = "/BioII/lulab_b/jinyunfan/software/cmfinder-0.4.1.18/bin/cmfinder.pl"
     cmds = [cmfinderPath]
-    #if args.min_length is not None:
-    #    cmds += ["-m",str(args.min_length).split(".")[0]]
-    #if args.max_length is  not None:
-    #    cmds += ["-M",str(args.max_length).split(".")[0]]
-    cmds += ["-fragmentary","-combine"]
+    if args.min_length is not None:
+        cmds += ["-m1",str(args.min_length),"-m2",str(args.min_length)]
+    if args.max_length is not None:
+        cmds += ["-M1",str(args.max_length),"-M2",str(args.max_length)]
+    if args.length is not None:
+        logger.info("The length parameter is ignored by CMfinder .")
+    #cmds += ["-fragmentary","-combine"]
     cmds += [fasta_path]
     logger.info(" ".join(cmds))
     subprocess.run(cmds)
     logger.info("Done .")
-
+    # stk format is 1 based
+    records = []
+    
+    for n_loops in range(1,2):
+        stkPath = os.path.join(args.outdir,"sequences.fa.motif.h{}_1".format(n_loops)) 
+        if not os.path.exists(stkPath):
+            continue
+        logger.info("Detect motif with {} loop .".format(n_loops))
+        with open(stkPath) as f:
+            for record in AlignIO.read(f, 'stockholm'):
+                start,end = record.description.split("\t")[0].split("..")
+                start,end = int(start)-1,int(end)
+                records.append([record.name,start,end])
+    locations = pd.DataFrame.from_records(records)
+    locations.columns = ["sequence_id","start","end"]
+    return locations
 
 def GraphProt(args):
     logger.info("Prepare positive sequences ...")
@@ -156,6 +229,7 @@ def GraphProt(args):
     if not os.path.exists(os.path.join(args.outdir,"results")):
         os.mkdir(os.path.join(args.outdir,"results"))
     prefix = os.path.join(args.outdir,"results","GraphProt")
+    #if args.max_length is  not None:
     logger.info("Training GraphProt model ...")
     #print(" ".join(["GraphProt.pl","-action","train","-fasta",posFastaPath,"-negfasta",negFastaPath,"-prefix",prefix]))
     subprocess.run(["GraphProt.pl","-action","train","-fasta",posFastaPath,"-negfasta",negFastaPath,"-prefix",prefix])
@@ -213,7 +287,7 @@ def GraphProt(args):
 
 def MEMERIS(args):
     logger.info("Prepare input sequences ...")
-    fastaPath = prepareFasta(args,U2T=True)
+    fastaPath = prepareFasta(args,useT=True)
     logger.info("Done .")
     #subprocess.run(["export","MEME_DIRECTORY=/BioII/lulab_b/jinyunfan/software/memeris_1.0/build"])
     memerisPath="/BioII/lulab_b/jinyunfan/software/memeris_1.0/build/bin/memeris"
@@ -233,7 +307,7 @@ def MEMERIS(args):
 def ssHMM(args):
     from sshmm.structure_prediction import calculate_rna_shapes_from_file, calculate_rna_structures_from_file
     logger.info("Prepare input sequence ...") 
-    fastaPath = prepareFasta(args,U2T=True)
+    fastaPath = prepareFasta(args,useT=True)
     logger.info("Done .")
     #train_seqstructhmm --motif_length 40 --output_directory RF00032-40 RF00032.fa  RF00032.txt
     cmds = ["train_seqstructhmm"]
@@ -351,11 +425,9 @@ def zagros(args):
     
 def MEME(args):
     logger.info("Prepare input sequences ...")
-    fastaPath = prepareFasta(args,T2U=True)
+    fastaPath = prepareFasta(args,useT=False)
     logger.info("Done .")
     resultsDir = os.path.join(args.outdir,"results")
-    #if not os.path.exists(resultsDir):
-    #    os.mkdir(resultsDir)
     cmds = ["meme",fastaPath,"-oc",resultsDir,"-rna"]
     if args.number is not None:
         cmds += ["-nmotifs",str(args.number)]
@@ -369,11 +441,33 @@ def MEME(args):
     logger.info(" ".join(cmds))
     subprocess.run(cmds)
     logger.info("Done .")
+    xmlPath = os.path.join(args.outdir,"results","meme.xml")
+    from xml.etree import ElementTree
+    root = ElementTree.parse(xmlPath).getroot()
+    id2name = {}
+    for seq in root.find("training_set").findall("sequence"):
+        data = dict(seq.items())
+        id2name[data["id"]] = data["name"]
+    records = []
+    for motifsNode in root.find("motifs").findall("motif"):
+        for locationNode in motifsNode.find("contributing_sites").findall("contributing_site"):
+            locInfo = dict(locationNode.items())
+            seqName = id2name[locInfo['sequence_id']]
+            start = int(locInfo['position'])
+            #length = len(locationNode.find("site").getchildren())
+            node = locationNode.find("site")
+            length = len(list(node))
+            end = start + length
+            records.append((seqName,start,end))
+    locations = pd.DataFrame.from_records(records)
+    locations.columns = ["sequence_id","start","end"]
+    return locations
+    
 
 
 def glam2(args):
     logger.info("Prepare input sequence ...")
-    fastaPath = prepareFasta(args,T2U=True)
+    fastaPath = prepareFasta(args)
     logger.info("Done .")
     cmds = ["glam2","-O",os.path.join(args.outdir,"results")]
     if args.min_length is not None:
@@ -387,37 +481,54 @@ def glam2(args):
     logger.info(" ".join(cmds))
     subprocess.run(cmds)
     logger.info("Done .")   
+    records = []
+    with open(os.path.join(args.outdir,"results","glam2.txt")) as f:
+        for line in f:
+            if line.startswith("Score:"):
+                break
+        _ = next(f)
+        _ = next(f)
+        for line in f:
+            line = line.strip()
+            if len(line) == 0:
+                break
+            fields = line.split()
+            seqName,start,end = fields[0],int(fields[1])-1,int(fields[3])
+            records.append((seqName,start,end))
+    locations = pd.DataFrame.from_records(records)
+    locations = pd.DataFrame.from_records(locations)
+    locations.columns = ["sequence_id","start","end"]
+    locations = locations.set_index("sequence_id")
+    fastaPath = os.path.join(args.outdir,"sequences.fa")
+    nameMapping = pd.Series(extendSeqName(list(locations.index),fastaPath))
+    locations.index = nameMapping.loc[locations.index]
+    locations.reset_index(inplace=True)
+    return locations
 
 
 def main():
     parser = argparse.ArgumentParser(description='Run motif finder')
+    #parser.add_argument('--algorithm','-a',type=str,required=True,
+    #    help="Which method to use",choices=["CMfinder","BEAM","RNApromo","GraphProt","MEMERIS","ssHMM","RNAcontext","MEME","glam2","zagros"])
     parser.add_argument('--algorithm','-a',type=str,required=True,
-        help="Which method to use",choices=["CMfinder","BEAM","RNApromo","GraphProt","MEMERIS","ssHMM","RNAcontext","MEME","glam2","zagros"])
-    parser.add_argument('--indir','-i',type=str,required=True,help="Input dir contains input sequence.")
+         help="Which method to use",choices=["CMfinder","BEAM","RNApromo","MEME","glam2"])
+    parser.add_argument('--input','-i',type=str,required=True,help="Input sequence with reference structure in dot bracket format")
     parser.add_argument('--outdir','-o',type=str,required=True,help='Output dir of the result.')
     parser.add_argument('--min-length','-m',type=int,help="Min length for motif to find.")
     parser.add_argument('--max-length','-M',type=int,help="Max length for motif to find.")
-    parser.add_argument("--length","-l",type=int,help="Length of the motif.")
+    parser.add_argument('--length','-l',type=int,help="Length of the motif")
     parser.add_argument('--number','-n',type=int,default=1,help="Number of motif to find.")
     parser.add_argument("--use-reference-structure","-r",action="store_true",default=False,help="Whether use reference structure, applicable for RNApromo and BEAM.")
     parser.add_argument("--log",type=str,help="Where to output log information.")
     args = parser.parse_args()
-    if args.length is not None:
-        if args.min_length is None:
-            args.min_length = int(args.length)*0.8
-        if args.max_length is None:
-            args.max_length = int(args.length)*1.2
-    if args.min_length is not None and args.max_length is not None:
+    if args.min_length and args.max_length:
         if args.min_length > args.max_length:
             logger.info("The specified min motif length is larger than max motif length.")
             sys.exit(1)
-    if args.min_length is not None and args.max_length is not None:
-        if args.length is None:
-            args.length = int((args.min_length+args.max_length)/2)
     if not os.path.exists(args.outdir):
         os.mkdir(args.outdir)
-    print(args.min_length,args.max_length)
-    globals()[args.algorithm](args)
+    locations = globals()[args.algorithm](args)
+    locations.to_csv(os.path.join(args.outdir,"locations.bed"),sep="\t",index=False,header=None)
 
 
 if __name__ == "__main__":

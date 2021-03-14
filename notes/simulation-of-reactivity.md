@@ -12,5 +12,6 @@
   ```
   - Under infernal env
   ```{bash} 
-  scripts/fit-genextreme.py --dataset data/reactivity/patteRNA-weeks.txt --statistics patteRNA-weeks-fit-statistics.txt --model patteRNA-weeks-genextreme.pkl
+  scripts/fit-genextreme.py -d data/reactivity/patteRNA-weeks.txt -s data/reactivity/patteRNA-weeks-genextreme-statistics.txt -m data/reactivity/patteRNA-weeks-genextreme-model.pkl
+  scripts/simulate-genextreme.py -i test/predicted/RNAstructure-no-shape.dot -o test/predicted/RNAstructure-no-shape.txt -m data/reactivity/patteRNA-weeks-genextreme-model.pkl
   ```

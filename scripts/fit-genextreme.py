@@ -122,7 +122,7 @@ def main():
     args = parser.parse_args()
 
     print("Load input data ...")
-    dataDict = loadRecords(args.dataset,data_type ="sequence,structure,reactivity")
+    dataDict = loadRecords(args.dataset,order="sequence,structure,reactivity",dtype="str,str,float")
     dataDict = annotatePairing(dataDict) 
     
     print("Convert dataset into instances of 5 mers ...")

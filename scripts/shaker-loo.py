@@ -33,7 +33,7 @@ def AUC(structure,reactivity):
 
 def main(args):
     print "Load input data ..."
-    records = loadRecords(args.input) 
+    records = loadRecords(args.input,order="sequence,structure,reactivity") 
     data = {}
     for name in records.keys():
         data[name] = [records[name]["reactivity"],records[name]["sequence"],records[name]["structure"]]

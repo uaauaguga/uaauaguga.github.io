@@ -31,7 +31,7 @@ def simulate(pairing,modelDict):
 def main():
     parser = argparse.ArgumentParser(description='Simulate reactivity from dot bracket file')
     parser.add_argument('--input', '-i',required=True,help="Input known structure in dot bracket notation")
-    parser.add_argument('--output','-o',required=True,help="Output reactivity path")
+    parser.add_argument('--shape','-s',required=True,help="Output reactivity path")
     parser.add_argument('--model','-m',required=True,help="Trained model for simulation")
     args = parser.parse_args()
 
@@ -40,7 +40,7 @@ def main():
         modelDict =  pickle.load(f)
 
     print("Load input data ...")
-    dataDict = loadRecords(args.input,data_type ="sequence,structure")
+    dataDict = loadRecords(args.input,order="sequence,structure",dtype="str,str")
     dataDict = annotatePairing(dataDict)
    
     print("Perform simulation ...") 
@@ -49,7 +49,7 @@ def main():
         dataDict[seq_id]["reactivity"] = simulate(pairing,modelDict)
     print("Done .")
 
-    writeRecords(dataDict,args.output,"reactivity")
+    writeRecords(dataDict,args.shape,order="reactivity")
 
 if __name__ == "__main__":
     main() 

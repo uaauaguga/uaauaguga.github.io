@@ -86,7 +86,7 @@ def runRNAstructureFold(args):
     if not os.path.exists(outdir):
         os.makedirs(outdir)
     concatdbn(dbn_dir,args.output)
-    #shutil.rmtree(args.tmp_dir)
+    shutil.rmtree(args.tmp_dir)
     print("Done .")
             
 
@@ -131,7 +131,7 @@ def runViennaRNAPackageRNAfold(args):
         sequence_ids = splitFasta(args.fasta,splitted_fasta_dir)
         print("Done .")
     else:
-        sequence_ids = [ file[:file.rfind(".")+1] for file in os.listdir(args.constraint) ]
+        sequence_ids = [ file[:file.rfind(".")] for file in os.listdir(args.constraint) ]
 
     if args.shape is not None:
         print("Split shape file ...")
@@ -158,7 +158,7 @@ def runViennaRNAPackageRNAfold(args):
     if not os.path.exists(outdir):
         os.makedirs(outdir)
     concatdbn(dbn_dir,args.output)
-    #shutil.rmtree(args.tmp_dir)
+    shutil.rmtree(args.tmp_dir)
     print("Done .")
 
 def main():

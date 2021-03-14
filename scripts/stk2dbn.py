@@ -105,7 +105,7 @@ def main():
     for record in align:
         if args.filter is not None:
             if record.id in depleted:
-            #print(record.annotations["accession"],"was filtered.")
+                print(record.annotations["accession"],"was filtered.")
                 continue
         sequence = record.seq
         current_structure = list(structure_dbn)

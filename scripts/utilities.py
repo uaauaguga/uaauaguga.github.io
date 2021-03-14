@@ -1,6 +1,7 @@
 import numpy as np
 from collections import defaultdict
 import re
+import gzip
 
 def loadSHAPE(path):
     """
@@ -16,38 +17,75 @@ def loadSHAPE(path):
     return SHAPE
 
 
-def loadRecords(path,data_type ="sequence,structure,reactivity"):
-    data_types = data_type.split(",")
-    n_data_types = len(data_types)
+def loadRecords(path,order ="sequence,structure,reactivity",dtype="str,str,float"):
+    """
+    Parameters: 
+        path: path of fasta like file
+        order: order of fields in fasta like records
+        dtype: data type corresponding to order
+        gzip: whether the input file is gzipped
+    Return:
+        A dict of dict contains keys specified in order parameter
+    """
+    gzipped = False
+    if path.endswith(".gz"):
+        gzipped = True
+    orders = order.split(",")
+    dtypes = dtype.split(",")
+    N = len(orders)
+    assert len(dtypes) == N, "order and dtype should have same length"
     records = defaultdict(dict)
-    with open(path) as f:
-        for line in f:
-            try:
-                assert line.startswith(">")
-            except:
-                print("The input data is not consistent to specified data_type parameter")
-            seq_id = line.strip()[1:].strip()
-            for data_type in data_types:
-                data = next(f).strip()
-                if data_type == "reactivity":
-                    data = np.array(data.split(",")).astype(float)
-                records[seq_id][data_type] = data
+    if not gzipped:
+        f  = open(path,"r")
+    else:
+        f = gzip.open(path,"rb")
+    for line in f:
+        if gzipped:
+            line = line.decode()
+        try:
+            assert line.startswith(">")
+        except:
+            print("The input data is not consistent to specified data_type parameter")
+        seq_id = line.strip()[1:].strip()
+        for field,dtype in zip(orders,dtypes):
+            line = next(f)
+            if gzipped:
+                line = line.decode()
+            data = line.strip()
+            if dtype == "float":
+                data = np.array(data.split(",")).astype(float)
+            if dtype == "int":
+                data = np.array(data.split(",")).astype(int)
+            records[seq_id][field] = data
     return records
 
 
 def writeRecords(dataDict,path,order="sequence,structure,reactivity"):
+    gzipped = False
+    if path.endswith(".gz"):
+        gzipped = True
     order = order.split(",")
-    with open(path,"w") as f:
-        for seq_id in dataDict.keys():
-            f.write(">"+seq_id+"\n")
-            for key in order:
-                if isinstance(dataDict[seq_id][key],str):
-                    line = dataDict[seq_id][key]
-                else:
-                    data = np.round(np.array(dataDict[seq_id][key]),3)
-                    data = data.astype(str)
-                    line = ",".join(data)
-                f.write(line+"\n")
+    if not gzipped:
+        f  = open(path,"w")
+    else:
+        f = gzip.open(path,"wb")
+    for seq_id in dataDict.keys():
+        line = ">"+seq_id+"\n"
+        if gzipped:
+            line = line.encode()
+        f.write(line)
+        for key in order:
+            if isinstance(dataDict[seq_id][key],str):
+                line = dataDict[seq_id][key]
+            else:
+                data = np.round(np.array(dataDict[seq_id][key]),4)
+                data = data.astype(str)
+                line = ",".join(data)
+            line += "\n"
+            if gzipped:
+                line = line.encode()
+            f.write(line)
+    f.close()
             
 
 
