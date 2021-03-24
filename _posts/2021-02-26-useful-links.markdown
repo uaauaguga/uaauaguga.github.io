@@ -24,6 +24,8 @@ categories: jekyll update
   - <http://www.langmead-lab.org/teaching-materials/>
   - <https://github.com/BenLangmead/comp-genomics-class>
   - <https://github.com/BenLangmead/ads1-notebooks>
+- Tutorials on R
+  - https://compgenomr.github.io/book/
 - RNA-seq related
   - <https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html>
 
@@ -32,7 +34,17 @@ categories: jekyll update
 ### Useful links
   - JHU's software list <https://ccb.jhu.edu/software.shtml>
 
+### List of tools curated by others
+
+- https://github.com/xhqsm/best-of-bioinformatics
+- https://github.com/openbiox/awosome-bioinformatics
+
+### Bioconductor workflow packages
+
+- https://bioconductor.org/packages/3.12/workflows/
+
 ### Tools
+
   - Reads mapping
   - Metagenomic classification
 
