@@ -189,6 +189,10 @@ MTX <- readMM("test.mtx")
 
 - There are also bioconductor package designed for handling single cell sparse data, [DropletUtils](https://bioconductor.org/packages/release/bioc/vignettes/DropletUtils/inst/doc/DropletUtils.html) for example
 
+### Bioconductor's solution
+
+- <https://www.bioconductor.org/packages/release/bioc/vignettes/DelayedArray/inst/doc/01-Working_with_large_arrays.pdf>
+- The `RleArray` and `HDF5Array` object
 
 ## Non-Sparse cases
 
@@ -217,7 +221,6 @@ f.close()
   - h5dump
   - h5ls
 - [rhdf5](http://bioconductor.org/packages/release/bioc/vignettes/rhdf5/inst/doc/rhdf5.html) allows accessing hdf5 files in R
-
 
 ### Other potential solution
 
