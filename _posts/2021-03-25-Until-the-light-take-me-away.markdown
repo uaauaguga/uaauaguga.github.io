@@ -8,4 +8,4 @@ categories: jekyll update
 
 ## MY MENTAL ARCHIVE
 
-- https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition
+- <https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition>
