@@ -1,13 +1,11 @@
 ---
 
 layout: post
-title:  "Multiple Test Correction"
+title:  "Play with Genomic Features "
 date:   2021-03-20 1:11:20 +0800
 usemathjax: false
 categories: jekyll update
 ---
-
-## Play with Genomic Features 
 
 - Genomic data is often genomic ranges associate with some metadata
 - gtf, bed, vcf, sam, wig, bedgraph ...
