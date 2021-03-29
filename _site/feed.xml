@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-26T15:28:52+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Until The Light Take Me Away</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html" rel="alternate" type="text/html" title="Until The Light Take Me Away" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html">&lt;h2 id=&quot;my-mental-archive&quot;&gt;MY MENTAL ARCHIVE&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-29T13:53:59+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Aligners and Bam files</title><link href="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html" rel="alternate" type="text/html" title="Aligners and Bam files" /><published>2021-03-28T11:18:15+08:00</published><updated>2021-03-28T11:18:15+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html">&lt;ul&gt;
+  &lt;li&gt;Use which aligner, which paramter, to which reference sequence&lt;/li&gt;
+  &lt;li&gt;How to manipulate output of different aligners&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Use which aligner, which paramter, to which reference sequence How to manipulate output of different aligners</summary></entry><entry><title type="html">Until The Light Take Me Away</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html" rel="alternate" type="text/html" title="Until The Light Take Me Away" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html">&lt;h2 id=&quot;my-mental-archive&quot;&gt;MY MENTAL ARCHIVE&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&quot;&gt;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&lt;/a&gt;&lt;/li&gt;
@@ -65,7 +68,7 @@
 
     &lt;ul&gt;
       &lt;li&gt;
-        &lt;p&gt;http://ccb.jhu.edu/software/stringtie/dl/gffread-0.11.4.Linux_x86_64.tar.gz&lt;/p&gt;
+        &lt;p&gt;&lt;a href=&quot;http://ccb.jhu.edu/software/stringtie/dl/gffread-0.11.4.Linux_x86_64.tar.gz&quot;&gt;http://ccb.jhu.edu/software/stringtie/dl/gffread-0.11.4.Linux_x86_64.tar.gz&lt;/a&gt;&lt;/p&gt;
       &lt;/li&gt;
       &lt;li&gt;
         &lt;p&gt;Get transcripts fasta from genome fasta&lt;/p&gt;
@@ -227,37 +230,82 @@
 
 &lt;h4 id=&quot;take-intersection-of-feature-sets&quot;&gt;Take intersection of feature sets&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;Annotate input features with known feature set&lt;/li&gt;
+  &lt;li&gt;Annotate input features with known feature set
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bedtools annotate&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bedtools intersect&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Count coverage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bedtools coverage &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; features.bed &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; input.bam &lt;span class=&quot;nt&quot;&gt;-counts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; counts.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
   &lt;li&gt;Take some arithmetic operation across genomic interval&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# -o can be arithmetic operation like sum, min, max, mean, median ...&lt;/span&gt;
+bedtools map &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; interval.tosummarize.bed &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; input.value.bed  &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; 4 &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; output.bed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;take-union&quot;&gt;Take union&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Merge bed file&lt;/li&gt;
-  &lt;li&gt;Merge / reduce exon from different isoforms from a gene&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Merge bed file&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Merge / reduce exon from different isoforms from a gene&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Get gene length for TPM or FPKM calculation (If you use tools like featureCount, gene length information is provided in the output)
+        &lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env Rscript&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Refer to https://www.biostars.org/p/83901/&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GenomicFeatures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gtf.path&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;annotation/gene-models/gtf/Arabidopsis_thaliana.TAIR10.46.gtf&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txdb&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;makeTxDbFromGFF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gtf.path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gtf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gene.exons&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exonsBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gene&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# The key operation is GenomicRanges::reduce&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gene.lengths&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GenomicRanges&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GenomicRanges&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gene.exons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write.table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gene.lengths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gene.length.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col.name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quote&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;\t&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;take-difference&quot;&gt;Take difference&lt;/h4&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Get intron location from gff/gtf file&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bedtools subtract&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;algorithm-behind-these-tools&quot;&gt;Algorithm behind these tools&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Interval tree&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://academic.oup.com/bioinformatics/article/23/11/1386/199545&quot;&gt;Nested Containment List&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;implement-similar-function-in-other-programming-language&quot;&gt;Implement similar function in other programming language&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;perl&lt;/li&gt;
-  &lt;li&gt;python&lt;/li&gt;
+  &lt;li&gt;perl
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://metacpan.org/pod/Set::IntervalTree&quot;&gt;Set::IntervalTree&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;python
+    &lt;ul&gt;
+      &lt;li&gt;Seems &lt;a href=&quot;https://github.com/biocore-ntnu/pyranges&quot;&gt;pyranges&lt;/a&gt; is a good alternative in python&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bxlab/bx-python&quot;&gt;bx-python&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;C++
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/lh3/cgranges&quot;&gt;https://github.com/lh3/cgranges&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lh3/cgranges&quot;&gt;cgranges&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Genomic data is often genomic ranges associate with some metadata gtf, bed, vcf, sam, wig, bedgraph … Multiple tools is available for manipulate such genomic ranges</summary></entry><entry><title type="html">Multiple Test Correction</title><link href="http://localhost:4000/jekyll/update/2021/03/04/multiple-test-correction.html" rel="alternate" type="text/html" title="Multiple Test Correction" /><published>2021-03-04T22:30:55+08:00</published><updated>2021-03-04T22:30:55+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/04/multiple-test-correction</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/04/multiple-test-correction.html">&lt;table&gt;
@@ -974,9 +1022,4 @@ cost, defined as the accumulated cost of the basic edit operations.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family&quot;&gt;https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels&quot;&gt;https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Gamma_distribution&quot;&gt;https://en.wikipedia.org/wiki/Gamma_distribution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">The parametrization of gamma distribution Gamma distribution commonly has two type of parametrization Shape \(\alpha\) and rate \(\beta\) Shape \(k\) and scale \(\theta\) Rate and shape follows \(\theta=1/\beta\) In GLM, the mean \(\mu = \alpha/\beta = \alpha\theta\) and shape \(\alpha\) parametrization was used The Gamma GLM in both R and python statsmodel assume constant shape \(\alpha\), and inverse of \(\alpha\) is called dispersion \(\phi=1/\alpha\) In statsmodels, scale has a distinct meaning, the estimated dispersion \(\phi=1/\alpha\) called scale The actual scale \(\theta\) can be calculated from model’s predicted mean \(\mu\) MASS package provide more precised estimation of the fixed shape patrameter https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html</summary></entry><entry><title type="html">Purpose for these posts</title><link href="http://localhost:4000/jekyll/update/2021/02/15/post-1.html" rel="alternate" type="text/html" title="Purpose for these posts" /><published>2021-02-15T13:47:31+08:00</published><updated>2021-02-15T13:47:31+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/15/post-1</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/15/post-1.html">&lt;ul&gt;
-  &lt;li&gt;这些post可能主要是编程，生物信息，统计和音乐方面的笔记&lt;/li&gt;
-  &lt;li&gt;估计不会有人看，只是给自己做一个记i录&lt;/li&gt;
-  &lt;li&gt;每一条post都会持续更新&lt;/li&gt;
-  &lt;li&gt;希望能保持一周更新至少一次的频率…&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">这些post可能主要是编程，生物信息，统计和音乐方面的笔记 估计不会有人看，只是给自己做一个记i录 每一条post都会持续更新 希望能保持一周更新至少一次的频率…</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">The parametrization of gamma distribution Gamma distribution commonly has two type of parametrization Shape \(\alpha\) and rate \(\beta\) Shape \(k\) and scale \(\theta\) Rate and shape follows \(\theta=1/\beta\) In GLM, the mean \(\mu = \alpha/\beta = \alpha\theta\) and shape \(\alpha\) parametrization was used The Gamma GLM in both R and python statsmodel assume constant shape \(\alpha\), and inverse of \(\alpha\) is called dispersion \(\phi=1/\alpha\) In statsmodels, scale has a distinct meaning, the estimated dispersion \(\phi=1/\alpha\) called scale The actual scale \(\theta\) can be calculated from model’s predicted mean \(\mu\) MASS package provide more precised estimation of the fixed shape patrameter https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html</summary></entry></feed>

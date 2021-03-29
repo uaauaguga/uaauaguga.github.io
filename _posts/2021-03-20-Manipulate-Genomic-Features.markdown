@@ -54,7 +54,7 @@ categories: jekyll update
 
 - Command line tools
 
-  - http://ccb.jhu.edu/software/stringtie/dl/gffread-0.11.4.Linux_x86_64.tar.gz
+  - <http://ccb.jhu.edu/software/stringtie/dl/gffread-0.11.4.Linux_x86_64.tar.gz>
 
   - Get transcripts fasta from genome fasta
 
@@ -172,24 +172,57 @@ categories: jekyll update
 
 #### Take intersection of feature sets
 - Annotate input features with known feature set
+  - `bedtools annotate`
+  - `bedtools intersect`
+
+- Count coverage
+
+```bash
+bedtools coverage -a features.bed -b input.bam -counts > counts.txt
+```
+
 - Take some arithmetic operation across genomic interval
+
+```bash
+# -o can be arithmetic operation like sum, min, max, mean, median ...
+bedtools map -a interval.tosummarize.bed -b input.value.bed  -c 4 -o sum > output.bed
+```
+
 
 #### Take union
 
 - Merge bed file
+
 - Merge / reduce exon from different isoforms from a gene
+  - Get gene length for TPM or FPKM calculation (If you use tools like featureCount, gene length information is provided in the output)
+```R
+#!/usr/bin/env Rscript
+# Refer to https://www.biostars.org/p/83901/
+library(GenomicFeatures)
+gtf.path <- "annotation/gene-models/gtf/Arabidopsis_thaliana.TAIR10.46.gtf"
+txdb <- makeTxDbFromGFF(file=gtf.path,format="gtf")
+gene.exons <- exonsBy(txdb, by="gene")
+# The key operation is GenomicRanges::reduce
+gene.lengths <- sum(GenomicRanges::width(GenomicRanges::reduce(gene.exons)))
+write.table(gene.lengths,"gene.length.txt",col.name=F,quote=F,sep="\t")
+```
 
 #### Take difference
 
 - Get intron location from gff/gtf file
+- `bedtools subtract`
 
 ### Algorithm behind these tools
 
 - Interval tree
+- [Nested Containment List](https://academic.oup.com/bioinformatics/article/23/11/1386/199545)
 
 ### Implement similar function in other programming language
 
 - perl
+  - [Set::IntervalTree](https://metacpan.org/pod/Set::IntervalTree)
 - python
+  - Seems [pyranges](https://github.com/biocore-ntnu/pyranges) is a good alternative in python 
+  - [bx-python](https://github.com/bxlab/bx-python)
 - C++
-  - <https://github.com/lh3/cgranges>
+  - [cgranges](https://github.com/lh3/cgranges)

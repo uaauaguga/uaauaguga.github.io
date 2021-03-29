@@ -30,5 +30,9 @@ https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/installation.md
 
 - 今天为啥总是没法push
 
+```bash
+# Run jekyll instance locally
+bundle exec jekyll serve
+```
 
 
