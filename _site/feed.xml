@@ -1,7 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-29T13:53:59+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Aligners and Bam files</title><link href="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html" rel="alternate" type="text/html" title="Aligners and Bam files" /><published>2021-03-28T11:18:15+08:00</published><updated>2021-03-28T11:18:15+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html">&lt;ul&gt;
-  &lt;li&gt;Use which aligner, which paramter, to which reference sequence&lt;/li&gt;
-  &lt;li&gt;How to manipulate output of different aligners&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Use which aligner, which paramter, to which reference sequence How to manipulate output of different aligners</summary></entry><entry><title type="html">Until The Light Take Me Away</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html" rel="alternate" type="text/html" title="Until The Light Take Me Away" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html">&lt;h2 id=&quot;my-mental-archive&quot;&gt;MY MENTAL ARCHIVE&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-03-30T14:49:24+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Aligners and Output Formatting</title><link href="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html" rel="alternate" type="text/html" title="Aligners and Output Formatting" /><published>2021-03-28T11:18:15+08:00</published><updated>2021-03-28T11:18:15+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html">&lt;ul&gt;
+  &lt;li&gt;This post tries to &lt;strong&gt;record&lt;/strong&gt; what I’ve &lt;strong&gt;heard of&lt;/strong&gt; about the following questions.
+    &lt;ul&gt;
+      &lt;li&gt;Use which aligner, which paramter, to which reference sequence&lt;/li&gt;
+      &lt;li&gt;How to manipulate output of different aligners, or equivalently, how to manipulate bam files&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Note this field is developing rapidly, thing wrote here may quickly out of date&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;famous-tools-for-pairwise-sequence-comparison&quot;&gt;Famous tools for pairwise sequence comparison&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Short reads aligner
+    &lt;ul&gt;
+      &lt;li&gt;DNA-seq aligner
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;http://bio-bwa.sourceforge.net/&quot;&gt;bwa&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;http://bowtie-bio.sourceforge.net/bowtie2/index.shtml&quot;&gt;bowtie2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;RNA-seq aligner
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://github.com/alexdobin/STAR&quot;&gt;STAR&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;http://daehwankimlab.github.io/hisat2/&quot;&gt;hisat2&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Long reads aligner
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://lh3.github.io/minimap2/minimap2.html&quot;&gt;minimap2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;General propose aligner
+    &lt;ul&gt;
+      &lt;li&gt;blast&lt;/li&gt;
+      &lt;li&gt;blat&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Whole genome aligner
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.bx.psu.edu/~rsharris/lastz/&quot;&gt;LASTZ&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://mummer.sourceforge.net/&quot;&gt;MUMmer&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference-and-parameters&quot;&gt;Reference and parameters&lt;/h2&gt;
+&lt;h3 id=&quot;short-read-aligners&quot;&gt;Short read aligners&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;What short read aligners do is actually assign some annotations to each reads, that is which segment of the reads are assigned to which location of the genome in which form&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In different aligner, same thing may have different name&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;map-to-genome--map-to-transcriptome&quot;&gt;&lt;strong&gt;Map to genome / map to transcriptome&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Seems most project prefer map reads to genome, but some downstream analysis tools (&lt;a href=&quot;https://combine-lab.github.io/salmon/&quot;&gt;salmon&lt;/a&gt;, &lt;a href=&quot;https://deweylab.github.io/RSEM/&quot;&gt;rsem&lt;/a&gt;) requires the reads to be aligned to transcriptome coordinate&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/alexdobin/STAR&quot;&gt;STAR&lt;/a&gt; could direct project genome aligned reads to transcriptome coordinate&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;gapped-alignment--ungapped-alignment&quot;&gt;&lt;strong&gt;Gapped alignment / Ungapped alignment&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Whether the aligner allow deletions and insertions&lt;/li&gt;
+  &lt;li&gt;The CIGAR string in bam file contains &lt;code class=&quot;highlighter-rouge&quot;&gt;I&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;D&lt;/code&gt; operation&lt;/li&gt;
+  &lt;li&gt;Most aligners support gapped alignments, but note &lt;a href=&quot;http://bowtie-bio.sourceforge.net/manual.html&quot;&gt;bowtie1&lt;/a&gt; only support ungapped, so its output cannot be used for indel calling&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;dna-seq-alignment--rna-seq-alignment&quot;&gt;&lt;strong&gt;DNA-seq alignment / RNA-seq alignment&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The major difference between DNA-seq mapping and RNA-seq mapping is RNA-seq aligner perform spliced alignment&lt;/li&gt;
+  &lt;li&gt;For spliced aware aligner, the output bam file contains &lt;code class=&quot;highlighter-rouge&quot;&gt;N&lt;/code&gt; in cigar operation&lt;/li&gt;
+  &lt;li&gt;Spliced-aware aligner usually accept genome annotation to define known splice junction&lt;/li&gt;
+  &lt;li&gt;The mapping quality calculation in DNA-seq aligner and RNA-seq aligner can be different, as RNA-seq is seldom used for variant calling&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;local-alignment--end-to-end-alignment&quot;&gt;&lt;strong&gt;Local alignment / End to end alignment&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;The scoring is different&lt;/li&gt;
+  &lt;li&gt;End to end alignment requires both end of the reads to align to the genome, while local alignment only requires a substring of reads to align to genome&lt;/li&gt;
+  &lt;li&gt;Local alignment is more sensitive, but may lead to false hit&lt;/li&gt;
+  &lt;li&gt;Local alignment produce so called soft-clipped segments if ends of the reads is not aligned, that is &lt;code class=&quot;highlighter-rouge&quot;&gt;S&lt;/code&gt; cigar operation&lt;/li&gt;
+  &lt;li&gt;If you don’t trim adaptor, you have to use local alignment, but for short reads (small RNA sequencing or riboseq for example) it can be dangerous&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;multimapper&quot;&gt;&lt;strong&gt;Multimapper&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Secondary alignment&lt;/li&gt;
+  &lt;li&gt;The problem of biased assignment&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;chimeric-alignment&quot;&gt;&lt;strong&gt;Chimeric alignment&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Split reads&lt;/li&gt;
+  &lt;li&gt;Supplementary alignment
+    &lt;ul&gt;
+      &lt;li&gt;Note supplementary alignment and secondary alignment are different things&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;unmapped-reads&quot;&gt;&lt;strong&gt;Unmapped reads&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;h4 id=&quot;paired-end-reads-specific-situation&quot;&gt;&lt;strong&gt;Paired end reads specific situation&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Discordant reads
+    &lt;ul&gt;
+      &lt;li&gt;See some discussion here &lt;a href=&quot;https://www.biostars.org/p/278412/&quot;&gt;https://www.biostars.org/p/278412/&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Singlton&lt;/li&gt;
+  &lt;li&gt;Unmapped reads&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;some-parameter-specification-for-reference&quot;&gt;Some parameter specification for reference&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ENCODE RNA-seq&lt;/li&gt;
+  &lt;li&gt;TCGA RNA-seq&lt;/li&gt;
+  &lt;li&gt;TCGA DNA-seq&lt;/li&gt;
+  &lt;li&gt;arriba’s recommend parameter for fusion gene detection&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;alignment-formats-and-apis&quot;&gt;Alignment formats and APIs&lt;/h2&gt;
+
+&lt;h3 id=&quot;manipulate-bam-file&quot;&gt;Manipulate bam file&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Format specification of bam file&lt;/li&gt;
+  &lt;li&gt;Flag in bam file&lt;/li&gt;
+  &lt;li&gt;Unmapped reads&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;duplication-handling&quot;&gt;Duplication handling&lt;/h4&gt;
+
+&lt;h3 id=&quot;tools-for-handling-alignment-in-other-format&quot;&gt;Tools for handling alignment in other format&lt;/h3&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">This post tries to record what I’ve heard of about the following questions. Use which aligner, which paramter, to which reference sequence How to manipulate output of different aligners, or equivalently, how to manipulate bam files Note this field is developing rapidly, thing wrote here may quickly out of date</summary></entry><entry><title type="html">Until The Light Take Me Away</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html" rel="alternate" type="text/html" title="Until The Light Take Me Away" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html">&lt;h2 id=&quot;my-mental-archive&quot;&gt;MY MENTAL ARCHIVE&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&quot;&gt;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&lt;/a&gt;&lt;/li&gt;
@@ -159,6 +295,12 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&quot;liftover-between-different-version-of-genome&quot;&gt;Liftover between different version of genome&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://crossmap.sourceforge.net/&quot;&gt;CrossMap&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bioconductor.org/packages/release/workflows/vignettes/liftOver/inst/doc/liftov.html&quot;&gt;rtracklayer::liftOver&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;projection-between-genome-coordinate-and-transcript-coordinate&quot;&gt;Projection between genome coordinate and transcript coordinate&lt;/h3&gt;
 
 &lt;ul&gt;
@@ -196,6 +338,31 @@
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gr&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GRanges&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IRanges&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4160&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AT1G01010.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mapToTranscripts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.used&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;get-cds-relative-to-transcript-coordinate&quot;&gt;Get CDS relative to transcript coordinate&lt;/h3&gt;
+
+&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GenomicFeatures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gtf.path&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;annotation/gene-models/gtf/Arabidopsis_thaliana.TAIR10.46.gtf&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txdb&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;makeTxDbFromGFF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gtf.path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gtf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.utr5p&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fiveUTRsByTranscript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;use.names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.cds&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cdsBy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;use.names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.lengths&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.utr5p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cds.lengths&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.cds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.add&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.no5putr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.no5putr&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setdiff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cds.lengths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.lengths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.no5putr&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.lengths&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.lengths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.lengths&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.lengths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cds.lengths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.coordinates&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data.frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p.lengths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cds.lengths&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.coordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;utr5p-start&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.coordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;utr5p-end&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.coordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;utr5p.lengths&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.coordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cds-end&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.coordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;utr5p.lengths&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.coordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cds.lengths&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.coordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;utr5p-start&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;utr5p-end&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;utr5p-end&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write.table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utr5p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;5putr.bed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;\t&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quote&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col.names&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write.table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tx.coordinates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[,&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;utr5p-end&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cds-end&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cds.bed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;\t&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quote&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col.names&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;useful-tools-and-resource&quot;&gt;Useful tools and resource&lt;/h4&gt;
@@ -540,14 +707,17 @@ bedtools map &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; interval.tosummari
 
 &lt;h4 id=&quot;write-and-load-sparse-matrix-in-r&quot;&gt;Write and load sparse matrix in R&lt;/h4&gt;
 &lt;ul&gt;
-  &lt;li&gt;The Matrix have similar function as in scipy.io
-    &lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Follow the last block&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;li&gt;The Matrix have similar function as in scipy.io&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Follow the last block&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Write sparse matrix in MatrixMarket format&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;writeMM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test.mtx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MTX&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readMM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;test.mtx&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# The loaded matrix is a dgTMatrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
   &lt;li&gt;There are also bioconductor package designed for handling single cell sparse data, &lt;a href=&quot;https://bioconductor.org/packages/release/bioc/vignettes/DropletUtils/inst/doc/DropletUtils.html&quot;&gt;DropletUtils&lt;/a&gt; for example&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -819,7 +989,7 @@ cost, defined as the accumulated cost of the basic edit operations.&lt;/li&gt;
   &lt;/li&gt;
   &lt;li&gt;Tutorials on R
     &lt;ul&gt;
-      &lt;li&gt;https://compgenomr.github.io/book/&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://compgenomr.github.io/book/&quot;&gt;https://compgenomr.github.io/book/&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;RNA-seq related
@@ -839,14 +1009,14 @@ cost, defined as the accumulated cost of the basic edit operations.&lt;/li&gt;
 &lt;h3 id=&quot;list-of-tools-curated-by-others&quot;&gt;List of tools curated by others&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;https://github.com/xhqsm/best-of-bioinformatics&lt;/li&gt;
-  &lt;li&gt;https://github.com/openbiox/awosome-bioinformatics&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/xhqsm/best-of-bioinformatics&quot;&gt;https://github.com/xhqsm/best-of-bioinformatics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/openbiox/awosome-bioinformatics&quot;&gt;https://github.com/openbiox/awosome-bioinformatics&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;bioconductor-workflow-packages&quot;&gt;Bioconductor workflow packages&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;https://bioconductor.org/packages/3.12/workflows/&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.bioconductor.org/packages/release/BiocViews.html#___Workflow&quot;&gt;https://www.bioconductor.org/packages/release/BiocViews.html#___Workflow&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;tools&quot;&gt;Tools&lt;/h3&gt;
@@ -876,15 +1046,15 @@ cost, defined as the accumulated cost of the basic edit operations.&lt;/li&gt;
   &lt;li&gt;Chimeric RNA detection
     &lt;ul&gt;
       &lt;li&gt;2019-Genome-Biology-Accuracy assessment of fusion transcript detection via read-mapping and de novo fusion transcript assembly-based methods&lt;/li&gt;
-      &lt;li&gt;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1842-9&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1842-9&quot;&gt;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1842-9&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Structural Variation calling from DNA-seq data
     &lt;ul&gt;
       &lt;li&gt;2019-Genome-Biology-Comprehensive evaluation of structural variation detection algorithms for whole genome sequencing&lt;/li&gt;
-      &lt;li&gt;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1720-5&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1720-5&quot;&gt;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1720-5&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;2019-Nature-Communication-Comprehensive evaluation and characterisation of short read general-purpose structural variant calling software&lt;/li&gt;
-      &lt;li&gt;https://www.nature.com/articles/s41467-019-11146-4&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.nature.com/articles/s41467-019-11146-4&quot;&gt;https://www.nature.com/articles/s41467-019-11146-4&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Methylation analysis&lt;/li&gt;

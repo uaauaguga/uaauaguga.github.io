@@ -25,7 +25,7 @@ categories: jekyll update
   - <https://github.com/BenLangmead/comp-genomics-class>
   - <https://github.com/BenLangmead/ads1-notebooks>
 - Tutorials on R
-  - https://compgenomr.github.io/book/
+  - <https://compgenomr.github.io/book/>
 - RNA-seq related
   - <https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html>
 
@@ -36,12 +36,12 @@ categories: jekyll update
 
 ### List of tools curated by others
 
-- https://github.com/xhqsm/best-of-bioinformatics
-- https://github.com/openbiox/awosome-bioinformatics
+- <https://github.com/xhqsm/best-of-bioinformatics>
+- <https://github.com/openbiox/awosome-bioinformatics>
 
 ### Bioconductor workflow packages
 
-- https://bioconductor.org/packages/3.12/workflows/
+- <https://www.bioconductor.org/packages/release/BiocViews.html#___Workflow>
 
 ### Tools
 
@@ -57,12 +57,12 @@ categories: jekyll update
     - A survey of best practices for RNA-seq data analysis <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8>
   - Chimeric RNA detection
       - 2019-Genome-Biology-Accuracy assessment of fusion transcript detection via read-mapping and de novo fusion transcript assembly-based methods
-      - https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1842-9
+      - <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1842-9>
   - Structural Variation calling from DNA-seq data
       - 2019-Genome-Biology-Comprehensive evaluation of structural variation detection algorithms for whole genome sequencing
-      - https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1720-5
+      - <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1720-5>
       - 2019-Nature-Communication-Comprehensive evaluation and characterisation of short read general-purpose structural variant calling software
-      - https://www.nature.com/articles/s41467-019-11146-4
+      - <https://www.nature.com/articles/s41467-019-11146-4>
   - Methylation analysis
 
 

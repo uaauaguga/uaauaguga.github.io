@@ -125,6 +125,13 @@ categories: jekyll update
   
   - Check this <https://metacpan.org/release/Bio-ViennaNGS>, seems not work for spliced gene
 
+
+
+### Liftover between different version of genome
+- [CrossMap](http://crossmap.sourceforge.net/)
+- [rtracklayer::liftOver](https://bioconductor.org/packages/release/workflows/vignettes/liftOver/inst/doc/liftov.html)
+
+
 ### Projection between genome coordinate and transcript coordinate
 
 - You have a list of genome interval, and gene model, you want to project the interval to the coordinate of transcript
@@ -151,6 +158,34 @@ categories: jekyll update
     names(gr) <- rep("AT1G01010.1",length(gr))
     mapToTranscripts(gr,tx.used)
 ```
+
+
+### Get CDS relative to transcript coordinate
+
+```R
+library(GenomicFeatures)
+gtf.path <- "annotation/gene-models/gtf/Arabidopsis_thaliana.TAIR10.46.gtf"
+txdb <- makeTxDbFromGFF(file=gtf.path,format="gtf")
+tx.utr5p <- fiveUTRsByTranscript(txdb,use.names=TRUE)
+tx.cds <- cdsBy(txdb,by="tx",use.names=TRUE)
+utr5p.lengths <- sum(width(tx.utr5p))
+cds.lengths <- sum(width(tx.cds))
+utr5p.add <- rep(0,length(tx.no5putr))
+tx.no5putr <- setdiff(names(cds.lengths),names(utr5p.lengths))
+names(utr5p.add) <- tx.no5putr
+utr5p.lengths <- c(utr5p.lengths,utr5p.add)
+utr5p.lengths <- utr5p.lengths[names(cds.lengths)]
+tx.coordinates <- data.frame(utr5p.lengths,cds.lengths)
+tx.coordinates[["utr5p-start"]] <- 0
+tx.coordinates[["utr5p-end"]] <- tx.coordinates[["utr5p.lengths"]]
+tx.coordinates[["cds-end"]] <- tx.coordinates[["utr5p.lengths"]] + tx.coordinates[["cds.lengths"]]
+utr5p <- tx.coordinates[,c("utr5p-start","utr5p-end")]
+utr5p <- utr5p[utr5p[["utr5p-end"]]>0,]
+write.table(utr5p,file="5putr.bed",sep="\t",quote = F, col.names = F)
+write.table(tx.coordinates[,c("utr5p-end","cds-end")],file="cds.bed",sep="\t",quote = F, col.names = F)
+
+```
+
 
 #### Useful tools and resource
 
@@ -226,3 +261,4 @@ write.table(gene.lengths,"gene.length.txt",col.name=F,quote=F,sep="\t")
   - [bx-python](https://github.com/bxlab/bx-python)
 - C++
   - [cgranges](https://github.com/lh3/cgranges)
+
