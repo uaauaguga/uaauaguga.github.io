@@ -9,6 +9,7 @@ categories: jekyll update
 - This post tries to **record** what I've **heard of** about the following questions. 
   - Use which aligner, which paramter, to which reference sequence
   - How to manipulate output of different aligners, or equivalently, how to manipulate bam files
+- 试图学会如何掉包
 - Note this field is developing rapidly, thing wrote here may quickly out of date
 
 
@@ -42,7 +43,8 @@ categories: jekyll update
 - Seems most project prefer map reads to genome, but some downstream analysis tools ([salmon](https://combine-lab.github.io/salmon/), [rsem](https://deweylab.github.io/RSEM/)) requires the reads to be aligned to transcriptome coordinate
 - [STAR](https://github.com/alexdobin/STAR) could direct project genome aligned reads to transcriptome coordinate
   
-  
+#### **Which sequence to add in reference**
+
   
 #### **Gapped alignment / Ungapped alignment**
 
