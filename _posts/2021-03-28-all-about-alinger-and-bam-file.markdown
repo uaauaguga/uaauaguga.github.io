@@ -9,7 +9,7 @@ categories: jekyll update
 - This post tries to **record** what I've **heard of** about the following questions. 
   - Use which aligner, which paramter, to which reference sequence
   - How to manipulate output of different aligners, or equivalently, how to manipulate bam files
-- 试图学会如何掉包
+- 学会调包
 - Note this field is developing rapidly, thing wrote here may quickly out of date
 
 
@@ -45,7 +45,7 @@ categories: jekyll update
   
 #### **Which sequence to add in reference**
 
-  
+
 #### **Gapped alignment / Ungapped alignment**
 
 - Whether the aligner allow deletions and insertions 
