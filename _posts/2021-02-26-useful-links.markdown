@@ -24,8 +24,10 @@ categories: jekyll update
   - <http://www.langmead-lab.org/teaching-materials/>
   - <https://github.com/BenLangmead/comp-genomics-class>
   - <https://github.com/BenLangmead/ads1-notebooks>
-- Tutorials on R
+- Tutorials
   - <https://compgenomr.github.io/book/>
+  - <http://genomicsclass.github.io/book/>
+  - https://bookdown.org/yihui/rmarkdown-cookbook/
 - RNA-seq related
   - <https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html>
 
@@ -42,11 +44,6 @@ categories: jekyll update
 ### Bioconductor workflow packages
 
 - <https://www.bioconductor.org/packages/release/BiocViews.html#___Workflow>
-
-### Tools
-
-  - Reads mapping
-  - Metagenomic classification
 
 ### Review/Benchmark study
   - Reads mapping
