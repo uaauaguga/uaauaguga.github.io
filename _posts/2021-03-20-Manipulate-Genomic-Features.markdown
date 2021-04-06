@@ -228,7 +228,13 @@ bedtools map -a interval.tosummarize.bed -b input.value.bed  -c 4 -o sum > outpu
 
 - Merge bed file
 
+```bash
+# Consider strandness
+sort -k1,1 -k2,2n ${input} | bedtools merge -s -c 6 -o distinct | awk 'BEGIN{OFS="\t";}{print $1,$2,$3,".",".",$4}' > ${output}
+```
+
 - Merge / reduce exon from different isoforms from a gene
+  
   - Get gene length for TPM or FPKM calculation (If you use tools like featureCount, gene length information is provided in the output)
 ```R
 #!/usr/bin/env Rscript
@@ -256,9 +262,56 @@ write.table(gene.lengths,"gene.length.txt",col.name=F,quote=F,sep="\t")
 
 - perl
   - [Set::IntervalTree](https://metacpan.org/pod/Set::IntervalTree)
+
+```perl
+#!/usr/bin/env perl
+use Set::IntervalTree;
+use Getopt::Long;
+
+GetOptions ("database=s" => \my $db_path,   
+            "query=s"   => \my $query_path)      
+or die("Error in parsing command line arguments\n");
+
+open(FDB,"<",$db_path) or die("Failed opening database file\n");
+open(FQUERY,"<",$query_path) or die("Failed opening query file\n");
+
+
+my $treedb = Set::IntervalTree->new;
+
+
+#print "Load database file ...\n";
+my $chr,$start,$end; #,$name;
+while(<FDB>){
+  chomp;
+  @fields = split "\t",$_;
+  $chr = $fields[0];
+  $start = $fields[1];
+  $end = $fields[2];
+  $treedb->insert($_."",$start,$end);
+}
+#print "Done .\n";
+
+
+while(<FQUERY>){
+  chomp;
+  @fields = split "\t",$_;
+  $start = $fields[1];
+  $end = $fields[2];
+  $entries = $treedb->fetch($start,$end);
+  for my $entry (@$entries){
+    print $entry,"\n";
+  }
+}
+
+close(FDB);
+close(FQUERY);
+```
+
 - python
+  - There are also interval tree implementations in python [intervaltree](https://github.com/chaimleib/intervaltree), not try yet
   - Seems [pyranges](https://github.com/biocore-ntnu/pyranges) is a good alternative in python 
   - [bx-python](https://github.com/bxlab/bx-python)
+
 - C++
   - [cgranges](https://github.com/lh3/cgranges)
 

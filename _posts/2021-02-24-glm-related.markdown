@@ -1,13 +1,15 @@
 ---
 layout: post
-title:  "Gamma Regression"
+title:  "Generalized Linear Model"
 date:   2021-02-24 12:24:31 +0800
 usemathjax: true
 categories: jekyll update
 ---
 
+### Beta regression
 
-## The parametrization of gamma distribution
+
+### The parametrization of gamma distribution
 - Gamma distribution commonly has two type of parametrization
   - Shape $$\alpha$$ and rate $$\beta$$
   - Shape $$k$$ and scale $$\theta$$
@@ -19,7 +21,7 @@ categories: jekyll update
 - MASS package provide more precised estimation of the fixed shape patrameter
   - <https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/gamma.shape.glm.html>
 
-### Simulate data
+#### Simulate data
 - In the following setting
   - fixed shape $$\alpha=2$$ 
   - intercept is 0.5

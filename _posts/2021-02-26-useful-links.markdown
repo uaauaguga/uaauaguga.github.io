@@ -27,6 +27,7 @@ categories: jekyll update
 - Tutorials
   - <https://compgenomr.github.io/book/>
   - <http://genomicsclass.github.io/book/>
+  - <https://biocellgen-public.svi.edu.au/mig_2019_scrnaseq-workshop/public/index.html>
   - https://bookdown.org/yihui/rmarkdown-cookbook/
 - RNA-seq related
   - <https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html>
@@ -52,6 +53,9 @@ categories: jekyll update
     - LEMMI: A continuous benchmarking platform for metagenomics classifiers <https://genome.cshlp.org/content/early/2020/07/01/gr.260398.119>
   - General RNA-seq analysis
     - A survey of best practices for RNA-seq data analysis <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8>
+  - Alternative splicing analysis
+        - Systematic evaluation of differential splicing tools for RNA-seq studies
+        - https://academic.oup.com/bib/article/21/6/2052/5648232
   - Chimeric RNA detection
       - 2019-Genome-Biology-Accuracy assessment of fusion transcript detection via read-mapping and de novo fusion transcript assembly-based methods
       - <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1842-9>

@@ -1,9 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-04T16:09:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Dive into RNA-seq Quantification</title><link href="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html" rel="alternate" type="text/html" title="Dive into RNA-seq Quantification" /><published>2021-03-31T07:05:55+08:00</published><updated>2021-03-31T07:05:55+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-04T23:01:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Dive into RNA-seq Quantification</title><link href="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html" rel="alternate" type="text/html" title="Dive into RNA-seq Quantification" /><published>2021-03-31T07:05:55+08:00</published><updated>2021-03-31T07:05:55+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html">&lt;ul&gt;
   &lt;li&gt;How to quantify RNA-seq data and perform differential analysis&lt;/li&gt;
   &lt;li&gt;Some strange phenomenon we may meet&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;expression-quantification&quot;&gt;Expression quantification&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reads mapping is not required for expression level quantification&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;duplication-handling&quot;&gt;Duplication handling&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Seems it has become a consensus that we’ve better not remove duplicated reads in RNA-seq when there is no UMI&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dnatech.genomecenter.ucdavis.edu/faqs/should-i-remove-pcr-duplicates-from-my-rna-seq-data/&quot;&gt;https://dnatech.genomecenter.ucdavis.edu/faqs/should-i-remove-pcr-duplicates-from-my-rna-seq-data/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.biostars.org/p/55648/&quot;&gt;https://www.biostars.org/p/55648/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;exon-level&quot;&gt;Exon level&lt;/h3&gt;
 
@@ -35,8 +46,6 @@
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&quot;duplication-handling&quot;&gt;Duplication handling&lt;/h3&gt;
 
 &lt;h3 id=&quot;normalization&quot;&gt;Normalization&lt;/h3&gt;
 
@@ -177,6 +186,7 @@ the overdispersion.&lt;/li&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;normal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tumor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patient.ids&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lapply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample.ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strsplit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]][&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]})))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# model.matrix is an R function&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# If you'd like to consider some batch effect, just add these factors to desig matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patient.ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -334,9 +344,24 @@ standard deviation divided by mean&lt;/li&gt;
 &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#deseq.res &amp;lt;-results(dds,contrast=c(&quot;tissue.types&quot;, &quot;tumor&quot;, &quot;normal&quot;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;data-tranformation-for-visualization-and-clustering&quot;&gt;Data Tranformation for visualization and clustering&lt;/h3&gt;
+&lt;h3 id=&quot;data-transformation-for-downstream-analysis&quot;&gt;Data Transformation for downstream analysis&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Data used for visualization and other down stream analysis can be quiet different from differential expression&lt;/li&gt;
+  &lt;li&gt;Downstream analysis
+    &lt;ul&gt;
+      &lt;li&gt;PCA&lt;/li&gt;
+      &lt;li&gt;heatmap&lt;/li&gt;
+      &lt;li&gt;clustering&lt;/li&gt;
+      &lt;li&gt;machine learning&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Data used for down stream analysis can be quiet different from differential expression&lt;/li&gt;
+  &lt;li&gt;Simplist solution might be &lt;code class=&quot;highlighter-rouge&quot;&gt;edgeR::cpm(y, log=TRUE, prior.count=1)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Things get more complicated when considering batch effect for task other than differential expression&lt;/li&gt;
+  &lt;li&gt;Further reading
+    &lt;ul&gt;
+      &lt;li&gt;Caveats for correcting for batch effect &lt;a href=&quot;https://academic.oup.com/biostatistics/article/17/1/29/1744261&quot;&gt;https://academic.oup.com/biostatistics/article/17/1/29/1744261&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
@@ -359,7 +384,7 @@ standard deviation divided by mean&lt;/li&gt;
       &lt;li&gt;How to manipulate output of different aligners, or equivalently, how to manipulate bam files&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;试图学会如何掉包&lt;/li&gt;
+  &lt;li&gt;学会调包&lt;/li&gt;
   &lt;li&gt;Note this field is developing rapidly, thing wrote here may quickly out of date&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -470,7 +495,7 @@ standard deviation divided by mean&lt;/li&gt;
       &lt;li&gt;See some discussion here &lt;a href=&quot;https://www.biostars.org/p/278412/&quot;&gt;https://www.biostars.org/p/278412/&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Singlton&lt;/li&gt;
+  &lt;li&gt;Singleton&lt;/li&gt;
   &lt;li&gt;Unmapped reads&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -494,7 +519,7 @@ standard deviation divided by mean&lt;/li&gt;
 
 &lt;h4 id=&quot;duplication-handling&quot;&gt;Duplication handling&lt;/h4&gt;
 
-&lt;h3 id=&quot;tools-for-handling-alignment-in-other-format&quot;&gt;Tools for handling alignment in other format&lt;/h3&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">This post tries to record what I’ve heard of about the following questions. Use which aligner, which paramter, to which reference sequence How to manipulate output of different aligners, or equivalently, how to manipulate bam files 试图学会如何掉包 Note this field is developing rapidly, thing wrote here may quickly out of date</summary></entry><entry><title type="html">Until The Light Take Me Away</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html" rel="alternate" type="text/html" title="Until The Light Take Me Away" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html">&lt;h2 id=&quot;my-mental-archive&quot;&gt;MY MENTAL ARCHIVE&lt;/h2&gt;
+&lt;h3 id=&quot;tools-for-handling-alignment-in-other-format&quot;&gt;Tools for handling alignment in other format&lt;/h3&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">This post tries to record what I’ve heard of about the following questions. Use which aligner, which paramter, to which reference sequence How to manipulate output of different aligners, or equivalently, how to manipulate bam files 学会调包 Note this field is developing rapidly, thing wrote here may quickly out of date</summary></entry><entry><title type="html">Until The Light Take Me Away</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html" rel="alternate" type="text/html" title="Until The Light Take Me Away" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html">&lt;h2 id=&quot;my-mental-archive&quot;&gt;MY MENTAL ARCHIVE&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&quot;&gt;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&lt;/a&gt;&lt;/li&gt;
@@ -903,11 +928,17 @@ bedtools map &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; interval.tosummari
 &lt;h4 id=&quot;take-union&quot;&gt;Take union&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Merge bed file&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Merge bed file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Consider strandness&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-k1&lt;/span&gt;,1 &lt;span class=&quot;nt&quot;&gt;-k2&lt;/span&gt;,2n &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; | bedtools merge &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; 6 &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; distinct | &lt;span class=&quot;nb&quot;&gt;awk&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'BEGIN{OFS=&quot;\t&quot;;}{print $1,$2,$3,&quot;.&quot;,&quot;.&quot;,$4}'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;Merge / reduce exon from different isoforms from a gene&lt;/p&gt;
+
     &lt;ul&gt;
       &lt;li&gt;Get gene length for TPM or FPKM calculation (If you use tools like featureCount, gene length information is provided in the output)
         &lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env Rscript&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -1474,6 +1505,7 @@ cost, defined as the accumulated cost of the basic edit operations.&lt;/li&gt;
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;https://compgenomr.github.io/book/&quot;&gt;https://compgenomr.github.io/book/&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;http://genomicsclass.github.io/book/&quot;&gt;http://genomicsclass.github.io/book/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://biocellgen-public.svi.edu.au/mig_2019_scrnaseq-workshop/public/index.html&quot;&gt;https://biocellgen-public.svi.edu.au/mig_2019_scrnaseq-workshop/public/index.html&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;https://bookdown.org/yihui/rmarkdown-cookbook/&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;

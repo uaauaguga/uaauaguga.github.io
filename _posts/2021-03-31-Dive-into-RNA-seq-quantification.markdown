@@ -11,6 +11,14 @@ categories: jekyll update
 
 ## Expression quantification
 
+- Reads mapping is not required for expression level quantification
+
+### Duplication handling
+- Seems it has become a consensus that we've better not remove duplicated reads in RNA-seq when there is no UMI
+- <https://dnatech.genomecenter.ucdavis.edu/faqs/should-i-remove-pcr-duplicates-from-my-rna-seq-data/>
+- <https://www.biostars.org/p/55648/>
+
+
 ### Exon level
 
 - Count directly
@@ -30,7 +38,6 @@ categories: jekyll update
 - Summarize estimated expression level at transcripts level to gene
   - [tximport](https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html) is very useful for such task
 
-### Duplication handling
 
 
 ### Normalization
@@ -159,6 +166,7 @@ tissue.types[grep("01A$",sample.ids)] <- "tumor"
 tissue.types <- factor(tissue.types,level=c("normal","tumor"))
 patient.ids <- factor(unlist(lapply(sample.ids,function(x){strsplit(x,"-")[[1]][3]})))
 # model.matrix is an R function
+# If you'd like to consider some batch effect, just add these factors to desig matrix
 design <- model.matrix(~tissue.types+patient.ids)
 ```
 
@@ -300,8 +308,17 @@ deseq.res <- results(dds,name="tissue.types_tumor_vs_normal")
 ```
 
 
-### Data Tranformation for visualization and clustering
-- Data used for visualization and other down stream analysis can be quiet different from differential expression
+### Data Transformation for downstream analysis
+- Downstream analysis
+  - PCA
+  - heatmap
+  - clustering
+  - machine learning
+- Data used for down stream analysis can be quiet different from differential expression
+- Simplist solution might be `edgeR::cpm(y, log=TRUE, prior.count=1)`
+- Things get more complicated when considering batch effect for task other than differential expression
+- Further reading
+  - Caveats for correcting for batch effect <https://academic.oup.com/biostatistics/article/17/1/29/1744261>
 
 ### Reference
 

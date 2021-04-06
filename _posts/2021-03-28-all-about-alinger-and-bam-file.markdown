@@ -84,7 +84,7 @@ categories: jekyll update
 #### **Paired end reads specific situation**
 - Discordant reads
   - See some discussion here <https://www.biostars.org/p/278412/>
-- Singlton
+- Singleton
 - Unmapped reads
 
 
