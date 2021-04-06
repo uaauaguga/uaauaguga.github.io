@@ -6,7 +6,14 @@ usemathjax: true
 categories: jekyll update
 ---
 
-### Beta regression
+## Modeling proportion/binary data
+
+### GLM for proportion/binary data
+- Logistic regression is binomial glm with logistic links
+- When to use binomial regression / quansi binomial regression / beta regression / beta binomial regression ?
+
+
+## Gamma regression
 
 
 ### The parametrization of gamma distribution

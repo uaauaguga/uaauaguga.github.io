@@ -262,6 +262,10 @@ write.table(gene.lengths,"gene.length.txt",col.name=F,quote=F,sep="\t")
 
 - perl
   - [Set::IntervalTree](https://metacpan.org/pod/Set::IntervalTree)
+  - Only implement interval tree,  should manually handle different chromosomes and strandness
+  - A example on without considering chromosomes and strandness
+
+
 
 ```perl
 #!/usr/bin/env perl
