@@ -8,9 +8,10 @@ categories: jekyll update
 
 ## Play with Genome annotation
 
-### Where to download genome annotation
+### Where to download genome annotation in gtf/gff
 
 - [Gencode](https://www.gencodegenes.org/)
+  - mice and human
 - [Ensembl](https://uswest.ensembl.org/info/about/species.html)
 
 ### Annotation resources in bioconductor
@@ -101,6 +102,22 @@ go.gene.list <- AnnotationDbi::mapIds(org.Hs.eg.db, keys=go.ids, column="ENTREZI
 ```
 
 - For enrichment of non-model organism, see [Annotationhub](https://bioconductor.org/packages/release/bioc/html/AnnotationHub.html)
+
+
+
+```R
+library(AnnotationDbi)
+library(AnnotationHub)
+hub <- AnnotationHub()
+# Query species you want 
+dm <- query(ah, c("cgriseus"))
+# Retrieve database from dm object with its id
+org.cgriseus.db <- hub[["AH70586"]]
+# THen simply replace org.Hs.eg.db with your database for retrieve go term
+```
+
+
+
 - This [this post](https://guangchuangyu.github.io/cn/2017/07/clusterprofiler-maize/) for further reading
 
 ### Softwares and tools for enrichment analysis

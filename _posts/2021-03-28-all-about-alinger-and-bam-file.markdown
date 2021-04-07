@@ -105,6 +105,22 @@ categories: jekyll update
 
 #### Duplication handling
 
+- For different task, duplication should be ideally handled in different ways
+  - UMI is always favorable
+  - In RNA-seq for gene expression quantification, better not remove duplicate is UMI is not present, see [here]({% post_url 2021-03-31-Dive-into-RNA-seq-quantification %}) for detail
+  - For CLIP-seq, remember to collapse duplicate before peak calling
+
+- Tools
+  - Picard Markduplicates
+  - samtools rmdup
+    - See following posts for differences between samtools rmdup and picard
+      - http://broadinstitute.github.io/picard/faq.html
+        - samtools rmdup do not remove interchromosomal duplicates
+      - http://www.bio-info-trainee.com/2003.html
+  - [samblaster](https://github.com/GregoryFaust/samblaster)
+    - https://academic.oup.com/bioinformatics/article/30/17/2503/2748175
+  - [sambamba](https://lomereiter.github.io/sambamba/index.html)
+
 
 ### Tools for handling alignment in other format
 

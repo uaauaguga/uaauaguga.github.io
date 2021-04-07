@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-04T23:01:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Dive into RNA-seq Quantification</title><link href="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html" rel="alternate" type="text/html" title="Dive into RNA-seq Quantification" /><published>2021-03-31T07:05:55+08:00</published><updated>2021-03-31T07:05:55+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-07T10:51:25+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Algorithms on Strings / Biological sequence</title><link href="http://localhost:4000/jekyll/update/2021/04/06/Algorithm-on-String.html" rel="alternate" type="text/html" title="Algorithms on Strings / Biological sequence" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/Algorithm-on-String</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/Algorithm-on-String.html">&lt;ul&gt;
+  &lt;li&gt;Notes for algorithms on string&lt;/li&gt;
+  &lt;li&gt;Exact matching&lt;/li&gt;
+  &lt;li&gt;Global alignment and local alignment&lt;/li&gt;
+  &lt;li&gt;Several examples of dynamic programming&lt;/li&gt;
+  &lt;li&gt;minhash&lt;/li&gt;
+  &lt;li&gt;bloom filter&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Notes for algorithms on string Exact matching Global alignment and local alignment Several examples of dynamic programming minhash bloom filter</summary></entry><entry><title type="html">Dive into RNA-seq Quantification</title><link href="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html" rel="alternate" type="text/html" title="Dive into RNA-seq Quantification" /><published>2021-03-31T07:05:55+08:00</published><updated>2021-03-31T07:05:55+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html">&lt;ul&gt;
   &lt;li&gt;How to quantify RNA-seq data and perform differential analysis&lt;/li&gt;
   &lt;li&gt;Some strange phenomenon we may meet&lt;/li&gt;
 &lt;/ul&gt;
@@ -519,16 +526,55 @@ standard deviation divided by mean&lt;/li&gt;
 
 &lt;h4 id=&quot;duplication-handling&quot;&gt;Duplication handling&lt;/h4&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;For different task, duplication should be ideally handled in different ways
+    &lt;ul&gt;
+      &lt;li&gt;UMI is always favorable&lt;/li&gt;
+      &lt;li&gt;In RNA-seq for gene expression quantification, better not remove duplicate is UMI is not present, see &lt;a href=&quot;/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html&quot;&gt;here&lt;/a&gt; for detail&lt;/li&gt;
+      &lt;li&gt;For CLIP-seq, remember to collapse duplicate before peak calling&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Tools
+    &lt;ul&gt;
+      &lt;li&gt;Picard Markduplicates&lt;/li&gt;
+      &lt;li&gt;samtools rmdup
+        &lt;ul&gt;
+          &lt;li&gt;See following posts for differences between samtools rmdup and picard
+            &lt;ul&gt;
+              &lt;li&gt;http://broadinstitute.github.io/picard/faq.html
+                &lt;ul&gt;
+                  &lt;li&gt;samtools rmdup do not remove interchromosomal duplicates&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+              &lt;li&gt;http://www.bio-info-trainee.com/2003.html&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/GregoryFaust/samblaster&quot;&gt;samblaster&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;https://academic.oup.com/bioinformatics/article/30/17/2503/2748175&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://lomereiter.github.io/sambamba/index.html&quot;&gt;sambamba&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;tools-for-handling-alignment-in-other-format&quot;&gt;Tools for handling alignment in other format&lt;/h3&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">This post tries to record what I’ve heard of about the following questions. Use which aligner, which paramter, to which reference sequence How to manipulate output of different aligners, or equivalently, how to manipulate bam files 学会调包 Note this field is developing rapidly, thing wrote here may quickly out of date</summary></entry><entry><title type="html">Until The Light Take Me Away</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html" rel="alternate" type="text/html" title="Until The Light Take Me Away" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html">&lt;h2 id=&quot;my-mental-archive&quot;&gt;MY MENTAL ARCHIVE&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&quot;&gt;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">MY MENTAL ARCHIVE</summary></entry><entry><title type="html">Get Annotations</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Get-Annotation.html" rel="alternate" type="text/html" title="Get Annotations" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Get-Annotation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Get-Annotation.html">&lt;h2 id=&quot;play-with-genome-annotation&quot;&gt;Play with Genome annotation&lt;/h2&gt;
 
-&lt;h3 id=&quot;where-to-download-genome-annotation&quot;&gt;Where to download genome annotation&lt;/h3&gt;
+&lt;h3 id=&quot;where-to-download-genome-annotation-in-gtfgff&quot;&gt;Where to download genome annotation in gtf/gff&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.gencodegenes.org/&quot;&gt;Gencode&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gencodegenes.org/&quot;&gt;Gencode&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;mice and human&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://uswest.ensembl.org/info/about/species.html&quot;&gt;Ensembl&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -631,6 +677,19 @@ standard deviation divided by mean&lt;/li&gt;
 
 &lt;ul&gt;
   &lt;li&gt;For enrichment of non-model organism, see &lt;a href=&quot;https://bioconductor.org/packages/release/bioc/html/AnnotationHub.html&quot;&gt;Annotationhub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AnnotationDbi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AnnotationHub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hub&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AnnotationHub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Query species you want &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dm&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ah&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;cgriseus&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Retrieve database from dm object with its id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org.cgriseus.db&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AH70586&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# THen simply replace org.Hs.eg.db with your database for retrieve go term&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
   &lt;li&gt;This &lt;a href=&quot;https://guangchuangyu.github.io/cn/2017/07/clusterprofiler-maize/&quot;&gt;this post&lt;/a&gt; for further reading&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -976,10 +1035,59 @@ bedtools map &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; interval.tosummari
   &lt;li&gt;perl
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;https://metacpan.org/pod/Set::IntervalTree&quot;&gt;Set::IntervalTree&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Only implement interval tree,  should manually handle different chromosomes and strandness&lt;/li&gt;
+      &lt;li&gt;A example on without considering chromosomes and strandness&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-perl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env perl&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Set::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;IntervalTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Getopt::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;GetOptions&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;database=s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$db_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   
+            &lt;span class=&quot;p&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;query=s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$query_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      
+&lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Error in parsing command line arguments&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;);&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;FDB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$db_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Failed opening database file&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;FQUERY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$query_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Failed opening query file&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;);&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$treedb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Set::&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;IntervalTree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;#print &quot;Load database file ...\n&quot;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$chr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#,$name;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;FDB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;chomp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;@fields&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$chr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$fields&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$fields&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$fields&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$treedb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;insert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;&quot;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#print &quot;Done .\n&quot;;&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;FQUERY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;chomp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;@fields&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$start&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$fields&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$end&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$fields&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$entries&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$treedb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;my&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;@$entries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$entry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&quot;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;FDB&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;FQUERY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
   &lt;li&gt;python
     &lt;ul&gt;
+      &lt;li&gt;There are also interval tree implementations in python &lt;a href=&quot;https://github.com/chaimleib/intervaltree&quot;&gt;intervaltree&lt;/a&gt;, not try yet&lt;/li&gt;
       &lt;li&gt;Seems &lt;a href=&quot;https://github.com/biocore-ntnu/pyranges&quot;&gt;pyranges&lt;/a&gt; is a good alternative in python&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/bxlab/bx-python&quot;&gt;bx-python&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
@@ -1478,108 +1586,4 @@ cost, defined as the accumulated cost of the basic edit operations.&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html&quot;&gt;https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://home.cse.ust.hk/~dekai/271/notes/L03/L03.pdf&quot;&gt;http://home.cse.ust.hk/~dekai/271/notes/L03/L03.pdf&lt;/a&gt; polynomial multiplication and convolution&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/1603.07285.pdf&quot;&gt;https://arxiv.org/pdf/1603.07285.pdf&lt;/a&gt; A guide to convolution arithmetic for deep learning&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Convolution Operation in Python</summary></entry><entry><title type="html">Useful Links</title><link href="http://localhost:4000/jekyll/update/2021/02/26/useful-links.html" rel="alternate" type="text/html" title="Useful Links" /><published>2021-02-26T12:32:11+08:00</published><updated>2021-02-26T12:32:11+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/26/useful-links</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/26/useful-links.html">&lt;h2 id=&quot;under-consistent-updating-&quot;&gt;Under consistent updating …&lt;/h2&gt;
-
-&lt;h2 id=&quot;bioinformatics-related-journals&quot;&gt;Bioinformatics Related Journals&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://genomebiology.biomedcentral.com/articles&quot;&gt;Genome Biology&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://academic.oup.com/bioinformatics&quot;&gt;Bioinformatics&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://academic.oup.com/nar&quot;&gt;Nucleic Acids Research&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://academic.oup.com/bib&quot;&gt;Briefings in Bioinformatics&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://genome.cshlp.org/content/current&quot;&gt;Genome Research&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.nature.com/subjects/biological-sciences/ncomms&quot;&gt;Nature Communication&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.nature.com/nbt/&quot;&gt;Nature Biotechnology&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.cell.com/cell-systems/home&quot;&gt;Cell Systems&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;tutorials-and-lectures-materials&quot;&gt;Tutorials and Lectures materials&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Notes by Ben Langmead lab
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;http://www.langmead-lab.org/teaching-materials/&quot;&gt;http://www.langmead-lab.org/teaching-materials/&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/BenLangmead/comp-genomics-class&quot;&gt;https://github.com/BenLangmead/comp-genomics-class&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/BenLangmead/ads1-notebooks&quot;&gt;https://github.com/BenLangmead/ads1-notebooks&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Tutorials
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://compgenomr.github.io/book/&quot;&gt;https://compgenomr.github.io/book/&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;http://genomicsclass.github.io/book/&quot;&gt;http://genomicsclass.github.io/book/&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://biocellgen-public.svi.edu.au/mig_2019_scrnaseq-workshop/public/index.html&quot;&gt;https://biocellgen-public.svi.edu.au/mig_2019_scrnaseq-workshop/public/index.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;https://bookdown.org/yihui/rmarkdown-cookbook/&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;RNA-seq related
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html&quot;&gt;https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;softwarestools&quot;&gt;Softwares/tools&lt;/h2&gt;
-
-&lt;h3 id=&quot;useful-links&quot;&gt;Useful links&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;JHU’s software list &lt;a href=&quot;https://ccb.jhu.edu/software.shtml&quot;&gt;https://ccb.jhu.edu/software.shtml&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;list-of-tools-curated-by-others&quot;&gt;List of tools curated by others&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/xhqsm/best-of-bioinformatics&quot;&gt;https://github.com/xhqsm/best-of-bioinformatics&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/openbiox/awosome-bioinformatics&quot;&gt;https://github.com/openbiox/awosome-bioinformatics&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;bioconductor-workflow-packages&quot;&gt;Bioconductor workflow packages&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.bioconductor.org/packages/release/BiocViews.html#___Workflow&quot;&gt;https://www.bioconductor.org/packages/release/BiocViews.html#___Workflow&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reviewbenchmark-study&quot;&gt;Review/Benchmark study&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Reads mapping
-    &lt;ul&gt;
-      &lt;li&gt;Simulation-based comprehensive benchmarking of RNA-seq aligners &lt;a href=&quot;https://www.nature.com/articles/nmeth.4106&quot;&gt;https://www.nature.com/articles/nmeth.4106&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Metagenomics classification
-    &lt;ul&gt;
-      &lt;li&gt;LEMMI: A continuous benchmarking platform for metagenomics classifiers &lt;a href=&quot;https://genome.cshlp.org/content/early/2020/07/01/gr.260398.119&quot;&gt;https://genome.cshlp.org/content/early/2020/07/01/gr.260398.119&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;General RNA-seq analysis
-    &lt;ul&gt;
-      &lt;li&gt;A survey of best practices for RNA-seq data analysis &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8&quot;&gt;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0881-8&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Chimeric RNA detection
-    &lt;ul&gt;
-      &lt;li&gt;2019-Genome-Biology-Accuracy assessment of fusion transcript detection via read-mapping and de novo fusion transcript assembly-based methods&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1842-9&quot;&gt;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1842-9&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Structural Variation calling from DNA-seq data
-    &lt;ul&gt;
-      &lt;li&gt;2019-Genome-Biology-Comprehensive evaluation of structural variation detection algorithms for whole genome sequencing&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1720-5&quot;&gt;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1720-5&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;2019-Nature-Communication-Comprehensive evaluation and characterisation of short read general-purpose structural variant calling software&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://www.nature.com/articles/s41467-019-11146-4&quot;&gt;https://www.nature.com/articles/s41467-019-11146-4&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Methylation analysis&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;data-resources&quot;&gt;Data Resources&lt;/h2&gt;
-
-&lt;h3 id=&quot;reference-sequence-and-annotation&quot;&gt;Reference sequence and annotation&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://hgdownload.soe.ucsc.edu/downloads.html&quot;&gt;https://hgdownload.soe.ucsc.edu/downloads.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://uswest.ensembl.org/info/data/ftp/index.html&quot;&gt;https://uswest.ensembl.org/info/data/ftp/index.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.gencodegenes.org/&quot;&gt;https://www.gencodegenes.org/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;datasets&quot;&gt;Datasets&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/geo/&quot;&gt;GEO&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Under consistent updating …</summary></entry></feed>
+&lt;/ol&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Convolution Operation in Python</summary></entry></feed>
