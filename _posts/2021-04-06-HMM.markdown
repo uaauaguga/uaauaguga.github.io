@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "Topics on Hidden Markov Model"
+date:   2021-04-06 20:35:58 +0800
+usemathjax: true
+categories: jekyll update
+---
+

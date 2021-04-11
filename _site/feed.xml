@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-07T10:51:25+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Algorithms on Strings / Biological sequence</title><link href="http://localhost:4000/jekyll/update/2021/04/06/Algorithm-on-String.html" rel="alternate" type="text/html" title="Algorithms on Strings / Biological sequence" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/Algorithm-on-String</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/Algorithm-on-String.html">&lt;ul&gt;
-  &lt;li&gt;Notes for algorithms on string&lt;/li&gt;
-  &lt;li&gt;Exact matching&lt;/li&gt;
-  &lt;li&gt;Global alignment and local alignment&lt;/li&gt;
-  &lt;li&gt;Several examples of dynamic programming&lt;/li&gt;
-  &lt;li&gt;minhash&lt;/li&gt;
-  &lt;li&gt;bloom filter&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Notes for algorithms on string Exact matching Global alignment and local alignment Several examples of dynamic programming minhash bloom filter</summary></entry><entry><title type="html">Dive into RNA-seq Quantification</title><link href="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html" rel="alternate" type="text/html" title="Dive into RNA-seq Quantification" /><published>2021-03-31T07:05:55+08:00</published><updated>2021-03-31T07:05:55+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-11T10:42:16+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Topics on Hidden Markov Model</title><link href="http://localhost:4000/jekyll/update/2021/04/06/HMM.html" rel="alternate" type="text/html" title="Topics on Hidden Markov Model" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/HMM</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/HMM.html"></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Choose Colors for Scientific Data Visualization</title><link href="http://localhost:4000/jekyll/update/2021/04/06/choose-your-color-schema.html" rel="alternate" type="text/html" title="Choose Colors for Scientific Data Visualization" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/choose-your-color-schema</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/choose-your-color-schema.html"></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Data Visualization in R</title><link href="http://localhost:4000/jekyll/update/2021/04/06/grid-model-in-R.html" rel="alternate" type="text/html" title="Data Visualization in R" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/grid-model-in-R</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/grid-model-in-R.html">&lt;ul&gt;
+  &lt;li&gt;The grid system in R - draw any thing you want&lt;/li&gt;
+  &lt;li&gt;Packages may useful for visualization, ggplot2, lattice, and others&lt;/li&gt;
+  &lt;li&gt;Recreation of potentially useful figures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;useful-links&quot;&gt;Useful links&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.r-graph-gallery.com/&quot;&gt;https://www.r-graph-gallery.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">The grid system in R - draw any thing you want Packages may useful for visualization, ggplot2, lattice, and others Recreation of potentially useful figures</summary></entry><entry><title type="html">Dive into RNA-seq Quantification</title><link href="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html" rel="alternate" type="text/html" title="Dive into RNA-seq Quantification" /><published>2021-03-31T07:05:55+08:00</published><updated>2021-03-31T07:05:55+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html">&lt;ul&gt;
   &lt;li&gt;How to quantify RNA-seq data and perform differential analysis&lt;/li&gt;
   &lt;li&gt;Some strange phenomenon we may meet&lt;/li&gt;
 &lt;/ul&gt;
@@ -387,7 +389,7 @@ standard deviation divided by mean&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">How to quantify RNA-seq data and perform differential analysis Some strange phenomenon we may meet</summary></entry><entry><title type="html">Aligners and Output Formatting</title><link href="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html" rel="alternate" type="text/html" title="Aligners and Output Formatting" /><published>2021-03-28T11:18:15+08:00</published><updated>2021-03-28T11:18:15+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html">&lt;ul&gt;
   &lt;li&gt;This post tries to &lt;strong&gt;record&lt;/strong&gt; what I’ve &lt;strong&gt;heard of&lt;/strong&gt; about the following questions.
     &lt;ul&gt;
-      &lt;li&gt;Use which aligner, which paramter, to which reference sequence&lt;/li&gt;
+      &lt;li&gt;Use which aligner, which parameter, to what reference sequence, to map what data&lt;/li&gt;
       &lt;li&gt;How to manipulate output of different aligners, or equivalently, how to manipulate bam files&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
@@ -432,8 +434,28 @@ standard deviation divided by mean&lt;/li&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;reference-and-parameters&quot;&gt;Reference and parameters&lt;/h2&gt;
+&lt;h2 id=&quot;short-reads-mapping-reference-and-parameters&quot;&gt;Short reads mapping: reference and parameters&lt;/h2&gt;
+
+&lt;h3 id=&quot;reads-preprocessing&quot;&gt;Reads preprocessing&lt;/h3&gt;
+&lt;h4 id=&quot;adaptor-trimming--quality-trimming&quot;&gt;Adaptor trimming / quality trimming&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;If you perform global alignment, then adapter trimming is required
+    &lt;h4 id=&quot;duplication-removal--umi-handling&quot;&gt;Duplication removal / UMI handling&lt;/h4&gt;
+  &lt;/li&gt;
+  &lt;li&gt;You may remove PCR duplicates before alignment or after alignment
+    &lt;ul&gt;
+      &lt;li&gt;Pros: reduce computational burden in reads mapping.&lt;/li&gt;
+      &lt;li&gt;Cons: less flexible
+        &lt;ul&gt;
+          &lt;li&gt;post alignment duplication removal allows “mark duplicates” instead of “remove duplicates”&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;short-read-aligners&quot;&gt;Short read aligners&lt;/h3&gt;
+
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;What short read aligners do is actually assign some annotations to each reads, that is which segment of the reads are assigned to which location of the genome in which form&lt;/p&gt;
@@ -450,6 +472,9 @@ standard deviation divided by mean&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;which-sequence-to-add-in-reference&quot;&gt;&lt;strong&gt;Which sequence to add in reference&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Impact of haplotype and decoy sequences&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h4 id=&quot;gapped-alignment--ungapped-alignment&quot;&gt;&lt;strong&gt;Gapped alignment / Ungapped alignment&lt;/strong&gt;&lt;/h4&gt;
 
@@ -530,6 +555,7 @@ standard deviation divided by mean&lt;/li&gt;
   &lt;li&gt;For different task, duplication should be ideally handled in different ways
     &lt;ul&gt;
       &lt;li&gt;UMI is always favorable&lt;/li&gt;
+      &lt;li&gt;Single end data and paired end data&lt;/li&gt;
       &lt;li&gt;In RNA-seq for gene expression quantification, better not remove duplicate is UMI is not present, see &lt;a href=&quot;/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html&quot;&gt;here&lt;/a&gt; for detail&lt;/li&gt;
       &lt;li&gt;For CLIP-seq, remember to collapse duplicate before peak calling&lt;/li&gt;
     &lt;/ul&gt;
@@ -561,11 +587,7 @@ standard deviation divided by mean&lt;/li&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;tools-for-handling-alignment-in-other-format&quot;&gt;Tools for handling alignment in other format&lt;/h3&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">This post tries to record what I’ve heard of about the following questions. Use which aligner, which paramter, to which reference sequence How to manipulate output of different aligners, or equivalently, how to manipulate bam files 学会调包 Note this field is developing rapidly, thing wrote here may quickly out of date</summary></entry><entry><title type="html">Until The Light Take Me Away</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html" rel="alternate" type="text/html" title="Until The Light Take Me Away" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Until-the-light-take-me-away.html">&lt;h2 id=&quot;my-mental-archive&quot;&gt;MY MENTAL ARCHIVE&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&quot;&gt;https://dopaminecn.bandcamp.com/album/dying-away-in-the-deep-fall-instrumental-edition&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">MY MENTAL ARCHIVE</summary></entry><entry><title type="html">Get Annotations</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Get-Annotation.html" rel="alternate" type="text/html" title="Get Annotations" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Get-Annotation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Get-Annotation.html">&lt;h2 id=&quot;play-with-genome-annotation&quot;&gt;Play with Genome annotation&lt;/h2&gt;
+&lt;h3 id=&quot;tools-for-handling-alignment-in-other-format&quot;&gt;Tools for handling alignment in other format&lt;/h3&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">This post tries to record what I’ve heard of about the following questions. Use which aligner, which parameter, to what reference sequence, to map what data How to manipulate output of different aligners, or equivalently, how to manipulate bam files 学会调包 Note this field is developing rapidly, thing wrote here may quickly out of date</summary></entry><entry><title type="html">Get Annotations</title><link href="http://localhost:4000/jekyll/update/2021/03/25/Get-Annotation.html" rel="alternate" type="text/html" title="Get Annotations" /><published>2021-03-25T22:47:20+08:00</published><updated>2021-03-25T22:47:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/25/Get-Annotation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/25/Get-Annotation.html">&lt;h2 id=&quot;play-with-genome-annotation&quot;&gt;Play with Genome annotation&lt;/h2&gt;
 
 &lt;h3 id=&quot;where-to-download-genome-annotation-in-gtfgff&quot;&gt;Where to download genome annotation in gtf/gff&lt;/h3&gt;
 
@@ -1466,124 +1488,4 @@ cost, defined as the accumulated cost of the basic edit operations.&lt;/li&gt;
 &lt;h3 id=&quot;tracking-clonal-evolution-of-tumor-cells&quot;&gt;Tracking clonal evolution of tumor cells&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Detecting evolutionary patterns of cancers using consensus trees &lt;a href=&quot;https://doi.org/10.1093/bioinformatics/btaa801&quot;&gt;https://doi.org/10.1093/bioinformatics/btaa801&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Tree Comparisons</summary></entry><entry><title type="html">Convolutions In Python</title><link href="http://localhost:4000/jekyll/update/2021/02/27/understanding-convolution.html" rel="alternate" type="text/html" title="Convolutions In Python" /><published>2021-02-27T12:33:15+08:00</published><updated>2021-02-27T12:33:15+08:00</updated><id>http://localhost:4000/jekyll/update/2021/02/27/understanding-convolution</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/02/27/understanding-convolution.html">&lt;h2 id=&quot;convolution-operation-in-python&quot;&gt;Convolution Operation in Python&lt;/h2&gt;
-
-&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Continuous case:&lt;/p&gt;
-
-\[(f*g)(t) := \int_{-\infty}^{\infty}f(\tau)g(t-\tau)d\tau = \int_{-\infty}^{\infty}f(t-\tau)g(\tau)d\tau\]
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Discrete case&lt;/p&gt;
-
-\[(f*g)[n]:=\sum_{m=-\infty}^{\infty}f[m]g[n-m]=\sum_{m=-\infty}^{\infty}f[n-m]g[m]\]
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Relation to polynomial multiplication&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;We have:&lt;/p&gt;
-
-\[\begin{align*}
- &amp;amp;(1+2x+3x^2)(3+2x+2x^2) \\
-=&amp;amp; 3(1+2x+3x^2) + 2x(1+2x+3x^2) + 2x^2(1+2x+3x^2) \\
-=&amp;amp; 3 + (3*2+2)x + (3*3+2*2+2)x^2 + (2*3+2*2)x^3 + 2*3x^4 \\
-=&amp;amp; 3 + 8x + 15x^2 + 10x^3 + 6x^4
-\end{align*}\]
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#array([ 3,  8, 15, 10,  6])
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Polynomial multiplication is equivalent to convolution of their coefficients …&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Relation to  cross correlation&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;Cross correlation is defined as&lt;/p&gt;
-
-\[(f*g)(t):=\int_{-\infty}^{\infty}\overline{f(\tau)}g(t+\tau)d\tau \\\]
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;\(\overline{f(t)}\) is complex conjugate of \(f(t)\)&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;Cross correlation of \(f(t)\) and \(g(t)\) is equivalent to convolution of \(\overline{f(-t)}\) and \(g(t)\)&lt;/p&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;implementations&quot;&gt;Implementations&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;numpy.convolve&lt;/code&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;## https://numpy.org/doc/stable/reference/generated/numpy.convolve.html
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;full&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#array([0. , 1. , 2.5, 4. , 1.5]) N+M-1
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;same&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#array([1. , 2.5, 4. ]) max(M, N)
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;convolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;valid&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#array([2.5]) max(M, N) - min(M, N) + 1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scipy.signal.convolve&lt;/code&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Similar to numpy&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scipy.signal.convolve2d&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;scipy.signal.fftconvolve&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A naive toy implementation for the “valid” mode convolution and cross correlation&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Reverse the kernel, sliding and get inner products&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;convolution&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-          
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;crosscorrelation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;applications&quot;&gt;Applications&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Smoothing with a moving average kernel&lt;/li&gt;
-  &lt;li&gt;Image processing&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Convolution&quot;&gt;https://en.wikipedia.org/wiki/Convolution&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Cross-correlation&quot;&gt;https://en.wikipedia.org/wiki/Cross-correlation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.convolve.html&quot;&gt;https://numpy.org/doc/stable/reference/generated/numpy.convolve.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html&quot;&gt;https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://home.cse.ust.hk/~dekai/271/notes/L03/L03.pdf&quot;&gt;http://home.cse.ust.hk/~dekai/271/notes/L03/L03.pdf&lt;/a&gt; polynomial multiplication and convolution&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/1603.07285.pdf&quot;&gt;https://arxiv.org/pdf/1603.07285.pdf&lt;/a&gt; A guide to convolution arithmetic for deep learning&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Convolution Operation in Python</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Tree Comparisons</summary></entry></feed>

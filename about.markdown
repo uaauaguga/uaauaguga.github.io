@@ -4,5 +4,4 @@ title: About
 permalink: /about/
 ---
 
-## I'm nobody
-## This blog is powered by jekyll minima
+- I'm nobody. I'm glad if you think posts in this site contain anything helpful ...

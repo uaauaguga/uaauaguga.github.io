@@ -25,12 +25,16 @@ categories: jekyll update
   - <https://github.com/BenLangmead/comp-genomics-class>
   - <https://github.com/BenLangmead/ads1-notebooks>
 - Tutorials
-  - <https://compgenomr.github.io/book/>
-  - <http://genomicsclass.github.io/book/>
-  - <https://biocellgen-public.svi.edu.au/mig_2019_scrnaseq-workshop/public/index.html>
-  - https://bookdown.org/yihui/rmarkdown-cookbook/
-- RNA-seq related
-  - <https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html>
+  - Computational Genomics and sequence analysis
+    - <https://compgenomr.github.io/book/>
+  - Genomic data analysis
+    - <http://genomicsclass.github.io/book/>
+    - <https://liulab-dfci.github.io/bioinfo-combio/>
+    - <https://biocellgen-public.svi.edu.au/mig_2019_scrnaseq-workshop/public/index.html>
+  - R programming related
+    - <https://adv-r.hadley.nz/>
+    - <https://bookdown.org/yihui/rmarkdown-cookbook/>
+    - <https://bookdown.org/rdpeng/RProgDA/>
 
 ## Softwares/tools
 

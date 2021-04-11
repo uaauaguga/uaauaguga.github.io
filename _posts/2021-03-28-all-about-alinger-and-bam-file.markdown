@@ -7,7 +7,7 @@ categories: jekyll update
 ---
 
 - This post tries to **record** what I've **heard of** about the following questions. 
-  - Use which aligner, which paramter, to which reference sequence
+  - Use which aligner, which parameter, to what reference sequence, to map what data
   - How to manipulate output of different aligners, or equivalently, how to manipulate bam files
 - 学会调包
 - Note this field is developing rapidly, thing wrote here may quickly out of date
@@ -31,19 +31,31 @@ categories: jekyll update
   - [MUMmer](http://mummer.sourceforge.net/)
 
 
-## Reference and parameters
+
+## Short reads mapping: reference and parameters
+
+### Reads preprocessing
+#### Adaptor trimming / quality trimming
+- If you perform global alignment, then adapter trimming is required
+#### Duplication removal / UMI handling
+- You may remove PCR duplicates before alignment or after alignment
+  - Pros: reduce computational burden in reads mapping.
+  - Cons: less flexible
+    - post alignment duplication removal allows "mark duplicates" instead of "remove duplicates"
+
 ### Short read aligners
+
 - What short read aligners do is actually assign some annotations to each reads, that is which segment of the reads are assigned to which location of the genome in which form
 
 - In different aligner, same thing may have different name
 
-  
 
 #### **Map to genome / map to transcriptome**
 - Seems most project prefer map reads to genome, but some downstream analysis tools ([salmon](https://combine-lab.github.io/salmon/), [rsem](https://deweylab.github.io/RSEM/)) requires the reads to be aligned to transcriptome coordinate
 - [STAR](https://github.com/alexdobin/STAR) could direct project genome aligned reads to transcriptome coordinate
   
 #### **Which sequence to add in reference**
+- Impact of haplotype and decoy sequences
 
 
 #### **Gapped alignment / Ungapped alignment**
@@ -107,6 +119,7 @@ categories: jekyll update
 
 - For different task, duplication should be ideally handled in different ways
   - UMI is always favorable
+  - Single end data and paired end data
   - In RNA-seq for gene expression quantification, better not remove duplicate is UMI is not present, see [here]({% post_url 2021-03-31-Dive-into-RNA-seq-quantification %}) for detail
   - For CLIP-seq, remember to collapse duplicate before peak calling
 
