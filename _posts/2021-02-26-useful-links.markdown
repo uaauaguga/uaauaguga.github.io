@@ -17,6 +17,8 @@ categories: jekyll update
 - [Nature Communication](https://www.nature.com/subjects/biological-sciences/ncomms)
 - [Nature Biotechnology](https://www.nature.com/nbt/)
 - [Cell Systems](https://www.cell.com/cell-systems/home)
+- [Nature Method](https://www.nature.com/nmeth/)
+- [Plos Computational Biology](https://journals.plos.org/ploscompbiol/)
 
 
 ## Tutorials and Lectures materials
@@ -25,7 +27,7 @@ categories: jekyll update
   - <https://github.com/BenLangmead/comp-genomics-class>
   - <https://github.com/BenLangmead/ads1-notebooks>
 - Tutorials
-  - Computational Genomics and sequence analysis
+  - Computational Genomics
     - <https://compgenomr.github.io/book/>
   - Genomic data analysis
     - <http://genomicsclass.github.io/book/>
