@@ -107,7 +107,7 @@ colorsys.hsv_to_rgb(0.5, 0.5, 0.4)
   - "`BrBG` and `RdBu` are good options. `coolwarm` is a good option, but it doesn't span a wide range of L values"
 
 ### python examples
-- See this [notebook]({{ site.baseurl }}{% link notebooks/palettes-in-python.ipynb %})
+- See this [notebook](https://github.com/uaauaguga/uaauaguga.github.io/blob/master/notebooks/palettes-in-python.ipynb)
 
 
 
