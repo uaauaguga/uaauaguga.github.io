@@ -1,15 +1,164 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-11T11:01:28+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Topics on Hidden Markov Model</title><link href="http://localhost:4000/jekyll/update/2021/04/06/HMM.html" rel="alternate" type="text/html" title="Topics on Hidden Markov Model" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/HMM</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/HMM.html"></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Choose Colors for Scientific Data Visualization</title><link href="http://localhost:4000/jekyll/update/2021/04/06/choose-your-color-schema.html" rel="alternate" type="text/html" title="Choose Colors for Scientific Data Visualization" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/choose-your-color-schema</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/choose-your-color-schema.html">&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
-&lt;h3 id=&quot;r-packages&quot;&gt;R packages&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-12T12:27:46+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Topics on Hidden Markov Model</title><link href="http://localhost:4000/jekyll/update/2021/04/06/HMM.html" rel="alternate" type="text/html" title="Topics on Hidden Markov Model" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/HMM</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/HMM.html"></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Choose Colors for Scientific Data Visualization</title><link href="http://localhost:4000/jekyll/update/2021/04/06/choose-your-color-schema.html" rel="alternate" type="text/html" title="Choose Colors for Scientific Data Visualization" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/choose-your-color-schema</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/choose-your-color-schema.html">&lt;h2 id=&quot;some-general-suggestion&quot;&gt;Some general suggestion&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html&quot;&gt;ggsci&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://onlinelibrary.wiley.com/doi/full/10.1002/rth2.12308&quot;&gt;Choosing color palettes for scientific figures&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.aje.com/arc/Using-Color-in-Figures/&quot;&gt;Color in Scientific Figures&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cns.utexas.edu/images/CNS/Deans_Office/Communications/Files/design-tips-for-scientists_GUIDE.pdf&quot;&gt;Design Tips for Scientists&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;2014, Plos Computational Biology, &lt;a href=&quot;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833&quot;&gt;Ten Simple Rules for Better Figures&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;further-reading&quot;&gt;Further reading&lt;/h2&gt;
+&lt;h2 id=&quot;background-in-color-space&quot;&gt;Background in color space&lt;/h2&gt;
 &lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;https://onlinelibrary.wiley.com/doi/full/10.1002/rth2.12308&quot;&gt;https://onlinelibrary.wiley.com/doi/full/10.1002/rth2.12308&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;2014, Plos Computational Biology, &lt;a href=&quot;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833&quot;&gt;Ten Simple Rules for Better Figures&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/OrdnanceSurvey/GeoDataViz-Toolkit/tree/master/Colours&quot;&gt;https://github.com/OrdnanceSurvey/GeoDataViz-Toolkit/tree/master/Colours&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Resources R packages ggsci</summary></entry><entry><title type="html">Data Visualization in R</title><link href="http://localhost:4000/jekyll/update/2021/04/06/grid-model-in-R.html" rel="alternate" type="text/html" title="Data Visualization in R" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/grid-model-in-R</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/grid-model-in-R.html">&lt;ul&gt;
+  &lt;li&gt;RGB color space
+    &lt;ul&gt;
+      &lt;li&gt;Mixture of red, green and blue color&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;HSB color space
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Hue&lt;/strong&gt; (色相)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Saturation&lt;/strong&gt; (饱和度)&lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Brightness&lt;/strong&gt; (亮度)， some tines also called &lt;strong&gt;value&lt;/strong&gt; or &lt;strong&gt;lightness&lt;/strong&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;See &lt;a href=&quot;https://www.codeproject.com/Articles/1202772/Color-Topics-for-Programmers&quot;&gt;https://www.codeproject.com/Articles/1202772/Color-Topics-for-Programmers&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.hsluv.org/&quot;&gt;HSLuv&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;A alternative to &lt;code class=&quot;highlighter-rouge&quot;&gt;HSL&lt;/code&gt;, claimed to be more human friendly&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;python-for-color-space-mapping&quot;&gt;python for color space mapping&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;For detailed implementation of such conversion see:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-both&quot;&gt;https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-both&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;colorsys&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# convert rgb to hsv 
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colorsys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgb_to_hsv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# (0.5, 0.5, 0.4)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colorsys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hsv_to_rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# (0.2, 0.4, 0.4)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;some-useful-tricks&quot;&gt;Some useful tricks&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Given rgb colors:
+    &lt;ol&gt;
+      &lt;li&gt;Change the lightness / saturation
+        &lt;ul&gt;
+          &lt;li&gt;The easist way may be convert &lt;code class=&quot;highlighter-rouge&quot;&gt;rgb&lt;/code&gt; values to &lt;code class=&quot;highlighter-rouge&quot;&gt;hsv&lt;/code&gt; values, change &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt;, than map back to rgb value&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Take complementary color
+        &lt;ul&gt;
+          &lt;li&gt;Convert to &lt;code class=&quot;highlighter-rouge&quot;&gt;hsv&lt;/code&gt;, then set &lt;code class=&quot;highlighter-rouge&quot;&gt;h=(h+0.5)%1&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Also see &lt;a href=&quot;https://stackoverflow.com/questions/40233986/python-is-there-a-function-or-formula-to-find-the-complementary-colour-of-a-rgb&quot;&gt;https://stackoverflow.com/questions/40233986/python-is-there-a-function-or-formula-to-find-the-complementary-colour-of-a-rgb&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Interpolate from one color to another
+        &lt;ul&gt;
+          &lt;li&gt;We shall still convert &lt;code class=&quot;highlighter-rouge&quot;&gt;rgb&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;hsv&lt;/code&gt;, then &lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt; …&lt;/li&gt;
+          &lt;li&gt;See discussion in &lt;a href=&quot;https://stackoverflow.com/questions/13488957/interpolate-from-one-color-to-another&quot;&gt;https://stackoverflow.com/questions/13488957/interpolate-from-one-color-to-another&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;color-map-for-visualization&quot;&gt;Color map for visualization&lt;/h2&gt;
+&lt;h3 id=&quot;color-map-requirements&quot;&gt;Color Map Requirements&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;According to &lt;a href=&quot;http://www.kennethmoreland.com/color-maps/ColorMapsExpanded.pdf&quot;&gt;Diverging Color Maps for Scientific Visualization&lt;/a&gt;
+– The map yields images that are aesthetically pleasing.
+– The map has a maximal perceptual resolution.
+– Interference with the shading of 3D surfaces is minimal.
+– The map is not sensitive to vision deficiencies.
+– The order of the colors should be intuitively the same for all people.
+– The perceptual interpolation matches the underlying scalars of the map
+    &lt;h3 id=&quot;claasification-of-color-maps&quot;&gt;Claasification of color maps&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;qualitative / nominal color maps:  discrete, unordered classes&lt;/li&gt;
+  &lt;li&gt;sequential / ordinal / saturation color maps: hue is nearly fixed, (nearly monochromatic), difference in saturation and lightness indicate numericial difference&lt;/li&gt;
+  &lt;li&gt;diverging / ratio / bipolar / doubleended  color maps:  two major color components&lt;/li&gt;
+  &lt;li&gt;cyclic: change in lightness of two different colors that meet in the middle and beginning/end at an unsaturated color&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;collection-of-perceptually-accurate-colormaps&quot;&gt;Collection of perceptually accurate colormaps&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://colorcet.holoviz.org/&quot;&gt;https://colorcet.holoviz.org/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://colorcet.com/&quot;&gt;colorcet&lt;/a&gt;, &lt;a href=&quot;https://github.com/holoviz/colorcet&quot;&gt;https://github.com/holoviz/colorcet&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.kennethmoreland.com/color-maps/&quot;&gt;https://www.kennethmoreland.com/color-maps/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/1313e/CMasher&quot;&gt;https://github.com/1313e/CMasher&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;caveats&quot;&gt;Caveats&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1509.03700&quot;&gt;https://arxiv.org/abs/1509.03700&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Don’t&lt;/strong&gt; use color map like &lt;code class=&quot;highlighter-rouge&quot;&gt;jet&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;hot&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;2020, Nature Communication, &lt;a href=&quot;https://www.nature.com/articles/s41467-020-19160-7&quot;&gt;The misuse of colour in science communication&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
+&lt;h3 id=&quot;choose-which-type-of-color-scale-to-use&quot;&gt;Choose which type of color scale to use&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;qualitative: bar chart, violin plot, etc. To illustrate contrast, use complementary hues, to illustrate similarity, use analog hues.&lt;/li&gt;
+  &lt;li&gt;sequential: indicates difference toward one direction, like expression level, frequency, etc&lt;/li&gt;
+  &lt;li&gt;diverging: indicates difference toward two direction, like Z-score of differentially expressed genes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;customization-of-color-maps&quot;&gt;Customization of color maps&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;See &lt;a href=&quot;https://matplotlib.org/2.0.2/examples/pylab_examples/custom_cmap.html&quot;&gt;https://matplotlib.org/2.0.2/examples/pylab_examples/custom_cmap.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;qualitative&quot;&gt;Qualitative&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Choose of discrete colors is rather subjective, which you think is beautiful, you boss may tnink it’s ugly …&lt;/li&gt;
+  &lt;li&gt;May pick the one you love from &lt;a href=&quot;https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html&quot;&gt;ggsci&lt;/a&gt;,  &lt;a href=&quot;https://github.com/karthik/wesanderson&quot;&gt;Wes Anderson Palettes&lt;/a&gt;, &lt;a href=&quot;https://github.com/OrdnanceSurvey/GeoDataViz-Toolkit/tree/master/Colours&quot;&gt;GeoDataViz-Toolkit&lt;/a&gt;, &lt;a href=&quot;https://pattern-library.economist.com/color.html&quot;&gt;https://pattern-library.economist.com/color.html&lt;/a&gt;, or other resources, or anything you want …&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;sequential&quot;&gt;Sequential&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Perceptually uniform cmap recommanded by seaborn &lt;a href=&quot;https://seaborn.pydata.org/tutorial/color_palettes.html&quot;&gt;here&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rocket&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;mako&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;flare&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;crest&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;magma&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;viridis&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Perceptually uniform cmap by &lt;a href=&quot;https://matplotlib.org/stable/tutorials/colors/colormaps.html&quot;&gt;matplotlib&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;viridis&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;plasma&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;inferno&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;magma&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;cividis&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;diverging&quot;&gt;Diverging&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://seaborn.pydata.org/tutorial/color_palettes.html&quot;&gt;seaborn&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vlag&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;icefire&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://matplotlib.org/stable/tutorials/colors/colormaps.html&quot;&gt;matplotlib&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;“&lt;code class=&quot;highlighter-rouge&quot;&gt;BrBG&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;RdBu&lt;/code&gt; are good options. &lt;code class=&quot;highlighter-rouge&quot;&gt;coolwarm&lt;/code&gt; is a good option, but it doesn’t span a wide range of L values”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;python-examples&quot;&gt;python examples&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;See this &lt;a href=&quot;/notebooks/palettes-in-python.ipynb&quot;&gt;notebook&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Some general suggestion Choosing color palettes for scientific figures Color in Scientific Figures Design Tips for Scientists 2014, Plos Computational Biology, Ten Simple Rules for Better Figures</summary></entry><entry><title type="html">Data Visualization in R</title><link href="http://localhost:4000/jekyll/update/2021/04/06/grid-model-in-R.html" rel="alternate" type="text/html" title="Data Visualization in R" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/grid-model-in-R</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/grid-model-in-R.html">&lt;ul&gt;
   &lt;li&gt;The grid system in R - draw any thing you want&lt;/li&gt;
   &lt;li&gt;Packages may useful for visualization, ggplot2, lattice, and others&lt;/li&gt;
   &lt;li&gt;Recreation of potentially useful figures&lt;/li&gt;

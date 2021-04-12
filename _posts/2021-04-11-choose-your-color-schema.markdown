@@ -23,8 +23,11 @@ categories: jekyll update
    - **Saturation** (饱和度)
    - **Brightness** (亮度)， some tines also called **value** or **lightness**
 
-- See <https://www.codeproject.com/Articles/1202772/Color-Topics-for-Programmers>
-- python for color space mapping
+   - See <https://www.codeproject.com/Articles/1202772/Color-Topics-for-Programmers>
+3. [HSLuv](https://www.hsluv.org/) 
+   - A alternative to `HSL`, claimed to be more human friendly
+
+### python for color space mapping
 - For detailed implementation of such conversion see:
   - <https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-both>
 
@@ -35,11 +38,9 @@ colorsys.rgb_to_hsv(0.2, 0.4, 0.4)
 # (0.5, 0.5, 0.4)
 colorsys.hsv_to_rgb(0.5, 0.5, 0.4)
 # (0.2, 0.4, 0.4)
-
 ```
 
-3. [HSLuv](https://www.hsluv.org/) 
-- A alternative to `HSL`, claimed to be more human friendly
+
 
 ## Some useful tricks
 - Given rgb colors:
@@ -65,7 +66,7 @@ colorsys.hsv_to_rgb(0.5, 0.5, 0.4)
 - qualitative / nominal color maps:  discrete, unordered classes
 -  sequential / ordinal / saturation color maps: hue is nearly fixed, (nearly monochromatic), difference in saturation and lightness indicate numericial difference
 - diverging / ratio / bipolar / doubleended  color maps:  two major color components
-- Cyclic: change in lightness of two different colors that meet in the middle and beginning/end at an unsaturated color
+- cyclic: change in lightness of two different colors that meet in the middle and beginning/end at an unsaturated color
 
 ### Collection of perceptually accurate colormaps
   - <https://colorcet.holoviz.org/>
@@ -79,18 +80,35 @@ colorsys.hsv_to_rgb(0.5, 0.5, 0.4)
   - 2020, Nature Communication, [The misuse of colour in science communication](https://www.nature.com/articles/s41467-020-19160-7)
 
 ## Examples
+### Choose which type of color scale to use
+- qualitative: bar chart, violin plot, etc. To illustrate contrast, use complementary hues, to illustrate similarity, use analog hues.
+- sequential: indicates difference toward one direction, like expression level, frequency, etc
+- diverging: indicates difference toward two direction, like Z-score of differentially expressed genes
 
-### python
-- Spectral, coolwarm, RdBu, vlag
+### Customization of color maps
+- See <https://matplotlib.org/2.0.2/examples/pylab_examples/custom_cmap.html>
 
 
-## Resources
-### Find some palette 
-  - <https://pattern-library.economist.com/color.html> 
-### R packages
-- [ggsci](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html)
-- [Wes Anderson Palettes](https://github.com/karthik/wesanderson)
-- [GeoDataViz-Toolkit](https://github.com/OrdnanceSurvey/GeoDataViz-Toolkit/tree/master/Colours)
+### Qualitative
+- Choose of discrete colors is rather subjective, which you think is beautiful, you boss may tnink it's ugly ...
+- May pick the one you love from [ggsci](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html),  [Wes Anderson Palettes](https://github.com/karthik/wesanderson), [GeoDataViz-Toolkit](https://github.com/OrdnanceSurvey/GeoDataViz-Toolkit/tree/master/Colours), <https://pattern-library.economist.com/color.html>, or other resources, or anything you want ...
+
+### Sequential
+- Perceptually uniform cmap recommanded by seaborn [here](https://seaborn.pydata.org/tutorial/color_palettes.html)
+  - `rocket`,`mako`,`flare`,`crest`,`magma`,`viridis`
+
+- Perceptually uniform cmap by [matplotlib](https://matplotlib.org/stable/tutorials/colors/colormaps.html)
+  - `viridis`, `plasma`, `inferno`, `magma`, `cividis`
+
+### Diverging
+- [seaborn](https://seaborn.pydata.org/tutorial/color_palettes.html)
+  - `vlag`,`icefire`
+- [matplotlib](https://matplotlib.org/stable/tutorials/colors/colormaps.html)
+  - "`BrBG` and `RdBu` are good options. `coolwarm` is a good option, but it doesn't span a wide range of L values"
+
+### python examples
+- See this [notebook]({{ site.baseurl }}{% link notebooks/palettes-in-python.ipynb %})
+
 
 
 
