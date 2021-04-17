@@ -12,10 +12,7 @@ categories: jekyll update
 
 
 
-
-
-
-
 ## Useful links
 - <https://www.r-graph-gallery.com/>
+- <https://bookdown.org/rdpeng/RProgDA/the-grid-package.html>
 

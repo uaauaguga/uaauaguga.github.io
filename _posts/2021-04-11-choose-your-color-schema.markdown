@@ -76,6 +76,7 @@ colorsys.hsv_to_rgb(0.5, 0.5, 0.4)
 
 ### Caveats
 - <https://arxiv.org/abs/1509.03700>
+- Diverging color map and [Mach bands](https://en.wikipedia.org/wiki/Mach_bands)
 - **Don't** use color map like `jet` or `hot`
   - 2020, Nature Communication, [The misuse of colour in science communication](https://www.nature.com/articles/s41467-020-19160-7)
 
@@ -108,6 +109,12 @@ colorsys.hsv_to_rgb(0.5, 0.5, 0.4)
 
 ### python examples
 - See this [notebook](https://github.com/uaauaguga/uaauaguga.github.io/blob/master/notebooks/palettes-in-python.ipynb)
+
+
+### R example
+- <https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf>
+- [pals](https://cran.r-project.org/web/packages/pals/vignettes/pals_examples.html) package
+  - The author also recommand `coolwarm` for diverging palette 
 
 
 
