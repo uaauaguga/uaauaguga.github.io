@@ -8,7 +8,7 @@ categories: jekyll update
 
 ## A reading list
 - 2005, *Genome Research*, [Evolutionarily conserved elements in vertebrate,insect, worm, and yeast genomes](https://genome.cshlp.org/content/15/8/1034)
-- 2006， *Genome Research*, [Thousands of corresponding human and mouse genomic regions unalignable in primary sequence contain common RNA structure](https://genome.cshlp.org/content/16/7/885.full)
+- 2006, *Genome Research*, [Thousands of corresponding human and mouse genomic regions unalignable in primary sequence contain common RNA structure](https://genome.cshlp.org/content/16/7/885.full)
 - 2006, *Plos Computational Biology*, [Identification and Classification of Conserved RNA Secondary Structures in the Human Genome](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.0020033)
 - 2007, *NAR*, [Identification of 22 candidate structured RNAs in bacteria using the CMfinder comparative genomics pipeline](https://academic.oup.com/nar/article/35/14/4809/1016434)
 - 2008, *Genome Research*, [Comparative genomics beyond sequence-based alignments: RNA structures in the ENCODE regions](https://genome.cshlp.org/content/18/2/242.full)
