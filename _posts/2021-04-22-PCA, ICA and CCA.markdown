@@ -63,14 +63,22 @@ $$
 - [Principal component analysis: a review and recent developments](https://royalsocietypublishing.org/doi/10.1098/rsta.2015.0202)
 
 ## CCA
-- The [corss covariance](https://en.wikipedia.org/wiki/Cross-covariance_matrix) of multi-dimensional random variable
+- Given two random vectors $$X$$ and $$Y$$, CCA seeks for two linear combination of these vectors, to maximize their correlation
 
 - Some tutorial
   - <http://graphics.stanford.edu/courses/cs233-20-spring/ReferencedPapers/CCA_Weenik.pdf>
 
+
+- Applications in cross studies and cross species integration of single cell transcriptomic profile
+
 - Some tools
   - [Cross Decomposition in sklearn](https://scikit-learn.org/stable/modules/cross_decomposition.html)
   - [R package CCA](https://cran.r-project.org/web/packages/CCA/index.html)
+
+
+
+## ICA
+- [Independent Component Analysis:Algorithms and Applications](https://www.cs.helsinki.fi/u/ahyvarin/papers/NN00new.pdf)
 
 
 
