@@ -69,7 +69,7 @@ $$
 
 
 ### Applications in cross studies and cross species integration of transcriptomic profile
-- A implementation for strategy used in [Integrating single-cell transcriptomic data across
+- An implementation for strategy used in [Integrating single-cell transcriptomic data across
 different conditions, technologies, and species](Integrating single-cell transcriptomic data across different conditions, technologies, and species) (2018,NBT)
 - Load TCGA CRC tumor / normal tissue data
 
