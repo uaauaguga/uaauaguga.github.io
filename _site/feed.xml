@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-23T14:54:53+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Comparative Genomics for Structural RNA</title><link href="http://localhost:4000/jekyll/update/2021/04/17/Comparative-Genomics-of-Structural-RNA.html" rel="alternate" type="text/html" title="Comparative Genomics for Structural RNA" /><published>2021-04-17T10:37:52+08:00</published><updated>2021-04-17T10:37:52+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/17/Comparative-Genomics-of-Structural-RNA</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/17/Comparative-Genomics-of-Structural-RNA.html">&lt;h2 id=&quot;a-reading-list&quot;&gt;A reading list&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-04-23T15:03:42+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Comparative Genomics for Structural RNA</title><link href="http://localhost:4000/jekyll/update/2021/04/17/Comparative-Genomics-of-Structural-RNA.html" rel="alternate" type="text/html" title="Comparative Genomics for Structural RNA" /><published>2021-04-17T10:37:52+08:00</published><updated>2021-04-17T10:37:52+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/17/Comparative-Genomics-of-Structural-RNA</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/17/Comparative-Genomics-of-Structural-RNA.html">&lt;h2 id=&quot;a-reading-list&quot;&gt;A reading list&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;2005, &lt;em&gt;Genome Research&lt;/em&gt;, &lt;a href=&quot;https://genome.cshlp.org/content/15/8/1034&quot;&gt;Evolutionarily conserved elements in vertebrate,insect, worm, and yeast genomes&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;2006, &lt;em&gt;Genome Research&lt;/em&gt;, &lt;a href=&quot;https://genome.cshlp.org/content/16/7/885.full&quot;&gt;Thousands of corresponding human and mouse genomic regions unalignable in primary sequence contain common RNA structure&lt;/a&gt;&lt;/li&gt;
@@ -99,7 +99,7 @@
 
 &lt;h3 id=&quot;applications-in-cross-studies-and-cross-species-integration-of-transcriptomic-profile&quot;&gt;Applications in cross studies and cross species integration of transcriptomic profile&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;A implementation for strategy used in &lt;a href=&quot;Integrating single-cell transcriptomic data across different conditions, technologies, and species&quot;&gt;Integrating single-cell transcriptomic data across
+  &lt;li&gt;An implementation for strategy used in &lt;a href=&quot;Integrating single-cell transcriptomic data across different conditions, technologies, and species&quot;&gt;Integrating single-cell transcriptomic data across
 different conditions, technologies, and species&lt;/a&gt; (2018,NBT)&lt;/li&gt;
   &lt;li&gt;Load TCGA CRC tumor / normal tissue data&lt;/li&gt;
 &lt;/ul&gt;
@@ -153,26 +153,21 @@ different conditions, technologies, and species&lt;/a&gt; (2018,NBT)&lt;/li&gt;
           &lt;li&gt;Convert gene expression matrices \(X_{n,p}\) \(Y_{n,q}\) to gene loading matrices \(A_{n,k}\) \(B_{n,k}\)&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;Perform &lt;strong&gt;QR&lt;/strong&gt; decomposition on gene loading matrix
-        &lt;ul&gt;
-          &lt;li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Perform &lt;strong&gt;QR&lt;/strong&gt; decomposition on gene loading matrix&lt;/p&gt;
+
 \[A_{n,k}=D_{n,k}R_{k,k}\]
-          &lt;/li&gt;
-          &lt;li&gt;
+
 \[B_{n,k}=E_{n,k}R_{k,k}\]
-          &lt;/li&gt;
-        &lt;/ul&gt;
       &lt;/li&gt;
       &lt;li&gt;Calculate the projected matrix
         &lt;ul&gt;
           &lt;li&gt;Map gene points to sample points&lt;/li&gt;
-          &lt;li&gt;
-\[\hat{X}_{p,k}=X_{n,p}^TD_{n,k}\]
-          &lt;/li&gt;
-          &lt;li&gt;
-\[\hat{Y}_{q,k}=Y_{n,q}^TE_{n,k}\]
-          &lt;/li&gt;
         &lt;/ul&gt;
+
+\[\hat{X}_{p,k}=X_{n,p}^TD_{n,k}\]
+
+\[\hat{Y}_{q,k}=Y_{n,q}^TE_{n,k}\]
       &lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;

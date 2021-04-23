@@ -121,13 +121,17 @@ g = sns.scatterplot(data=CRC_merged_table,x="PC-1",y="PC-2",hue="tumor",style="s
     - Convert gene expression matrices $$X_{n,p}$$ $$Y_{n,q}$$ to gene loading matrices $$A_{n,k}$$ $$B_{n,k}$$
 
   - Perform **QR** decomposition on gene loading matrix
-    - $$A_{n,k}=D_{n,k}R_{k,k}$$
-    - $$B_{n,k}=E_{n,k}R_{k,k}$$
+     
+     $$A_{n,k}=D_{n,k}R_{k,k}$$
+    
+     $$B_{n,k}=E_{n,k}R_{k,k}$$
 
   - Calculate the projected matrix
     - Map gene points to sample points
-    - $$\hat{X}_{p,k}=X_{n,p}^TD_{n,k}$$
-    - $$\hat{Y}_{q,k}=Y_{n,q}^TE_{n,k}$$
+    
+     $$\hat{X}_{p,k}=X_{n,p}^TD_{n,k}$$
+    
+     $$\hat{Y}_{q,k}=Y_{n,q}^TE_{n,k}$$
 
 ```python
 # Convert scaled gene expression matrix to gene loading matrix with CCA
