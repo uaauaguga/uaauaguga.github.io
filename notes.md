@@ -36,3 +36,7 @@ bundle exec jekyll serve
 ```
 
 
+```latex
+\widetilde{} # A long ~
+```
+

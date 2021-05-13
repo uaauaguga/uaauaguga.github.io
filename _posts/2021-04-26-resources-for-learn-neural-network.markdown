@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Implementation and Applications of Siamese Network"
-date:   2021-04-22 10:37:52 +0800
+title:  "Siamese Network"
+date:   2021-04-26 10:37:52 +0800
 usemathjax: true
 categories: jekyll update
 ---
