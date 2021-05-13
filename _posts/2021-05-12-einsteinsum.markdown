@@ -50,6 +50,7 @@ np.einsum(a,[0,0],[0])
 ```
 
 - Sum by rows
+
 ```python
 a.sum(axis=1)
 np.einsum('ij->i', a)
@@ -57,6 +58,7 @@ np.einsum(a,[0,1],[0])
 ```
 
 - Sum by columns
+
 ```python
 a.sum(axis=0)
 np.einsum('ij->j', a)
@@ -64,6 +66,7 @@ np.einsum(a, [1,0], [0])
 ```
 
 - Matrix production
+
 ```python
 a = np.arange(6).reshape((2,3))
 b = np.arange(12).reshape((3,4))
