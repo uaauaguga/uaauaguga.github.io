@@ -22,6 +22,11 @@ categories: jekyll update
 ### Exon level
 
 - Count directly
+
+```bash
+bedtools coverage -a {exon.bed} -b {input.bam} -split -counts > exon.counts.txt
+```
+
 - Some tools like [DEXSeq](https://www.bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.html) use counts at exon level to infer differential exon usage
 
 ### Transcript level / isoform level
@@ -38,8 +43,6 @@ categories: jekyll update
 - Summarize estimated expression level at transcripts level to gene
   - [tximport](https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html) is very useful for such task
 
-
-
 ### Normalization
 
 - We shall apply different normalization methods for different propose
@@ -48,7 +51,7 @@ categories: jekyll update
   - GC content
   - Gene length
 
-### Variance stabilizing  transformation
+
 
 
 
@@ -309,12 +312,11 @@ deseq.res <- results(dds,name="tissue.types_tumor_vs_normal")
 
 
 ### Data Transformation for downstream analysis
-- Downstream analysis
-  - PCA
-  - heatmap
-  - clustering
-  - machine learning
-- Data used for down stream analysis can be quiet different from differential expression
+- See discussion here <https://seqqc.wordpress.com/2015/02/16/should-you-transform-rna-seq-data-log-vst-voom/>
+- Adjust for variance's heteroskedasticity, see [Variance stabilizing  transformation](https://en.wikipedia.org/wiki/Variance-stabilizing_transformation)
+- In differential expression analysis, useful for limma like tools, not necessary for negative binomial GLM like edgeR
+- Useful for downstream visualization (PCA plot, clustering and heapmap, etc) or machine learning, to mitigate the impact of extreme value
+- Data used for these down stream analysis can be quiet different from differential expression
 - Simplist solution might be `edgeR::cpm(y, log=TRUE, prior.count=1)`
 - Things get more complicated when considering batch effect for task other than differential expression
 - Further reading

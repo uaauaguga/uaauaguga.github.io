@@ -1,69 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-01T23:16:52+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Deep Metric Learning</title><link href="http://localhost:4000/jekyll/update/2021/04/30/deep-metric-learning.html" rel="alternate" type="text/html" title="Deep Metric Learning" /><published>2021-04-30T19:38:33+08:00</published><updated>2021-04-30T19:38:33+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/30/deep-metric-learning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/30/deep-metric-learning.html">&lt;h2 id=&quot;metric-learning&quot;&gt;Metric Learning&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;A Metric is a function that quantifies a distance between every pair of elements in a set, thus inducing a measure of similarity.&lt;/li&gt;
-  &lt;li&gt;Metric fucntion can be defined, or learnt from data
-    &lt;ul&gt;
-      &lt;li&gt;Euclidian distance, Hamming distance, …&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Mahalanobis_distance&quot;&gt;Mahalanobis Distance&lt;/a&gt; (\(\Sigma\) is covariance matrix)
-        &lt;ul&gt;
-          &lt;li&gt;Same as whitening the data and then applying the Euclidean distance (\(\widetilde{x}\) is the wihtened variable)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-
-\[d(x,y)=(x-y)^{T}\Sigma^{-1}(x-y)\]
-
-\[\widetilde{x} = \Sigma^{-1/2}(x-\mu)\]
-
-\[(\tilde{x_{i}}-\tilde{x_{j}})^{T}(\tilde{x_{i}}-\tilde{x_{j}})=(x_{i}-x_{j})^{T}\Sigma^{-1}(x_{i}-x_{j})\]
-  &lt;/li&gt;
-  &lt;li&gt;Metric learning is to learn a distance function tuned to a particular task
-    &lt;ul&gt;
-      &lt;li&gt;Input: instances of data, and some similarity information&lt;/li&gt;
-      &lt;li&gt;Output: a metric function, may in form of&lt;/li&gt;
-    &lt;/ul&gt;
-
-\[d(x,y)=||f(x)-f(y)||_{2}\]
-
-    &lt;ul&gt;
-      &lt;li&gt;The learnt transformation \(f\) can be linear projection (yield a form of distance same as  Mahalanobis Distance) or non-linear function&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-14T10:31:21+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Einstein Summation</title><link href="http://localhost:4000/jekyll/update/2021/05/13/einsteinsum.html" rel="alternate" type="text/html" title="Einstein Summation" /><published>2021-05-13T20:49:02+08:00</published><updated>2021-05-13T20:49:02+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/13/einsteinsum</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/13/einsteinsum.html">&lt;ul&gt;
+  &lt;li&gt;Einstein summation&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;metric-learning-with-neural-network&quot;&gt;Metric Learning with Neural Network&lt;/h2&gt;
-
-&lt;h3 id=&quot;classification-loss-vs-metric-learning-loss&quot;&gt;Classification loss vs. Metric learning loss&lt;/h3&gt;
+&lt;h2 id=&quot;some-background&quot;&gt;Some background&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;In cases where a classification loss is applicable, why are embeddings used during test time, instead of the logits or the subsequent softmax values? Typically, embeddings are preferred when the task is some variant of information retrieval, where the goal is to return data that is most similar to a query.&lt;/li&gt;
-  &lt;li&gt;open set classification&lt;/li&gt;
-  &lt;li&gt;face verification&lt;/li&gt;
-  &lt;li&gt;person re-identification&lt;/li&gt;
-  &lt;li&gt;some time the label is not available, while similarity information is available&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://math.stackexchange.com/questions/1192825/why-use-einstein-summation-notation&quot;&gt;https://math.stackexchange.com/questions/1192825/why-use-einstein-summation-notation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://physics.iitm.ac.in/~PH1010/mkj_Lect_03.pdf&quot;&gt;https://physics.iitm.ac.in/~PH1010/mkj_Lect_03.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dslavsk.sites.luc.edu/courses/phys301/classnotes/einsteinsummationnotation.pdf&quot;&gt;http://dslavsk.sites.luc.edu/courses/phys301/classnotes/einsteinsummationnotation.pdf&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;zeros-shot-learning&quot;&gt;Zeros shot learning&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/mbsariyildiz/zsl_eval&quot;&gt;https://github.com/mbsariyildiz/zsl_eval&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;numpy&quot;&gt;numpy&lt;/h2&gt;
 
-&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://slazebni.cs.illinois.edu/spring17/lec09_similarity.pdf&quot;&gt;https://slazebni.cs.illinois.edu/spring17/lec09_similarity.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;2013, FTML, &lt;a href=&quot;https://ieeexplore.ieee.org/document/8186753&quot;&gt;Metric Learning: A Survey&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/pdf/2003.08505.pdf&quot;&gt;A Metric Learning Reality Check&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/KevinMusgrave/powerful-benchmarker&quot;&gt;https://github.com/KevinMusgrave/powerful-benchmarker&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;triplet network&lt;/li&gt;
-  &lt;li&gt;siamese network&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;deep hash&lt;/p&gt;
+    &lt;p&gt;See &lt;a href=&quot;https://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.einsum.html&quot;&gt;https://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.einsum.html&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;How to generate pair / triplet for training ?&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Metric Learning</summary></entry><entry><title type="html">Deep Hashing for Similarity Retrieval</title><link href="http://localhost:4000/jekyll/update/2021/04/27/deep-hashing.html" rel="alternate" type="text/html" title="Deep Hashing for Similarity Retrieval" /><published>2021-04-27T23:32:02+08:00</published><updated>2021-04-27T23:32:02+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/27/deep-hashing</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/27/deep-hashing.html">&lt;h2 id=&quot;paper-list&quot;&gt;Paper list&lt;/h2&gt;
+  &lt;li&gt;
+    &lt;p&gt;Transpose / Permutate axis&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#array([[0, 1, 2],
+#       [3, 4, 5]])
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#array([[0, 3],
+#       [1, 4],
+#       [2, 5]])
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ij-&amp;gt;ji'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#array([[0, 3],
+#       [1, 4],
+#       [2, 5]])
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Take diagnal elements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#array([[ 0,  1,  2,  3,  4],
+#       [ 5,  6,  7,  8,  9],
+#       [10, 11, 12, 13, 14],
+#       [15, 16, 17, 18, 19],
+#       [20, 21, 22, 23, 24]])
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ii-&amp;gt;i'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# array([ 0,  6, 12, 18, 24])
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sum by rows&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ij-&amp;gt;i'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sum by columns&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ij-&amp;gt;j'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Matrix production&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ij,jk-&amp;gt;ik'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ji,jk-&amp;gt;ik'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pytorch&quot;&gt;pytorch&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;See &lt;a href=&quot;https://pytorch.org/docs/stable/generated/torch.einsum.html&quot;&gt;https://pytorch.org/docs/stable/generated/torch.einsum.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Also see &lt;a href=&quot;https://github.com/arogozhnikov/einops&quot;&gt;https://github.com/arogozhnikov/einops&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Einstein summation</summary></entry><entry><title type="html">Deep Hashing for Similarity Retrieval</title><link href="http://localhost:4000/jekyll/update/2021/04/27/deep-hashing.html" rel="alternate" type="text/html" title="Deep Hashing for Similarity Retrieval" /><published>2021-04-27T23:32:02+08:00</published><updated>2021-04-27T23:32:02+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/27/deep-hashing</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/27/deep-hashing.html">&lt;h2 id=&quot;paper-list&quot;&gt;Paper list&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/caoyue10/DeepHash-Papers&quot;&gt;https://github.com/caoyue10/DeepHash-Papers&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -699,12 +722,16 @@ different conditions, technologies, and species&lt;/a&gt; (2018,NBT)&lt;/li&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;grid&lt;/code&gt; package for more customized plots&lt;/p&gt;
+  &lt;li&gt;Use &lt;code class=&quot;highlighter-rouge&quot;&gt;grid&lt;/code&gt; package for more customized plots
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://ggplot2.tidyverse.org/&quot;&gt;ggplot2&lt;/a&gt; , &lt;a href=&quot;https://lattice.r-forge.r-project.org/&quot;&gt;lattice&lt;/a&gt; are all based on &lt;code class=&quot;highlighter-rouge&quot;&gt;grid&lt;/code&gt; grammer&lt;/li&gt;
+      &lt;li&gt;We don’t need to implement plot function based on low level, but grid function can make it possible to control every single line and every single point in figure generated by ggplot2 like tools&lt;/li&gt;
+      &lt;li&gt;See &lt;a href=&quot;https://bookdown.org/rdpeng/RProgDA/the-grid-package.html&quot;&gt;https://bookdown.org/rdpeng/RProgDA/the-grid-package.html&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;For ggplot2, type &lt;code class=&quot;highlighter-rouge&quot;&gt;grid.force()&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;grid.ls()&lt;/code&gt;, we get the names of ggplot2 elements&lt;/li&gt;
+      &lt;li&gt;Then their property can be edited like &lt;code class=&quot;highlighter-rouge&quot;&gt;grid.edit(name, gp = gpar(col = &quot;red&quot;))&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Heatmap&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Heatmap&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pheatmap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -722,7 +749,6 @@ different conditions, technologies, and species&lt;/a&gt; (2018,NBT)&lt;/li&gt;
 &lt;h2 id=&quot;useful-links&quot;&gt;Useful links&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.r-graph-gallery.com/&quot;&gt;https://www.r-graph-gallery.com/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bookdown.org/rdpeng/RProgDA/the-grid-package.html&quot;&gt;https://bookdown.org/rdpeng/RProgDA/the-grid-package.html&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Packages may useful for visualization, ggplot2, lattice, and others The grid system in R - draw any thing you want Recreation of potentially useful figures</summary></entry><entry><title type="html">Topics on Hidden Markov Model</title><link href="http://localhost:4000/jekyll/update/2021/04/06/HMM.html" rel="alternate" type="text/html" title="Topics on Hidden Markov Model" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/HMM</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/HMM.html"></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Dive into RNA-seq Quantification</title><link href="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html" rel="alternate" type="text/html" title="Dive into RNA-seq Quantification" /><published>2021-03-31T07:05:55+08:00</published><updated>2021-03-31T07:05:55+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html">&lt;ul&gt;
   &lt;li&gt;How to quantify RNA-seq data and perform differential analysis&lt;/li&gt;
   &lt;li&gt;Some strange phenomenon we may meet&lt;/li&gt;
@@ -745,6 +771,12 @@ different conditions, technologies, and species&lt;/a&gt; (2018,NBT)&lt;/li&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Count directly&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bedtools coverage &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;exon.bed&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;input.bam&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-split&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-counts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; exon.counts.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
   &lt;li&gt;Some tools like &lt;a href=&quot;https://www.bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.html&quot;&gt;DEXSeq&lt;/a&gt; use counts at exon level to infer differential exon usage&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -784,8 +816,6 @@ different conditions, technologies, and species&lt;/a&gt; (2018,NBT)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&quot;variance-stabilizing--transformation&quot;&gt;Variance stabilizing  transformation&lt;/h3&gt;
 
 &lt;h3 id=&quot;some-background-in-statistics&quot;&gt;Some background in statistics&lt;/h3&gt;
 
@@ -1071,15 +1101,11 @@ standard deviation divided by mean&lt;/li&gt;
 
 &lt;h3 id=&quot;data-transformation-for-downstream-analysis&quot;&gt;Data Transformation for downstream analysis&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Downstream analysis
-    &lt;ul&gt;
-      &lt;li&gt;PCA&lt;/li&gt;
-      &lt;li&gt;heatmap&lt;/li&gt;
-      &lt;li&gt;clustering&lt;/li&gt;
-      &lt;li&gt;machine learning&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Data used for down stream analysis can be quiet different from differential expression&lt;/li&gt;
+  &lt;li&gt;See discussion here &lt;a href=&quot;https://seqqc.wordpress.com/2015/02/16/should-you-transform-rna-seq-data-log-vst-voom/&quot;&gt;https://seqqc.wordpress.com/2015/02/16/should-you-transform-rna-seq-data-log-vst-voom/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Adjust for variance’s heteroskedasticity, see &lt;a href=&quot;https://en.wikipedia.org/wiki/Variance-stabilizing_transformation&quot;&gt;Variance stabilizing  transformation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;In differential expression analysis, useful for limma like tools, not necessary for negative binomial GLM like edgeR&lt;/li&gt;
+  &lt;li&gt;Useful for downstream visualization (PCA plot, clustering and heapmap, etc) or machine learning, to mitigate the impact of extreme value&lt;/li&gt;
+  &lt;li&gt;Data used for these down stream analysis can be quiet different from differential expression&lt;/li&gt;
   &lt;li&gt;Simplist solution might be &lt;code class=&quot;highlighter-rouge&quot;&gt;edgeR::cpm(y, log=TRUE, prior.count=1)&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;Things get more complicated when considering batch effect for task other than differential expression&lt;/li&gt;
   &lt;li&gt;Further reading

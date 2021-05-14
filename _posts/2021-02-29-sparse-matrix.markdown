@@ -215,6 +215,7 @@ f = h5py.File("testfile.hdf5","w")
 dset = f.create_dataset("dataset",data=np.random.randn(1000,1000),compression="gzip")
 f.close()
 ```
+- Compression of hdf5 is quiet tricky, when you consistent write data into a hdf5 file, it can be extreme slow if you just use default parameter, see discussion here <https://stackoverflow.com/questions/48672130/saving-to-hdf5-is-very-slow-python-freezing>. I'm not trully understand what actually happens...
 
 - [pytables](https://www.pytables.org/) a scientific database package based on HDF5
 

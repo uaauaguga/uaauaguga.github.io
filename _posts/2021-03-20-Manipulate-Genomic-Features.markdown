@@ -183,7 +183,6 @@ utr5p <- tx.coordinates[,c("utr5p-start","utr5p-end")]
 utr5p <- utr5p[utr5p[["utr5p-end"]]>0,]
 write.table(utr5p,file="5putr.bed",sep="\t",quote = F, col.names = F)
 write.table(tx.coordinates[,c("utr5p-end","cds-end")],file="cds.bed",sep="\t",quote = F, col.names = F)
-
 ```
 
 
