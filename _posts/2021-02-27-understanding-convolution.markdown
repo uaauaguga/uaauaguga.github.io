@@ -1,14 +1,13 @@
 ---
 layout: post
-title:  "Convolutions In Python"
+title:  "Understanding Convolution"
 date:   2021-02-27 12:33:15 +0800
 usemathjax: true
 categories: jekyll update
 ---
 
-## Convolution Operation in Python
 
-### Definition
+## Definition
 
 - Continuous case: 
 
@@ -47,7 +46,7 @@ categories: jekyll update
   
   - Cross correlation of $$f(t)$$ and $$g(t)$$ is equivalent to convolution of $$\overline{f(-t)}$$ and $$g(t)$$
 
-### Implementations
+## Implementations
 - `numpy.convolve`
 
   ```python
@@ -86,10 +85,14 @@ categories: jekyll update
       return np.array(z)
   ```
 
-### Applications
-
-- Smoothing with a moving average kernel
-- Image processing
+## Convolution in deep learning
+- Convolutional neural network is actually cross correlational neural network. 
+- As the convolution kernel is trainable, convolution and cross correlation is equivalent under this context
+- See <https://pytorch.org/docs/stable/generated/torch.nn.Conv2d.html>
+- There is also a concept called transpose convolution, some one called it "deconvolution" (but it is not really a [deconvolution](https://en.wikipedia.org/wiki/Deconvolution))
+- For convolutional network, it's important to understand the shape of input and output feature map. The following material give a clear description
+  - <https://github.com/vdumoulin/conv_arithmetic>
+  - <https://arxiv.org/abs/1603.07285>
 
 ## Reference
 
