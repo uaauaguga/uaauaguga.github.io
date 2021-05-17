@@ -34,7 +34,7 @@ categories: jekyll update
     np.convolve([1,2,3],[3,2,2]) #array([ 3,  8, 15, 10,  6])
     ```
 
-  - Polynomial multiplication is equivalent to convolution of their coefficients ...
+  - Polynomial multiplication is equivalent to convoluting their coefficients ...
 
 - Relation to  cross correlation
 
@@ -93,6 +93,8 @@ categories: jekyll update
 - For convolutional network, it's important to understand the shape of input and output feature map. The following material give a clear description
   - <https://github.com/vdumoulin/conv_arithmetic>
   - <https://arxiv.org/abs/1603.07285>
+- Convolution and Transpose Convolution is recurrently utilized in architechture like [U-net](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/), see this implementation
+  - <https://github.com/milesial/Pytorch-UNet/blob/master/unet/unet_parts.py>
 
 ## Reference
 
@@ -101,4 +103,4 @@ categories: jekyll update
 3. <https://numpy.org/doc/stable/reference/generated/numpy.convolve.html>
 4. <https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html>
 5. <http://home.cse.ust.hk/~dekai/271/notes/L03/L03.pdf> polynomial multiplication and convolution
-6.  <https://arxiv.org/pdf/1603.07285.pdf> A guide to convolution arithmetic for deep learning
+6. <https://arxiv.org/pdf/1603.07285.pdf> A guide to convolution arithmetic for deep learning
