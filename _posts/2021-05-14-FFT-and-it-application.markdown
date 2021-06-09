@@ -12,6 +12,15 @@ categories: jekyll update
 
 
 ### Some encountered applications
+
+
 #### Multiple sequence alignment: MAFFT
+
 #### Object tracking: Correlation filter
+
 #### Time seris analysis: Matrix profile
+
+### Forier transformation on graph
+
+#### The graph Laplacian
+- <https://csustan.csustan.edu/~tom/Clustering/GraphLaplacian-tutorial.pdf>

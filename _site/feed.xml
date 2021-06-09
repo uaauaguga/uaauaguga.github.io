@@ -1,4 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-14T16:07:23+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Einstein Summation</title><link href="http://localhost:4000/jekyll/update/2021/05/13/einsteinsum.html" rel="alternate" type="text/html" title="Einstein Summation" /><published>2021-05-13T20:49:02+08:00</published><updated>2021-05-13T20:49:02+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/13/einsteinsum</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/13/einsteinsum.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-05-19T12:16:16+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Kernels for Structured Data</title><link href="http://localhost:4000/jekyll/update/2021/05/18/kernels-for-structured-data.html" rel="alternate" type="text/html" title="Kernels for Structured Data" /><published>2021-05-18T10:21:39+08:00</published><updated>2021-05-18T10:21:39+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/18/kernels-for-structured-data</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/18/kernels-for-structured-data.html">&lt;ul&gt;
+  &lt;li&gt;We can use a transformation \(\phi\) to map data space \(R^d\) to a higher dimensional feature space \(R^p\)&lt;/li&gt;
+  &lt;li&gt;Kernel is a function that implicitly and efficiently calculate inner product in feature space
+    &lt;ul&gt;
+      &lt;li&gt;Calculate the inner product without calculate \(\phi\)&lt;/li&gt;
+      &lt;li&gt;That means we don’t have to know the explicit analytical form of \(\phi\)&lt;/li&gt;
+      &lt;li&gt;Kernel function can be extended to structured data, like string, tree, and graph&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[\kappa(x_i,x_j) = &amp;lt;\phi(x_i),\phi(x_j)^T&amp;gt;\]
+
+&lt;h3 id=&quot;string-kernel&quot;&gt;String kernel&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;2002, &lt;em&gt;Journal of Machine Learning Research 2&lt;/em&gt;, &lt;a href=&quot;https://www.jmlr.org/papers/volume2/lodhi02a/lodhi02a.pdf&quot;&gt;Text Classification using String Kernels&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;String subsequence kernel
+        &lt;ul&gt;
+          &lt;li&gt;feature transformation&lt;/li&gt;
+          &lt;li&gt;kernel function&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tree-kernel&quot;&gt;Tree kernel&lt;/h3&gt;
+
+&lt;h3 id=&quot;graph-kernel&quot;&gt;Graph kernel&lt;/h3&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">We can use a transformation \(\phi\) to map data space \(R^d\) to a higher dimensional feature space \(R^p\) Kernel is a function that implicitly and efficiently calculate inner product in feature space Calculate the inner product without calculate \(\phi\) That means we don’t have to know the explicit analytical form of \(\phi\) Kernel function can be extended to structured data, like string, tree, and graph</summary></entry><entry><title type="html">Alignment Free Sequence Comparison</title><link href="http://localhost:4000/jekyll/update/2021/05/15/Alignment-free-method-for-sequence-comparison.html" rel="alternate" type="text/html" title="Alignment Free Sequence Comparison" /><published>2021-05-15T12:07:32+08:00</published><updated>2021-05-15T12:07:32+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/15/Alignment-free-method-for-sequence-comparison</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/15/Alignment-free-method-for-sequence-comparison.html">&lt;h2 id=&quot;alignment-free-method-for-large-scale-genomic-sequence-analysis&quot;&gt;Alignment free method for large scale genomic sequence analysis&lt;/h2&gt;
+
+&lt;h3 id=&quot;k-mer-sampling&quot;&gt;k-mer sampling&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;minimizer / winnowing
+    &lt;ul&gt;
+      &lt;li&gt;Counting / indexing  all k-mers in a genome requires large memory&lt;/li&gt;
+      &lt;li&gt;We may sample some representative k-mers&lt;/li&gt;
+      &lt;li&gt;One possibility is to sample 1 k-mer in w consecutive k-mers&lt;/li&gt;
+      &lt;li&gt;For two substring of length w-k+1, if their sequence is identical, the same k-mer should be sampled&lt;/li&gt;
+      &lt;li&gt;So in addition to specifying w and k, priority of all possible k-mer should be specified, and k-mer with hihgest priority is took&lt;/li&gt;
+      &lt;li&gt;This strategy for k-mer sampling is originially proposed in 2004, &lt;em&gt;Bioinformatics&lt;/em&gt;, &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/20/18/3363/202143&quot;&gt;Reducing storage requirements for biological sequence comparison&lt;/a&gt; k-mer sampled by this strategy is called &lt;strong&gt;minimizer&lt;/strong&gt;.&lt;/li&gt;
+      &lt;li&gt;k-mer sampling has very wide applications in sequence comparisons
+        &lt;ul&gt;
+          &lt;li&gt;minimap, kraken, …&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://homolog.us/blogs/bioinfo/2017/10/25/intro-minimizer/&quot;&gt;https://homolog.us/blogs/bioinfo/2017/10/25/intro-minimizer/&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;approximate-jaccard-index-calculation&quot;&gt;Approximate jaccard index calculation&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;minhash
+    &lt;ul&gt;
+      &lt;li&gt;A instance for locality sensitive hashing that approximately preserve jaccard distance. (There are also some LSH that preserve hamming distance, etc)&lt;/li&gt;
+      &lt;li&gt;k-minimum values (KMVs) sketching is a widely used variant of minhash
+        &lt;ul&gt;
+          &lt;li&gt;We have two genome&lt;/li&gt;
+          &lt;li&gt;We have a hash function&lt;/li&gt;
+          &lt;li&gt;For each genome, we calculate the hash value of every k-mer, take k smallest hash values&lt;/li&gt;
+          &lt;li&gt;The overlap bewteen two set of hash value approximate jaccard distance beween all k-mers in two genomes&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Useful tools
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://github.com/marbl/Mash&quot;&gt;mash&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://github.com/dib-lab/sourmash&quot;&gt;sourmash&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;approximate-member-query-and-efficient-counting&quot;&gt;Approximate member query and efficient counting&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Bloom_filters_in_bioinformatics&quot;&gt;Bloom filter&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Query whether an element exists in a large set. May generate false positive, but never false negative.&lt;/li&gt;
+      &lt;li&gt;An alternative to the memory intensive hash table&lt;/li&gt;
+      &lt;li&gt;A m bits array, K hash functions&lt;/li&gt;
+      &lt;li&gt;For a new instance, each hash function map input to one of the positions in 1..m&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Some variant
+    &lt;ul&gt;
+      &lt;li&gt;counting bloom filter&lt;/li&gt;
+      &lt;li&gt;spectral bloom filter&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Quotient_filter&quot;&gt;Quotient filter&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reading-list&quot;&gt;Reading List&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;2019, &lt;em&gt;Annual Review of Biomedical Data Science&lt;/em&gt;, &lt;a href=&quot;https://www.annualreviews.org/doi/abs/10.1146/annurev-biodatasci-072018-021156&quot;&gt;Sketching and Sublinear Data Structures in Genomics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;2019, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1809-x&quot;&gt;When the levee breaks: a practical guide to sketching algorithms for processing the flood of genomic data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Alignment free method for large scale genomic sequence analysis</summary></entry><entry><title type="html">Understanding FFT</title><link href="http://localhost:4000/jekyll/update/2021/05/14/FFT-and-it-application.html" rel="alternate" type="text/html" title="Understanding FFT" /><published>2021-05-14T20:49:02+08:00</published><updated>2021-05-14T20:49:02+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/14/FFT-and-it-application</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/14/FFT-and-it-application.html">&lt;ul&gt;
+  &lt;li&gt;FFT (&lt;strong&gt;F&lt;/strong&gt;ast &lt;strong&gt;F&lt;/strong&gt;ourier &lt;strong&gt;T&lt;/strong&gt;ransformation) and its application&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;some-encountered-applications&quot;&gt;Some encountered applications&lt;/h3&gt;
+&lt;h4 id=&quot;multiple-sequence-alignment-mafft&quot;&gt;Multiple sequence alignment: MAFFT&lt;/h4&gt;
+&lt;h4 id=&quot;object-tracking-correlation-filter&quot;&gt;Object tracking: Correlation filter&lt;/h4&gt;
+&lt;h4 id=&quot;time-seris-analysis-matrix-profile&quot;&gt;Time seris analysis: Matrix profile&lt;/h4&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">FFT (Fast Fourier Transformation) and its application</summary></entry><entry><title type="html">Einstein Summation</title><link href="http://localhost:4000/jekyll/update/2021/05/13/einsteinsum.html" rel="alternate" type="text/html" title="Einstein Summation" /><published>2021-05-13T20:49:02+08:00</published><updated>2021-05-13T20:49:02+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/13/einsteinsum</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/13/einsteinsum.html">&lt;ul&gt;
   &lt;li&gt;Einstein summation&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -749,584 +853,4 @@ different conditions, technologies, and species&lt;/a&gt; (2018,NBT)&lt;/li&gt;
 &lt;h2 id=&quot;useful-links&quot;&gt;Useful links&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.r-graph-gallery.com/&quot;&gt;https://www.r-graph-gallery.com/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Packages may useful for visualization, ggplot2, lattice, and others The grid system in R - draw any thing you want Recreation of potentially useful figures</summary></entry><entry><title type="html">Topics on Hidden Markov Model</title><link href="http://localhost:4000/jekyll/update/2021/04/06/HMM.html" rel="alternate" type="text/html" title="Topics on Hidden Markov Model" /><published>2021-04-06T20:35:58+08:00</published><updated>2021-04-06T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/06/HMM</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/06/HMM.html"></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Dive into RNA-seq Quantification</title><link href="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html" rel="alternate" type="text/html" title="Dive into RNA-seq Quantification" /><published>2021-03-31T07:05:55+08:00</published><updated>2021-03-31T07:05:55+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html">&lt;ul&gt;
-  &lt;li&gt;How to quantify RNA-seq data and perform differential analysis&lt;/li&gt;
-  &lt;li&gt;Some strange phenomenon we may meet&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;expression-quantification&quot;&gt;Expression quantification&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Reads mapping is not required for expression level quantification&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;duplication-handling&quot;&gt;Duplication handling&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Seems it has become a consensus that we’ve better not remove duplicated reads in RNA-seq when there is no UMI&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dnatech.genomecenter.ucdavis.edu/faqs/should-i-remove-pcr-duplicates-from-my-rna-seq-data/&quot;&gt;https://dnatech.genomecenter.ucdavis.edu/faqs/should-i-remove-pcr-duplicates-from-my-rna-seq-data/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.biostars.org/p/55648/&quot;&gt;https://www.biostars.org/p/55648/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;exon-level&quot;&gt;Exon level&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Count directly&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bedtools coverage &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;exon.bed&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;input.bam&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-split&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-counts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; exon.counts.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Some tools like &lt;a href=&quot;https://www.bioconductor.org/packages/release/bioc/vignettes/DEXSeq/inst/doc/DEXSeq.html&quot;&gt;DEXSeq&lt;/a&gt; use counts at exon level to infer differential exon usage&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;transcript-level--isoform-level&quot;&gt;Transcript level / isoform level&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Counts at isoform level cannot be resolved precisely from RNA-seq data as the read is short, and there are large overlap between different isoforms of same gene&lt;/li&gt;
-  &lt;li&gt;Multiple tools is able to give a estimated TPM or FPKM at transcript level
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://deweylab.github.io/RSEM/&quot;&gt;Rsem&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://combine-lab.github.io/salmon/&quot;&gt;Salmon&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://pachterlab.github.io/kallisto/&quot;&gt;Kallisto&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;gene-level&quot;&gt;Gene level&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Count directly&lt;/li&gt;
-  &lt;li&gt;Summarize estimated expression level at transcripts level to gene
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://bioconductor.org/packages/release/bioc/vignettes/tximport/inst/doc/tximport.html&quot;&gt;tximport&lt;/a&gt; is very useful for such task&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;normalization&quot;&gt;Normalization&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We shall apply different normalization methods for different propose&lt;/li&gt;
-  &lt;li&gt;For differential expression, here shows case in edgeR, limma and DEseq2&lt;/li&gt;
-  &lt;li&gt;Differential expression compare difference between samples, hence we shall pay no attention to things that believed to be the same across different samples
-    &lt;ul&gt;
-      &lt;li&gt;GC content&lt;/li&gt;
-      &lt;li&gt;Gene length&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;some-background-in-statistics&quot;&gt;Some background in statistics&lt;/h3&gt;
-
-&lt;h4 id=&quot;over-dispersed-poisson--poisson-gamma-mixture--negative-binomial-model&quot;&gt;&lt;strong&gt;Over-dispersed Poisson / Poisson gamma mixture / Negative binomial model&lt;/strong&gt;&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Poisson GLMs&lt;/p&gt;
-
-\[P(y;\mu) = \frac{e^{-\mu}\mu^{y}}{y!}\]
-  &lt;/li&gt;
-  &lt;li&gt;The most common link function used for Poisson glms is the logarithmic
-link function, that means, fit \(log(\mu)\) with a linear model&lt;/li&gt;
-  &lt;li&gt;In Poisson GLMs, we have \(Var(y) = \mu\), in practice the apparent
-variance of the data often exceeds \(\mu\), that is called “overdispersion”&lt;/li&gt;
-  &lt;li&gt;See &lt;a href=&quot;http://llc.stat.purdue.edu/2014/41600/notes/prob1804.pdf&quot;&gt;http://llc.stat.purdue.edu/2014/41600/notes/prob1804.pdf&lt;/a&gt; for deduction of Poisson mean and variance&lt;/li&gt;
-  &lt;li&gt;The presence of overdispersion will lead to under estimation of standard deviation&lt;/li&gt;
-  &lt;li&gt;How to detect overdispersion?&lt;/li&gt;
-  &lt;li&gt;Hierarchical model: instead of assuming \(y_{i}{\sim}Pois(\mu_{i})\), we can add a second layer of variability by allowing
-\(μ_{i}\) itself to be a random variable. We suppose, where \(G(\mu_{i},\psi)\) denotes a distribution with mean \(\mu_{i}\) and &lt;strong&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Coefficient_of_variation&quot;&gt;coefficient of variation&lt;/a&gt;&lt;/strong&gt; \(\psi\)&lt;/li&gt;
-&lt;/ul&gt;
-
-\[y_{i}|\lambda_{i}{\sim}Pois(\lambda_{i})\]
-
-\[\lambda_{i}{\sim}G(\mu_{i},\psi)\]
-
-&lt;ul&gt;
-  &lt;li&gt;According to &lt;a href=&quot;https://en.wikipedia.org/wiki/Law_of_total_expectation&quot;&gt;law of total expectation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-\[E(y) = \mathop{E}_{\lambda}[\mathop{E}_{y|\lambda}(y|\lambda)] = \mu\]
-
-&lt;ul&gt;
-  &lt;li&gt;According to &lt;a href=&quot;https://en.wikipedia.org/wiki/Law_of_total_variance&quot;&gt;law of total variance&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-\[Var(Y) = E(Var(Y|X)) + Var(E(Y|X))\]
-
-\[Var(y) = E(Var(y|\lambda)) + Var(E(y|\lambda)) = \mu + \mu^2\psi\]
-
-&lt;ul&gt;
-  &lt;li&gt;So the variance contains an overdisperion term \(\psi\mu^2\) . The larger \(\psi\), the greater
-the overdispersion.&lt;/li&gt;
-  &lt;li&gt;When \(G\) is a gamma distribution, we call the overall distribution negative binomial&lt;/li&gt;
-  &lt;li&gt;Negative bionomial distribution can be explicitly written as: (Here \(k=\frac{1}{\psi}\))&lt;/li&gt;
-&lt;/ul&gt;
-
-\[P(y_i;\mu_i,k) = \frac{\Gamma(y_i+k)}{\Gamma(y_i+1)\Gamma(k)}(\frac{\mu_i}{\mu_i+k})^{y_i}(1-\frac{\mu_i}{\mu_i+k})^k\]
-
-&lt;h4 id=&quot;empirical-bayes-and-moderated-variance&quot;&gt;&lt;strong&gt;Empirical bayes and moderated variance&lt;/strong&gt;&lt;/h4&gt;
-
-&lt;h4 id=&quot;design-matrix-and-contrast-in-r&quot;&gt;&lt;strong&gt;Design matrix and contrast in R&lt;/strong&gt;&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Factors and levels in R&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#If level is not specified, the level is determined by R as alphabet order&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#[1] c b a c c b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#Levels: a b c&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#[1] c b a c c b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#Levels: c b a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;Reset reference level&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Levels: a c b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relevel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ref&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Moce c to first level, or reference level&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Levels: c a b&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Design matrix in R&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# The first level is the reference level in design matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design.matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;b&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#  (Intercept) groupsc groupsb&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#1           1       1       0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#2           1       0       1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#3           1       0       0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#4           1       1       0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#5           1       1       0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#6           1       0       1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# l - 1 binary value is needed for coding l levels of categorical data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Three columns in the output dataframe, first columns corresponds to intercept term&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Next 2 columns corresponds to factors other then reference level&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;U&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;U&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;metainfo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data.frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# According to R's alphabet order behavior, F and A is the reference level&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design.matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;metainfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 5 columns: 1 (intercept) + (3-1) (gender) + (3-1) (country)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Read more at &lt;a href=&quot;http://genomicsclass.github.io/book/pages/interactions_and_contrasts.html&quot;&gt;http://genomicsclass.github.io/book/pages/interactions_and_contrasts.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;differential-analysis-a-paired-comparison-example&quot;&gt;Differential analysis (a paired comparison example)&lt;/h3&gt;
-
-&lt;h4 id=&quot;load-counts-and-design-matrix&quot;&gt;Load counts and design matrix&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Note only base R fucntion are used&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;count.path&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TCGA-CRC-counts.txt&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count.matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read.table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count.path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;\t&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row.names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stringsAsFactors&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;check.names&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count.matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample.ids&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colnames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;normal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample.ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# level=c(&quot;normal&quot;,&quot;tumor&quot;) means normal is the reference level&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 注意别搞反了！&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# If level is not specified, the level is determined by R as alphabet order&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;01A$&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample.ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tumor&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;normal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tumor&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patient.ids&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lapply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sample.ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strsplit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]][&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]})))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# model.matrix is an R function&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# If you'd like to consider some batch effect, just add these factors to desig matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patient.ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;edger&quot;&gt;&lt;strong&gt;edgeR&lt;/strong&gt;&lt;/h4&gt;
-&lt;h4 id=&quot;prepare-dgelist&quot;&gt;Prepare DGEList&lt;/h4&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edgeR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edgeR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DGEList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;counts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keep&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edgeR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filterByExpr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keep&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keep.lib.sizes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edgeR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;calcNormFactors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;TMM&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;DGEList&lt;/code&gt; S4 object contains &lt;code class=&quot;highlighter-rouge&quot;&gt;counts&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;samples&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;counts&lt;/code&gt; is a matrix with integer value&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;samples&lt;/code&gt; is a data.frame with three fields:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;group&lt;/code&gt;: introduce in &lt;code class=&quot;highlighter-rouge&quot;&gt;filterByExpr&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;lib.size&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;norm.factors&lt;/code&gt;: calculated in &lt;code class=&quot;highlighter-rouge&quot;&gt;edgeR::calcNormFactors&lt;/code&gt;, all ones if not perform this step&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;dispersion-estimation-and-model-fitting&quot;&gt;Dispersion estimation and model fitting&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;We have shown (gene &lt;code class=&quot;highlighter-rouge&quot;&gt;g&lt;/code&gt; in sample &lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;), CV means coefficient of variation, or
-standard deviation divided by mean&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\frac{Var(y_{gi})}{\mu_{gi}^2} = \frac{1}{\mu_{gi}} + \phi_{g}\]
-
-\[CV^2(y_{gi})= \frac{1}{\mu_{gi}} + \phi_{g}\]
-
-&lt;ul&gt;
-  &lt;li&gt;\(\phi_{g}\) is called dispersion, suppose technical varistion follows Poisson law, then \(\phi_{g}\) equals to square to Biological CV&lt;/li&gt;
-&lt;/ul&gt;
-
-\[CV_{Total}^2 = CV_{Technical}^2 + CV_{Biological}^2\]
-
-&lt;ul&gt;
-  &lt;li&gt;Estimate biological CV is equivalent to estimate dispersion parameter in negative bionomial distribution&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;estimateDisp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# This is actually short for the following three steps&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Estimate trended dispersion, add a common.dispersion term to the DEGList&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#y &amp;lt;- estimateGLMCommonDisp(y, design)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Estimate trended dispersion, add a trended.dispersion term to the DEGList&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#y &amp;lt;- estimateGLMTrendedDisp(y, design)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# tagwise NB dispersion, add a tagwise.dispersion term to the DEGList&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#y &amp;lt;- estimateGLMTagwiseDisp(y, design)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Attempt to use trended.dispersion, use common.dispersion if not present&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit.ql&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glmQLFit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# The first column is intercept, the second corresponds to coefficient to be tested (tumor vs. normal), the remaining columns are different patients&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tumor.vs.normal.ql&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glmQLFTest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tumor.vs.normal.ql.de&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topTags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tumor.vs.normal.ql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;Inf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# order of precedence: genewise dispersion, trended dispersions, common dispersion&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit.lr&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glmFit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tumor.vs.normal.lr&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glmLRT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tumor.vs.normal.lr.de&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topTags&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tumor.vs.normal.lr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;Inf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Summarize number of up and down regulated genes&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;limma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decideTests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tumor.vs.normal.lr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lfc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Dispersions
-    &lt;ul&gt;
-      &lt;li&gt;Estimated by quantile-adjusted conditional maximum likelihood (qCML), not a ML estimation&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;common.dispersion&lt;/code&gt;: a single numeric value&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;trended.dispersion&lt;/code&gt;: numeric value vector, with length same as number of gene, what its does is stratifying dispersion estimation by gene abundance&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tagwise.dispersion&lt;/code&gt;: numeric value vector, with length same as number of gene&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;glmQLFit&lt;/code&gt; first tries to use &lt;code class=&quot;highlighter-rouge&quot;&gt;trended.dispersion&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;glmFit&lt;/code&gt; first tries to use &lt;code class=&quot;highlighter-rouge&quot;&gt;tagwise.dispersion&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;glmQLFTest&lt;/code&gt; is more conservative than &lt;code class=&quot;highlighter-rouge&quot;&gt;glmLRT&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;limma&quot;&gt;&lt;strong&gt;limma&lt;/strong&gt;&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;limma was originally designed for microarray data analysis, and was then extended to RNA-seq differential expression and differention splicing analysis &lt;a href=&quot;https://academic.oup.com/nar/article/43/7/e47/2414268&quot;&gt;https://academic.oup.com/nar/article/43/7/e47/2414268&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The data input to limma should be counts, rather than popular expression summaries such as reads-per-kilobase-per-million (RPKM), so that limma can estimate the appropriate mean-variance relationship.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Count data always show marked mean-variance relationships. Raw counts show increasing variance with increasing count size, while log-counts typically show a decreasing mean-variance trend.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;limma&lt;/code&gt; provides two choices, work on logCPM and consider mean - variance trend, or work on &lt;code class=&quot;highlighter-rouge&quot;&gt;voom&lt;/code&gt; transformed data without considering mean - variance trend&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;If counts is a DGEList object from the edgeR package, then voom will use the normalization factors found in the object when computing the logCPM values. In other words, the logCPM values are computed from the effective library sizes rather than the raw library sizes. That means &lt;code class=&quot;highlighter-rouge&quot;&gt;voom(y, design)&lt;/code&gt; is not equivalent to &lt;code class=&quot;highlighter-rouge&quot;&gt;voom(y$counts, design)&lt;/code&gt; if not all &lt;code class=&quot;highlighter-rouge&quot;&gt;DGEList$samples$norm.factors&lt;/code&gt; are ones&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Prepare DGEList
-    &lt;ul&gt;
-      &lt;li&gt;Same as ``edgeR&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Perform differential analysis with limma - trend&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# logCPM is a numeric matrix&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logCPM&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edgeR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cpm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior.count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit.limma&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;limma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lmFit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logCPM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# trend: should an intensity-trend be allowed for the prior variance?&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit.limma.trend&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;limma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eBayes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit.limma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;trend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;de.table.trend&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;limma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit.limma.trend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;Inf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Perform differential analysis with limma - voom&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;limma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;voom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;FALSE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit.limma.voom&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lmFit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# trend is FALSE by default&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit.limma.voom&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;limma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eBayes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit.limma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;de.table.voom&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;limma&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;topTable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coef&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;Inf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;deseq2&quot;&gt;DESeq2&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html&quot;&gt;https://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DESeq2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coldata&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data.frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patient.ids&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patient.ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dds&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DESeqDataSetFromMatrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;countData&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count.matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                              &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colData&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coldata&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-                              &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;design&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tissue.types&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;patient.ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dds&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DESeq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#DESeq is short for the following three function&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 1) dds &amp;lt;- estimateSizeFactors(dds)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Estimation of size factor &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# A size factor is added to dds as dds@colData$sizeFactor&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 2) dds &amp;lt;- estimateDispersions(dds)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# estimateDispersions add dds@dispersionFunction() for expression level dispersion trend&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# estimateDispersions is short for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#   1. estimateDispersionsGeneEst&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#   2. estimateDispersionsFit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#   3. estimateDispersionsMAP&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# 3) dds &amp;lt;- nbinomWaldTest(dds)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Perform wald test&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Show comparisons that can be extracted&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resultsNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# &quot;Intercept&quot;,&quot;tissue.types_tumor_vs_normal&quot;,&quot;patient.ids_2679_vs_2671&quot;,...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Extract differential expresion result&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deseq.res&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;tissue.types_tumor_vs_normal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# An alternative way is&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#deseq.res &amp;lt;-results(dds,contrast=c(&quot;tissue.types&quot;, &quot;tumor&quot;, &quot;normal&quot;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;data-transformation-for-downstream-analysis&quot;&gt;Data Transformation for downstream analysis&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;See discussion here &lt;a href=&quot;https://seqqc.wordpress.com/2015/02/16/should-you-transform-rna-seq-data-log-vst-voom/&quot;&gt;https://seqqc.wordpress.com/2015/02/16/should-you-transform-rna-seq-data-log-vst-voom/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Adjust for variance’s heteroskedasticity, see &lt;a href=&quot;https://en.wikipedia.org/wiki/Variance-stabilizing_transformation&quot;&gt;Variance stabilizing  transformation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;In differential expression analysis, useful for limma like tools, not necessary for negative binomial GLM like edgeR&lt;/li&gt;
-  &lt;li&gt;Useful for downstream visualization (PCA plot, clustering and heapmap, etc) or machine learning, to mitigate the impact of extreme value&lt;/li&gt;
-  &lt;li&gt;Data used for these down stream analysis can be quiet different from differential expression&lt;/li&gt;
-  &lt;li&gt;Simplist solution might be &lt;code class=&quot;highlighter-rouge&quot;&gt;edgeR::cpm(y, log=TRUE, prior.count=1)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Things get more complicated when considering batch effect for task other than differential expression&lt;/li&gt;
-  &lt;li&gt;Further reading
-    &lt;ul&gt;
-      &lt;li&gt;Caveats for correcting for batch effect &lt;a href=&quot;https://academic.oup.com/biostatistics/article/17/1/29/1744261&quot;&gt;https://academic.oup.com/biostatistics/article/17/1/29/1744261&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;limma package related
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://www.bioconductor.org/packages/release/bioc/vignettes/limma/inst/doc/usersguide.pdf&quot;&gt;limma user guide&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;edgeR package related
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://bioconductor.org/packages/release/bioc/vignettes/edgeR/inst/doc/edgeRUsersGuide.pdf&quot;&gt;edgeR manual&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">How to quantify RNA-seq data and perform differential analysis Some strange phenomenon we may meet</summary></entry><entry><title type="html">Aligners and Output Formatting</title><link href="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html" rel="alternate" type="text/html" title="Aligners and Output Formatting" /><published>2021-03-28T11:18:15+08:00</published><updated>2021-03-28T11:18:15+08:00</updated><id>http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/03/28/all-about-alinger-and-bam-file.html">&lt;ul&gt;
-  &lt;li&gt;This post tries to &lt;strong&gt;record&lt;/strong&gt; what I’ve &lt;strong&gt;heard of&lt;/strong&gt; about the following questions.
-    &lt;ul&gt;
-      &lt;li&gt;Use which aligner, which parameter, to what reference sequence, to map what data&lt;/li&gt;
-      &lt;li&gt;How to manipulate output of different aligners, or equivalently, how to manipulate bam files&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;学会调包&lt;/li&gt;
-  &lt;li&gt;Note this field is developing rapidly, thing wrote here may quickly out of date&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;famous-tools-for-pairwise-sequence-comparison&quot;&gt;Famous tools for pairwise sequence comparison&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Short reads aligner
-    &lt;ul&gt;
-      &lt;li&gt;DNA-seq aligner
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;http://bio-bwa.sourceforge.net/&quot;&gt;bwa&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;http://bowtie-bio.sourceforge.net/bowtie2/index.shtml&quot;&gt;bowtie2&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;RNA-seq aligner
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;https://github.com/alexdobin/STAR&quot;&gt;STAR&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;http://daehwankimlab.github.io/hisat2/&quot;&gt;hisat2&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Long reads aligner
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://lh3.github.io/minimap2/minimap2.html&quot;&gt;minimap2&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;General propose aligner
-    &lt;ul&gt;
-      &lt;li&gt;blast&lt;/li&gt;
-      &lt;li&gt;blat&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Whole genome aligner
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;http://www.bx.psu.edu/~rsharris/lastz/&quot;&gt;LASTZ&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;http://mummer.sourceforge.net/&quot;&gt;MUMmer&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;short-reads-mapping-reference-and-parameters&quot;&gt;Short reads mapping: reference and parameters&lt;/h2&gt;
-
-&lt;h3 id=&quot;reads-preprocessing&quot;&gt;Reads preprocessing&lt;/h3&gt;
-&lt;h4 id=&quot;adaptor-trimming--quality-trimming&quot;&gt;Adaptor trimming / quality trimming&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;If you perform global alignment, then adapter trimming is required
-    &lt;h4 id=&quot;duplication-removal--umi-handling&quot;&gt;Duplication removal / UMI handling&lt;/h4&gt;
-  &lt;/li&gt;
-  &lt;li&gt;You may remove PCR duplicates before alignment or after alignment
-    &lt;ul&gt;
-      &lt;li&gt;Pros: reduce computational burden in reads mapping.&lt;/li&gt;
-      &lt;li&gt;Cons: less flexible
-        &lt;ul&gt;
-          &lt;li&gt;post alignment duplication removal allows “mark duplicates” instead of “remove duplicates”&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;short-read-aligners&quot;&gt;Short read aligners&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;What short read aligners do is actually assign some annotations to each reads, that is which segment of the reads are assigned to which location of the genome in which form&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;In different aligner, same thing may have different name&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;map-to-genome--map-to-transcriptome&quot;&gt;&lt;strong&gt;Map to genome / map to transcriptome&lt;/strong&gt;&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Seems most project prefer map reads to genome, but some downstream analysis tools (&lt;a href=&quot;https://combine-lab.github.io/salmon/&quot;&gt;salmon&lt;/a&gt;, &lt;a href=&quot;https://deweylab.github.io/RSEM/&quot;&gt;rsem&lt;/a&gt;) requires the reads to be aligned to transcriptome coordinate&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/alexdobin/STAR&quot;&gt;STAR&lt;/a&gt; could direct project genome aligned reads to transcriptome coordinate&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;which-sequence-to-add-in-reference&quot;&gt;&lt;strong&gt;Which sequence to add in reference&lt;/strong&gt;&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Impact of haplotype and decoy sequences&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;gapped-alignment--ungapped-alignment&quot;&gt;&lt;strong&gt;Gapped alignment / Ungapped alignment&lt;/strong&gt;&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Whether the aligner allow deletions and insertions&lt;/li&gt;
-  &lt;li&gt;The CIGAR string in bam file contains &lt;code class=&quot;highlighter-rouge&quot;&gt;I&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;D&lt;/code&gt; operation&lt;/li&gt;
-  &lt;li&gt;Most aligners support gapped alignments, but note &lt;a href=&quot;http://bowtie-bio.sourceforge.net/manual.html&quot;&gt;bowtie1&lt;/a&gt; only support ungapped, so its output cannot be used for indel calling&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;dna-seq-alignment--rna-seq-alignment&quot;&gt;&lt;strong&gt;DNA-seq alignment / RNA-seq alignment&lt;/strong&gt;&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The major difference between DNA-seq mapping and RNA-seq mapping is RNA-seq aligner perform spliced alignment&lt;/li&gt;
-  &lt;li&gt;For spliced aware aligner, the output bam file contains &lt;code class=&quot;highlighter-rouge&quot;&gt;N&lt;/code&gt; in cigar operation&lt;/li&gt;
-  &lt;li&gt;Spliced-aware aligner usually accept genome annotation to define known splice junction&lt;/li&gt;
-  &lt;li&gt;The mapping quality calculation in DNA-seq aligner and RNA-seq aligner can be different, as RNA-seq is seldom used for variant calling&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;local-alignment--end-to-end-alignment&quot;&gt;&lt;strong&gt;Local alignment / End to end alignment&lt;/strong&gt;&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;The scoring is different&lt;/li&gt;
-  &lt;li&gt;End to end alignment requires both end of the reads to align to the genome, while local alignment only requires a substring of reads to align to genome&lt;/li&gt;
-  &lt;li&gt;Local alignment is more sensitive, but may lead to false hit&lt;/li&gt;
-  &lt;li&gt;Local alignment produce so called soft-clipped segments if ends of the reads is not aligned, that is &lt;code class=&quot;highlighter-rouge&quot;&gt;S&lt;/code&gt; cigar operation&lt;/li&gt;
-  &lt;li&gt;If you don’t trim adaptor, you have to use local alignment, but for short reads (small RNA sequencing or riboseq for example) it can be dangerous&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;multimapper&quot;&gt;&lt;strong&gt;Multimapper&lt;/strong&gt;&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Secondary alignment&lt;/li&gt;
-  &lt;li&gt;The problem of biased assignment&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;chimeric-alignment&quot;&gt;&lt;strong&gt;Chimeric alignment&lt;/strong&gt;&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Split reads&lt;/li&gt;
-  &lt;li&gt;Supplementary alignment
-    &lt;ul&gt;
-      &lt;li&gt;Note supplementary alignment and secondary alignment are different things&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;unmapped-reads&quot;&gt;&lt;strong&gt;Unmapped reads&lt;/strong&gt;&lt;/h4&gt;
-
-&lt;h4 id=&quot;paired-end-reads-specific-situation&quot;&gt;&lt;strong&gt;Paired end reads specific situation&lt;/strong&gt;&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Discordant reads
-    &lt;ul&gt;
-      &lt;li&gt;See some discussion here &lt;a href=&quot;https://www.biostars.org/p/278412/&quot;&gt;https://www.biostars.org/p/278412/&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Singleton&lt;/li&gt;
-  &lt;li&gt;Unmapped reads&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;some-parameter-specification-for-reference&quot;&gt;Some parameter specification for reference&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ENCODE RNA-seq&lt;/li&gt;
-  &lt;li&gt;TCGA RNA-seq&lt;/li&gt;
-  &lt;li&gt;TCGA DNA-seq&lt;/li&gt;
-  &lt;li&gt;arriba’s recommend parameter for fusion gene detection&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;alignment-formats-and-apis&quot;&gt;Alignment formats and APIs&lt;/h2&gt;
-
-&lt;h3 id=&quot;manipulate-bam-file&quot;&gt;Manipulate bam file&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Format specification of bam file&lt;/li&gt;
-  &lt;li&gt;Flag in bam file&lt;/li&gt;
-  &lt;li&gt;Unmapped reads&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;duplication-handling&quot;&gt;Duplication handling&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;For different task, duplication should be ideally handled in different ways
-    &lt;ul&gt;
-      &lt;li&gt;UMI is always favorable&lt;/li&gt;
-      &lt;li&gt;Single end data and paired end data&lt;/li&gt;
-      &lt;li&gt;In RNA-seq for gene expression quantification, better not remove duplicate is UMI is not present, see &lt;a href=&quot;/jekyll/update/2021/03/31/Dive-into-RNA-seq-quantification.html&quot;&gt;here&lt;/a&gt; for detail&lt;/li&gt;
-      &lt;li&gt;For CLIP-seq, remember to collapse duplicate before peak calling&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Tools
-    &lt;ul&gt;
-      &lt;li&gt;Picard Markduplicates&lt;/li&gt;
-      &lt;li&gt;samtools rmdup
-        &lt;ul&gt;
-          &lt;li&gt;See following posts for differences between samtools rmdup and picard
-            &lt;ul&gt;
-              &lt;li&gt;http://broadinstitute.github.io/picard/faq.html
-                &lt;ul&gt;
-                  &lt;li&gt;samtools rmdup do not remove interchromosomal duplicates&lt;/li&gt;
-                &lt;/ul&gt;
-              &lt;/li&gt;
-              &lt;li&gt;http://www.bio-info-trainee.com/2003.html&lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/GregoryFaust/samblaster&quot;&gt;samblaster&lt;/a&gt;
-        &lt;ul&gt;
-          &lt;li&gt;https://academic.oup.com/bioinformatics/article/30/17/2503/2748175&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://lomereiter.github.io/sambamba/index.html&quot;&gt;sambamba&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;tools-for-handling-alignment-in-other-format&quot;&gt;Tools for handling alignment in other format&lt;/h3&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">This post tries to record what I’ve heard of about the following questions. Use which aligner, which parameter, to what reference sequence, to map what data How to manipulate output of different aligners, or equivalently, how to manipulate bam files 学会调包 Note this field is developing rapidly, thing wrote here may quickly out of date</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Packages may useful for visualization, ggplot2, lattice, and others The grid system in R - draw any thing you want Recreation of potentially useful figures</summary></entry></feed>

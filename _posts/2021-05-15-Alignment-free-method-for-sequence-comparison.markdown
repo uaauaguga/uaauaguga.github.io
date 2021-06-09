@@ -35,6 +35,12 @@ categories: jekyll update
     - [sourmash](https://github.com/dib-lab/sourmash)
 
 
+### LSH in other fields
+- In addition to estimate Jaccard distance with minhash, we could use other hash function or other distance estimation
+- See <http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf> 
+
+
+
 ### Approximate member query and efficient counting
 - [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filters_in_bioinformatics)
   - Query whether an element exists in a large set. May generate false positive, but never false negative.
