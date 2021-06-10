@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-10T23:31:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Basic Concepts in Information Theory</title><link href="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html" rel="alternate" type="text/html" title="Basic Concepts in Information Theory" /><published>2021-06-10T14:14:50+08:00</published><updated>2021-06-10T14:14:50+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html">&lt;h3 id=&quot;information-content&quot;&gt;Information content&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-10T23:51:55+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Basic Concepts in Information Theory</title><link href="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html" rel="alternate" type="text/html" title="Basic Concepts in Information Theory" /><published>2021-06-10T14:14:50+08:00</published><updated>2021-06-10T14:14:50+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html">&lt;h3 id=&quot;information-content&quot;&gt;Information content&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;越稀少的事件带来的surprise越大&lt;/li&gt;
 &lt;/ul&gt;
@@ -35,7 +35,12 @@
 \[H(X,Y) = \mathbb{E}_{X}I(Y) = -\int_{-\infty}^{\infty}p(x)ln(q(x))dx\]
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Cross_entropy&quot;&gt;https://en.wikipedia.org/wiki/Cross_entropy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;交叉熵和分类问题中的负对数似然损失函数是等价的，见&lt;a href=&quot;https://en.wikipedia.org/wiki/Cross_entropy&quot;&gt;https://en.wikipedia.org/wiki/Cross_entropy&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;注意交叉熵和联合分布的熵不是一个东西！&lt;a href=&quot;https://math.stackexchange.com/questions/2505015/relation-between-cross-entropy-and-joint-entropy&quot;&gt;https://math.stackexchange.com/questions/2505015/relation-between-cross-entropy-and-joint-entropy&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;kl-divergence&quot;&gt;KL divergence&lt;/h3&gt;
@@ -45,7 +50,7 @@
 
 \[D_{KL}(X||Y) = H(Y|X) = H((X,Y)) - H(Y) = \int_{-\infty}^{\infty}p(x)ln \frac{q(x)}{p(x)}dx= -\int_{-\infty}^{\infty}p(x)ln \frac{p(x)}{q(x)}dx\]
 
-&lt;h4 id=&quot;mutual-information&quot;&gt;Mutual information&lt;/h4&gt;
+&lt;h3 id=&quot;mutual-information&quot;&gt;Mutual information&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;互信息/互传信息量&lt;/li&gt;
 &lt;/ul&gt;

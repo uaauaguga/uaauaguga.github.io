@@ -36,7 +36,9 @@ $$H((X,Y)) = H(Y|X) + H(X)$$
 
 $$H(X,Y) = \mathbb{E}_{X}I(Y) = -\int_{-\infty}^{\infty}p(x)ln(q(x))dx$$
 
-- <https://en.wikipedia.org/wiki/Cross_entropy>
+- 交叉熵和分类问题中的负对数似然损失函数是等价的，见<https://en.wikipedia.org/wiki/Cross_entropy>
+
+- 注意交叉熵和联合分布的熵不是一个东西！<https://math.stackexchange.com/questions/2505015/relation-between-cross-entropy-and-joint-entropy>
 
 ### KL divergence
 - KL散度/相对熵
@@ -44,7 +46,7 @@ $$H(X,Y) = \mathbb{E}_{X}I(Y) = -\int_{-\infty}^{\infty}p(x)ln(q(x))dx$$
 $$D_{KL}(X||Y) = H(Y|X) = H((X,Y)) - H(Y) = \int_{-\infty}^{\infty}p(x)ln \frac{q(x)}{p(x)}dx= -\int_{-\infty}^{\infty}p(x)ln \frac{p(x)}{q(x)}dx$$
 
 
-#### Mutual information
+### Mutual information
 - 互信息/互传信息量
 
 $$I(X;Y) = D_{KL}(p_{X,Y}||p_{X}p_{Y}) = \int_{-\infty}^{\infty} p_{X,Y}(x,y)ln \frac{p_{X,Y}(x,y)}{p_{X}(x)p_{Y}(y)}$$
