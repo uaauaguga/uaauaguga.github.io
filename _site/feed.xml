@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-10T23:51:55+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Basic Concepts in Information Theory</title><link href="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html" rel="alternate" type="text/html" title="Basic Concepts in Information Theory" /><published>2021-06-10T14:14:50+08:00</published><updated>2021-06-10T14:14:50+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html">&lt;h3 id=&quot;information-content&quot;&gt;Information content&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-11T08:55:01+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Basic Concepts in Information Theory</title><link href="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html" rel="alternate" type="text/html" title="Basic Concepts in Information Theory" /><published>2021-06-10T14:14:50+08:00</published><updated>2021-06-10T14:14:50+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html">&lt;h3 id=&quot;information-content&quot;&gt;Information content&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;越稀少的事件带来的surprise越大&lt;/li&gt;
 &lt;/ul&gt;
@@ -7,14 +7,29 @@
 
 &lt;h3 id=&quot;entropy&quot;&gt;Entropy&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;熵是信息量的期望&lt;/li&gt;
-  &lt;li&gt;这种连续的情形有时又叫做微分熵&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;熵是信息量的期望&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;离散的情形&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[H(X) = \sum_{i}p_{i}ln(p_{i})\]
+
+&lt;ul&gt;
+  &lt;li&gt;连续的情形下叫做微分熵&lt;/li&gt;
 &lt;/ul&gt;
 
 \[H(X) = \mathbb{E}_{X}I(X) = -\int_{-\infty}^{\infty}p_X(x)ln(p_X(x))dx\]
 
 &lt;ul&gt;
-  &lt;li&gt;条件分布的熵&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;条件分布的熵&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The conditional entropy &lt;code class=&quot;highlighter-rouge&quot;&gt;H(Y|X)&lt;/code&gt; is the average additional informaion needed to specified &lt;code class=&quot;highlighter-rouge&quot;&gt;Y&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 \[p_{X,Y}(x,y) = p_{Y|X}(y|x)p_{X}(x)\]
@@ -48,11 +63,17 @@
   &lt;li&gt;KL散度/相对熵&lt;/li&gt;
 &lt;/ul&gt;
 
-\[D_{KL}(X||Y) = H(Y|X) = H((X,Y)) - H(Y) = \int_{-\infty}^{\infty}p(x)ln \frac{q(x)}{p(x)}dx= -\int_{-\infty}^{\infty}p(x)ln \frac{p(x)}{q(x)}dx\]
+\[D_{KL}(X||Y) = H(X,Y) - H(Y) = \int_{-\infty}^{\infty}p(x)ln \frac{q(x)}{p(x)}dx= -\int_{-\infty}^{\infty}p(x)ln \frac{p(x)}{q(x)}dx\]
+
+&lt;ul&gt;
+  &lt;li&gt;Note \(D_{KL}(X\|Y) \neq D_{KL}(Y\|X)\)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;mutual-information&quot;&gt;Mutual information&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;互信息/互传信息量&lt;/li&gt;
+  &lt;li&gt;如果\(X\)和\(Y\)独立，我们有 \(p_{x,y}(X,Y) = p_{X}(x)p_{Y}(y)\)&lt;/li&gt;
+  &lt;li&gt;互信息\(X\)和\(Y\)的互信息定义为 \(p_{x,y}(X,Y)\) 和 \(p_{X}(x)p_{Y}(y)\) 两个量的交叉熵&lt;/li&gt;
 &lt;/ul&gt;
 
 \[I(X;Y) = D_{KL}(p_{X,Y}||p_{X}p_{Y}) = \int_{-\infty}^{\infty} p_{X,Y}(x,y)ln \frac{p_{X,Y}(x,y)}{p_{X}(x)p_{Y}(y)}\]
@@ -61,7 +82,8 @@
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www2.isye.gatech.edu/~yxie77/ece587/Lecture2.pdf&quot;&gt;https://www2.isye.gatech.edu/~yxie77/ece587/Lecture2.pdf&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Information content 越稀少的事件带来的surprise越大</summary></entry><entry><title type="html">Under Standing Graph Convolution</title><link href="http://localhost:4000/jekyll/update/2021/05/20/under-standing-graph-convolution.html" rel="alternate" type="text/html" title="Under Standing Graph Convolution" /><published>2021-05-20T12:12:32+08:00</published><updated>2021-05-20T12:12:32+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/20/under-standing-graph-convolution</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/20/under-standing-graph-convolution.html">&lt;h2 id=&quot;graph-convolution&quot;&gt;Graph convolution&lt;/h2&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Kullback–Leibler_divergence&quot;&gt;https://en.wikipedia.org/wiki/Kullback–Leibler_divergence&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Information content 越稀少的事件带来的surprise越大</summary></entry><entry><title type="html">Understanding Graph Convolution</title><link href="http://localhost:4000/jekyll/update/2021/05/20/under-standing-graph-convolution.html" rel="alternate" type="text/html" title="Understanding Graph Convolution" /><published>2021-05-20T12:12:32+08:00</published><updated>2021-05-20T12:12:32+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/20/under-standing-graph-convolution</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/20/under-standing-graph-convolution.html">&lt;h2 id=&quot;graph-convolution&quot;&gt;Graph convolution&lt;/h2&gt;
 &lt;h3 id=&quot;spatial-convolution&quot;&gt;Spatial convolution&lt;/h3&gt;
 
 &lt;h3 id=&quot;spectral-convolution&quot;&gt;Spectral convolution&lt;/h3&gt;
