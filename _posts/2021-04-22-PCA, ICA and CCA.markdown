@@ -172,8 +172,15 @@ plt.savefig("CCA-CRC-tissue.png",bbox_inches="tight")
   - <http://graphics.stanford.edu/courses/cs233-20-spring/ReferencedPapers/CCA_Weenik.pdf>
 
 
-## ICA
+## [ICA](https://en.wikipedia.org/wiki/Independent_component_analysis)
 - [Independent Component Analysis:Algorithms and Applications](https://www.cs.helsinki.fi/u/ahyvarin/papers/NN00new.pdf)
+- [An informationmaximisation approach to blind separation and blind deconvolution](http://www.inf.fu-berlin.de/lehre/WS05/Mustererkennung/infomax/infomax.pdf)
+- Blind source separation
+  - A mixture of signal, don't known the source
+  - Based on the assumption that any two signal is independent
+- The fundamental restriction in ICA is that the independent components must be nongaussian for ICA to be possible.
+- Note uncorrelated random variable are not always independent
+
 
 
 
