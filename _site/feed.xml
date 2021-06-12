@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-11T13:27:03+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Basic Concepts in Information Theory</title><link href="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html" rel="alternate" type="text/html" title="Basic Concepts in Information Theory" /><published>2021-06-10T14:14:50+08:00</published><updated>2021-06-10T14:14:50+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html">&lt;h3 id=&quot;information-content&quot;&gt;Information content&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-12T13:08:57+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Regularization for Incorporating Structure Information</title><link href="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html" rel="alternate" type="text/html" title="Regularization for Incorporating Structure Information" /><published>2021-06-12T10:23:10+08:00</published><updated>2021-06-12T10:23:10+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html">&lt;p&gt;有时你会希望在预测模型中加入一些先验的结构信息。&lt;/p&gt;
+
+&lt;p&gt;比方说你用LASSO做特征选择。你的特征是一段基因组上每个位点的数值，你希望相邻的两个位点能以比较大的概率被同时选中。或者你的特征是一些基因的表达量，你先验的知道一些基因共表达的信息，你希望共表达的基因尽可能的同时被选中。或者你想用NMF对一个基因表达的矩阵进行降维。这时候你可能希望已知被共调控的基因被在降维后处在比较接近的位置。&lt;/p&gt;
+
+&lt;p&gt;像这种情况都可以在正则化上做文章。对于第一个基因组位点选择的例子，有人提出了一种叫做fused LASSO的做法，见&lt;a href=&quot;https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf&quot;&gt;https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf&lt;/a&gt;。假设我们有从标号为从1到p的连续排列的p个特征，那么fused LASSO的loss可以定义成：&lt;/p&gt;
+
+\[L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\sum_{j=2}^{p}|\beta_{j}-\beta_{j-1}|\]
+
+&lt;p&gt;如果想同时选中先验的认为比较相近的特征，有两种非常相似的方法，一种叫做grouped LASSO, 还有一种叫做graph regularized LASSO。&lt;/p&gt;
+
+&lt;p&gt;Group LASSO发表在&lt;a href=&quot;http://pages.stat.wisc.edu/~myuan/papers/glasso.final.pdf&quot;&gt;http://pages.stat.wisc.edu/~myuan/papers/glasso.final.pdf&lt;/a&gt;。在grouped LASSO中， 假设特征被预先分成了从\(1\)到\(J\)的\(J\)组，其中第\(g\)组有\(p_{g}\)个特征，则loss被定义成：&lt;/p&gt;
+
+\[L(\beta,\lambda) = \frac{1}{2} (y-X\beta)^T(y-X\beta)  + \lambda\sum_{g=1}^{J}\sqrt{\beta_{g}^{T}\beta_{g}}\]
+
+&lt;p&gt;另一种是graph regularized LASSO,见 &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/24/9/1175/206444&quot;&gt;https://academic.oup.com/bioinformatics/article/24/9/1175/206444&lt;/a&gt;。假设每一个特征之间的关系可以用一个图来表示，图上的每一个节点都对应着一个特征。假设\(A\)是图的邻接矩阵。所以每一个节点的度(degree)是：&lt;/p&gt;
+
+\[d_{i} = \sum_{i}^{p}A_{i,j}\]
+
+&lt;p&gt;所有节点的度可以表示为一个度数矩阵:&lt;/p&gt;
+
+\[D = diag(d_{1},...,d_{i},...,d_{p})\]
+
+&lt;p&gt;该图的拉普拉斯矩阵定义为:&lt;/p&gt;
+
+\[L = A - D\]
+
+&lt;p&gt;这样loss可以定义成：&lt;/p&gt;
+
+\[L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\beta^TL\beta\]
+
+&lt;p&gt;这里比较迷惑的是凭什么\(\beta^TL\beta\)就能作为一项正则化。实际上我们是希望图中有连接的节点系数都比较接近。
+  所以我们希望这样一个量是比较小的：&lt;/p&gt;
+
+\[\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\beta_{i}-\beta_{j})^{2}\]
+
+&lt;p&gt;经过简单的计算不难发现：&lt;/p&gt;
+
+\[\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\beta_{i}-\beta_{j})^{2} ＝ \sum_{i=1}^{p}\beta_{i}^2d_{i,i} - \sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}\beta_{i}\beta_{j} = \beta^TD\beta - \beta^TA\beta = \beta^T(D-A)\beta\]
+
+&lt;p&gt;还有一些用图的正则化做非负矩阵分解的例子，见&lt;a href=&quot;https://www.nature.com/articles/nmeth.2651&quot;&gt;https://www.nature.com/articles/nmeth.2651&lt;/a&gt;和&lt;a href=&quot;https://ieeexplore.ieee.org/document/5674058&quot;&gt;https://ieeexplore.ieee.org/document/5674058&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;### Fuether Reading&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.stat.cmu.edu/~ryantibs/papers/genlasso.pdf&quot;&gt;http://www.stat.cmu.edu/~ryantibs/papers/genlasso.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://euler.stat.yale.edu/~tba3/stat612/lectures/lec22/lecture22.pdf&quot;&gt;http://euler.stat.yale.edu/~tba3/stat612/lectures/lec22/lecture22.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">有时你会希望在预测模型中加入一些先验的结构信息。</summary></entry><entry><title type="html">Basic Concepts in Information Theory</title><link href="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html" rel="alternate" type="text/html" title="Basic Concepts in Information Theory" /><published>2021-06-10T14:14:50+08:00</published><updated>2021-06-10T14:14:50+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html">&lt;h3 id=&quot;information-content&quot;&gt;Information content&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;越稀少的事件带来的surprise越大&lt;/li&gt;
 &lt;/ul&gt;
@@ -743,175 +788,4 @@ different conditions, technologies, and species&lt;/a&gt; (2018,NBT)&lt;/li&gt;
   &lt;li&gt;2017, &lt;em&gt;Genome Research&lt;/em&gt;, &lt;a href=&quot;https://genome.cshlp.org/content/27/8/1371.full&quot;&gt;The identification and functional annotation of RNA structures conserved in vertebrates&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;2017, &lt;em&gt;NAR&lt;/em&gt;, &lt;a href=&quot;https://academic.oup.com/nar/article/45/18/10811/4080188&quot;&gt;Detection of 224 candidate structured RNAs by comparative analysis of specific subsets of intergenic regions&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;2021, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02319-w&quot;&gt;Comparative genomics identifies thousands of candidate structured RNAs in human microbiomes&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">A reading list 2005, Genome Research, Evolutionarily conserved elements in vertebrate,insect, worm, and yeast genomes 2006, Genome Research, Thousands of corresponding human and mouse genomic regions unalignable in primary sequence contain common RNA structure 2006, Plos Computational Biology, Identification and Classification of Conserved RNA Secondary Structures in the Human Genome 2007, NAR, Identification of 22 candidate structured RNAs in bacteria using the CMfinder comparative genomics pipeline 2008, Genome Research, Comparative genomics beyond sequence-based alignments: RNA structures in the ENCODE regions 2009, Nature, Exceptional structured noncoding RNAs revealed by bacterial metagenome analysis 2010, Plos Genetics, Genome-Wide Double-Stranded RNA Sequencing Reveals the Functional Significance of Base-Paired RNAs in Arabidopsis 2011, Genome Research, New families of human regulatory RNA structures identified by comparative analysis of vertebrate genomes 2012, The Plant Cell, Regulatory Impact of RNA Secondary Structure across the Arabidopsis Transcriptome 2013, Genome Research, Structure-based whole-genome realignment reveals many novel noncoding RNAs 2017, Genome Research, The identification and functional annotation of RNA structures conserved in vertebrates 2017, NAR, Detection of 224 candidate structured RNAs by comparative analysis of specific subsets of intergenic regions 2021, Genome Biology, Comparative genomics identifies thousands of candidate structured RNAs in human microbiomes</summary></entry><entry><title type="html">Choose Colors for Scientific Data Visualization</title><link href="http://localhost:4000/jekyll/update/2021/04/11/choose-your-color-schema.html" rel="alternate" type="text/html" title="Choose Colors for Scientific Data Visualization" /><published>2021-04-11T20:35:58+08:00</published><updated>2021-04-11T20:35:58+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/11/choose-your-color-schema</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/11/choose-your-color-schema.html">&lt;h2 id=&quot;some-general-suggestion&quot;&gt;Some general suggestion&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://onlinelibrary.wiley.com/doi/full/10.1002/rth2.12308&quot;&gt;Choosing color palettes for scientific figures&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.aje.com/arc/Using-Color-in-Figures/&quot;&gt;Color in Scientific Figures&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cns.utexas.edu/images/CNS/Deans_Office/Communications/Files/design-tips-for-scientists_GUIDE.pdf&quot;&gt;Design Tips for Scientists&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;2014, Plos Computational Biology, &lt;a href=&quot;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833&quot;&gt;Ten Simple Rules for Better Figures&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;background-in-color-space&quot;&gt;Background in color space&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;RGB color space
-    &lt;ul&gt;
-      &lt;li&gt;Mixture of red, green and blue color&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;HSB color space
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Hue&lt;/strong&gt; (色相)&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Saturation&lt;/strong&gt; (饱和度)&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;&lt;strong&gt;Brightness&lt;/strong&gt; (亮度)， some tines also called &lt;strong&gt;value&lt;/strong&gt; or &lt;strong&gt;lightness&lt;/strong&gt;&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;See &lt;a href=&quot;https://www.codeproject.com/Articles/1202772/Color-Topics-for-Programmers&quot;&gt;https://www.codeproject.com/Articles/1202772/Color-Topics-for-Programmers&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.hsluv.org/&quot;&gt;HSLuv&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;A alternative to &lt;code class=&quot;highlighter-rouge&quot;&gt;HSL&lt;/code&gt;, claimed to be more human friendly&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id=&quot;python-for-color-space-mapping&quot;&gt;python for color space mapping&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;For detailed implementation of such conversion see:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-both&quot;&gt;https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-both&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;colorsys&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# convert rgb to hsv 
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colorsys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rgb_to_hsv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# (0.5, 0.5, 0.4)
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;colorsys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hsv_to_rgb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# (0.2, 0.4, 0.4)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;some-useful-tricks&quot;&gt;Some useful tricks&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Given rgb colors:
-    &lt;ol&gt;
-      &lt;li&gt;Change the lightness / saturation
-        &lt;ul&gt;
-          &lt;li&gt;The easist way may be convert &lt;code class=&quot;highlighter-rouge&quot;&gt;rgb&lt;/code&gt; values to &lt;code class=&quot;highlighter-rouge&quot;&gt;hsv&lt;/code&gt; values, change &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt;, than map back to rgb value&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Take complementary color
-        &lt;ul&gt;
-          &lt;li&gt;Convert to &lt;code class=&quot;highlighter-rouge&quot;&gt;hsv&lt;/code&gt;, then set &lt;code class=&quot;highlighter-rouge&quot;&gt;h=(h+0.5)%1&lt;/code&gt;&lt;/li&gt;
-          &lt;li&gt;Also see &lt;a href=&quot;https://stackoverflow.com/questions/40233986/python-is-there-a-function-or-formula-to-find-the-complementary-colour-of-a-rgb&quot;&gt;https://stackoverflow.com/questions/40233986/python-is-there-a-function-or-formula-to-find-the-complementary-colour-of-a-rgb&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Interpolate from one color to another
-        &lt;ul&gt;
-          &lt;li&gt;We shall still convert &lt;code class=&quot;highlighter-rouge&quot;&gt;rgb&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;hsv&lt;/code&gt;, then &lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt; …&lt;/li&gt;
-          &lt;li&gt;See discussion in &lt;a href=&quot;https://stackoverflow.com/questions/13488957/interpolate-from-one-color-to-another&quot;&gt;https://stackoverflow.com/questions/13488957/interpolate-from-one-color-to-another&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;color-map-for-visualization&quot;&gt;Color map for visualization&lt;/h2&gt;
-&lt;h3 id=&quot;color-map-requirements&quot;&gt;Color Map Requirements&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;According to &lt;a href=&quot;http://www.kennethmoreland.com/color-maps/ColorMapsExpanded.pdf&quot;&gt;Diverging Color Maps for Scientific Visualization&lt;/a&gt;
-– The map yields images that are aesthetically pleasing.
-– The map has a maximal perceptual resolution.
-– Interference with the shading of 3D surfaces is minimal.
-– The map is not sensitive to vision deficiencies.
-– The order of the colors should be intuitively the same for all people.
-– The perceptual interpolation matches the underlying scalars of the map
-    &lt;h3 id=&quot;claasification-of-color-maps&quot;&gt;Claasification of color maps&lt;/h3&gt;
-  &lt;/li&gt;
-  &lt;li&gt;qualitative / nominal color maps:  discrete, unordered classes&lt;/li&gt;
-  &lt;li&gt;sequential / ordinal / saturation color maps: hue is nearly fixed, (nearly monochromatic), difference in saturation and lightness indicate numericial difference&lt;/li&gt;
-  &lt;li&gt;diverging / ratio / bipolar / doubleended  color maps:  two major color components&lt;/li&gt;
-  &lt;li&gt;cyclic: change in lightness of two different colors that meet in the middle and beginning/end at an unsaturated color&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;collection-of-perceptually-accurate-colormaps&quot;&gt;Collection of perceptually accurate colormaps&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://colorcet.holoviz.org/&quot;&gt;https://colorcet.holoviz.org/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://colorcet.com/&quot;&gt;colorcet&lt;/a&gt;, &lt;a href=&quot;https://github.com/holoviz/colorcet&quot;&gt;https://github.com/holoviz/colorcet&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.kennethmoreland.com/color-maps/&quot;&gt;https://www.kennethmoreland.com/color-maps/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/1313e/CMasher&quot;&gt;https://github.com/1313e/CMasher&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;caveats&quot;&gt;Caveats&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1509.03700&quot;&gt;https://arxiv.org/abs/1509.03700&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Diverging color map and &lt;a href=&quot;https://en.wikipedia.org/wiki/Mach_bands&quot;&gt;Mach bands&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Don’t&lt;/strong&gt; use color map like &lt;code class=&quot;highlighter-rouge&quot;&gt;jet&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;hot&lt;/code&gt;
-    &lt;ul&gt;
-      &lt;li&gt;2020, Nature Communication, &lt;a href=&quot;https://www.nature.com/articles/s41467-020-19160-7&quot;&gt;The misuse of colour in science communication&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
-&lt;h3 id=&quot;choose-which-type-of-color-scale-to-use&quot;&gt;Choose which type of color scale to use&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;qualitative: bar chart, violin plot, etc. To illustrate contrast, use complementary hues, to illustrate similarity, use analog hues.&lt;/li&gt;
-  &lt;li&gt;sequential: indicates difference toward one direction, like expression level, frequency, etc&lt;/li&gt;
-  &lt;li&gt;diverging: indicates difference toward two direction, like Z-score of differentially expressed genes&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;customization-of-color-maps&quot;&gt;Customization of color maps&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;See &lt;a href=&quot;https://matplotlib.org/2.0.2/examples/pylab_examples/custom_cmap.html&quot;&gt;https://matplotlib.org/2.0.2/examples/pylab_examples/custom_cmap.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;qualitative&quot;&gt;Qualitative&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Choose of discrete colors is rather subjective, which you think is beautiful, you boss may tnink it’s ugly …&lt;/li&gt;
-  &lt;li&gt;May pick the one you love from &lt;a href=&quot;https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html&quot;&gt;ggsci&lt;/a&gt;,  &lt;a href=&quot;https://github.com/karthik/wesanderson&quot;&gt;Wes Anderson Palettes&lt;/a&gt;, &lt;a href=&quot;https://github.com/OrdnanceSurvey/GeoDataViz-Toolkit/tree/master/Colours&quot;&gt;GeoDataViz-Toolkit&lt;/a&gt;, &lt;a href=&quot;https://pattern-library.economist.com/color.html&quot;&gt;https://pattern-library.economist.com/color.html&lt;/a&gt;, or other resources, or anything you want …&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;sequential&quot;&gt;Sequential&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Perceptually uniform cmap recommanded by seaborn &lt;a href=&quot;https://seaborn.pydata.org/tutorial/color_palettes.html&quot;&gt;here&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rocket&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;mako&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;flare&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;crest&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;magma&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;viridis&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Perceptually uniform cmap by &lt;a href=&quot;https://matplotlib.org/stable/tutorials/colors/colormaps.html&quot;&gt;matplotlib&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;viridis&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;plasma&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;inferno&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;magma&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;cividis&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;diverging&quot;&gt;Diverging&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://seaborn.pydata.org/tutorial/color_palettes.html&quot;&gt;seaborn&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vlag&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;icefire&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://matplotlib.org/stable/tutorials/colors/colormaps.html&quot;&gt;matplotlib&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;“&lt;code class=&quot;highlighter-rouge&quot;&gt;BrBG&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;RdBu&lt;/code&gt; are good options. &lt;code class=&quot;highlighter-rouge&quot;&gt;coolwarm&lt;/code&gt; is a good option, but it doesn’t span a wide range of L values”&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;python-examples&quot;&gt;python examples&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;See this &lt;a href=&quot;https://github.com/uaauaguga/uaauaguga.github.io/blob/master/notebooks/palettes-in-python.ipynb&quot;&gt;notebook&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;r-example&quot;&gt;R example&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf&quot;&gt;https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cran.r-project.org/web/packages/pals/vignettes/pals_examples.html&quot;&gt;pals&lt;/a&gt; package
-    &lt;ul&gt;
-      &lt;li&gt;The author also recommand &lt;code class=&quot;highlighter-rouge&quot;&gt;coolwarm&lt;/code&gt; for diverging palette&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Some general suggestion Choosing color palettes for scientific figures Color in Scientific Figures Design Tips for Scientists 2014, Plos Computational Biology, Ten Simple Rules for Better Figures</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">A reading list 2005, Genome Research, Evolutionarily conserved elements in vertebrate,insect, worm, and yeast genomes 2006, Genome Research, Thousands of corresponding human and mouse genomic regions unalignable in primary sequence contain common RNA structure 2006, Plos Computational Biology, Identification and Classification of Conserved RNA Secondary Structures in the Human Genome 2007, NAR, Identification of 22 candidate structured RNAs in bacteria using the CMfinder comparative genomics pipeline 2008, Genome Research, Comparative genomics beyond sequence-based alignments: RNA structures in the ENCODE regions 2009, Nature, Exceptional structured noncoding RNAs revealed by bacterial metagenome analysis 2010, Plos Genetics, Genome-Wide Double-Stranded RNA Sequencing Reveals the Functional Significance of Base-Paired RNAs in Arabidopsis 2011, Genome Research, New families of human regulatory RNA structures identified by comparative analysis of vertebrate genomes 2012, The Plant Cell, Regulatory Impact of RNA Secondary Structure across the Arabidopsis Transcriptome 2013, Genome Research, Structure-based whole-genome realignment reveals many novel noncoding RNAs 2017, Genome Research, The identification and functional annotation of RNA structures conserved in vertebrates 2017, NAR, Detection of 224 candidate structured RNAs by comparative analysis of specific subsets of intergenic regions 2021, Genome Biology, Comparative genomics identifies thousands of candidate structured RNAs in human microbiomes</summary></entry></feed>
