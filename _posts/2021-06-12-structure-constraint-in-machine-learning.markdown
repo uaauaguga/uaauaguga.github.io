@@ -8,9 +8,11 @@ categories: jekyll update
 
   有时你会希望在预测模型中加入一些先验的结构信息。
 
-  比方说你用LASSO做特征选择。你的特征是一段基因组上每个位点的数值，你希望相邻的两个位点能以比较大的概率被同时选中。或者你的特征是一些基因的表达量，你先验的知道一些基因共表达的信息，你希望共表达的基因尽可能的同时被选中。或者你想用NMF对一个基因表达的矩阵进行降维。这时候你可能希望已知被共调控的基因被在降维后处在比较接近的位置。
-
-  像这种情况都可以在正则化上做文章。对于第一个基因组位点选择的例子，有人提出了一种叫做fused LASSO的做法，见<https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf>。假设我们有从标号为从1到p的连续排列的p个特征，那么fused LASSO的loss可以定义成：
+  比方说你用LASSO做特征选择。你的特征是一段基因组上每个位点的数值，你希望相邻的两个位点能以比较大的概率被同时选中。或者你的特征是一些基因的表达量，你先验的知道一些基因共表达的信息，你希望共表达的基因尽可能的同时被选中。或者你想用NMF对一个基因表达的矩阵进行降维。这时候你可能希望已知被共调控的基因被在降维后处在比较接近的位置。像这种情况都可以在正则化上做文章。
+  
+### Generalized Regularization in LASSO regression
+  
+  对于第一个基因组位点选择的例子，有人提出了一种叫做fused LASSO的做法，见<https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf>。假设我们有从标号为从1到p的连续排列的p个特征，那么fused LASSO的loss可以定义成：
 
   $$L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\sum_{j=2}^{p}|\beta_{j}-\beta_{j-1}|$$
 
@@ -53,7 +55,32 @@ categories: jekyll update
 
   $$\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\frac{\beta_{i}}{\sqrt{d_{i}}}-\frac{\beta_{j}}{\sqrt{d_{j}}})^{2} = \beta^TL^{sym}\beta$$
 
-  还有一些用图的正则化做非负矩阵分解的例子，见<https://www.nature.com/articles/nmeth.2651>和<https://ieeexplore.ieee.org/document/5674058>。
+
+### Regularization in NMF decomposition
+
+- Frobenius norm
+
+$$\|X\|_{F} = Tr(X^{H}X)$$
+
+- 不加正则化的NMF. See <https://papers.nips.cc/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf>
+
+$$L(W,H) = \|Y-WH^T\|_{F}^2$$
+
+- NMF的正则化. See <https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html>
+  - 也可以用绝对值的和做正则化
+
+$$L(W,H) = \|Y-WH^T\|_{F}^2 + \frac{\alpha}{2}(\|W\|_{F}^2 + \|H\|_{F}^2)$$
+
+
+- 在正则化中加入graph的信息
+  - <https://academic.oup.com/bioinformatics/article/34/2/239/4101940>
+  - 例如我们有一个表达矩阵$$Y_{n,m}$$，有一个图$$G^{gene}$$来描述基因间的关系，有一个图$$G^{sample}$$来描述样本间的相似性
+  - 我们希望分解出$$W_{n,k}$$和$$H_{m,k}$$两个矩阵分别反应基因和样本的信息
+  - $$G^{gene}$$的Graph Laplacian为$$L_{gene}$$, $$G^{sample}$$的Graph Laplacian为$$L_{sample}$$,
+
+$$L(W,H) = \|Y-WH^T\|_{F}^2 + \frac{\alpha}{2}(\|W\|_{F}^2 + \|H\|_{F}^2) + \lambda_{1}Tr(W^TL_{sample}W）+ \lambda_{2}Tr(H^TL_{sample}H）$$
+
+  - 还有一些用图的正则化做非负矩阵分解的例子，见<https://www.nature.com/articles/nmeth.2651>和<https://ieeexplore.ieee.org/document/5674058>。
 
 
 ### Further Reading

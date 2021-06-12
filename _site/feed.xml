@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-12T13:55:41+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Regularization to Incorporate Structure Information</title><link href="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html" rel="alternate" type="text/html" title="Regularization to Incorporate Structure Information" /><published>2021-06-12T10:23:10+08:00</published><updated>2021-06-12T10:23:10+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html">&lt;p&gt;有时你会希望在预测模型中加入一些先验的结构信息。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-12T14:57:24+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Regularization to Incorporate Structure Information</title><link href="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html" rel="alternate" type="text/html" title="Regularization to Incorporate Structure Information" /><published>2021-06-12T10:23:10+08:00</published><updated>2021-06-12T10:23:10+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html">&lt;p&gt;有时你会希望在预测模型中加入一些先验的结构信息。&lt;/p&gt;
 
-&lt;p&gt;比方说你用LASSO做特征选择。你的特征是一段基因组上每个位点的数值，你希望相邻的两个位点能以比较大的概率被同时选中。或者你的特征是一些基因的表达量，你先验的知道一些基因共表达的信息，你希望共表达的基因尽可能的同时被选中。或者你想用NMF对一个基因表达的矩阵进行降维。这时候你可能希望已知被共调控的基因被在降维后处在比较接近的位置。&lt;/p&gt;
+&lt;p&gt;比方说你用LASSO做特征选择。你的特征是一段基因组上每个位点的数值，你希望相邻的两个位点能以比较大的概率被同时选中。或者你的特征是一些基因的表达量，你先验的知道一些基因共表达的信息，你希望共表达的基因尽可能的同时被选中。或者你想用NMF对一个基因表达的矩阵进行降维。这时候你可能希望已知被共调控的基因被在降维后处在比较接近的位置。像这种情况都可以在正则化上做文章。&lt;/p&gt;
 
-&lt;p&gt;像这种情况都可以在正则化上做文章。对于第一个基因组位点选择的例子，有人提出了一种叫做fused LASSO的做法，见&lt;a href=&quot;https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf&quot;&gt;https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf&lt;/a&gt;。假设我们有从标号为从1到p的连续排列的p个特征，那么fused LASSO的loss可以定义成：&lt;/p&gt;
+&lt;h3 id=&quot;generalized-regularization-in-lasso-regression&quot;&gt;Generalized Regularization in LASSO regression&lt;/h3&gt;
+
+&lt;p&gt;对于第一个基因组位点选择的例子，有人提出了一种叫做fused LASSO的做法，见&lt;a href=&quot;https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf&quot;&gt;https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf&lt;/a&gt;。假设我们有从标号为从1到p的连续排列的p个特征，那么fused LASSO的loss可以定义成：&lt;/p&gt;
 
 \[L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\sum_{j=2}^{p}|\beta_{j}-\beta_{j-1}|\]
 
@@ -45,7 +47,46 @@
 
 \[\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\frac{\beta_{i}}{\sqrt{d_{i}}}-\frac{\beta_{j}}{\sqrt{d_{j}}})^{2} = \beta^TL^{sym}\beta\]
 
-&lt;p&gt;还有一些用图的正则化做非负矩阵分解的例子，见&lt;a href=&quot;https://www.nature.com/articles/nmeth.2651&quot;&gt;https://www.nature.com/articles/nmeth.2651&lt;/a&gt;和&lt;a href=&quot;https://ieeexplore.ieee.org/document/5674058&quot;&gt;https://ieeexplore.ieee.org/document/5674058&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id=&quot;regularization-in-nmf-decomposition&quot;&gt;Regularization in NMF decomposition&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Frobenius norm&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\|X\|_{F} = Tr(X^{H}X)\]
+
+&lt;ul&gt;
+  &lt;li&gt;不加正则化的NMF. See &lt;a href=&quot;https://papers.nips.cc/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf&quot;&gt;https://papers.nips.cc/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+\[L(W,H) = \|Y-WH^T\|_{F}^2\]
+
+&lt;ul&gt;
+  &lt;li&gt;NMF的正则化. See &lt;a href=&quot;https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html&quot;&gt;https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;也可以用绝对值的和做正则化&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[L(W,H) = \|Y-WH^T\|_{F}^2 + \frac{\alpha}{2}(\|W\|_{F}^2 + \|H\|_{F}^2)\]
+
+&lt;ul&gt;
+  &lt;li&gt;在正则化中加入graph的信息
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://academic.oup.com/bioinformatics/article/34/2/239/4101940&quot;&gt;https://academic.oup.com/bioinformatics/article/34/2/239/4101940&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;例如我们有一个表达矩阵\(Y_{n,m}\)，有一个图\(G^{gene}\)来描述基因间的关系，有一个图\(G^{sample}\)来描述样本间的相似性&lt;/li&gt;
+      &lt;li&gt;我们希望分解出\(W_{n,k}\)和\(H_{m,k}\)两个矩阵分别反应基因和样本的信息&lt;/li&gt;
+      &lt;li&gt;\(G^{gene}\)的Graph Laplacian为\(L_{gene}\), \(G^{sample}\)的Graph Laplacian为\(L_{sample}\),&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[L(W,H) = \|Y-WH^T\|_{F}^2 + \frac{\alpha}{2}(\|W\|_{F}^2 + \|H\|_{F}^2) + \lambda_{1}Tr(W^TL_{sample}W）+ \lambda_{2}Tr(H^TL_{sample}H）\]
+
+&lt;ul&gt;
+  &lt;li&gt;还有一些用图的正则化做非负矩阵分解的例子，见&lt;a href=&quot;https://www.nature.com/articles/nmeth.2651&quot;&gt;https://www.nature.com/articles/nmeth.2651&lt;/a&gt;和&lt;a href=&quot;https://ieeexplore.ieee.org/document/5674058&quot;&gt;https://ieeexplore.ieee.org/document/5674058&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h3&gt;
 &lt;ul&gt;
