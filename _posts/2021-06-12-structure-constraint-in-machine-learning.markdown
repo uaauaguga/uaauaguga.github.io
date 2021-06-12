@@ -48,6 +48,6 @@ categories: jekyll update
   还有一些用图的正则化做非负矩阵分解的例子，见<https://www.nature.com/articles/nmeth.2651>和<https://ieeexplore.ieee.org/document/5674058>。
 
 
-  ### Fuether Reading
+### Further Reading
   - <http://www.stat.cmu.edu/~ryantibs/papers/genlasso.pdf>
   - <http://euler.stat.yale.edu/~tba3/stat612/lectures/lec22/lecture22.pdf>
