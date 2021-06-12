@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-12T13:08:57+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Regularization for Incorporating Structure Information</title><link href="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html" rel="alternate" type="text/html" title="Regularization for Incorporating Structure Information" /><published>2021-06-12T10:23:10+08:00</published><updated>2021-06-12T10:23:10+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html">&lt;p&gt;有时你会希望在预测模型中加入一些先验的结构信息。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-12T13:55:41+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Regularization to Incorporate Structure Information</title><link href="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html" rel="alternate" type="text/html" title="Regularization to Incorporate Structure Information" /><published>2021-06-12T10:23:10+08:00</published><updated>2021-06-12T10:23:10+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html">&lt;p&gt;有时你会希望在预测模型中加入一些先验的结构信息。&lt;/p&gt;
 
 &lt;p&gt;比方说你用LASSO做特征选择。你的特征是一段基因组上每个位点的数值，你希望相邻的两个位点能以比较大的概率被同时选中。或者你的特征是一些基因的表达量，你先验的知道一些基因共表达的信息，你希望共表达的基因尽可能的同时被选中。或者你想用NMF对一个基因表达的矩阵进行降维。这时候你可能希望已知被共调控的基因被在降维后处在比较接近的位置。&lt;/p&gt;
 
@@ -22,13 +22,17 @@
 
 &lt;p&gt;该图的拉普拉斯矩阵定义为:&lt;/p&gt;
 
-\[L = A - D\]
+\[L =  D - A\]
+
+&lt;p&gt;归一化的拉普拉斯矩阵为：&lt;/p&gt;
+
+&lt;p&gt;　\(L^{sym} = D^{-\frac{1}{2}}LD^{-\frac{1}{2}} =  I - D^{-\frac{1}{2}}AD^{-\frac{1}{2}}\)&lt;/p&gt;
 
 &lt;p&gt;这样loss可以定义成：&lt;/p&gt;
 
-\[L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\beta^TL\beta\]
+\[L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\beta^TL^{sym}\beta\]
 
-&lt;p&gt;这里比较迷惑的是凭什么\(\beta^TL\beta\)就能作为一项正则化。实际上我们是希望图中有连接的节点系数都比较接近。
+&lt;p&gt;这里比较迷惑的是凭什么\(\beta^TL^{sym}\beta\)就能作为一项正则化。实际上我们是希望图中有连接的节点系数都比较接近。
   所以我们希望这样一个量是比较小的：&lt;/p&gt;
 
 \[\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\beta_{i}-\beta_{j})^{2}\]
@@ -37,9 +41,13 @@
 
 \[\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\beta_{i}-\beta_{j})^{2} ＝ \sum_{i=1}^{p}\beta_{i}^2d_{i,i} - \sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}\beta_{i}\beta_{j} = \beta^TD\beta - \beta^TA\beta = \beta^T(D-A)\beta\]
 
+&lt;p&gt;如果考虑一个按度数归一化的版本:&lt;/p&gt;
+
+\[\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\frac{\beta_{i}}{\sqrt{d_{i}}}-\frac{\beta_{j}}{\sqrt{d_{j}}})^{2} = \beta^TL^{sym}\beta\]
+
 &lt;p&gt;还有一些用图的正则化做非负矩阵分解的例子，见&lt;a href=&quot;https://www.nature.com/articles/nmeth.2651&quot;&gt;https://www.nature.com/articles/nmeth.2651&lt;/a&gt;和&lt;a href=&quot;https://ieeexplore.ieee.org/document/5674058&quot;&gt;https://ieeexplore.ieee.org/document/5674058&lt;/a&gt;。&lt;/p&gt;
 
-&lt;p&gt;### Fuether Reading&lt;/p&gt;
+&lt;h3 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.stat.cmu.edu/~ryantibs/papers/genlasso.pdf&quot;&gt;http://www.stat.cmu.edu/~ryantibs/papers/genlasso.pdf&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://euler.stat.yale.edu/~tba3/stat612/lectures/lec22/lecture22.pdf&quot;&gt;http://euler.stat.yale.edu/~tba3/stat612/lectures/lec22/lecture22.pdf&lt;/a&gt;&lt;/li&gt;

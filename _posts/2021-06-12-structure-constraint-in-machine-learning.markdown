@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Regularization for Incorporating Structure Information"
+title:  "Regularization to Incorporate Structure Information"
 date:   2021-06-12 10:23:10 +0800
 usemathjax: true
 categories: jekyll update
@@ -30,13 +30,17 @@ categories: jekyll update
   
   该图的拉普拉斯矩阵定义为:
 
-  $$L = A - D$$
+  $$L =  D - A$$
+
+  归一化的拉普拉斯矩阵为：
+
+　$$L^{sym} = D^{-\frac{1}{2}}LD^{-\frac{1}{2}} =  I - D^{-\frac{1}{2}}AD^{-\frac{1}{2}}$$
 
   这样loss可以定义成：
 
-  $$L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\beta^TL\beta$$
+  $$L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\beta^TL^{sym}\beta$$
 
-  这里比较迷惑的是凭什么$$\beta^TL\beta$$就能作为一项正则化。实际上我们是希望图中有连接的节点系数都比较接近。
+  这里比较迷惑的是凭什么$$\beta^TL^{sym}\beta$$就能作为一项正则化。实际上我们是希望图中有连接的节点系数都比较接近。
   所以我们希望这样一个量是比较小的：
 
   $$\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\beta_{i}-\beta_{j})^{2}$$
@@ -44,6 +48,10 @@ categories: jekyll update
   经过简单的计算不难发现：
 
   $$\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\beta_{i}-\beta_{j})^{2} ＝ \sum_{i=1}^{p}\beta_{i}^2d_{i,i} - \sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}\beta_{i}\beta_{j} = \beta^TD\beta - \beta^TA\beta = \beta^T(D-A)\beta$$
+
+  如果考虑一个按度数归一化的版本:
+
+  $$\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\frac{\beta_{i}}{\sqrt{d_{i}}}-\frac{\beta_{j}}{\sqrt{d_{j}}})^{2} = \beta^TL^{sym}\beta$$
 
   还有一些用图的正则化做非负矩阵分解的例子，见<https://www.nature.com/articles/nmeth.2651>和<https://ieeexplore.ieee.org/document/5674058>。
 
