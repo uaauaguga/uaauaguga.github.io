@@ -56,6 +56,123 @@ categories: jekyll update
   $$\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\frac{\beta_{i}}{\sqrt{d_{i}}}-\frac{\beta_{j}}{\sqrt{d_{j}}})^{2} = \beta^TL^{sym}\beta$$
 
 
+### A implementation for fused LASSO in python
+
+- Import reuiqred package
+
+```python
+import numpy as np
+import cvxpy
+from matplotlib import pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.linear_model import LogisticRegression
+```
+
+- Simulate artificial data. In this setting, in 100 features, features[10:20]和feature[60:70] are informative for distinguishing two class from each other
+
+```python
+coff0 = np.random.randn(100)
+coff1 = coff0 + np.random.randn(coff0.shape[0])*0.2
+coff1[10:20] += 1
+coff1[60:70] -= 1
+def simulate_data(coff,n=100):
+    X = np.random.randn(n,coff.shape[0])
+    return 2*X + coff.reshape(1,-1)
+X0 = simulate_data(coff0)
+X1 = simulate_data(coff1)
+y = np.concatenate([np.zeros(100),np.ones(100)])
+X = np.concatenate([X0,X1],axis=0)
+
+```
+- Ilustrate simulated cofficients
+
+```python
+fig,ax = plt.subplots(figsize=(6,1))
+ax.plot(coff0)
+ax.plot(coff1)
+```
+{:refdef: style="text-align: center;"}
+![]({{site.baseurl}}/images/2021-06-13-LR-example-cofficients.png){: height="70%" width="70%"}
+{:refdef}
+
+- Visualization simulated data with PCA
+
+```python
+fig,ax = plt.subplots(figsize=(3.5,3))
+X2d = PCA(n_components=2).fit_transform(X)
+ax.scatter(X2d[:100,0],X2d[:100,1])
+ax.scatter(X2d[100:,0],X2d[100:,1])
+ax.set_xlabel("PC-1")
+ax.set_ylabel("PC-2")
+plt.savefig("2021-06-13-LR-PCA.png",bbox_inches="tight")
+```
+
+{:refdef: style="text-align: center;"}
+![]({{site.baseurl}}/images/2021-06-13-LR-PCA.png){: height="40%" width="40%"}
+{:refdef}
+
+- Result of default LASSO in sklearn
+
+```python 
+logit_model = LogisticRegression(penalty="l1",solver='liblinear',C=0.1).fit(X,y)
+fig,ax = plt.subplots(figsize=(6,1))
+_ = ax.plot(logit_model.coef_.reshape(-1))
+```
+
+{:refdef: style="text-align: center;"}
+![]({{site.baseurl}}/images/2021-06-13-sklearn-LASSO-cofficients.png){: height="70%" width="70%"}
+{:refdef}
+
+
+- Calculate three regularization terms
+
+```python
+beta = cvxpy.Variable(100)
+lambd = cvxpy.Parameter(nonneg=True)
+lambd.value = 1
+log_likelihood = cvxpy.sum(cvxpy.multiply(y, X @ beta) - cvxpy.logistic(X @ beta))
+# L1 loss
+l1_loss = cvxpy.norm(beta, 1)
+
+# Soomthing loss
+smooth_mat = np.zeros((beta.shape[0]-1,beta.shape[0]))
+diag_indices = np.arange(smooth_mat.shape[0])
+smooth_mat[(diag_indices,diag_indices)] = -1
+smooth_mat[(diag_indices,diag_indices+1)] = 1
+smooth_loss = cvxpy.norm(smooth_mat@beta, 1) 
+```
+
+- Result of LASSO penalty alone
+
+```python
+reg_term = 0.05*l1_loss 
+problem = cvxpy.Problem(cvxpy.Minimize(-log_likelihood/y.shape[0] + reg_term))
+_ = problem.solve() 
+fig,ax = plt.subplots(figsize=(6,1))
+_ = ax.plot(beta.value)
+```
+
+{:refdef: style="text-align: center;"}
+![]({{site.baseurl}}/images/2021-06-13-pycvx-LASSO-cofficients.png){: height="70%" width="70%"}
+{:refdef}
+
+
+- Result of fused LASSO
+
+```python
+reg_term = 0.05*l1_loss + 0.5*smooth_loss 
+problem = cvxpy.Problem(cvxpy.Minimize(-log_likelihood/y.shape[0] + reg_term))
+_ = problem.solve() 
+fig,ax = plt.subplots(figsize=(6,1))
+_ = ax.plot(beta.value)
+```
+
+{:refdef: style="text-align: center;"}
+![]({{site.baseurl}}/images/2021-06-13-pycvx-fused-LASSO-cofficients.png){: height="70%" width="70%"}
+{:refdef}
+
+- We can see fused LASSO perfectly recovery the informative features (although this example is very artificial).
+
 ### Regularization in NMF decomposition
 
 - Frobenius norm
