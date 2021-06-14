@@ -203,3 +203,4 @@ $$L(W,H) = \|Y-WH^T\|_{F}^2 + \frac{\alpha}{2}(\|W\|_{F}^2 + \|H\|_{F}^2) + \lam
 ### Further Reading
   - <http://www.stat.cmu.edu/~ryantibs/papers/genlasso.pdf>
   - <http://euler.stat.yale.edu/~tba3/stat612/lectures/lec22/lecture22.pdf>
+  - Read this book <https://web.stanford.edu/~hastie/StatLearnSparsity/> for more technical discussion
