@@ -33,6 +33,7 @@ categories: jekyll update
   - Useful tools
     - [mash](https://github.com/marbl/Mash)
     - [sourmash](https://github.com/dib-lab/sourmash)
+    - The `sketch.sh` utility in [BBMap](https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbmap-guide/), also see this post <https://www.biostars.org/p/234837/>
 
 
 ### LSH in other fields
