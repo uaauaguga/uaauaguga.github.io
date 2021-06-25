@@ -111,6 +111,12 @@ categories: jekyll update
   sampled <- rgamma(N,rate=rate,shape=shape.hat.mass)
   ```
 
+
+### Difference between Bernoulli vs. Binomial Response in logit model
+
+- See discussion here <https://stats.stackexchange.com/questions/144121/logistic-regression-bernoulli-vs-binomial-response-variables>
+
+
 ### Reference
 - <https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels>
 - <https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family>
