@@ -7,7 +7,7 @@ categories: jekyll update
 ---
 
 
-- TMM method in [edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html) package is a popular method for RNA seq count matrix, normalization, here I implement a python version
+- TMM method in [edgeR](https://bioconductor.org/packages/release/bioc/html/edgeR.html) package is a popular method for RNA seq count matrix normalization, here I implement a python version
 
 
 ### Brief description 
