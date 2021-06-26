@@ -21,7 +21,6 @@ categories: jekyll update
 
 - 2021, ICLR, [Bertology Meets Biology Interpreting Attention Protein Language Moldes](https://arxiv.org/abs/2006.15222)
 
-
 - 2021, Bioinformatics, [DNABERT: pre-trained Bidirectional Encoder Representations from Transformers model for DNA-language in genome](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btab083/6128680)
   - <https://github.com/jerryji1993/DNABERT>
 
@@ -31,7 +30,3 @@ categories: jekyll update
 - 2021, Current Potocols, [Learned Embeddings from Deep Learning to Visualize and Predict Protein Sets](https://currentprotocols.onlinelibrary.wiley.com/doi/10.1002/cpz1.113)
   - <https://github.com/sacdallago/bio_embeddings>
 
-
-
-
-- https://github.com/sacdallago/bio_embeddings
