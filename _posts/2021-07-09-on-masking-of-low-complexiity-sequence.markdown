@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "On Masking of Sequence with Low Complexiity"
+title:  "On Masking of Low Complexity Sequence"
 date:   2021-07-09 09:52:24 +0800
 usemathjax: true
 categories: jekyll update
