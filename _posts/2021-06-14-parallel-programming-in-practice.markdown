@@ -57,3 +57,7 @@ categories: jekyll update
 
 - <https://unix.stackexchange.com/questions/68146/what-are-guarantees-for-concurrent-writes-into-a-named-pipe>
 
+
+
+## Example
+- Parallel loading <https://github.com/marcelm/cutadapt/blob/main/src/cutadapt/pipeline.py>

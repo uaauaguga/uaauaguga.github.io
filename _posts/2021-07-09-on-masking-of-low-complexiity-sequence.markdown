@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "On Masking of Sequence with Low Comlexity "
+title:  "On Masking of Sequence with Low Complexiity"
 date:   2021-07-09 09:52:24 +0800
 usemathjax: true
 categories: jekyll update
@@ -10,20 +10,18 @@ categories: jekyll update
 - masking low complexity regions in a long sequence
 - filter read with low sequence complexity in NGS data
 
-
-### Repeats vs. Low complexity sequence
-
-
-
 ### Method
 - entropy
   - The [SEG algorithm](https://kodomo.fbb.msu.ru/FBB/year_10/ppt/SEG-93.pdf)
-  - entropy of 3-mer
-- dust score of 3 mer
+  - entropy of 3-mer in sliding window
+- dust score of 3 mer in sliding window
   - see <https://kodomo.fbb.msu.ru/FBB/year_09/ppt/DUST.pdf>
-  - for long sequence, local complexity is determined by calculating dust / entropy in sliding window with given step length and window size 
+- perform local alignment to sequence itself and known repeative elements
+  
 
 ### Tools
+
+- [repeatmasker](https://www.repeatmasker.org/), screens DNA sequences for interspersed repeats and low complexity DNA sequences
 
 - segmasker, a repeat masking tool shipped with NCBI's blast
 
