@@ -6,7 +6,7 @@ usemathjax: true
 categories: jekyll update
 ---
 
-### handle low complexity sequence in biological sequence analysis
+### Handle low complexity sequence
 - masking low complexity regions in a long sequence
 - filter read with low sequence complexity in NGS data
 
@@ -37,6 +37,6 @@ dust sequences.fasta {cutoff} > sequences.masked.fasta
 
 - NCBI's [seg](ftp://ftp.ncbi.nih.gov/pub/seg/seg/), segment sequence by local complexity. A very old tool ...
 
-- sequence complexity (entropy and dust) based read filter in [prinseq](http://prinseq.sourceforge.net/), also see 
+- sequence complexity (entropy and dust) based read filter in [prinseq](http://prinseq.sourceforge.net/), also see <https://chipster.csc.fi/manual/prinseq-complexity-filter.html>
 
-- I write a small script that assign a single dust or entropy score to each reads in fastq file
+- I write a small script that assign a single 3-mer count based dust or entropy score to each reads in fastq file, see <https://github.com/uaauaguga/NGS-Analysis-Notes/blob/master/scripts/sequence-complexity.py>
