@@ -21,7 +21,37 @@ categories: jekyll update
 
 ### GNU's parallel utility
 
-<https://www.gnu.org/software/parallel/>
+- <https://www.gnu.org/software/parallel/>
+
+
+```bash
+parallel -j 4 echo "hell await {1} {2}" ::: A B C ::: 1 2 3
+#hell await A 1
+#hell await A 2
+#hell await A 3
+#hell await B 1
+#hell await B 2
+#hell await B 3
+#hell await C 1
+#hell await C 2
+#hell await C 3
+
+```
+
+- Here is some examples <https://www.gnu.org/software/parallel/parallel.html#examples>
+
+- A example for running a bash loop in parallel
+
+```bash
+#!/bin/bash
+for a in 3 7 11 15 19 23;do
+for b in 0.0 0.2 0.4 0.6 0.8 1.0 ;do
+  sem -j 4  "scripts.py -a $a -b $b > log/${a}-${b}.log"
+done
+done
+sem --wait
+
+```
 
 ### Paralleling in workflow manager
 
