@@ -57,7 +57,7 @@ sem --wait
 
 - gnu make
 
-- snakemake
+- [snakemake](https://snakemake.readthedocs.io/en/stable/)
 
 
 ## Paralleling in programming language
@@ -77,6 +77,10 @@ sem --wait
 <https://joblib.readthedocs.io/en/latest/>
 
 
+  - Parallel loading of gzipped files
+    - see <https://www.blopig.com/blog/2016/08/processing-large-files-using-python/>
+    - See cutadapt's implementation <https://github.com/marcelm/cutadapt/blob/main/src/cutadapt/pipeline.py>
+
 - R
 
 
@@ -88,6 +92,3 @@ sem --wait
 - <https://unix.stackexchange.com/questions/68146/what-are-guarantees-for-concurrent-writes-into-a-named-pipe>
 
 
-
-## Example
-- Parallel loading <https://github.com/marcelm/cutadapt/blob/main/src/cutadapt/pipeline.py>

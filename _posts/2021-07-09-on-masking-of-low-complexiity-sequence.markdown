@@ -23,10 +23,16 @@ categories: jekyll update
 
 - [repeatmasker](https://www.repeatmasker.org/), screens DNA sequences for interspersed repeats and low complexity DNA sequences
 
-- segmasker, a repeat masking tool shipped with NCBI's blast
+- NCBI's blast is shipped with multiple masking tools, see <https://www.ncbi.nlm.nih.gov/books/NBK569845/> for detail
+  - segmasker
+  - dustmasker
+  - windowmasker
 
-```bash
-segmasker -in sequences.fasta -outfmt fasta > sequences.masked.fasta
+```{bash}
+# example usage of dustmasker
+dustmasker -outfmt fasta -parse_seqids -in {input.fasta} -out {masked.fasta}
+# low complexity sequence set set to lower case, if you want to set it to N, run
+sed -e '/^>/! s/[[:lower:]]/N/g' {masked.fasta} > {hardmasked.fasta} # see https://www.biostars.org/p/13677/s
 ```
 
 - [dust](https://meme-suite.org/meme/doc/dust.html), a program shipped with MEME suites
