@@ -1,5 +1,151 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-06-25T13:33:09+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">TMM normalization in python</title><link href="http://localhost:4000/jekyll/update/2021/06/25/TMM-normalization-in-python.html" rel="alternate" type="text/html" title="TMM normalization in python" /><published>2021-06-25T13:16:51+08:00</published><updated>2021-06-25T13:16:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/25/TMM-normalization-in-python</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/25/TMM-normalization-in-python.html">&lt;ul&gt;
-  &lt;li&gt;TMM method in &lt;a href=&quot;https://bioconductor.org/packages/release/bioc/html/edgeR.html&quot;&gt;edgeR&lt;/a&gt; package is a popular method for RNA seq count matrix, normalization, here I implement a python version&lt;/li&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-26T21:15:03+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Variational Inference</title><link href="http://localhost:4000/jekyll/update/2021/07/17/notes-on-variational-inference.html" rel="alternate" type="text/html" title="Variational Inference" /><published>2021-07-17T15:54:34+08:00</published><updated>2021-07-17T15:54:34+08:00</updated><id>http://localhost:4000/jekyll/update/2021/07/17/notes-on-variational-inference</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/07/17/notes-on-variational-inference.html"></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Split Sequencing Reads</title><link href="http://localhost:4000/jekyll/update/2021/07/10/partitioning-of-sequencing-reads.html" rel="alternate" type="text/html" title="Split Sequencing Reads" /><published>2021-07-10T09:52:24+08:00</published><updated>2021-07-10T09:52:24+08:00</updated><id>http://localhost:4000/jekyll/update/2021/07/10/partitioning-of-sequencing-reads</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/07/10/partitioning-of-sequencing-reads.html">&lt;ul&gt;
+  &lt;li&gt;We may want to filter some unwanted sequences from fastq file prior to down stream analysis
+    &lt;ul&gt;
+      &lt;li&gt;rRNA for RNA seq data&lt;/li&gt;
+      &lt;li&gt;host reads for metagenomic data&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;remove-rrna-sequence&quot;&gt;Remove rRNA sequence&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;For single species RNA-seq, simply map reads to rRNA reference of these species, keep unaligned reads&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For metagenomic data, may try &lt;a href=&quot;https://github.com/biocore/sortmerna&quot;&gt;sortmerna&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# download rRNA reference from their github repo https://github.com/biocore/sortmerna/tree/master/data/rRNA_databases&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# build sortmerna index&lt;/span&gt;
+sortmerna &lt;span class=&quot;nt&quot;&gt;-ref&lt;/span&gt; reference/rRNA/fasta/rRNA.fasta &lt;span class=&quot;nt&quot;&gt;-index&lt;/span&gt; 1 &lt;span class=&quot;nt&quot;&gt;--idx-dir&lt;/span&gt; reference/rRNA/sortmerna-index 
+&lt;span class=&quot;c&quot;&gt;# -index 1: build index and exit&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# run sortmerna&lt;/span&gt;
+ sortmerna &lt;span class=&quot;nt&quot;&gt;-ref&lt;/span&gt; reference/rRNA/fasta/rRNA.fasta &lt;span class=&quot;nt&quot;&gt;--idx-dir&lt;/span&gt; reference/rRNA/sortmerna-index &lt;span class=&quot;nt&quot;&gt;--reads&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;input.fastq_1&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--reads&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;input.fastq_2&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--fastx&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--workdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;working_dir&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--index&lt;/span&gt; 0 &lt;span class=&quot;nt&quot;&gt;--out2&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--other&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--threads&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;threads&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# -index 0: perform rRNA matching on existed index&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;For annotate rRNA sequence in assembled sequence contigs of bacteria genome , try &lt;a href=&quot;https://github.com/tseemann/barrnap&quot;&gt;barrnap&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;remove-host-genome-sequence&quot;&gt;Remove host genome sequence&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;align reads to host genome&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;bmtagger
+    &lt;ul&gt;
+      &lt;li&gt;Used in HMP project, see &lt;a href=&quot;https://www.hmpdacc.org/hmp/doc/HumanSequenceRemoval_SOP.pdf&quot;&gt;https://www.hmpdacc.org/hmp/doc/HumanSequenceRemoval_SOP.pdf&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;bbduk.sh in bbmap suites&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">We may want to filter some unwanted sequences from fastq file prior to down stream analysis rRNA for RNA seq data host reads for metagenomic data</summary></entry><entry><title type="html">On Masking of Low Complexity Sequence</title><link href="http://localhost:4000/jekyll/update/2021/07/09/on-masking-of-low-complexiity-sequence.html" rel="alternate" type="text/html" title="On Masking of Low Complexity Sequence" /><published>2021-07-09T09:52:24+08:00</published><updated>2021-07-09T09:52:24+08:00</updated><id>http://localhost:4000/jekyll/update/2021/07/09/on-masking-of-low-complexiity-sequence</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/07/09/on-masking-of-low-complexiity-sequence.html">&lt;h3 id=&quot;handle-low-complexity-sequence&quot;&gt;Handle low complexity sequence&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;masking low complexity regions in a long sequence&lt;/li&gt;
+  &lt;li&gt;filter read with low sequence complexity in NGS data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;method&quot;&gt;Method&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;entropy
+    &lt;ul&gt;
+      &lt;li&gt;The &lt;a href=&quot;https://kodomo.fbb.msu.ru/FBB/year_10/ppt/SEG-93.pdf&quot;&gt;SEG algorithm&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;entropy of 3-mer in sliding window&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;dust score of 3 mer in sliding window
+    &lt;ul&gt;
+      &lt;li&gt;see &lt;a href=&quot;https://kodomo.fbb.msu.ru/FBB/year_09/ppt/DUST.pdf&quot;&gt;https://kodomo.fbb.msu.ru/FBB/year_09/ppt/DUST.pdf&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;perform local alignment to sequence itself and known repeative elements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tools&quot;&gt;Tools&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.repeatmasker.org/&quot;&gt;repeatmasker&lt;/a&gt;, screens DNA sequences for interspersed repeats and low complexity DNA sequences&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;NCBI’s blast is shipped with multiple masking tools, see &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/books/NBK569845/&quot;&gt;https://www.ncbi.nlm.nih.gov/books/NBK569845/&lt;/a&gt; for detail&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;segmasker&lt;/li&gt;
+      &lt;li&gt;dustmasker&lt;/li&gt;
+      &lt;li&gt;windowmasker&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;# example usage of dustmasker
+dustmasker -outfmt fasta -parse_seqids -in {input.fasta} -out {masked.fasta}
+# low complexity sequence set set to lower case, if you want to set it to N, run
+sed -e '/^&amp;gt;/! s/[[:lower:]]/N/g' {masked.fasta} &amp;gt; {hardmasked.fasta} # see https://www.biostars.org/p/13677/s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://meme-suite.org/meme/doc/dust.html&quot;&gt;dust&lt;/a&gt;, a program shipped with MEME suites&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;dust sequences.fasta {cutoff} &amp;gt; sequences.masked.fasta
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;NCBI’s &lt;a href=&quot;ftp://ftp.ncbi.nih.gov/pub/seg/seg/&quot;&gt;seg&lt;/a&gt;, segment sequence by local complexity. A very old tool …&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;sequence complexity (entropy and dust) based read filter in &lt;a href=&quot;http://prinseq.sourceforge.net/&quot;&gt;prinseq&lt;/a&gt;, also see &lt;a href=&quot;https://chipster.csc.fi/manual/prinseq-complexity-filter.html&quot;&gt;https://chipster.csc.fi/manual/prinseq-complexity-filter.html&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I write a small script that assign a single 3-mer count based dust or entropy score to each reads in fastq file, see &lt;a href=&quot;https://github.com/uaauaguga/NGS-Analysis-Notes/blob/master/scripts/sequence-complexity.py&quot;&gt;https://github.com/uaauaguga/NGS-Analysis-Notes/blob/master/scripts/sequence-complexity.py&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Handle low complexity sequence masking low complexity regions in a long sequence filter read with low sequence complexity in NGS data</summary></entry><entry><title type="html">Notes for deep learning in biological sequence analysis</title><link href="http://localhost:4000/jekyll/update/2021/06/25/deeplearning-for-sequence-comparison.html" rel="alternate" type="text/html" title="Notes for deep learning in biological sequence analysis" /><published>2021-06-25T13:51:23+08:00</published><updated>2021-06-25T13:51:23+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/25/deeplearning-for-sequence-comparison</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/25/deeplearning-for-sequence-comparison.html">&lt;ul&gt;
+  &lt;li&gt;A collection of studies that applies deep learning to sequence comparison&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;related-resources&quot;&gt;Related Resources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;2017, Cell Systems, &lt;a href=&quot;https://linkinghub.elsevier.com/retrieve/pii/S2405-4712(17)30542-2&quot;&gt;Enhancing Evolutionary Couplings with DeepConvolutional Neural Networks&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2019, &lt;a href=&quot;https://arxiv.org/abs/1912.05625&quot;&gt;Pre-Training of Deep Bidirectional Protein Sequence Representations with Structural Information&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2019, Nature Method, &lt;a href=&quot;https://www.nature.com/articles/s41592-019-0598-1&quot;&gt;Unified rational protein engineering with sequence-based deep representation learning&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fhalab/embeddings_reproduction&quot;&gt;https://github.com/fhalab/embeddings_reproduction&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2018, NeurIPS, &lt;a href=&quot;https://proceedings.neurips.cc/paper/2018/file/d0921d442ee91b896ad95059d13df618-Paper.pdf&quot;&gt;Neural Edit Operations for Biological Sequences&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2021, ICLR, &lt;a href=&quot;https://arxiv.org/abs/2006.15222&quot;&gt;Bertology Meets Biology Interpreting Attention Protein Language Moldes&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2021, Bioinformatics, &lt;a href=&quot;https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btab083/6128680&quot;&gt;DNABERT: pre-trained Bidirectional Encoder Representations from Transformers model for DNA-language in genome&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jerryji1993/DNABERT&quot;&gt;https://github.com/jerryji1993/DNABERT&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2021, PNAS, &lt;a href=&quot;https://www.pnas.org/content/118/15/e2016239118&quot;&gt;Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/facebookresearch/esm&quot;&gt;https://github.com/facebookresearch/esm&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2021, Current Potocols, &lt;a href=&quot;https://currentprotocols.onlinelibrary.wiley.com/doi/10.1002/cpz1.113&quot;&gt;Learned Embeddings from Deep Learning to Visualize and Predict Protein Sets&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sacdallago/bio_embeddings&quot;&gt;https://github.com/sacdallago/bio_embeddings&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">A collection of studies that applies deep learning to sequence comparison</summary></entry><entry><title type="html">TMM normalization in python</title><link href="http://localhost:4000/jekyll/update/2021/06/25/TMM-normalization-in-python.html" rel="alternate" type="text/html" title="TMM normalization in python" /><published>2021-06-25T13:16:51+08:00</published><updated>2021-06-25T13:16:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/25/TMM-normalization-in-python</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/25/TMM-normalization-in-python.html">&lt;ul&gt;
+  &lt;li&gt;TMM method in &lt;a href=&quot;https://bioconductor.org/packages/release/bioc/html/edgeR.html&quot;&gt;edgeR&lt;/a&gt; package is a popular method for RNA seq count matrix normalization, here I implement a python version&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;brief-description&quot;&gt;Brief description&lt;/h3&gt;
@@ -119,7 +265,7 @@
 &lt;ul&gt;
   &lt;li&gt;TMM’s publication: &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25&quot;&gt;https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Source code in edgeR: &lt;a href=&quot;https://rdrr.io/bioc/edgeR/src/R/calcNormFactors.R&quot;&gt;https://rdrr.io/bioc/edgeR/src/R/calcNormFactors.R&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">TMM method in edgeR package is a popular method for RNA seq count matrix, normalization, here I implement a python version</summary></entry><entry><title type="html">Hash and Approximate Similarity Search</title><link href="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html" rel="alternate" type="text/html" title="Hash and Approximate Similarity Search" /><published>2021-06-15T20:41:20+08:00</published><updated>2021-06-15T20:41:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html">&lt;h2 id=&quot;locality-sensitive-hashing&quot;&gt;Locality sensitive hashing&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">TMM method in edgeR package is a popular method for RNA seq count matrix normalization, here I implement a python version</summary></entry><entry><title type="html">Hash and Approximate Similarity Search</title><link href="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html" rel="alternate" type="text/html" title="Hash and Approximate Similarity Search" /><published>2021-06-15T20:41:20+08:00</published><updated>2021-06-15T20:41:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html">&lt;h2 id=&quot;locality-sensitive-hashing&quot;&gt;Locality sensitive hashing&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;A good tutorial &lt;a href=&quot;http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf&quot;&gt;http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf&lt;/a&gt;&lt;/li&gt;
@@ -160,7 +306,41 @@
 
 &lt;h3 id=&quot;gnus-parallel-utility&quot;&gt;GNU’s parallel utility&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.gnu.org/software/parallel/&quot;&gt;https://www.gnu.org/software/parallel/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gnu.org/software/parallel/&quot;&gt;https://www.gnu.org/software/parallel/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;parallel &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; 4 &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hell await {1} {2}&quot;&lt;/span&gt; ::: A B C ::: 1 2 3
+&lt;span class=&quot;c&quot;&gt;#hell await A 1&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hell await A 2&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hell await A 3&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hell await B 1&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hell await B 2&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hell await B 3&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hell await C 1&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hell await C 2&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#hell await C 3&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Here is some examples &lt;a href=&quot;https://www.gnu.org/software/parallel/parallel.html#examples&quot;&gt;https://www.gnu.org/software/parallel/parallel.html#examples&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A example for running a bash loop in parallel&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;a &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;3 7 11 15 19 23&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do
+for &lt;/span&gt;b &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;0.0 0.2 0.4 0.6 0.8 1.0 &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do
+  &lt;/span&gt;sem &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; 4  &lt;span class=&quot;s2&quot;&gt;&quot;scripts.py -a &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; -b &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &amp;gt; log/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.log&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done
+done
+&lt;/span&gt;sem &lt;span class=&quot;nt&quot;&gt;--wait&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;paralleling-in-workflow-manager&quot;&gt;Paralleling in workflow manager&lt;/h3&gt;
 
@@ -169,7 +349,7 @@
     &lt;p&gt;gnu make&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;snakemake&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;https://snakemake.readthedocs.io/en/stable/&quot;&gt;snakemake&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -203,7 +383,18 @@
 &lt;p&gt;&lt;a href=&quot;https://joblib.readthedocs.io/en/latest/&quot;&gt;https://joblib.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;R&lt;/li&gt;
+  &lt;li&gt;Parallel loading of gzipped files
+    &lt;ul&gt;
+      &lt;li&gt;see &lt;a href=&quot;https://www.blopig.com/blog/2016/08/processing-large-files-using-python/&quot;&gt;https://www.blopig.com/blog/2016/08/processing-large-files-using-python/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;See cutadapt’s implementation &lt;a href=&quot;https://github.com/marcelm/cutadapt/blob/main/src/cutadapt/pipeline.py&quot;&gt;https://github.com/marcelm/cutadapt/blob/main/src/cutadapt/pipeline.py&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;R
+    &lt;ul&gt;
+      &lt;li&gt;The parallel package &lt;a href=&quot;https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf&quot;&gt;https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;See this tutorial &lt;a href=&quot;https://bookdown.org/rdpeng/rprogdatascience/parallel-computation.html&quot;&gt;https://bookdown.org/rdpeng/rprogdatascience/parallel-computation.html&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;inter-process-communication&quot;&gt;Inter process communication&lt;/h2&gt;
@@ -531,369 +722,4 @@
 
 &lt;h3 id=&quot;spectral-convolution&quot;&gt;Spectral convolution&lt;/h3&gt;
 
-&lt;h4 id=&quot;the-spectral-graph-theory&quot;&gt;The spectral graph theory&lt;/h4&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Graph convolution Spatial convolution</summary></entry><entry><title type="html">Kernels for Structured Data</title><link href="http://localhost:4000/jekyll/update/2021/05/18/kernels-for-structured-data.html" rel="alternate" type="text/html" title="Kernels for Structured Data" /><published>2021-05-18T10:21:39+08:00</published><updated>2021-05-18T10:21:39+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/18/kernels-for-structured-data</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/18/kernels-for-structured-data.html">&lt;ul&gt;
-  &lt;li&gt;We can use a transformation \(\phi\) to map data space \(R^d\) to a higher dimensional feature space \(R^p\)&lt;/li&gt;
-  &lt;li&gt;Kernel is a function that implicitly and efficiently calculate inner product in feature space
-    &lt;ul&gt;
-      &lt;li&gt;Calculate the inner product without calculate \(\phi\)&lt;/li&gt;
-      &lt;li&gt;That means we don’t have to know the explicit analytical form of \(\phi\)&lt;/li&gt;
-      &lt;li&gt;Kernel function can be extended to structured data, like string, tree, and graph&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[\kappa(x_i,x_j) = &amp;lt;\phi(x_i),\phi(x_j)^T&amp;gt;\]
-
-&lt;h3 id=&quot;string-kernel&quot;&gt;String kernel&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;2002, &lt;em&gt;Journal of Machine Learning Research 2&lt;/em&gt;, &lt;a href=&quot;https://www.jmlr.org/papers/volume2/lodhi02a/lodhi02a.pdf&quot;&gt;Text Classification using String Kernels&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;String subsequence kernel
-        &lt;ul&gt;
-          &lt;li&gt;feature transformation&lt;/li&gt;
-          &lt;li&gt;kernel function&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;tree-kernel&quot;&gt;Tree kernel&lt;/h3&gt;
-
-&lt;h3 id=&quot;graph-kernel&quot;&gt;Graph kernel&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;The R-convolution &lt;a href=&quot;http://www0.cs.ucl.ac.uk/staff/m.pontil/reading/haussler.pdf&quot;&gt;Convolution kernels on discrete structures&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Decompose two object into two sets of components, perform pairwise comparison between these components, and summarize to a numeric value&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Graphlet&lt;/li&gt;
-  &lt;li&gt;Subtree Patterns
-    &lt;ul&gt;
-      &lt;li&gt;Weisfeiler-Lehman algorithm&lt;/li&gt;
-      &lt;li&gt;Weisfeiler-Lehman&lt;/li&gt;
-      &lt;li&gt;2010, Journal of Machine Learning Research, &lt;a href=&quot;https://people.mpi-inf.mpg.de/~mehlhorn/ftp/genWLpaper.pdf&quot;&gt;Weisfeiler-Lehman graph kernels&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Random Walks&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;implementations&quot;&gt;Implementations&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://graphkit-learn.readthedocs.io/en/master/&quot;&gt;graphkit-learn&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/BorgwardtLab/GraphKernels&quot;&gt;GraphKernels&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ysig.github.io/GraKeL/0.1a8/documentation.html&quot;&gt;GraKeL&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/fabriziocosta/EDeN&quot;&gt;EDeN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">We can use a transformation \(\phi\) to map data space \(R^d\) to a higher dimensional feature space \(R^p\) Kernel is a function that implicitly and efficiently calculate inner product in feature space Calculate the inner product without calculate \(\phi\) That means we don’t have to know the explicit analytical form of \(\phi\) Kernel function can be extended to structured data, like string, tree, and graph</summary></entry><entry><title type="html">Alignment Free Sequence Comparison</title><link href="http://localhost:4000/jekyll/update/2021/05/15/Alignment-free-method-for-sequence-comparison.html" rel="alternate" type="text/html" title="Alignment Free Sequence Comparison" /><published>2021-05-15T12:07:32+08:00</published><updated>2021-05-15T12:07:32+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/15/Alignment-free-method-for-sequence-comparison</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/15/Alignment-free-method-for-sequence-comparison.html">&lt;h2 id=&quot;alignment-free-method-for-large-scale-genomic-sequence-analysis&quot;&gt;Alignment free method for large scale genomic sequence analysis&lt;/h2&gt;
-
-&lt;h3 id=&quot;k-mer-sampling&quot;&gt;k-mer sampling&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;minimizer / winnowing
-    &lt;ul&gt;
-      &lt;li&gt;Counting / indexing  all k-mers in a genome requires large memory&lt;/li&gt;
-      &lt;li&gt;We may sample some representative k-mers&lt;/li&gt;
-      &lt;li&gt;One possibility is to sample 1 k-mer in w consecutive k-mers&lt;/li&gt;
-      &lt;li&gt;For two substring of length w-k+1, if their sequence is identical, the same k-mer should be sampled&lt;/li&gt;
-      &lt;li&gt;So in addition to specifying w and k, priority of all possible k-mer should be specified, and k-mer with hihgest priority is took&lt;/li&gt;
-      &lt;li&gt;This strategy for k-mer sampling is originially proposed in 2004, &lt;em&gt;Bioinformatics&lt;/em&gt;, &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/20/18/3363/202143&quot;&gt;Reducing storage requirements for biological sequence comparison&lt;/a&gt; k-mer sampled by this strategy is called &lt;strong&gt;minimizer&lt;/strong&gt;.&lt;/li&gt;
-      &lt;li&gt;k-mer sampling has very wide applications in sequence comparisons
-        &lt;ul&gt;
-          &lt;li&gt;minimap, kraken, …&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://homolog.us/blogs/bioinfo/2017/10/25/intro-minimizer/&quot;&gt;https://homolog.us/blogs/bioinfo/2017/10/25/intro-minimizer/&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;approximate-jaccard-index-calculation&quot;&gt;Approximate jaccard index calculation&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;minhash
-    &lt;ul&gt;
-      &lt;li&gt;A instance for locality sensitive hashing that approximately preserve jaccard distance. (There are also some LSH that preserve hamming distance, etc)&lt;/li&gt;
-      &lt;li&gt;k-minimum values (KMVs) sketching is a widely used variant of minhash
-        &lt;ul&gt;
-          &lt;li&gt;We have two genome&lt;/li&gt;
-          &lt;li&gt;We have a hash function&lt;/li&gt;
-          &lt;li&gt;For each genome, we calculate the hash value of every k-mer, take k smallest hash values&lt;/li&gt;
-          &lt;li&gt;The overlap bewteen two set of hash value approximate jaccard distance beween all k-mers in two genomes&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Useful tools
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;https://github.com/marbl/Mash&quot;&gt;mash&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://github.com/dib-lab/sourmash&quot;&gt;sourmash&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;sketch.sh&lt;/code&gt; utility in &lt;a href=&quot;https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbmap-guide/&quot;&gt;BBMap&lt;/a&gt;, also see this post &lt;a href=&quot;https://www.biostars.org/p/234837/&quot;&gt;https://www.biostars.org/p/234837/&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;lsh-in-other-fields&quot;&gt;LSH in other fields&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;In addition to estimate Jaccard distance with minhash, we could use other hash function or other distance estimation&lt;/li&gt;
-  &lt;li&gt;See &lt;a href=&quot;http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf&quot;&gt;http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;approximate-member-query-and-efficient-counting&quot;&gt;Approximate member query and efficient counting&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Bloom_filters_in_bioinformatics&quot;&gt;Bloom filter&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Query whether an element exists in a large set. May generate false positive, but never false negative.&lt;/li&gt;
-      &lt;li&gt;An alternative to the memory intensive hash table&lt;/li&gt;
-      &lt;li&gt;A m bits array, K hash functions&lt;/li&gt;
-      &lt;li&gt;For a new instance, each hash function map input to one of the positions in 1..m&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Some variant
-    &lt;ul&gt;
-      &lt;li&gt;counting bloom filter&lt;/li&gt;
-      &lt;li&gt;spectral bloom filter&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Quotient_filter&quot;&gt;Quotient filter&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reading-list&quot;&gt;Reading List&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;2019, &lt;em&gt;Annual Review of Biomedical Data Science&lt;/em&gt;, &lt;a href=&quot;https://www.annualreviews.org/doi/abs/10.1146/annurev-biodatasci-072018-021156&quot;&gt;Sketching and Sublinear Data Structures in Genomics&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;2019, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1809-x&quot;&gt;When the levee breaks: a practical guide to sketching algorithms for processing the flood of genomic data&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Alignment free method for large scale genomic sequence analysis</summary></entry><entry><title type="html">Einstein Summation</title><link href="http://localhost:4000/jekyll/update/2021/05/13/einsteinsum.html" rel="alternate" type="text/html" title="Einstein Summation" /><published>2021-05-13T20:49:02+08:00</published><updated>2021-05-13T20:49:02+08:00</updated><id>http://localhost:4000/jekyll/update/2021/05/13/einsteinsum</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/05/13/einsteinsum.html">&lt;ul&gt;
-  &lt;li&gt;Einstein summation&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;some-background&quot;&gt;Some background&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://math.stackexchange.com/questions/1192825/why-use-einstein-summation-notation&quot;&gt;https://math.stackexchange.com/questions/1192825/why-use-einstein-summation-notation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://physics.iitm.ac.in/~PH1010/mkj_Lect_03.pdf&quot;&gt;https://physics.iitm.ac.in/~PH1010/mkj_Lect_03.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://dslavsk.sites.luc.edu/courses/phys301/classnotes/einsteinsummationnotation.pdf&quot;&gt;http://dslavsk.sites.luc.edu/courses/phys301/classnotes/einsteinsummationnotation.pdf&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;numpy&quot;&gt;numpy&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;See &lt;a href=&quot;https://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.einsum.html&quot;&gt;https://docs.scipy.org/doc/numpy-1.10.0/reference/generated/numpy.einsum.html&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Transpose / Permutate axis&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#array([[0, 1, 2],
-#       [3, 4, 5]])
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#array([[0, 3],
-#       [1, 4],
-#       [2, 5]])
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ij-&amp;gt;ji'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#array([[0, 3],
-#       [1, 4],
-#       [2, 5]])
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Take diagnal elements&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#array([[ 0,  1,  2,  3,  4],
-#       [ 5,  6,  7,  8,  9],
-#       [10, 11, 12, 13, 14],
-#       [15, 16, 17, 18, 19],
-#       [20, 21, 22, 23, 24]])
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ii-&amp;gt;i'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# array([ 0,  6, 12, 18, 24])
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sum by rows&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ij-&amp;gt;i'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sum by columns&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ij-&amp;gt;j'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Matrix production&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ij,jk-&amp;gt;ik'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-
-&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;einsum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ji,jk-&amp;gt;ik'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;pytorch&quot;&gt;pytorch&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;See &lt;a href=&quot;https://pytorch.org/docs/stable/generated/torch.einsum.html&quot;&gt;https://pytorch.org/docs/stable/generated/torch.einsum.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Also see &lt;a href=&quot;https://github.com/arogozhnikov/einops&quot;&gt;https://github.com/arogozhnikov/einops&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Einstein summation</summary></entry><entry><title type="html">Deep Hashing for Similarity Retrieval</title><link href="http://localhost:4000/jekyll/update/2021/04/27/deep-hashing.html" rel="alternate" type="text/html" title="Deep Hashing for Similarity Retrieval" /><published>2021-04-27T23:32:02+08:00</published><updated>2021-04-27T23:32:02+08:00</updated><id>http://localhost:4000/jekyll/update/2021/04/27/deep-hashing</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/04/27/deep-hashing.html">&lt;h2 id=&quot;paper-list&quot;&gt;Paper list&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/caoyue10/DeepHash-Papers&quot;&gt;https://github.com/caoyue10/DeepHash-Papers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;implementations&quot;&gt;Implementations&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/thulab/DeepHash&quot;&gt;https://github.com/thulab/DeepHash&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/thuml/HashNet/tree/master/pytorch#datasets&quot;&gt;https://github.com/thuml/HashNet/tree/master/pytorch#datasets&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/swuxyj/DeepHash-pytorch&quot;&gt;https://github.com/swuxyj/DeepHash-pytorch&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/flyingpot/pytorch_deephash&quot;&gt;https://github.com/flyingpot/pytorch_deephash&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;unsupervised-hashing-techniques&quot;&gt;Unsupervised hashing techniques&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;iterative quantization (ITQ)&lt;/li&gt;
-  &lt;li&gt;spectral hashing&lt;/li&gt;
-  &lt;li&gt;discrete graph hashing&lt;/li&gt;
-  &lt;li&gt;spherical Hashing&lt;/li&gt;
-  &lt;li&gt;anchor graph hashing&lt;/li&gt;
-  &lt;li&gt;stochastic generative hashing&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reading-notes&quot;&gt;Reading Notes&lt;/h2&gt;
-
-&lt;h3 id=&quot;review-on-deep-hash&quot;&gt;Review on deep hash&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;2020, &lt;a href=&quot;https://arxiv.org/abs/2003.03369&quot;&gt;A Survey on Deep Hashing Methods&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Network Architecture
-    &lt;ul&gt;
-      &lt;li&gt;Shallower architectures (AlexNet, CNN-F) for simple datasets (MINST, CIFAR-10)&lt;/li&gt;
-      &lt;li&gt;Deep architectures (VGGNet, ResNet50) for complex datasets such as NUSWIDE and COCO&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Similarity measurement
-    &lt;ul&gt;
-      &lt;li&gt;Input space: the ground truth&lt;/li&gt;
-      &lt;li&gt;Embedding space and hash space&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The loss fucntion
-    &lt;ul&gt;
-      &lt;li&gt;The similarity loss: preserve the similarity ordering in input space to hash space&lt;/li&gt;
-      &lt;li&gt;Classification loss: sematic label of input samples may be utilized&lt;/li&gt;
-      &lt;li&gt;Quantization loss: push embedding close to -1 or 1
-        &lt;ul&gt;
-          &lt;li&gt;pairwise quantization loss&lt;/li&gt;
-          &lt;li&gt;Cauchy quantization loss&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Other regularizing terms&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Optimization
-    &lt;ul&gt;
-      &lt;li&gt;the sign function is non-differentiable, and can not produce back propogate gradient&lt;/li&gt;
-      &lt;li&gt;so-called ill-posed gradient problem&lt;/li&gt;
-      &lt;li&gt;Several solution
-        &lt;ul&gt;
-          &lt;li&gt;add quantization loss as a penalty term&lt;/li&gt;
-          &lt;li&gt;only use back propagation for solving a subproblem&lt;/li&gt;
-          &lt;li&gt;adopt that continuous relaxation by replacing sign function with &lt;strong&gt;tanh&lt;/strong&gt; or &lt;strong&gt;sigmoid&lt;/strong&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;hashnet&quot;&gt;HashNet&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Subject to the ill-posed gradient difficulty in the optimization with sign activations, existing deep learning to hash methods need to first learn continuous representations and then generate binary hash codes in a separated binarization step, which suffer from substantial loss of retrieval quality&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;dpsh&quot;&gt;DPSH&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/TreezzZ/DPSH_PyTorch/blob/master/dpsh.py&quot;&gt;https://github.com/TreezzZ/DPSH_PyTorch/blob/master/dpsh.py&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/jiangqy/DPSH-pytorch&quot;&gt;https://github.com/jiangqy/DPSH-pytorch&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/swuxyj/DeepHash-pytorch&quot;&gt;https://github.com/swuxyj/DeepHash-pytorch&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;2017, NIPS, &lt;a href=&quot;https://arxiv.org/abs/1705.10999&quot;&gt;Deep Supervised Discrete Hashing&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;For binary code \(b_{i}\) and \(b_{j}\) of \(K\) bits, their hamming distance is:&lt;/li&gt;
-&lt;/ul&gt;
-
-\[dist_{H} = \frac{1}{2} (K-b_{i}^{T}b_{j})\]
-
-&lt;ul&gt;
-  &lt;li&gt;Suppose we have \(N\) samples, the label contains \(C\) categories, a binary encoded label is \(Y_{c,N}\)&lt;/li&gt;
-  &lt;li&gt;According to the label matrix, we have a similarity matrix \(S_{N,N}\), \(S_{i,j}=1\) if sample \(i\) and sample \(j\) shares same label, otherwise \(S_{i,j}=0\)&lt;/li&gt;
-  &lt;li&gt;Suppose the binary codes is \(B_{K,N}\). Given the similarity matrix \(S_{N,N}\), the posterior probability of the binary code is:&lt;/li&gt;
-&lt;/ul&gt;
-
-\[p(B|S) \propto P(S|B)P(B) = \sum_{s_{i,j} \in S}{p(s_{i,j}|B)p(B)}\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;We can see the larger the dot product, the smaller the hamming distance&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Use a sigmoid function for modeling the relation between \(s_{i,j}\) and learnt binary code&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[p(s_{i,j}=1|B) = \frac{1}{1+e^{-\frac{1}{2}b_{i}^{T}b_{j}}}\]
-
-&lt;ul&gt;
-  &lt;li&gt;We use negative conditional loglikelihood of similarity matrix as dissimilarity loss&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{align*}
-   J =&amp;amp; -\ln p(S|B) = - \sum_{s_{i,j} \in S}{p(s_{i,j}|B)}\\
-     =&amp;amp; -\sum_{s_{i,j}=0}{p(s_{i,j}|B)}-\sum_{s_{i,j}=1}{p(s_{i,j}|B)} \\
-     =&amp;amp; -\sum_{s_{i,j}=1}{\frac{1}{2}b_{i}^{T}b_{j}-\ln(1+e^{\frac{1}{2}b_{i}^{T}b_{j}})}
-        -\sum_{s_{i,j}=0}{\ln{1}-\ln(1+e^{\frac{1}{2}b_{i}^{T}b_{j}})} \\
-     =&amp;amp; -\sum_{s_{i,j}=1}{\frac{1}{2}b_{i}^{T}b_{j}*1-\ln(1+e^{\frac{1}{2}b_{i}^{T}b_{j}})}
-        -\sum_{s_{i,j}=0}{\frac{1}{2}b_{i}^{T}b_{j}*0-\ln(1+e^{\frac{1}{2}b_{i}^{T}b_{j}})} \\
-     =&amp;amp; -\sum_{s_{i,j} \in S}{(\frac{1}{2}s_{i,j}b_{i}^{T}b_{j}-\ln(1+e^{\frac{1}{2}b_{i}^{T}b_{j}}))}
-\end{align*}\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Ideal binary code should achieve good classification performance&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Suppose \(W_{K,C}\) is the weight parameter, \(Y=W^{T}B\)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The classification loss can be written as&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[Q = \sum_{i=1}^{N}L(y_{i},W^{T}B) + \lambda||W||^2_F\]
-
-&lt;ul&gt;
-  &lt;li&gt;it is essential to keep the discrete nature of the binary codes&lt;/li&gt;
-  &lt;li&gt;Solution: use a  auxiliary variable&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;implementations-1&quot;&gt;Implementations&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/TreezzZ/DSDH_PyTorch&quot;&gt;https://github.com/TreezzZ/DSDH_PyTorch&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/liqi-casia/DSDH-HashingCode&quot;&gt;https://github.com/liqi-casia/DSDH-HashingCode&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Paper list https://github.com/caoyue10/DeepHash-Papers</summary></entry></feed>
+&lt;h4 id=&quot;the-spectral-graph-theory&quot;&gt;The spectral graph theory&lt;/h4&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Graph convolution Spatial convolution</summary></entry></feed>

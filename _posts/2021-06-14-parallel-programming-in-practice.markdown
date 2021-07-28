@@ -82,6 +82,8 @@ sem --wait
     - See cutadapt's implementation <https://github.com/marcelm/cutadapt/blob/main/src/cutadapt/pipeline.py>
 
 - R
+  - The parallel package <https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf>
+  - See this tutorial <https://bookdown.org/rdpeng/rprogdatascience/parallel-computation.html>
 
 
 ## Inter process communication

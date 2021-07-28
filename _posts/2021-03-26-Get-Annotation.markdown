@@ -128,3 +128,15 @@ org.cgriseus.db <- hub[["AH70586"]]
   - More bioinformatician oriented
 - [metascape](https://metascape.org/gp/index.html)
   - Web tool, more bench scientist oriented
+
+
+### Get annotation from ucsc mysql server
+
+```bash
+# show available tables
+mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A -D hg38 -e "SHOW tables"
+# show structure of a table
+mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A -D hg38 -e "DESC rmsk"
+# query a database
+mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A -D hg38 -e "SELECT * FROM geneid" > geneid.txt
+```
