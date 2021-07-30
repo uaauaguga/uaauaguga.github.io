@@ -21,6 +21,14 @@ sudo apt install docker.io
 docker version
 ```
 
+- Run docker without sudo
+
+```bash
+groupadd docker
+usermod -aG docker $USER
+newgrp docker
+```
+
 ### image and container
 
 - image(镜像)相当于虚拟机模板或类
@@ -52,9 +60,11 @@ docker rmi image_id
 # docker image rm image_id will also work
 ```
 
-- remove container instances
+- start/stop/remove container instances
 
 ```bash
+docker container start container_id
+docker container stop container_id
 docker container rm container_id
 ```
 
@@ -80,31 +90,64 @@ docker run --rm jinyf1998/cowsay.v0 goodbye cold world
 #            (__)\       )\/\
 #                ||----w |
 #                ||     ||
-
-
 ``` 
 
-```bash
-docker run -it ubuntu /bin/bash
-```
-
-```bash
-docker run --rm 
-```
+- `docker container exec`和`docker container run`功能比较类似，区别在于
 
 
 ### docker volume / external storage
+- 有的时候你希望docker利用宿主机上的存储
+- Docker volumes are directories that are not part of the container’s UFS
+
+```bash
+# 把当前路径下的programming目录mount到docker container 的/data路径下
+# 如果想挂载多个目录,多次指定-v就可以了
+docker run -it --rm -v $PWD/programming:/data ubuntu /bin/bash
+```
+
+### build customized docker image
+- two ways
+  - install dependency in docker interactive terminal, than commit a snapshot of the container with `docker commit`
+  - using `Dockerfile`, and run `docker build`
+- 优劣比较<https://zzq23.blog.csdn.net/article/details/80571262>
+- The docker commit method is not currently recommended, as building with a Dockerfile is far more flexible and powerful
+- 常用Dockerfile 关键字
+  - `FROM`
+  - `RUN`
+  - `ENV`
+  - `ADD`
+  - `COPY`
+  - `VOLUME`
+  - `ENTRYPOINT`
+  - `CMD`
+
+- An example
+
+```Dockerfile
+FROM debian
+MAINTAINER John Smith <john@smith.com>
+RUN apt-get update && apt-get install -y cowsay fortune
+COPY entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
+```
+
+- run
+
+```bash
+# Assume a Dockerfile is present in current directory
+docker build -t target.image.name .
+```
 
 
-### Dockerfile
+### docker hub
+- pull docker image from docker hub with `docker pull`
 
-
-### dockerhub
-
-
-### Networking in docker
+- push your docker image to docker hub
+  - tag the docker image to your own repo with `docker tag`
+  - run `docker push`
 
 
 ### Reference
 
 - [The Docker Book](https://dockerbook.com/)
+- [Using Docker: Developing and Deploying Software with Containers](https://www.oreilly.com/library/view/using-docker/9781491915752/)
