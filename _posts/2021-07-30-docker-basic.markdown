@@ -113,14 +113,14 @@ docker run -it --rm -v $PWD/programming:/data ubuntu /bin/bash
 - 优劣比较<https://zzq23.blog.csdn.net/article/details/80571262>
 - The docker commit method is not currently recommended, as building with a Dockerfile is far more flexible and powerful
 - 常用Dockerfile 关键字
-  - `FROM`
-  - `RUN`
-  - `ENV`
-  - `ADD`
-  - `COPY`
-  - `VOLUME`
-  - `ENTRYPOINT`
-  - `CMD`
+  - `FROM` 从那个已有镜像开始构建
+  - `RUN` 后跟在构建镜像的过程中执行的命令
+  - `ENV` 设置环境变量
+  - `ADD` 将building context的文件导入镜像
+  - `COPY` 和`ADD`的区别在于`COPY`只从本地获得数据
+  - `VOLUME` 挂载数据卷
+  - `ENTRYPOINT` 运行容器的进入程序
+  - `CMD` 容器运行时执行的命令
 
 - An example
 
