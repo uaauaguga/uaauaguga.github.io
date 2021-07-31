@@ -95,7 +95,8 @@ docker run --rm jinyf1998/cowsay.v0 goodbye cold world
 - `docker container exec`和`docker container run`功能比较类似，区别在于
 
 
-### docker volume / external storage
+### docker volume (数据卷)
+- external storage
 - 有的时候你希望docker利用宿主机上的存储
 - Docker volumes are directories that are not part of the container’s UFS
 
