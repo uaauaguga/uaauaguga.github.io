@@ -140,3 +140,7 @@ mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A -D hg38 -e "DESC rmsk"
 # query a database
 mysql --user=genome --host=genome-mysql.cse.ucsc.edu -A -D hg38 -e "SELECT * FROM geneid" > geneid.txt
 ```
+
+
+### Play with SQLite
+- Many bioinformatic annotations can be directly accessed from bioconductor packages in SQLite format
