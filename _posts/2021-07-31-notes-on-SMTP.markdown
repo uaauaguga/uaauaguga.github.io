@@ -47,6 +47,7 @@ If you wanna find out what is behind this cold eyes ...
 ### 在python中利用SMTP发送邮件
 
 - Send a email contains plain text
+
 ```python
 # Import required libraries
 import email
