@@ -93,6 +93,7 @@ message.attach(MIMEText('hey you', 'plain', 'utf-8'))
 
 with open('lyric.txt.gz', 'rb') as f:
     mime = MIMEBase('application', 'x-gzip', filename='lyric.txt.gz')
+    mime.add_header('Content-Disposition', 'attachment', filename='lyric.txt.gz')
     mime.set_payload(f.read())
     encoders.encode_base64(mime)
     message.attach(mime)
