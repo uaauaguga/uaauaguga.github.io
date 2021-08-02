@@ -14,6 +14,7 @@ categories: jekyll update
 - 2008, *Genome Research*, [Comparative genomics beyond sequence-based alignments: RNA structures in the ENCODE regions](https://genome.cshlp.org/content/18/2/242.full)
 - 2009, *Nature*, [Exceptional structured noncoding RNAs revealed by bacterial metagenome analysis](https://www.nature.com/articles/nature08586)
 - 2010, *Plos Genetics*, [Genome-Wide Double-Stranded RNA Sequencing Reveals the Functional Significance of Base-Paired RNAs in Arabidopsis](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1001141)
+- 2010, *Genome Biology*, [Comparative genomics reveals 104 candidate structured RNAs from bacteria, archaea, and their metagenomes](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r31)
 - 2011, *Genome Research*, [New families of human regulatory RNA structures identified by comparative analysis of vertebrate genomes](https://genome.cshlp.org/content/early/2011/10/03/gr.112516.110)
 - 2011, *Plos Computational Biology*, [From Structure Prediction to Genomic Screens for Novel Non-Coding RNAs](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002100)
 - 2012, *The Plant Cell*, [Regulatory Impact of RNA Secondary Structure across the Arabidopsis Transcriptome](http://www.plantcell.org/content/24/11/4346)
