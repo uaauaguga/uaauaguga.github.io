@@ -32,7 +32,7 @@ categories: jekyll update
 # example usage of dustmasker
 dustmasker -outfmt fasta -parse_seqids -in {input.fasta} -out {masked.fasta}
 # low complexity sequence set set to lower case, if you want to set it to N, run
-sed -e '/^>/! s/[[:lower:]]/N/g' {masked.fasta} > {hardmasked.fasta} # see https://www.biostars.org/p/13677/s
+sed '/^>/! s/[[:lower:]]/N/g' {masked.fasta} > {hardmasked.fasta} # see https://www.biostars.org/p/13677/s
 ```
 
 - [dust](https://meme-suite.org/meme/doc/dust.html), a program shipped with MEME suites
