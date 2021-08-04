@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Deep Hashing for Similarity Retrieval"
+title:  "Deep Hashing for Similar Item Retrieval"
 date:   2021-04-27 23:32:02 +0800
 usemathjax: true
 categories: jekyll update
@@ -53,8 +53,35 @@ categories: jekyll update
     - only use back propagation for solving a subproblem
     - adopt that continuous relaxation by replacing sign function with **tanh** or **sigmoid**
 
+
+### Decorrelate the embedding
+
+- We expect compact hash code, but sometimes different bits in the learnt embedding can be highly correlated, lead to information redundancy
+- Some study decorrelate the embedding by an additional loss term
+- Denote the embedded binary code as $$B$$, then the decorrelation loss can be defined as 
+
+$$L_{DeCov} = \frac{1}{2}(\|C\|_{F}^{2}-\|diag(C)\|_{F}^{2})$$
+
+- $$C$$ is the covariance matrix of the binary embedding  
+
+$$C_{i,j}=\frac{1}{N}\sum_{n}(B_{i}^{n}-\mu_{i})(B_{j}^{n}-\mu_{j})^T$$
+
+- Reference 
+  - 2015, IJCAI, [Deep Multimodal Hashing with Orthogonal Regularization](https://www.ijcai.org/Proceedings/15/Papers/324.pdf)
+  - 2016, ICLR, [Reducing Overfitting in Deep Networks by Decorrelating Representations](https://arxiv.org/pdf/1511.06068.pdf)
+  - 2017, AAAI, [Pairwise Relationship Guided Deep Hashing for Cross-Modal Retrieval](https://aaai.org/ocs/index.php/AAAI/AAAI17/paper/view/14326)
+  - 2017, ICLR, [Regularizing CNNs with Locally Constrained Decorrelations](https://arxiv.org/abs/1611.01967)
+  - 2018, AAAI, [On Trivial Solution and High Correlation Problems in Deep Supervised Hashing](https://eprints.lancs.ac.uk/id/eprint/123575/1/2018_3.pdf)
+  - 2018, NIPS, [Can We Gain More from OrthogonalityRegularizations in Training Deep CNNs?](https://arxiv.org/pdf/1810.09102.pdf)
+
+- Also have a look at <https://paperswithcode.com/method/orthogonal-regularization>
+
+### Balancing the code usage
+
+
 ### HashNet
 - Subject to the ill-posed gradient difficulty in the optimization with sign activations, existing deep learning to hash methods need to first learn continuous representations and then generate binary hash codes in a separated binarization step, which suffer from substantial loss of retrieval quality
+
 
 ### DPSH
 - <https://github.com/TreezzZ/DPSH_PyTorch/blob/master/dpsh.py>
@@ -64,7 +91,6 @@ categories: jekyll update
 - 2017, NIPS, [Deep Supervised Discrete Hashing](https://arxiv.org/abs/1705.10999)
 
 ### Notes
-
 
 - For binary code $$b_{i}$$ and $$b_{j}$$ of $$K$$ bits, their hamming distance is:
 
