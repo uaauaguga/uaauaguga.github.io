@@ -67,6 +67,7 @@ $$L_{DeCov} = \frac{1}{2}(\|C\|_{F}^{2}-\|diag(C)\|_{F}^{2})$$
 $$C_{i,j}=\frac{1}{N}\sum_{n}(B_{i}^{n}-\mu_{i})(B_{j}^{n}-\mu_{j})^T$$
 
 - Reference 
+  - 2015, CVPR, [Deep Hashing for Compact Binary Codes Learning](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Liong_Deep_Hashing_for_2015_CVPR_paper.pdf)
   - 2015, IJCAI, [Deep Multimodal Hashing with Orthogonal Regularization](https://www.ijcai.org/Proceedings/15/Papers/324.pdf)
   - 2016, ICLR, [Reducing Overfitting in Deep Networks by Decorrelating Representations](https://arxiv.org/pdf/1511.06068.pdf)
   - 2017, AAAI, [Pairwise Relationship Guided Deep Hashing for Cross-Modal Retrieval](https://aaai.org/ocs/index.php/AAAI/AAAI17/paper/view/14326)
@@ -139,3 +140,4 @@ $$Q = \sum_{i=1}^{N}L(y_{i},W^{T}B) + \lambda||W||^2_F$$
 
 - <https://github.com/TreezzZ/DSDH_PyTorch>
 - <https://github.com/liqi-casia/DSDH-HashingCode>
+
