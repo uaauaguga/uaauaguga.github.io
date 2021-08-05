@@ -231,11 +231,11 @@ STAR --outFilterMultimapNmax 1 --outFilterMismatchNmax 3 --outFilterMismatchNove
   - Picard Markduplicates
   - samtools rmdup
     - See following posts for differences between samtools rmdup and picard
-      - http://broadinstitute.github.io/picard/faq.html
+      - <http://broadinstitute.github.io/picard/faq.html>
         - samtools rmdup do not remove interchromosomal duplicates
-      - http://www.bio-info-trainee.com/2003.html
+      - <http://www.bio-info-trainee.com/2003.html>
   - [samblaster](https://github.com/GregoryFaust/samblaster)
-    - https://academic.oup.com/bioinformatics/article/30/17/2503/2748175
+    - <https://academic.oup.com/bioinformatics/article/30/17/2503/2748175>
   - [sambamba](https://lomereiter.github.io/sambamba/index.html)
 
 
