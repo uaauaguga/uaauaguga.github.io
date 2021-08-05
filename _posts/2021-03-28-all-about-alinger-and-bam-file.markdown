@@ -104,9 +104,113 @@ categories: jekyll update
 #### Some parameter specification for reference
 
 - ENCODE RNA-seq
+
+```bash
+#https://github.com/ENCODE-DCC/long-rna-seq-pipeline/blob/master/dnanexus/rampage/rampage-align-pe/resources/usr/bin/rampage_align_star.sh
+STAR --genomeDir out --readFilesIn $read1_fq_gz $read2_fq_gz                         \
+    --readFilesCommand zcat --runThreadN $ncpus --genomeLoad NoSharedMemory           \
+    --outFilterMultimapNmax 500 --alignSJoverhangMin 8 --alignSJDBoverhangMin 1        \
+    --outFilterMismatchNmax 999 --outFilterMismatchNoverReadLmax 0.04                   \
+    --alignIntronMin 20 --alignIntronMax 1000000 --alignMatesGapMax 1000000              \
+    --outSAMheaderCommentFile COfile.txt --outSAMheaderHD @HD VN:1.4 SO:coordinate        \
+    --outSAMunmapped Within --outFilterType BySJout --outSAMattributes NH HI AS NM MD      \
+    --outFilterScoreMinOverLread 0.85 --outFilterIntronMotifs RemoveNoncanonicalUnannotated \
+    --clip5pNbases 6 15 --seedSearchStartLmax 30 --outSAMtype BAM SortedByCoordinate         \
+    --limitBAMsortRAM ${ram_GB}000000000
+```
+
 - TCGA RNA-seq
+
+```bash
+# https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/
+### Step 1: Building the STAR index.*
+
+STAR
+--runMode genomeGenerate
+--genomeDir <star_index_path>
+--genomeFastaFiles <reference>
+--sjdbOverhang 100
+--sjdbGTFfile <gencode.v22.annotation.gtf>
+--runThreadN 8
+
+### Step 2: Alignment 1st Pass.
+
+STAR
+--genomeDir <star_index_path>
+--readFilesIn <fastq_left_1>,<fastq_left2>,... <fastq_right_1>,<fastq_right_2>,...
+--runThreadN <runThreadN>
+--outFilterMultimapScoreRange 1
+--outFilterMultimapNmax 20
+--outFilterMismatchNmax 10
+--alignIntronMax 500000
+--alignMatesGapMax 1000000
+--sjdbScore 2
+--alignSJDBoverhangMin 1
+--genomeLoad NoSharedMemory
+--readFilesCommand <bzcat|cat|zcat>
+--outFilterMatchNminOverLread 0.33
+--outFilterScoreMinOverLread 0.33
+--sjdbOverhang 100
+--outSAMstrandField intronMotif
+--outSAMtype None
+--outSAMmode None
+
+### Step 3: Intermediate Index Generation.
+
+STAR
+--runMode genomeGenerate
+--genomeDir <output_path>
+--genomeFastaFiles <reference>
+--sjdbOverhang 100
+--runThreadN <runThreadN>
+--sjdbFileChrStartEnd <SJ.out.tab from previous step>
+
+### Step 4: Alignment 2nd Pass.
+
+STAR
+--genomeDir <output_path from previous step>
+--readFilesIn <fastq_left_1>,<fastq_left2>,... <fastq_right_1>,<fastq_right_2>,...
+--runThreadN <runThreadN>
+--outFilterMultimapScoreRange 1
+--outFilterMultimapNmax 20
+--outFilterMismatchNmax 10
+--alignIntronMax 500000
+--alignMatesGapMax 1000000
+--sjdbScore 2
+--alignSJDBoverhangMin 1
+--genomeLoad NoSharedMemory
+--limitBAMsortRAM 0
+--readFilesCommand <bzcat|cat|zcat>
+--outFilterMatchNminOverLread 0.33
+--outFilterScoreMinOverLread 0.33
+--sjdbOverhang 100
+--outSAMstrandField intronMotif
+--outSAMattributes NH HI NM MD AS XS
+--outSAMunmapped Within
+--outSAMtype BAM SortedByCoordinate
+--outSAMheaderHD @HD VN:1.4
+--outSAMattrRGline <formatted RG line provided by wrapper>
+```
+
 - TCGA DNA-seq
+
+```bash
+# https://docs.gdc.cancer.gov/Data/Bioinformatics_Pipelines/DNA_Seq_Variant_Calling_Pipeline/
+bwa mem -t 8 -T 0 -R <read_group> <reference> <fastq_1.fq.gz> <fastq_2.fq.gz> | samtools view -Shb -o <output.bam> -
+```
+
+
 - arriba's recommend parameter for fusion gene detection
+- 2021, *Genome Research*, [Accurate and efficient detection of gene fusions from RNA sequencing data](https://genome.cshlp.org/content/early/2021/01/13/gr.257246.119)
+
+```bash
+#We ran STAR version 2.5.3a with the following parameters to align RNA-seq reads: 
+STAR --outFilterMultimapNmax 1 --outFilterMismatchNmax 3 --outFilterMismatchNoverLmax 0.3 --alignIntronMax 500000 \
+--alignMatesGapMax 500000 --chimSegmentMin 10 --chimJunctionOverhangMin 10 --chimScoreMin 1 --chimScoreDropMax 30 \
+--chimScoreJunctionNonGTAG 0 --chimScoreSeparation 1 --alignSJstitchMismatchNmax 5 -1 5 5 --chimSegmentReadGapMax 3 \
+--chimMainSegmentMultNmax 10
+```
+
 
 ## Alignment formats and APIs
 
