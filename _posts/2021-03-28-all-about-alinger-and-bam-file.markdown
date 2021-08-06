@@ -9,8 +9,6 @@ categories: jekyll update
 - This post tries to **record** what I've **heard of** about the following questions. 
   - Use which aligner, which parameter, to what reference sequence, to map what data
   - How to manipulate output of different aligners, or equivalently, how to manipulate bam files
-- 学会调包
-- Note this field is developing rapidly, thing wrote here may quickly out of date
 
 
 ## Famous tools for pairwise sequence comparison
