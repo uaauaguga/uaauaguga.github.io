@@ -82,7 +82,11 @@ categories: jekyll update
   
 #### **Multimapper**
 - Secondary alignment
-- The problem of biased assignment
+- The problem of biased assignment??
+- The uniqueness of read mapping is measured by the mapping quality, see Li Heng's discussion at [Mapping Uniqueness](http://lh3lh3.users.sourceforge.net/mapuniq.shtml)
+- different aligner may use different MAPQ scoring ...
+- Also see <http://biofinysics.blogspot.com/2014/05/how-does-bowtie2-assign-mapq-scores.html>, <http://biofinysics.blogspot.com/2014/05/the-slow-death-of-term-uniquely.html> and <https://www.biostars.org/p/270090/>
+
   
 #### **Chimeric alignment**
 - Split reads
@@ -236,8 +240,6 @@ STAR --outFilterMultimapNmax 1 --outFilterMismatchNmax 3 --outFilterMismatchNove
     - <https://academic.oup.com/bioinformatics/article/30/17/2503/2748175>
   - [sambamba](https://lomereiter.github.io/sambamba/index.html)
 
-
-### Tools for handling alignment in other format
 
 
 
