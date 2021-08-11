@@ -6,10 +6,15 @@ usemathjax: true
 categories: jekyll update
 ---
 
-## Locality sensitive hashing
+## [Locality sensitive hashing](https://en.wikipedia.org/wiki/Locality-sensitive_hashing)
 
 - A good tutorial <http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf>
+- Also see [4 Pictures that Explain LSH - Locality Sensitive Hashing Tutorial](https://randorithms.com/2019/09/19/Visual-LSH.html)
+- <http://www.stat.ucdavis.edu/~chohsieh/teaching/ECS289G_Fall2016/lecture10.pdf>
 
+
+### Approximation for Hamming Distance
+- Bit sampling LSH, that is random choose a subset of bits
 
 ### Approximation for Jaccard Distance
 
@@ -22,8 +27,9 @@ categories: jekyll update
 
 ### Approximation for Cosine Distance
 
-- sketch 
+- "Signed Random Projections"
 
 
 ### Reading
 - 2014,[Hashing for Similarity Search: A Survey](https://arxiv.org/pdf/1408.2927.pdf)
+- 2017,[Exact clustering in linear time](https://arxiv.org/pdf/1702.05425.pdf)

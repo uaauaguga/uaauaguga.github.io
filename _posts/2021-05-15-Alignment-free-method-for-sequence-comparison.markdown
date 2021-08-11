@@ -21,13 +21,17 @@ categories: jekyll update
   - This strategy for k-mer sampling is originially proposed in 2004, *Bioinformatics*, [Reducing storage requirements for biological sequence comparison](https://academic.oup.com/bioinformatics/article/20/18/3363/202143) k-mer sampled by this strategy is called **minimizer**.
   - k-mer sampling has very wide applications in sequence comparisons
     - minimap, kraken, ...
+  - further reading
     - <https://homolog.us/blogs/bioinfo/2017/10/25/intro-minimizer/>
+    - <https://genomeinformatics.github.io/mashmap/>
 
 - Select m k-mers with lowest hash values 
   - See 2018, *Nature Communication*, [Clustering huge protein sequence sets in linear time](https://www.nature.com/articles/s41467-018-04964-5)
   - extract kmers such that the same k-mers tend to be extracted from homologous sequences.
   - avoid positional clustering of selected k-mers in order to be sensitive to detect local homologies in every region of a sequence
   - we would like to extract k-mers that tend to be conserved between homologous sequences
+  - Same as calculation of minhash signatures?
+  - A MinHash sketch of size s = 1 is equivalent to the subsequent “minimizer” concept, see the [mash](https://github.com/marbl/Mash) paper <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x> 
 
 
 
@@ -38,7 +42,7 @@ categories: jekyll update
   - k-minimum values (KMVs) sketching is a widely used variant of minhash
     - We have two genome
     - We have a hash function
-    - For each genome, we calculate the hash value of every k-mer, take k smallest hash values
+    - For each genome, we calculate the hash value of every q-gram, take k smallest hash values
     - The overlap bewteen two set of hash value approximate jaccard distance beween all k-mers in two genomes 
   - Useful tools
     - [mash](https://github.com/marbl/Mash)
