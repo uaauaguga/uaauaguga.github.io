@@ -10,16 +10,26 @@ categories: jekyll update
 
 
 ### k-mer sampling
+
+- Counting / indexing  all k-mers in a genome requires large memory
+- We may sample some representative k-mers
+
 - minimizer / winnowing
-  - Counting / indexing  all k-mers in a genome requires large memory
-  - We may sample some representative k-mers
-  - One possibility is to sample 1 k-mer in w consecutive k-mers
+  - sample 1 k-mer in w consecutive k-mers
   - For two substring of length w-k+1, if their sequence is identical, the same k-mer should be sampled
   - So in addition to specifying w and k, priority of all possible k-mer should be specified, and k-mer with hihgest priority is took
   - This strategy for k-mer sampling is originially proposed in 2004, *Bioinformatics*, [Reducing storage requirements for biological sequence comparison](https://academic.oup.com/bioinformatics/article/20/18/3363/202143) k-mer sampled by this strategy is called **minimizer**.
   - k-mer sampling has very wide applications in sequence comparisons
     - minimap, kraken, ...
     - <https://homolog.us/blogs/bioinfo/2017/10/25/intro-minimizer/>
+
+- Select m k-mers with lowest hash values 
+  - See 2018, *Nature Communication*, [Clustering huge protein sequence sets in linear time](https://www.nature.com/articles/s41467-018-04964-5)
+  - extract kmers such that the same k-mers tend to be extracted from homologous sequences.
+  - avoid positional clustering of selected k-mers in order to be sensitive to detect local homologies in every region of a sequence
+  - we would like to extract k-mers that tend to be conserved between homologous sequences
+
+
 
 
 ### Approximate jaccard index calculation

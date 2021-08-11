@@ -23,3 +23,7 @@ categories: jekyll update
 ### Approximation for Cosine Distance
 
 - sketch 
+
+
+### Reading
+- 2014,[Hashing for Similarity Search: A Survey](https://arxiv.org/pdf/1408.2927.pdf)
