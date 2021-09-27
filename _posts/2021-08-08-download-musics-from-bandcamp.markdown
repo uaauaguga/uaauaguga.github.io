@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A tool for download musics from bandcamp"
-date:   2021-08-03 10:24:12 +0800
+date:   2021-08-08 10:24:12 +0800
 usemathjax: true
 categories: jekyll update
 ---

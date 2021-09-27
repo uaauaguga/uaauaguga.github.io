@@ -9,6 +9,25 @@ categories: jekyll update
 ## Alignment free method for large scale genomic sequence analysis
 
 
+
+### Approximate jaccard index calculation
+- minhash
+  - A instance for locality sensitive hashing that approximately preserve jaccard distance. (There are also some LSH that preserve hamming distance, etc)
+  - k-minimum values (KMVs) sketching is a widely used variant of minhash
+    - We have two genome
+    - We have a hash function
+    - For each genome, we calculate the hash value of every q-gram, take k smallest hash values
+    - The overlap bewteen two set of hash value approximate jaccard distance beween all k-mers in two genomes 
+  - Useful tools
+    - [mash](https://github.com/marbl/Mash)
+    - [sourmash](https://github.com/dib-lab/sourmash)
+    - The `sketch.sh` utility in [BBMap](https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbmap-guide/), also see this post <https://www.biostars.org/p/234837/>
+
+- Some applications
+  - 2015, *NBT*, [Assembling large genomes with single-moleculesequencing and locality-sensitive hashing](https://www.nature.com/articles/nbt.3238) Use min-hash to define anchor between noisy long reads for sequence assembly
+  - 2020,*Genome Biology*,[Metalign: efficient alignment-based metagenomic profiling via containment min hash](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02159-0) For metagenomic profiling, use min-hash to reduce the size of database to perform sequence alignment with minimap2
+
+
 ### k-mer sampling
 
 - Counting / indexing  all k-mers in a genome requires large memory
@@ -26,28 +45,17 @@ categories: jekyll update
     - <https://genomeinformatics.github.io/mashmap/>
 
 - Select m k-mers with lowest hash values 
+  - Same as using m k-mers that corresponds to minhash sketches
   - See 2018, *Nature Communication*, [Clustering huge protein sequence sets in linear time](https://www.nature.com/articles/s41467-018-04964-5)
   - extract kmers such that the same k-mers tend to be extracted from homologous sequences.
   - avoid positional clustering of selected k-mers in order to be sensitive to detect local homologies in every region of a sequence
   - we would like to extract k-mers that tend to be conserved between homologous sequences
-  - Same as calculation of minhash signatures?
-  - A MinHash sketch of size s = 1 is equivalent to the subsequent “minimizer” concept, see the [mash](https://github.com/marbl/Mash) paper <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x> 
+  - A MinHash sketch of size 1 is equivalent to tminimizer, see the [mash](https://github.com/marbl/Mash) paper <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x> 
 
+- 不同长度序列的minhash signature的大小是固定的，而minimizer的数量和序列的长度是正相关的
 
-
-
-### Approximate jaccard index calculation
-- minhash
-  - A instance for locality sensitive hashing that approximately preserve jaccard distance. (There are also some LSH that preserve hamming distance, etc)
-  - k-minimum values (KMVs) sketching is a widely used variant of minhash
-    - We have two genome
-    - We have a hash function
-    - For each genome, we calculate the hash value of every q-gram, take k smallest hash values
-    - The overlap bewteen two set of hash value approximate jaccard distance beween all k-mers in two genomes 
-  - Useful tools
-    - [mash](https://github.com/marbl/Mash)
-    - [sourmash](https://github.com/dib-lab/sourmash)
-    - The `sketch.sh` utility in [BBMap](https://jgi.doe.gov/data-and-tools/bbtools/bb-tools-user-guide/bbmap-guide/), also see this post <https://www.biostars.org/p/234837/>
+- Some applications
+  - [MashMap](https://genomeinformatics.github.io/mashmap/)
 
 
 ### LSH in other fields

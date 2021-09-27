@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-04T20:08:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on SMTP</title><link href="http://localhost:4000/jekyll/update/2021/07/31/notes-on-SMTP.html" rel="alternate" type="text/html" title="Notes on SMTP" /><published>2021-07-31T21:30:12+08:00</published><updated>2021-07-31T21:30:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/07/31/notes-on-SMTP</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/07/31/notes-on-SMTP.html">&lt;h2 id=&quot;play-with-smtp&quot;&gt;Play with SMTP&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-27T20:19:14+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on Metagenomics</title><link href="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html" rel="alternate" type="text/html" title="Notes on Metagenomics" /><published>2021-09-27T20:14:51+08:00</published><updated>2021-09-27T20:14:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html">&lt;h3 id=&quot;metagenomic-profiling&quot;&gt;Metagenomic profiling&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assembly&quot;&gt;Assembly&lt;/h3&gt;
+
+&lt;h3 id=&quot;binning&quot;&gt;Binning&lt;/h3&gt;
+
+&lt;h3 id=&quot;genome-similarity&quot;&gt;Genome similarity&lt;/h3&gt;
+
+&lt;h3 id=&quot;distance-metrics-for-microbe-community&quot;&gt;Distance metrics for microbe community&lt;/h3&gt;
+
+&lt;h3 id=&quot;genome-annotation&quot;&gt;Genome annotation&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;No update for a month … Write something to demonstrate I still alive despite for its insiganificance…&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Metagenomic profiling</summary></entry><entry><title type="html">latent Dirichlet allocation in genetics</title><link href="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html" rel="alternate" type="text/html" title="latent Dirichlet allocation in genetics" /><published>2021-08-13T20:01:38+08:00</published><updated>2021-08-13T20:01:38+08:00</updated><id>http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf&quot;&gt;Probabilistic topic models&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;2003, &lt;em&gt;Journal of Machine Learning Research 3&lt;/em&gt;, &lt;a href=&quot;https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf&quot;&gt;Latent Dirichlet allocation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;2000, &lt;em&gt;Genetics&lt;/em&gt;, &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1461096/pdf/10835412.pdf&quot;&gt;Inference of Population Structure Using Multilocus Genotype Data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation Probabilistic topic models 2003, Journal of Machine Learning Research 3, Latent Dirichlet allocation 2000, Genetics, Inference of Population Structure Using Multilocus Genotype Data</summary></entry><entry><title type="html">A tool for download musics from bandcamp</title><link href="http://localhost:4000/jekyll/update/2021/08/08/download-musics-from-bandcamp.html" rel="alternate" type="text/html" title="A tool for download musics from bandcamp" /><published>2021-08-08T10:24:12+08:00</published><updated>2021-08-08T10:24:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/08/08/download-musics-from-bandcamp</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/08/08/download-musics-from-bandcamp.html">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/iheanyi/bandcamp-dl&quot;&gt;bandcamp-dl&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;There is also a more popular &lt;a href=&quot;https://github.com/ytdl-org/youtube-dl&quot;&gt;youtube-dl&lt;/a&gt; that inspires this tool …&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Worked on hongkong VPS&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;To be updated
+    &lt;ul&gt;
+      &lt;li&gt;Configure local proxy for downloading&lt;/li&gt;
+      &lt;li&gt;Learn their implementation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">bandcamp-dl There is also a more popular youtube-dl that inspires this tool … Worked on hongkong VPS</summary></entry><entry><title type="html">Notes on SMTP</title><link href="http://localhost:4000/jekyll/update/2021/07/31/notes-on-SMTP.html" rel="alternate" type="text/html" title="Notes on SMTP" /><published>2021-07-31T21:30:12+08:00</published><updated>2021-07-31T21:30:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/07/31/notes-on-SMTP</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/07/31/notes-on-SMTP.html">&lt;h2 id=&quot;play-with-smtp&quot;&gt;Play with SMTP&lt;/h2&gt;
 
 &lt;h3 id=&quot;用telnet和smtp服务器交互在命令行发送邮件&quot;&gt;用telnet和SMTP服务器交互在命令行发送邮件&lt;/h3&gt;
 
@@ -530,10 +565,17 @@ sed '/^&amp;gt;/! s/[[:lower:]]/N/g' {masked.fasta} &amp;gt; {hardmasked.fasta} 
 &lt;ul&gt;
   &lt;li&gt;TMM’s publication: &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25&quot;&gt;https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Source code in edgeR: &lt;a href=&quot;https://rdrr.io/bioc/edgeR/src/R/calcNormFactors.R&quot;&gt;https://rdrr.io/bioc/edgeR/src/R/calcNormFactors.R&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">TMM method in edgeR package is a popular method for RNA seq count matrix normalization, here I implement a python version</summary></entry><entry><title type="html">Hash and Approximate Similarity Search</title><link href="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html" rel="alternate" type="text/html" title="Hash and Approximate Similarity Search" /><published>2021-06-15T20:41:20+08:00</published><updated>2021-06-15T20:41:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html">&lt;h2 id=&quot;locality-sensitive-hashing&quot;&gt;Locality sensitive hashing&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">TMM method in edgeR package is a popular method for RNA seq count matrix normalization, here I implement a python version</summary></entry><entry><title type="html">Hash and Approximate Similarity Search</title><link href="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html" rel="alternate" type="text/html" title="Hash and Approximate Similarity Search" /><published>2021-06-15T20:41:20+08:00</published><updated>2021-06-15T20:41:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html">&lt;h2 id=&quot;locality-sensitive-hashing&quot;&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Locality-sensitive_hashing&quot;&gt;Locality sensitive hashing&lt;/a&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;A good tutorial &lt;a href=&quot;http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf&quot;&gt;http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Also see &lt;a href=&quot;https://randorithms.com/2019/09/19/Visual-LSH.html&quot;&gt;4 Pictures that Explain LSH - Locality Sensitive Hashing Tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.stat.ucdavis.edu/~chohsieh/teaching/ECS289G_Fall2016/lecture10.pdf&quot;&gt;http://www.stat.ucdavis.edu/~chohsieh/teaching/ECS289G_Fall2016/lecture10.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;approximation-for-hamming-distance&quot;&gt;Approximation for Hamming Distance&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bit sampling LSH, that is random choose a subset of bits&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;approximation-for-jaccard-distance&quot;&gt;Approximation for Jaccard Distance&lt;/h3&gt;
@@ -549,437 +591,11 @@ sed '/^&amp;gt;/! s/[[:lower:]]/N/g' {masked.fasta} &amp;gt; {hardmasked.fasta} 
 &lt;h3 id=&quot;approximation-for-cosine-distance&quot;&gt;Approximation for Cosine Distance&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;sketch&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Locality sensitive hashing</summary></entry><entry><title type="html">Parallel Programming in Practice</title><link href="http://localhost:4000/jekyll/update/2021/06/15/parallel-programming-in-practice.html" rel="alternate" type="text/html" title="Parallel Programming in Practice" /><published>2021-06-15T13:21:52+08:00</published><updated>2021-06-15T13:21:52+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/15/parallel-programming-in-practice</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/15/parallel-programming-in-practice.html">&lt;h2 id=&quot;some-basic-concepts&quot;&gt;Some basic concepts&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Process_(computing)&quot;&gt;process&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Thread_(computing)&quot;&gt;thread&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Cooperative_multitasking&quot;&gt;Cooperative multitasking&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Preemption_%28computing%29&quot;&gt;Preemption&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;“Signed Random Projections”&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;external-tools-for-paralleling&quot;&gt;External tools for paralleling&lt;/h2&gt;
-
-&lt;h3 id=&quot;gnus-parallel-utility&quot;&gt;GNU’s parallel utility&lt;/h3&gt;
-
+&lt;h3 id=&quot;reading&quot;&gt;Reading&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.gnu.org/software/parallel/&quot;&gt;https://www.gnu.org/software/parallel/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;parallel &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; 4 &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hell await {1} {2}&quot;&lt;/span&gt; ::: A B C ::: 1 2 3
-&lt;span class=&quot;c&quot;&gt;#hell await A 1&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#hell await A 2&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#hell await A 3&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#hell await B 1&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#hell await B 2&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#hell await B 3&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#hell await C 1&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#hell await C 2&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#hell await C 3&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Here is some examples &lt;a href=&quot;https://www.gnu.org/software/parallel/parallel.html#examples&quot;&gt;https://www.gnu.org/software/parallel/parallel.html#examples&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A example for running a bash loop in parallel&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;a &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;3 7 11 15 19 23&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do
-for &lt;/span&gt;b &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;0.0 0.2 0.4 0.6 0.8 1.0 &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do
-  &lt;/span&gt;sem &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; 4  &lt;span class=&quot;s2&quot;&gt;&quot;scripts.py -a &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; -b &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &amp;gt; log/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.log&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;done
-done
-&lt;/span&gt;sem &lt;span class=&quot;nt&quot;&gt;--wait&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;paralleling-in-workflow-manager&quot;&gt;Paralleling in workflow manager&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;gnu make&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://snakemake.readthedocs.io/en/stable/&quot;&gt;snakemake&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;paralleling-in-programming-language&quot;&gt;Paralleling in programming language&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;C++&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;python&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;IO bounded problem
-        &lt;ul&gt;
-          &lt;li&gt;multithreading&lt;/li&gt;
-          &lt;li&gt;asyncio&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;CPU bounded problem
-        &lt;ul&gt;
-          &lt;li&gt;multiprocessing&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://realpython.com/python-concurrency/&quot;&gt;https://realpython.com/python-concurrency/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://joblib.readthedocs.io/en/latest/&quot;&gt;https://joblib.readthedocs.io/en/latest/&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Parallel loading of gzipped files
-    &lt;ul&gt;
-      &lt;li&gt;see &lt;a href=&quot;https://www.blopig.com/blog/2016/08/processing-large-files-using-python/&quot;&gt;https://www.blopig.com/blog/2016/08/processing-large-files-using-python/&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;See cutadapt’s implementation &lt;a href=&quot;https://github.com/marcelm/cutadapt/blob/main/src/cutadapt/pipeline.py&quot;&gt;https://github.com/marcelm/cutadapt/blob/main/src/cutadapt/pipeline.py&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;R
-    &lt;ul&gt;
-      &lt;li&gt;The parallel package &lt;a href=&quot;https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf&quot;&gt;https://stat.ethz.ch/R-manual/R-devel/library/parallel/doc/parallel.pdf&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;See this tutorial &lt;a href=&quot;https://bookdown.org/rdpeng/rprogdatascience/parallel-computation.html&quot;&gt;https://bookdown.org/rdpeng/rprogdatascience/parallel-computation.html&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;inter-process-communication&quot;&gt;Inter process communication&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The named pipe or fifo&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;If several processses simultaneously write to fifo, there is a chance that the data get interleaved&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://unix.stackexchange.com/questions/68146/what-are-guarantees-for-concurrent-writes-into-a-named-pipe&quot;&gt;https://unix.stackexchange.com/questions/68146/what-are-guarantees-for-concurrent-writes-into-a-named-pipe&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Some basic concepts</summary></entry><entry><title type="html">Regularization to Incorporate Structure Information</title><link href="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html" rel="alternate" type="text/html" title="Regularization to Incorporate Structure Information" /><published>2021-06-12T10:23:10+08:00</published><updated>2021-06-12T10:23:10+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/12/structure-constraint-in-machine-learning.html">&lt;p&gt;有时你会希望在预测模型中加入一些先验的结构信息。&lt;/p&gt;
-
-&lt;p&gt;比方说你用LASSO做特征选择。你的特征是一段基因组上每个位点的数值，你希望相邻的两个位点能以比较大的概率被同时选中。或者你的特征是一些基因的表达量，你先验的知道一些基因共表达的信息，你希望共表达的基因尽可能的同时被选中。或者你想用NMF对一个基因表达的矩阵进行降维。这时候你可能希望已知被共调控的基因被在降维后处在比较接近的位置。像这种情况都可以在正则化上做文章。&lt;/p&gt;
-
-&lt;h3 id=&quot;generalized-regularization-in-lasso-regression&quot;&gt;Generalized Regularization in LASSO regression&lt;/h3&gt;
-
-&lt;p&gt;对于第一个基因组位点选择的例子，有人提出了一种叫做fused LASSO的做法，见&lt;a href=&quot;https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf&quot;&gt;https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf&lt;/a&gt;。假设我们有从标号为从1到p的连续排列的p个特征，那么fused LASSO的loss可以定义成：&lt;/p&gt;
-
-\[L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\sum_{j=2}^{p}|\beta_{j}-\beta_{j-1}|\]
-
-&lt;p&gt;如果想同时选中先验的认为比较相近的特征，有两种非常相似的方法，一种叫做grouped LASSO, 还有一种叫做graph regularized LASSO。&lt;/p&gt;
-
-&lt;p&gt;Group LASSO发表在&lt;a href=&quot;http://pages.stat.wisc.edu/~myuan/papers/glasso.final.pdf&quot;&gt;http://pages.stat.wisc.edu/~myuan/papers/glasso.final.pdf&lt;/a&gt;。在grouped LASSO中， 假设特征被预先分成了从\(1\)到\(J\)的\(J\)组，其中第\(g\)组有\(p_{g}\)个特征，则loss被定义成：&lt;/p&gt;
-
-\[L(\beta,\lambda) = \frac{1}{2} (y-X\beta)^T(y-X\beta)  + \lambda\sum_{g=1}^{J}\sqrt{\beta_{g}^{T}\beta_{g}}\]
-
-&lt;p&gt;另一种是graph regularized LASSO,见 &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/24/9/1175/206444&quot;&gt;https://academic.oup.com/bioinformatics/article/24/9/1175/206444&lt;/a&gt;。假设每一个特征之间的关系可以用一个图来表示，图上的每一个节点都对应着一个特征。假设\(A\)是图的邻接矩阵。所以每一个节点的度(degree)是：&lt;/p&gt;
-
-\[d_{i} = \sum_{i}^{p}A_{i,j}\]
-
-&lt;p&gt;所有节点的度可以表示为一个度数矩阵:&lt;/p&gt;
-
-\[D = diag(d_{1},...,d_{i},...,d_{p})\]
-
-&lt;p&gt;该图的拉普拉斯矩阵定义为:&lt;/p&gt;
-
-\[L =  D - A\]
-
-&lt;p&gt;归一化的拉普拉斯矩阵为：&lt;/p&gt;
-
-&lt;p&gt;　\(L^{sym} = D^{-\frac{1}{2}}LD^{-\frac{1}{2}} =  I - D^{-\frac{1}{2}}AD^{-\frac{1}{2}}\)&lt;/p&gt;
-
-&lt;p&gt;这样loss可以定义成：&lt;/p&gt;
-
-\[L(\beta,\lambda_{1},\lambda_{2}) = \frac{1}{2} (y-X\beta)^T(y-X\beta) + \lambda_{1}\sum_{j=1}^{p}|\beta_{j}| + \lambda_{2}\beta^TL^{sym}\beta\]
-
-&lt;p&gt;这里比较迷惑的是凭什么\(\beta^TL^{sym}\beta\)就能作为一项正则化。实际上我们是希望图中有连接的节点系数都比较接近。
-  所以我们希望这样一个量是比较小的：&lt;/p&gt;
-
-\[\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\beta_{i}-\beta_{j})^{2}\]
-
-&lt;p&gt;经过简单的计算不难发现：&lt;/p&gt;
-
-\[\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\beta_{i}-\beta_{j})^{2} ＝ \sum_{i=1}^{p}\beta_{i}^2d_{i,i} - \sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}\beta_{i}\beta_{j} = \beta^TD\beta - \beta^TA\beta = \beta^T(D-A)\beta\]
-
-&lt;p&gt;如果考虑一个按度数归一化的版本:&lt;/p&gt;
-
-\[\frac{1}{2}\sum_{i=1}^{p}\sum_{j=1}^{p}A_{i,j}(\frac{\beta_{i}}{\sqrt{d_{i}}}-\frac{\beta_{j}}{\sqrt{d_{j}}})^{2} = \beta^TL^{sym}\beta\]
-
-&lt;h3 id=&quot;a-implementation-for-fused-lasso-in-python&quot;&gt;A implementation for fused LASSO in python&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Import reuiqred package&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;cvxpy&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.decomposition&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PCA&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.linear_model&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LogisticRegression&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Simulate artificial data. In this setting, in 100 features, features[10:20]和feature[60:70] are informative for distinguishing two class from each other&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;coff0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;coff1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coff0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coff0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;coff1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;coff1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;simulate_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;X0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;simulate_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coff0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;X1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;simulate_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coff1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concatenate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zeros&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ones&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concatenate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;ul&gt;
-  &lt;li&gt;Ilustrate simulated cofficients&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coff0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coff1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/2021-06-13-LR-example-cofficients.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Visualization simulated data with PCA&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;X2d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PCA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_components&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X2d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X2d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X2d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X2d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;PC-1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;PC-2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2021-06-13-LR-PCA.png&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bbox_inches&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;tight&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/2021-06-13-LR-PCA.png&quot; alt=&quot;&quot; height=&quot;40%&quot; width=&quot;40%&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Result of default LASSO in sklearn&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;logit_model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;LogisticRegression&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;penalty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;l1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'liblinear'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logit_model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;coef_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reshape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/2021-06-13-sklearn-LASSO-cofficients.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Calculate three regularization terms&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;lambd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Parameter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nonneg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;lambd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;log_likelihood&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logistic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# L1 loss
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l1_loss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Soomthing loss
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smooth_mat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zeros&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;diag_indices&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smooth_mat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;smooth_mat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diag_indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diag_indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;smooth_mat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diag_indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;diag_indices&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;smooth_loss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smooth_mat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Result of LASSO penalty alone&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;reg_term&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l1_loss&lt;/span&gt; 
-&lt;span class=&quot;n&quot;&gt;problem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Problem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Minimize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log_likelihood&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reg_term&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;problem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
-&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/2021-06-13-pycvx-LASSO-cofficients.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Result of fused LASSO&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;reg_term&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l1_loss&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smooth_loss&lt;/span&gt; 
-&lt;span class=&quot;n&quot;&gt;problem&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Problem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cvxpy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Minimize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log_likelihood&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reg_term&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;problem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;solve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
-&lt;span class=&quot;n&quot;&gt;fig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subplots&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beta&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/2021-06-13-pycvx-fused-LASSO-cofficients.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We can see fused LASSO perfectly recovery the informative features (although this example is very artificial).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;regularization-in-nmf-decomposition&quot;&gt;Regularization in NMF decomposition&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Frobenius norm&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\|X\|_{F} = Tr(X^{H}X)\]
-
-&lt;ul&gt;
-  &lt;li&gt;不加正则化的NMF. See &lt;a href=&quot;https://papers.nips.cc/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf&quot;&gt;https://papers.nips.cc/paper/2000/file/f9d1152547c0bde01830b7e8bd60024c-Paper.pdf&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-\[L(W,H) = \|Y-WH^T\|_{F}^2\]
-
-&lt;ul&gt;
-  &lt;li&gt;NMF的正则化. See &lt;a href=&quot;https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html&quot;&gt;https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;也可以用绝对值的和做正则化&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[L(W,H) = \|Y-WH^T\|_{F}^2 + \frac{\alpha}{2}(\|W\|_{F}^2 + \|H\|_{F}^2)\]
-
-&lt;ul&gt;
-  &lt;li&gt;在正则化中加入graph的信息
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://academic.oup.com/bioinformatics/article/34/2/239/4101940&quot;&gt;https://academic.oup.com/bioinformatics/article/34/2/239/4101940&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;例如我们有一个表达矩阵\(Y_{n,m}\)，有一个图\(G^{gene}\)来描述基因间的关系，有一个图\(G^{sample}\)来描述样本间的相似性&lt;/li&gt;
-      &lt;li&gt;我们希望分解出\(W_{n,k}\)和\(H_{m,k}\)两个矩阵分别反应基因和样本的信息&lt;/li&gt;
-      &lt;li&gt;\(G^{gene}\)的Graph Laplacian为\(L_{gene}\), \(G^{sample}\)的Graph Laplacian为\(L_{sample}\),&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[L(W,H) = \|Y-WH^T\|_{F}^2 + \frac{\alpha}{2}(\|W\|_{F}^2 + \|H\|_{F}^2) + \lambda_{1}Tr(W^TL_{sample}W）+ \lambda_{2}Tr(H^TL_{sample}H）\]
-
-&lt;ul&gt;
-  &lt;li&gt;还有一些用图的正则化做非负矩阵分解的例子，见&lt;a href=&quot;https://www.nature.com/articles/nmeth.2651&quot;&gt;https://www.nature.com/articles/nmeth.2651&lt;/a&gt;和&lt;a href=&quot;https://ieeexplore.ieee.org/document/5674058&quot;&gt;https://ieeexplore.ieee.org/document/5674058&lt;/a&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.stat.cmu.edu/~ryantibs/papers/genlasso.pdf&quot;&gt;http://www.stat.cmu.edu/~ryantibs/papers/genlasso.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://euler.stat.yale.edu/~tba3/stat612/lectures/lec22/lecture22.pdf&quot;&gt;http://euler.stat.yale.edu/~tba3/stat612/lectures/lec22/lecture22.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Read this book &lt;a href=&quot;https://web.stanford.edu/~hastie/StatLearnSparsity/&quot;&gt;https://web.stanford.edu/~hastie/StatLearnSparsity/&lt;/a&gt; for more technical discussion&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">有时你会希望在预测模型中加入一些先验的结构信息。</summary></entry><entry><title type="html">Basic Concepts in Information Theory</title><link href="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html" rel="alternate" type="text/html" title="Basic Concepts in Information Theory" /><published>2021-06-10T14:14:50+08:00</published><updated>2021-06-10T14:14:50+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/10/some-concept-in-information-theory.html">&lt;h3 id=&quot;information-content&quot;&gt;Information content&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;越稀少的事件带来的surprise越大&lt;/li&gt;
-&lt;/ul&gt;
-
-\[I(X) = -ln(p_X(x)) = ln \frac{1}{p_X(x)}\]
-
-&lt;h3 id=&quot;entropy&quot;&gt;Entropy&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;熵是信息量的期望&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;离散的情形&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[H(X) = \sum_{i}p_{i}ln(p_{i})\]
-
-&lt;ul&gt;
-  &lt;li&gt;连续的情形下叫做微分熵&lt;/li&gt;
-&lt;/ul&gt;
-
-\[H(X) \equiv \mathbb{E}_{X}I(X) = -\int_{-\infty}^{\infty}p_X(x)ln(p_X(x))dx\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;a gaussian variable has the largest entropy among all random variables of equal variance&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;条件分布的熵&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The conditional entropy \(H(Y \mid X)\) is the average additional informaion needed to specified &lt;code class=&quot;highlighter-rouge&quot;&gt;Y&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[p_{X,Y}(x,y) = p_{Y|X}(y|x)p_{X}(x)\]
-
-\[p_{X,Y}(x,y)ln(p_{X,Y}(x,y)) = p_{X,Y}(x,y)ln(p_{Y|X}(y|x)) + p_{X,Y}(x,y)ln(p_{X}(x))\]
-
-\[H(Y|X) = \int_{-\infty}^{\infty}p_{X}(x)H(Y|X=x)dx = \int_{-\infty}^{\infty} p_{X}(x) \int_{-\infty}^{\infty} p_{Y|X=x}(y)ln(p_{Y|X=x}(y))dydx\]
-
-\[\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} p_{X,Y}(x,y)ln(p_{X,Y}(x,y))dxdy = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} p_{Y|X=x}(y)p_{X}(x)ln(p_{Y|X=x}(y))dxdy + \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} p_{Y|X=x}(y)p_{X}(x)ln(p_{X}(x))dxdy\]
-
-\[H((X,Y)) = H(Y|X) + H(X)\]
-
-&lt;ul&gt;
-  &lt;li&gt;The bayes rule for conditional entropy&lt;/li&gt;
-&lt;/ul&gt;
-
-\[H((X,Y)) \equiv H(X) + H(Y|X) \equiv H(X|Y) + H(Y)\]
-
-\[H(X|Y)  = H(X) + H(Y|X) - H(Y)\]
-
-&lt;h3 id=&quot;cross-entropy&quot;&gt;Cross entropy&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;交叉熵&lt;/li&gt;
-&lt;/ul&gt;
-
-\[H(X,Y) \equiv \mathbb{E}_{X}I(Y) = -\int_{-\infty}^{\infty}p(x)ln(q(x))dx\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;交叉熵和分类问题中的负对数似然损失函数是等价的，见&lt;a href=&quot;https://en.wikipedia.org/wiki/Cross_entropy&quot;&gt;https://en.wikipedia.org/wiki/Cross_entropy&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;注意交叉熵和联合分布的熵不是一个东西！&lt;a href=&quot;https://math.stackexchange.com/questions/2505015/relation-between-cross-entropy-and-joint-entropy&quot;&gt;https://math.stackexchange.com/questions/2505015/relation-between-cross-entropy-and-joint-entropy&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;kl-divergence&quot;&gt;KL divergence&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;KL散度/相对熵&lt;/li&gt;
-&lt;/ul&gt;
-
-\[D_{KL}(X\|Y) \equiv H(X,Y) - H(Y) = \int_{-\infty}^{\infty}p(x)ln \frac{q(x)}{p(x)}dx= -\int_{-\infty}^{\infty}p(x)ln \frac{p(x)}{q(x)}dx\]
-
-&lt;ul&gt;
-  &lt;li&gt;Note \(D_{KL}(X\|Y) \neq D_{KL}(Y\|X)\)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;mutual-information&quot;&gt;Mutual information&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;互信息/互传信息量&lt;/li&gt;
-  &lt;li&gt;如果\(X\)和\(Y\)独立，我们有 \(p_{x,y}(X,Y) = p_{X}(x)p_{Y}(y)\)&lt;/li&gt;
-  &lt;li&gt;互信息\(X\)和\(Y\)的互信息定义为联合分布 \((X,Y)\) 和 服从\(p_{X}(x)p_{Y}(y)\)的随机变量之间的KL divergence&lt;/li&gt;
-&lt;/ul&gt;
-
-\[MI(X,Y) \equiv D_{KL}(p_{X,Y}\|p_{X}p_{Y}) = \int_{-\infty}^{\infty} p_{X,Y}(x,y)ln \frac{p_{X,Y}(x,y)}{p_{X}(x)p_{Y}(y)}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Some relationship&lt;/li&gt;
-&lt;/ul&gt;
-
-\[MI(X,Y) \equiv H(X) - H(X|Y) \equiv H(Y) - H(Y|X) \equiv H((X,Y)) - H(X|Y) - H(Y|X)\]
-
-&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www2.isye.gatech.edu/~yxie77/ece587/Lecture2.pdf&quot;&gt;https://www2.isye.gatech.edu/~yxie77/ece587/Lecture2.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Kullback–Leibler_divergence&quot;&gt;https://en.wikipedia.org/wiki/Kullback–Leibler_divergence&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Information content 越稀少的事件带来的surprise越大</summary></entry></feed>
+  &lt;li&gt;2014,&lt;a href=&quot;https://arxiv.org/pdf/1408.2927.pdf&quot;&gt;Hashing for Similarity Search: A Survey&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;2017,&lt;a href=&quot;https://arxiv.org/pdf/1702.05425.pdf&quot;&gt;Exact clustering in linear time&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Locality sensitive hashing</summary></entry></feed>
