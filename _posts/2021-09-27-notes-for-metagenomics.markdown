@@ -7,24 +7,38 @@ categories: jekyll update
 ---
 
 ### Metagenomic profiling
-- Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing
+
 - Assign reads to reference sequences
+- Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing
 
 - alignment based methods vs. kmer based methods
+  - metaphylan
+  - kraken
 
-- marker gene based methods vs. marker gene independent methodss
+- marker gene based methods vs. marker gene independent methods
+  - metaphylan, krakenunique
+  - kraken
 
 - nucleotide level analysis vs. protein level analysis
+  - kraken
+  - Kaiju
 
 ### Assembly
 
-- metaspades
+- metaspades: memory intesive
+  - <https://cab.spbu.ru/software/meta-spades/>
+  - 2017, *Genome Research*,[metaSPAdes: a new versatile metagenomic assembler](https://genome.cshlp.org/content/27/5/824.long)
+
 - megahit
+  - <https://github.com/voutcn/megahit>
+  - 2015, *Bioinformatics*, [MEGAHIT: an ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph](https://academic.oup.com/bioinformatics/article/31/10/1674/177884)
+
 - idba-ud
+  - <https://github.com/loneknightpy/idba>
+  - 2012, *Bioinformatics*, [IDBA-UD: a de novo assembler for single-cell and metagenomic sequencing data with highly uneven depth](https://academic.oup.com/bioinformatics/article/28/11/1420/266973)
 
 
 ### Binning
-
 
 
 ### Strategy for removing contaminations
@@ -37,24 +51,43 @@ categories: jekyll update
 
 
 ### Distance metrics for microbe community
-- Bray-Curtis distance
-- unifrac distance
+- [Bray-Curtis distance](https://en.wikipedia.org/wiki/Bray%E2%80%93Curtis_dissimilarity)
+- [unifrac distance](https://en.wikipedia.org/wiki/UniFrac)
 - weighted unifrac distance
-- PCoA and Permnova Analysis 
 
+- PCoA Analysis 
+  - PCoA (principle coordinate analysis) and MDS (multi-dimesional scaling) are essentially the same thing (but this seems the term MDS is seldom used by the microbiology community ...)
+  - project each sample in a distance matrix to a low dimensional space, attempt to preserve the pairwise distances
+  - See 
+    - <https://en.wikipedia.org/wiki/Multidimensional_scaling>
+    - <https://www.stat.pitt.edu/sungkyu/course/2221Fall13/lec8_mds_combined.pdf>
+    - <https://repository.upenn.edu/cgi/viewcontent.cgi?article=1000&context=cis_papers>
 
+- [permanova analysis](https://en.wikipedia.org/wiki/Permutational_analysis_of_variance)
+  - For a given grouping (real grouping or shuffled grouping), a pseudo F statistics can be calculated
+  - *P* value can be calculated by shuffling group labels 
 
 ### Differential analysis
 
 
 ### Functional annotation
 
-
 ### Visualization
 
 ### Genome annotation
 - CDS prediction for prokaryotes
 - CDS prediction for eukaryotes
+
+
+### A collection of workflows
+- 2021, *Plos Computational Biology*, [Metagenomics workflow for hybrid assembly, differential coverage binning, metatranscriptomics and pathway analysis (MUFFIN)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008716) also see <https://github.com/RVanDamme/MUFFIN>
+- 2016, *Genome Biology*, [IMP: a pipeline for reproducible referenceindependent integrated metagenomic and metatranscriptomic analyses](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1116-8)
+
+### Reviews for reference
+- 2018, *Nature Review Microbiology*, [Best practices for analysing microbiomes](https://www.nature.com/articles/s41579-018-0029-9)
+
+- 2020, *Genome Biology*, [The promise and challenge of cancer microbiome research](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02037-9)
+
 
 
 - No update for a month ... Write something to demonstrate I still alive despite for its insiganificance...
