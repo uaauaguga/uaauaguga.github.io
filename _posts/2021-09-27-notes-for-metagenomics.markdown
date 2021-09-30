@@ -7,9 +7,14 @@ categories: jekyll update
 ---
 
 ### Metagenomic profiling
-
 - Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing
+- Assign reads to reference sequences
 
+- alignment based methods vs. kmer based methods
+
+- marker gene based methods vs. marker gene independent methodss
+
+- nucleotide level analysis vs. protein level analysis
 
 ### Assembly
 
@@ -19,9 +24,6 @@ categories: jekyll update
 
 
 ### Binning
-
-
-### Visualization
 
 
 
@@ -39,6 +41,16 @@ categories: jekyll update
 - unifrac distance
 - weighted unifrac distance
 - PCoA and Permnova Analysis 
+
+
+
+### Differential analysis
+
+
+### Functional annotation
+
+
+### Visualization
 
 ### Genome annotation
 - CDS prediction for prokaryotes
