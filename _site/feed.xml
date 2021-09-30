@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-27T20:19:14+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on Metagenomics</title><link href="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html" rel="alternate" type="text/html" title="Notes on Metagenomics" /><published>2021-09-27T20:14:51+08:00</published><updated>2021-09-27T20:14:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html">&lt;h3 id=&quot;metagenomic-profiling&quot;&gt;Metagenomic profiling&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-27T20:47:14+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on Metagenomics</title><link href="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html" rel="alternate" type="text/html" title="Notes on Metagenomics" /><published>2021-09-27T20:14:51+08:00</published><updated>2021-09-27T20:14:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html">&lt;h3 id=&quot;metagenomic-profiling&quot;&gt;Metagenomic profiling&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing&lt;/li&gt;
@@ -6,15 +6,39 @@
 
 &lt;h3 id=&quot;assembly&quot;&gt;Assembly&lt;/h3&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;metaspades&lt;/li&gt;
+  &lt;li&gt;megahit&lt;/li&gt;
+  &lt;li&gt;idba-ud&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;binning&quot;&gt;Binning&lt;/h3&gt;
+
+&lt;h3 id=&quot;visualization&quot;&gt;Visualization&lt;/h3&gt;
+
+&lt;h3 id=&quot;strategy-for-removing-contaminations&quot;&gt;Strategy for removing contaminations&lt;/h3&gt;
 
 &lt;h3 id=&quot;genome-similarity&quot;&gt;Genome similarity&lt;/h3&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;mash distance&lt;/li&gt;
+  &lt;li&gt;whole genome alignment&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;distance-metrics-for-microbe-community&quot;&gt;Distance metrics for microbe community&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bray-Curtis distance&lt;/li&gt;
+  &lt;li&gt;unifrac distance&lt;/li&gt;
+  &lt;li&gt;weighted unifrac distance&lt;/li&gt;
+  &lt;li&gt;PCoA and Permnova Analysis&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;genome-annotation&quot;&gt;Genome annotation&lt;/h3&gt;
-
 &lt;ul&gt;
+  &lt;li&gt;CDS prediction for prokaryotes&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CDS prediction for eukaryotes&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;No update for a month … Write something to demonstrate I still alive despite for its insiganificance…&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Metagenomic profiling</summary></entry><entry><title type="html">latent Dirichlet allocation in genetics</title><link href="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html" rel="alternate" type="text/html" title="latent Dirichlet allocation in genetics" /><published>2021-08-13T20:01:38+08:00</published><updated>2021-08-13T20:01:38+08:00</updated><id>http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html">&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&lt;/a&gt;&lt;/li&gt;

@@ -29,4 +29,3 @@ categories: jekyll update
 
 - 2021, Current Potocols, [Learned Embeddings from Deep Learning to Visualize and Predict Protein Sets](https://currentprotocols.onlinelibrary.wiley.com/doi/10.1002/cpz1.113)
   - <https://github.com/sacdallago/bio_embeddings>
-

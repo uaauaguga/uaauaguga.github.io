@@ -11,25 +11,38 @@ categories: jekyll update
 - Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing
 
 
-
 ### Assembly
 
+- metaspades
+- megahit
+- idba-ud
 
 
 ### Binning
 
 
+### Visualization
+
+
+
+### Strategy for removing contaminations
+
 
 ### Genome similarity
 
+- mash distance
+- whole genome alignment
 
 
 ### Distance metrics for microbe community
-
-
+- Bray-Curtis distance
+- unifrac distance
+- weighted unifrac distance
+- PCoA and Permnova Analysis 
 
 ### Genome annotation
-
+- CDS prediction for prokaryotes
+- CDS prediction for eukaryotes
 
 
 - No update for a month ... Write something to demonstrate I still alive despite for its insiganificance...
