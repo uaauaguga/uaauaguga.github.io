@@ -1,22 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-27T20:47:14+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on Metagenomics</title><link href="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html" rel="alternate" type="text/html" title="Notes on Metagenomics" /><published>2021-09-27T20:14:51+08:00</published><updated>2021-09-27T20:14:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html">&lt;h3 id=&quot;metagenomic-profiling&quot;&gt;Metagenomic profiling&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-30T19:33:06+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on Metagenomics</title><link href="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html" rel="alternate" type="text/html" title="Notes on Metagenomics" /><published>2021-09-27T20:14:51+08:00</published><updated>2021-09-27T20:14:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html">&lt;h3 id=&quot;metagenomic-profiling&quot;&gt;Metagenomic profiling&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing&lt;/li&gt;
+  &lt;li&gt;Assign reads to reference sequences&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;alignment based methods vs. kmer based methods
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://huttenhower.sph.harvard.edu/metaphlan2/&quot;&gt;metaphlan2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;kraken2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;marker gene based methods vs. marker gene independent methods
+    &lt;ul&gt;
+      &lt;li&gt;metaphylan2, krakenunique&lt;/li&gt;
+      &lt;li&gt;kraken2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;nucleotide level analysis vs. protein level analysis
+    &lt;ul&gt;
+      &lt;li&gt;kraken2&lt;/li&gt;
+      &lt;li&gt;Kaiju&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;benchmark study&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;assembly&quot;&gt;Assembly&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;metaspades&lt;/li&gt;
-  &lt;li&gt;megahit&lt;/li&gt;
-  &lt;li&gt;idba-ud&lt;/li&gt;
+  &lt;li&gt;metaspades: memory intesive
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://cab.spbu.ru/software/meta-spades/&quot;&gt;https://cab.spbu.ru/software/meta-spades/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;2017, &lt;em&gt;Genome Research&lt;/em&gt;,&lt;a href=&quot;https://genome.cshlp.org/content/27/5/824.long&quot;&gt;metaSPAdes: a new versatile metagenomic assembler&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;megahit
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/voutcn/megahit&quot;&gt;https://github.com/voutcn/megahit&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;2015, &lt;em&gt;Bioinformatics&lt;/em&gt;, &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/31/10/1674/177884&quot;&gt;MEGAHIT: an ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;idba-ud
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/loneknightpy/idba&quot;&gt;https://github.com/loneknightpy/idba&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;2012, &lt;em&gt;Bioinformatics&lt;/em&gt;, &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/28/11/1420/266973&quot;&gt;IDBA-UD: a de novo assembler for single-cell and metagenomic sequencing data with highly uneven depth&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;binning&quot;&gt;Binning&lt;/h3&gt;
 
-&lt;h3 id=&quot;visualization&quot;&gt;Visualization&lt;/h3&gt;
-
 &lt;h3 id=&quot;strategy-for-removing-contaminations&quot;&gt;Strategy for removing contaminations&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;2014, &lt;em&gt;BMC Biology&lt;/em&gt;, &lt;a href=&quot;https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-014-0087-z&quot;&gt;Reagent and laboratory contamination can critically impact sequence-based microbiome analyses&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2019, &lt;em&gt;Trends in Microbiology&lt;/em&gt;, &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0966842X18302531&quot;&gt;Contamination in Low Microbial Biomass Microbiome Studies: Issues and Recommendations&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2019, &lt;em&gt;Plos Computational Biology&lt;/em&gt;, &lt;a href=&quot;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006967&quot;&gt;Recentrifuge: Robust comparative analysis and contamination removal for metagenomics&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;genome-similarity&quot;&gt;Genome similarity&lt;/h3&gt;
 
@@ -27,19 +74,66 @@
 
 &lt;h3 id=&quot;distance-metrics-for-microbe-community&quot;&gt;Distance metrics for microbe community&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Bray-Curtis distance&lt;/li&gt;
-  &lt;li&gt;unifrac distance&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Bray%E2%80%93Curtis_dissimilarity&quot;&gt;Bray-Curtis distance&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/UniFrac&quot;&gt;unifrac distance&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;weighted unifrac distance&lt;/li&gt;
-  &lt;li&gt;PCoA and Permnova Analysis&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;community-analysis-based-on-pairwise-distance&quot;&gt;Community analysis based on pairwise distance&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Multidimensional_scaling&quot;&gt;PCoA&lt;/a&gt; Analysis
+    &lt;ul&gt;
+      &lt;li&gt;PCoA (principle coordinate analysis) and MDS (multi-dimesional scaling) are essentially the same thing (but this seems the term MDS is seldom used by the microbiology community …)&lt;/li&gt;
+      &lt;li&gt;project each sample in a distance matrix to a low dimensional space, attempt to preserve the pairwise distances&lt;/li&gt;
+      &lt;li&gt;See
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.stat.pitt.edu/sungkyu/course/2221Fall13/lec8_mds_combined.pdf&quot;&gt;https://www.stat.pitt.edu/sungkyu/course/2221Fall13/lec8_mds_combined.pdf&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://repository.upenn.edu/cgi/viewcontent.cgi?article=1000&amp;amp;context=cis_papers&quot;&gt;https://repository.upenn.edu/cgi/viewcontent.cgi?article=1000&amp;amp;context=cis_papers&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Permutational_analysis_of_variance&quot;&gt;permanova&lt;/a&gt; analysis
+    &lt;ul&gt;
+      &lt;li&gt;For a given grouping (real grouping or shuffled grouping), a pseudo F statistics can be calculated&lt;/li&gt;
+      &lt;li&gt;&lt;em&gt;P&lt;/em&gt; value can be calculated by shuffling group labels&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;differential-analysis&quot;&gt;Differential analysis&lt;/h3&gt;
+
+&lt;h3 id=&quot;functional-annotation&quot;&gt;Functional annotation&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;eggnog: &lt;a href=&quot;http://eggnog.embl.de/&quot;&gt;http://eggnog.embl.de/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;visualization&quot;&gt;Visualization&lt;/h3&gt;
 
 &lt;h3 id=&quot;genome-annotation&quot;&gt;Genome annotation&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;CDS prediction for prokaryotes&lt;/li&gt;
+  &lt;li&gt;CDS prediction for eukaryotes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;a-collection-of-workflows&quot;&gt;A collection of workflows&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;2021, &lt;em&gt;Plos Computational Biology&lt;/em&gt;, &lt;a href=&quot;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008716&quot;&gt;Metagenomics workflow for hybrid assembly, differential coverage binning, metatranscriptomics and pathway analysis (MUFFIN)&lt;/a&gt; also see &lt;a href=&quot;https://github.com/RVanDamme/MUFFIN&quot;&gt;https://github.com/RVanDamme/MUFFIN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;2016, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1116-8&quot;&gt;IMP: a pipeline for reproducible referenceindependent integrated metagenomic and metatranscriptomic analyses&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;reviews-for-reference&quot;&gt;Reviews for reference&lt;/h3&gt;
+&lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;CDS prediction for eukaryotes&lt;/p&gt;
+    &lt;p&gt;2018, &lt;em&gt;Nature Review Microbiology&lt;/em&gt;, &lt;a href=&quot;https://www.nature.com/articles/s41579-018-0029-9&quot;&gt;Best practices for analysing microbiomes&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;No update for a month … Write something to demonstrate I still alive despite for its insiganificance…&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2020, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02037-9&quot;&gt;The promise and challenge of cancer microbiome research&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;No update for a month … Write something to demonstrate I still alive despite for its insiganificance…&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Metagenomic profiling</summary></entry><entry><title type="html">latent Dirichlet allocation in genetics</title><link href="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html" rel="alternate" type="text/html" title="latent Dirichlet allocation in genetics" /><published>2021-08-13T20:01:38+08:00</published><updated>2021-08-13T20:01:38+08:00</updated><id>http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html">&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf&quot;&gt;Probabilistic topic models&lt;/a&gt;&lt;/li&gt;
