@@ -41,8 +41,6 @@ categories: jekyll update
   - 2012, *Bioinformatics*, [IDBA-UD: a de novo assembler for single-cell and metagenomic sequencing data with highly uneven depth](https://academic.oup.com/bioinformatics/article/28/11/1420/266973)
 
 
-### Binning
-
 
 ### Strategy for removing contaminations
 
@@ -92,6 +90,14 @@ categories: jekyll update
 ### Genome annotation
 - CDS prediction for prokaryotes
 - CDS prediction for eukaryotes
+
+
+### Antibiotic resistence gene finding
+
+
+### Plasmid sequence prediction
+
+- [2018, *NAR*, PlasFlow: predicting plasmid sequences in metagenomic data using genome signatures](https://academic.oup.com/nar/article/46/6/e35/4807335)
 
 
 ### A collection of workflows
