@@ -97,7 +97,7 @@ categories: jekyll update
 
 ### Plasmid sequence prediction
 
-- [2018, *NAR*, PlasFlow: predicting plasmid sequences in metagenomic data using genome signatures](https://academic.oup.com/nar/article/46/6/e35/4807335)
+- 2018, *NAR*, [PlasFlow: predicting plasmid sequences in metagenomic data using genome signatures](https://academic.oup.com/nar/article/46/6/e35/4807335)
 
 
 ### A collection of workflows
