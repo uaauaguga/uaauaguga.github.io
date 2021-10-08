@@ -28,7 +28,7 @@ categories: jekyll update
 
 ### Assembly
 
-- metaspades: memory intesive
+- metaspades: memory intensive
   - <https://cab.spbu.ru/software/meta-spades/>
   - 2017, *Genome Research*,[metaSPAdes: a new versatile metagenomic assembler](https://genome.cshlp.org/content/27/5/824.long)
 
