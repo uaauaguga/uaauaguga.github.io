@@ -116,6 +116,17 @@ categories: jekyll update
 
 - See discussion here <https://stats.stackexchange.com/questions/144121/logistic-regression-bernoulli-vs-binomial-response-variables>
 
+- Link function for modeling proportion data
+
+- http://strata.uga.edu/8370/rtips/proportions.html
+
+### Statistical testing for methylation data
+- <https://kkorthauer.org/fungeno2019/methylation/slides/1-intro-slides.html>
+
+- 2016, *Bioinformatics*, [Differential methylation analysis for BS-seq data under general experimental design](https://academic.oup.com/bioinformatics/article/32/10/1446/1743267)
+- R package [DSS](https://bioconductor.org/packages/release/bioc/html/DSS.html)
+
+
 
 ### Reference
 - <https://stackoverflow.com/questions/64174603/how-to-use-scale-and-shape-parameters-of-gamma-glm-in-statsmodels>
