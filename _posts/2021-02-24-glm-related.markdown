@@ -135,3 +135,6 @@ categories: jekyll update
 - <https://en.wikipedia.org/wiki/Gamma_distribution>
 
  
+1,$ s/RF\d\{5,\}:://g
+
+1,$ s/(\([+-]\))/:\1/g

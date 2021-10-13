@@ -213,6 +213,10 @@ STAR --outFilterMultimapNmax 1 --outFilterMismatchNmax 3 --outFilterMismatchNove
 --chimMainSegmentMultNmax 10
 ```
 
+- STAR mapping for TE quantification in TEtranscript (handling multiple mapped reads)
+  - https://github.com/mhammell-laboratory/TEtranscripts/issues/69
+  - `--outFilterMultimapNmax 100` and `--outAnchorMultimapNmax 100` (alias --winAnchorMultimapNmax)
+  - "we highly suggest users test multiple values of --winAnchorMultimapNmax to identify the optimal value for their experiment"
 
 ## Alignment formats and APIs
 
