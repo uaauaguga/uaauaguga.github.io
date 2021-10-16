@@ -126,6 +126,8 @@ categories: jekyll update
 - 2016, *Bioinformatics*, [Differential methylation analysis for BS-seq data under general experimental design](https://academic.oup.com/bioinformatics/article/32/10/1446/1743267)
 - R package [DSS](https://bioconductor.org/packages/release/bioc/html/DSS.html)
 
+- Also see 2016, *BIB*, [Statistical method evaluation for differentially methylated CpGs in base resolution next-generation DNA sequencing data](https://academic.oup.com/bib/article/19/3/374/2769438)
+
 
 
 ### Reference
