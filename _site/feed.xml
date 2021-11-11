@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-09-30T19:33:06+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on Metagenomics</title><link href="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html" rel="alternate" type="text/html" title="Notes on Metagenomics" /><published>2021-09-27T20:14:51+08:00</published><updated>2021-09-27T20:14:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html">&lt;h3 id=&quot;metagenomic-profiling&quot;&gt;Metagenomic profiling&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-11T20:56:00+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes On Linux System Administration</title><link href="http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management.html" rel="alternate" type="text/html" title="Notes On Linux System Administration" /><published>2021-11-11T20:54:12+08:00</published><updated>2021-11-11T20:54:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management.html"></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Manipulate Binary Data</title><link href="http://localhost:4000/jekyll/update/2021/11/11/manipulate-binary-data.html" rel="alternate" type="text/html" title="Manipulate Binary Data" /><published>2021-11-11T20:36:17+08:00</published><updated>2021-11-11T20:36:17+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/11/manipulate-binary-data</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/11/manipulate-binary-data.html">&lt;h3 id=&quot;in-native-python&quot;&gt;In native python&lt;/h3&gt;
+
+&lt;h3 id=&quot;in-numpy&quot;&gt;In numpy&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.packbits.html&quot;&gt;packbits&lt;/a&gt;: pack binary data into integer (np.uint8) by byte&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# generate some binary data
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X_packed8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;packbits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# pack every 8 bit by axis 1
+# X_packed8.shape
+# (1000, 4)
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X_packed32&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;X_packed8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uint32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# X_packed32.shape
+# (1000, 1)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tobytes.html&quot;&gt;tobyte&lt;/a&gt;: save numpy data to byte string&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tobytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# b'\x00\x00\x01\x00\x02\x00\x04\x00\x08\x00\x10\x00 \x00@\x00\x80\x00\x00\x01\x00\x02\x00\x04'
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.frombuffer.html&quot;&gt;frombuffer&lt;/a&gt;: load data from byte string&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">In native python</summary></entry><entry><title type="html">Analysis of Biological Network</title><link href="http://localhost:4000/jekyll/update/2021/11/05/inference-of-biological-network.html" rel="alternate" type="text/html" title="Analysis of Biological Network" /><published>2021-11-05T20:32:05+08:00</published><updated>2021-11-05T20:32:05+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/05/inference-of-biological-network</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/05/inference-of-biological-network.html">&lt;h3 id=&quot;reconstruction-of-gene-regulation-network&quot;&gt;Reconstruction of gene regulation network&lt;/h3&gt;
+
+&lt;h3 id=&quot;network-property-and-comparison&quot;&gt;Network property and comparison&lt;/h3&gt;
+
+&lt;h3 id=&quot;evolulation-analysis-of-biological-network&quot;&gt;Evolulation analysis of biological network&lt;/h3&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Reconstruction of gene regulation network</summary></entry><entry><title type="html">Statistics for Sequence Alignment</title><link href="http://localhost:4000/jekyll/update/2021/10/20/statistics-for-sequence-alignment.html" rel="alternate" type="text/html" title="Statistics for Sequence Alignment" /><published>2021-10-20T14:34:51+08:00</published><updated>2021-10-20T14:34:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/10/20/statistics-for-sequence-alignment</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/10/20/statistics-for-sequence-alignment.html">&lt;h3 id=&quot;karlin-altschul-statistics&quot;&gt;Karlin-Altschul statistics&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Evaluate statistical significance of hits in blast search&lt;/li&gt;
+  &lt;li&gt;1990, &lt;em&gt;PNAS&lt;/em&gt;, S Karlin &amp;amp; S F Altschul, &lt;a href=&quot;https://www.pnas.org/content/87/6/2264.long&quot;&gt;Methods for assessing the statistical significance of molecular sequence features by using general scoring schemes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The expected number of &lt;strong&gt;ungapped alignments&lt;/strong&gt; with score \(S\) found with random sequences \(E\) was demostrated to be&lt;/li&gt;
+&lt;/ul&gt;
+
+\[E(S) = Kmne^{-\lambda S}\]
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;\(m\) is length of sequence 1, \(n\) is length of sequence 2, \(K\) is a constant&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Given the substitution matrix \(S_{i,j}\), and frequency of the character \(a_{i}\) and \(a_{j}\)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[\sum_{i,j=1}^{r}p_{i}p_{j}e^{s_{ij} \lambda}=1\]
+
+&lt;ul&gt;
+  &lt;li&gt;Alternatively, the alignment score \(S\) follows extreme value distribution (EVD), where \(u=\frac{lnKmn}{\lambda}\)&lt;/li&gt;
+&lt;/ul&gt;
+
+\[P(S&amp;lt;x)=e^{-e^{-\lambda(x-u)}}=e^{-Kmne^{-{\lambda} x}}\]
+
+\[P(S{\geq}x)=1-P(S&amp;lt;x)=1-e^{-Kmne^{-{\lambda} x}}=1-e^{-E(x)}\]
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;\(E(S)\) can be interpreted as expected value in poisson distribution&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Readings:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://www.bioinfo.org.cn/lectures/index-47.html&quot;&gt;http://www.bioinfo.org.cn/lectures/index-47.html&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://personal.utdallas.edu/~prr105020/biol6385/2018/lecture/Stat_sig.pdf&quot;&gt;https://personal.utdallas.edu/~prr105020/biol6385/2018/lecture/Stat_sig.pdf&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://pedagogix-tagc.univ-mrs.fr/courses/bioinfo_intro_prev/articles/sequence_alignment/Korf_BLAST_essential_OReilly.pdf&quot;&gt;http://pedagogix-tagc.univ-mrs.fr/courses/bioinfo_intro_prev/articles/sequence_alignment/Korf_BLAST_essential_OReilly.pdf&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0076687996660297?via%3Dihub&quot;&gt;https://www.sciencedirect.com/science/article/pii/S0076687996660297?via%3Dihub&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h3 id=&quot;gapped-correction-of-karlin-altschul-statistics&quot;&gt;Gapped correction of Karlin-Altschul statistics&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Karlin-Altschul statistics Evaluate statistical significance of hits in blast search 1990, PNAS, S Karlin &amp;amp; S F Altschul, Methods for assessing the statistical significance of molecular sequence features by using general scoring schemes The expected number of ungapped alignments with score \(S\) found with random sequences \(E\) was demostrated to be \[E(S) = Kmne^{-\lambda S}\]</summary></entry><entry><title type="html">Tools for Annotate Genomes</title><link href="http://localhost:4000/jekyll/update/2021/10/08/tools-for-annotate-genomes.html" rel="alternate" type="text/html" title="Tools for Annotate Genomes" /><published>2021-10-08T20:17:12+08:00</published><updated>2021-10-08T20:17:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/10/08/tools-for-annotate-genomes</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/10/08/tools-for-annotate-genomes.html">&lt;h2 id=&quot;notes-on-prokaryotic-and-eukaryotic-genome-annotation&quot;&gt;Notes on Prokaryotic and Eukaryotic Genome Annotation&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Fixed Order Markov Model and Interoplated Markov Model&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hidden Markov model&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Homolog searching&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Notes on Prokaryotic and Eukaryotic Genome Annotation</summary></entry><entry><title type="html">Notes on Metagenomics</title><link href="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html" rel="alternate" type="text/html" title="Notes on Metagenomics" /><published>2021-09-27T20:14:51+08:00</published><updated>2021-09-27T20:14:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html">&lt;h3 id=&quot;metagenomic-profiling&quot;&gt;Metagenomic profiling&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Assign reads to reference sequences&lt;/li&gt;
@@ -29,7 +117,7 @@
 &lt;h3 id=&quot;assembly&quot;&gt;Assembly&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;metaspades: memory intesive
+  &lt;li&gt;metaspades: memory intensive
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;https://cab.spbu.ru/software/meta-spades/&quot;&gt;https://cab.spbu.ru/software/meta-spades/&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;2017, &lt;em&gt;Genome Research&lt;/em&gt;,&lt;a href=&quot;https://genome.cshlp.org/content/27/5/824.long&quot;&gt;metaSPAdes: a new versatile metagenomic assembler&lt;/a&gt;&lt;/li&gt;
@@ -48,8 +136,6 @@
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&quot;binning&quot;&gt;Binning&lt;/h3&gt;
 
 &lt;h3 id=&quot;strategy-for-removing-contaminations&quot;&gt;Strategy for removing contaminations&lt;/h3&gt;
 
@@ -103,6 +189,9 @@
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;differential-analysis&quot;&gt;Differential analysis&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;2020, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02104-1&quot;&gt;Assessment of statistical methods from single cell, bulk RNA-seq, and metagenomics applied to microbiome data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;functional-annotation&quot;&gt;Functional annotation&lt;/h3&gt;
 &lt;ul&gt;
@@ -111,10 +200,47 @@
 
 &lt;h3 id=&quot;visualization&quot;&gt;Visualization&lt;/h3&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;Krona plot
+    &lt;ul&gt;
+      &lt;li&gt;2011, &lt;em&gt;BMC Bioinformatics&lt;/em&gt; &lt;a href=&quot;https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-385&quot;&gt;Interactive metagenomic visualization in a Web browser&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;https://github.com/marbl/Krona/tree/master/KronaTools&lt;/li&gt;
+      &lt;li&gt;https://github.com/khyox/recentrifuge&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Visualization of phylogenetic tree and taxonomy tree
+    &lt;ul&gt;
+      &lt;li&gt;https://github.com/joey711/phyloseq&lt;/li&gt;
+      &lt;li&gt;ggtree&lt;/li&gt;
+      &lt;li&gt;http://etetoolkit.org/
+&lt;code class=&quot;highlighter-rouge&quot;&gt;conda install -c conda-forge pyqt=4&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;sankey diagram&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;genome-annotation&quot;&gt;Genome annotation&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;CDS prediction for prokaryotes&lt;/li&gt;
-  &lt;li&gt;CDS prediction for eukaryotes&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CDS prediction for eukaryotes&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;https://github.com/nextgenusfs/funannotate&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;useful-resources&quot;&gt;Useful Resources&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;sequence id to taxo-id mapping&lt;/li&gt;
+  &lt;li&gt;ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/&lt;/li&gt;
+  &lt;li&gt;https://github.com/joey711/phyloseq&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;antibiotic-resistence-gene-finding&quot;&gt;Antibiotic resistence gene finding&lt;/h3&gt;
+
+&lt;h3 id=&quot;plasmid-sequence-prediction&quot;&gt;Plasmid sequence prediction&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2018, &lt;em&gt;NAR&lt;/em&gt;, &lt;a href=&quot;https://academic.oup.com/nar/article/46/6/e35/4807335&quot;&gt;PlasFlow: predicting plasmid sequences in metagenomic data using genome signatures&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;a-collection-of-workflows&quot;&gt;A collection of workflows&lt;/h3&gt;
@@ -416,304 +542,4 @@ docker build &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; target.image.name 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://dockerbook.com/&quot;&gt;The Docker Book&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.oreilly.com/library/view/using-docker/9781491915752/&quot;&gt;Using Docker: Developing and Deploying Software with Containers&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">docker basics</summary></entry><entry><title type="html">Split Sequencing Reads</title><link href="http://localhost:4000/jekyll/update/2021/07/10/partitioning-of-sequencing-reads.html" rel="alternate" type="text/html" title="Split Sequencing Reads" /><published>2021-07-10T09:52:24+08:00</published><updated>2021-07-10T09:52:24+08:00</updated><id>http://localhost:4000/jekyll/update/2021/07/10/partitioning-of-sequencing-reads</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/07/10/partitioning-of-sequencing-reads.html">&lt;ul&gt;
-  &lt;li&gt;We may want to filter some unwanted sequences from fastq file prior to down stream analysis
-    &lt;ul&gt;
-      &lt;li&gt;rRNA for RNA seq data&lt;/li&gt;
-      &lt;li&gt;host reads for metagenomic data&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;remove-rrna-sequence&quot;&gt;Remove rRNA sequence&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;For single species RNA-seq, simply map reads to rRNA reference of these species, keep unaligned reads&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;For metagenomic data, may try &lt;a href=&quot;https://github.com/biocore/sortmerna&quot;&gt;sortmerna&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# download rRNA reference from their github repo https://github.com/biocore/sortmerna/tree/master/data/rRNA_databases&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# build sortmerna index&lt;/span&gt;
-sortmerna &lt;span class=&quot;nt&quot;&gt;-ref&lt;/span&gt; reference/rRNA/fasta/rRNA.fasta &lt;span class=&quot;nt&quot;&gt;-index&lt;/span&gt; 1 &lt;span class=&quot;nt&quot;&gt;--idx-dir&lt;/span&gt; reference/rRNA/sortmerna-index 
-&lt;span class=&quot;c&quot;&gt;# -index 1: build index and exit&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# run sortmerna&lt;/span&gt;
- sortmerna &lt;span class=&quot;nt&quot;&gt;-ref&lt;/span&gt; reference/rRNA/fasta/rRNA.fasta &lt;span class=&quot;nt&quot;&gt;--idx-dir&lt;/span&gt; reference/rRNA/sortmerna-index &lt;span class=&quot;nt&quot;&gt;--reads&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;input.fastq_1&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--reads&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;input.fastq_2&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--fastx&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--workdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;working_dir&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--index&lt;/span&gt; 0 &lt;span class=&quot;nt&quot;&gt;--out2&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--other&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--threads&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;threads&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# -index 0: perform rRNA matching on existed index&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;For annotate rRNA sequence in assembled sequence contigs of bacteria genome , try &lt;a href=&quot;https://github.com/tseemann/barrnap&quot;&gt;barrnap&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;remove-host-genome-sequence&quot;&gt;Remove host genome sequence&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;align reads to host genome&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;bmtagger
-    &lt;ul&gt;
-      &lt;li&gt;Used in HMP project, see &lt;a href=&quot;https://www.hmpdacc.org/hmp/doc/HumanSequenceRemoval_SOP.pdf&quot;&gt;https://www.hmpdacc.org/hmp/doc/HumanSequenceRemoval_SOP.pdf&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;bbduk.sh in bbmap suites&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">We may want to filter some unwanted sequences from fastq file prior to down stream analysis rRNA for RNA seq data host reads for metagenomic data</summary></entry><entry><title type="html">On Masking of Low Complexity Sequence</title><link href="http://localhost:4000/jekyll/update/2021/07/09/on-masking-of-low-complexiity-sequence.html" rel="alternate" type="text/html" title="On Masking of Low Complexity Sequence" /><published>2021-07-09T09:52:24+08:00</published><updated>2021-07-09T09:52:24+08:00</updated><id>http://localhost:4000/jekyll/update/2021/07/09/on-masking-of-low-complexiity-sequence</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/07/09/on-masking-of-low-complexiity-sequence.html">&lt;h3 id=&quot;handle-low-complexity-sequence&quot;&gt;Handle low complexity sequence&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;masking low complexity regions in a long sequence&lt;/li&gt;
-  &lt;li&gt;filter read with low sequence complexity in NGS data&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;method&quot;&gt;Method&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;entropy
-    &lt;ul&gt;
-      &lt;li&gt;The &lt;a href=&quot;https://kodomo.fbb.msu.ru/FBB/year_10/ppt/SEG-93.pdf&quot;&gt;SEG algorithm&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;entropy of 3-mer in sliding window&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;dust score of 3 mer in sliding window
-    &lt;ul&gt;
-      &lt;li&gt;see &lt;a href=&quot;https://kodomo.fbb.msu.ru/FBB/year_09/ppt/DUST.pdf&quot;&gt;https://kodomo.fbb.msu.ru/FBB/year_09/ppt/DUST.pdf&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;perform local alignment to sequence itself and known repeative elements&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;tools&quot;&gt;Tools&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.repeatmasker.org/&quot;&gt;repeatmasker&lt;/a&gt;, screens DNA sequences for interspersed repeats and low complexity DNA sequences&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;NCBI’s blast is shipped with multiple masking tools, see &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/books/NBK569845/&quot;&gt;https://www.ncbi.nlm.nih.gov/books/NBK569845/&lt;/a&gt; for detail&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;segmasker&lt;/li&gt;
-      &lt;li&gt;dustmasker&lt;/li&gt;
-      &lt;li&gt;windowmasker&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;# example usage of dustmasker
-dustmasker -outfmt fasta -parse_seqids -in {input.fasta} -out {masked.fasta}
-# low complexity sequence set set to lower case, if you want to set it to N, run
-sed '/^&amp;gt;/! s/[[:lower:]]/N/g' {masked.fasta} &amp;gt; {hardmasked.fasta} # see https://www.biostars.org/p/13677/s
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://meme-suite.org/meme/doc/dust.html&quot;&gt;dust&lt;/a&gt;, a program shipped with MEME suites&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-{bash}&quot;&gt;dust sequences.fasta {cutoff} &amp;gt; sequences.masked.fasta
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;NCBI’s &lt;a href=&quot;ftp://ftp.ncbi.nih.gov/pub/seg/seg/&quot;&gt;seg&lt;/a&gt;, segment sequence by local complexity. A very old tool …&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;sequence complexity (entropy and dust) based read filter in &lt;a href=&quot;http://prinseq.sourceforge.net/&quot;&gt;prinseq&lt;/a&gt;, also see &lt;a href=&quot;https://chipster.csc.fi/manual/prinseq-complexity-filter.html&quot;&gt;https://chipster.csc.fi/manual/prinseq-complexity-filter.html&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;I write a small script that assign a single 3-mer count based dust or entropy score to each reads in fastq file, see &lt;a href=&quot;https://github.com/uaauaguga/NGS-Analysis-Notes/blob/master/scripts/sequence-complexity.py&quot;&gt;https://github.com/uaauaguga/NGS-Analysis-Notes/blob/master/scripts/sequence-complexity.py&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Handle low complexity sequence masking low complexity regions in a long sequence filter read with low sequence complexity in NGS data</summary></entry><entry><title type="html">Notes for deep learning in biological sequence analysis</title><link href="http://localhost:4000/jekyll/update/2021/06/25/deeplearning-for-sequence-comparison.html" rel="alternate" type="text/html" title="Notes for deep learning in biological sequence analysis" /><published>2021-06-25T13:51:23+08:00</published><updated>2021-06-25T13:51:23+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/25/deeplearning-for-sequence-comparison</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/25/deeplearning-for-sequence-comparison.html">&lt;ul&gt;
-  &lt;li&gt;A collection of studies that applies deep learning to sequence comparison&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;related-resources&quot;&gt;Related Resources&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;2017, Cell Systems, &lt;a href=&quot;https://linkinghub.elsevier.com/retrieve/pii/S2405-4712(17)30542-2&quot;&gt;Enhancing Evolutionary Couplings with DeepConvolutional Neural Networks&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;2019, &lt;a href=&quot;https://arxiv.org/abs/1912.05625&quot;&gt;Pre-Training of Deep Bidirectional Protein Sequence Representations with Structural Information&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;2019, Nature Method, &lt;a href=&quot;https://www.nature.com/articles/s41592-019-0598-1&quot;&gt;Unified rational protein engineering with sequence-based deep representation learning&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fhalab/embeddings_reproduction&quot;&gt;https://github.com/fhalab/embeddings_reproduction&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;2018, NeurIPS, &lt;a href=&quot;https://proceedings.neurips.cc/paper/2018/file/d0921d442ee91b896ad95059d13df618-Paper.pdf&quot;&gt;Neural Edit Operations for Biological Sequences&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;2021, ICLR, &lt;a href=&quot;https://arxiv.org/abs/2006.15222&quot;&gt;Bertology Meets Biology Interpreting Attention Protein Language Moldes&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;2021, Bioinformatics, &lt;a href=&quot;https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btab083/6128680&quot;&gt;DNABERT: pre-trained Bidirectional Encoder Representations from Transformers model for DNA-language in genome&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jerryji1993/DNABERT&quot;&gt;https://github.com/jerryji1993/DNABERT&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;2021, PNAS, &lt;a href=&quot;https://www.pnas.org/content/118/15/e2016239118&quot;&gt;Biological structure and function emerge from scaling unsupervised learning to 250 million protein sequences&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/facebookresearch/esm&quot;&gt;https://github.com/facebookresearch/esm&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;2021, Current Potocols, &lt;a href=&quot;https://currentprotocols.onlinelibrary.wiley.com/doi/10.1002/cpz1.113&quot;&gt;Learned Embeddings from Deep Learning to Visualize and Predict Protein Sets&lt;/a&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/sacdallago/bio_embeddings&quot;&gt;https://github.com/sacdallago/bio_embeddings&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">A collection of studies that applies deep learning to sequence comparison</summary></entry><entry><title type="html">TMM normalization in python</title><link href="http://localhost:4000/jekyll/update/2021/06/25/TMM-normalization-in-python.html" rel="alternate" type="text/html" title="TMM normalization in python" /><published>2021-06-25T13:16:51+08:00</published><updated>2021-06-25T13:16:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/25/TMM-normalization-in-python</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/25/TMM-normalization-in-python.html">&lt;ul&gt;
-  &lt;li&gt;TMM method in &lt;a href=&quot;https://bioconductor.org/packages/release/bioc/html/edgeR.html&quot;&gt;edgeR&lt;/a&gt; package is a popular method for RNA seq count matrix normalization, here I implement a python version&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;brief-description&quot;&gt;Brief description&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;consider n gene, m sample in a (n,m) matrix&lt;/li&gt;
-  &lt;li&gt;take upper 75% quantile of each sample in expression matrix, divide it by library size, called f75 (m,)&lt;/li&gt;
-  &lt;li&gt;take sample nearest to mean as reference, you can set any sample as reference&lt;/li&gt;
-  &lt;li&gt;calculate TMM by compare each sample to the reference sample&lt;/li&gt;
-  &lt;li&gt;define: gene-wise log-fold-changes, also called log ratio of expression&lt;/li&gt;
-&lt;/ul&gt;
-
-\[M_g = \log_2{\frac{observation}{observation.libsize}} - \log_2{\frac{reference}{reference.libsize}}\]
-
-&lt;ul&gt;
-  &lt;li&gt;define: absolute expression level&lt;/li&gt;
-&lt;/ul&gt;
-
-\[A_g = \frac{1}{2}(\log_{2}\frac{observation}{observation.libsize}+\log_2{\frac{reference}{reference.libsize}})\]
-
-&lt;ul&gt;
-  &lt;li&gt;define: estimated asymptotic variance&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\\ V_g  = \frac{observation.libsize-observation}{observation.libsize*observation}+\frac{reference.libsize-reference}{reference.libsize*reference} 
-      \\ = \frac{1}{observation} - \frac{1}{observation.libsize} + \frac{1}{reference} - \frac{1}{reference.libsize}\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Keep expression in quantile  [0.3,0.7] and relative expression in quantile [0.3,0.7]&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;calculate average of \(M_g\), weighted by \(1/V_g\)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[f = \frac{\sum\frac{1}{V_g}M_g}{\sum\frac{1}{V_g}}\]
-
-&lt;ul&gt;
-  &lt;li&gt;The TMM factor is \(2^f\)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;a-python-implementation&quot;&gt;A python implementation&lt;/h3&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# Get TMM factor of a sample, given the reference sample
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_TMM_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_observed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_reference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logratioTrim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sumTrim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Acutoff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1e10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_observed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_reference&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;# Mask genes with zero count in at least one of two samples
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_observed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_reference&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;count_observed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_observed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;count_reference&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_reference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;copy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;observed_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_observed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;reference_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count_reference&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;# Calculate log fold change
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_observed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;observed_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_reference&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reference_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1e-6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    
-
-    &lt;span class=&quot;c1&quot;&gt;# Calculate absolute expression 
-&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_observed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;observed_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_reference&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reference_size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_observed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;observed_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count_reference&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reference_size&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1e10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    
-
-    &lt;span class=&quot;c1&quot;&gt;# Get genes that is believed to not be differentially expressed in two sample
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# And genes which expression is not too high or too low
-&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;M_l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A_l&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logratioTrim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sumTrim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-    &lt;span class=&quot;n&quot;&gt;M_h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A_h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M_l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A_l&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;M_rank&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A_rank&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rank&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rank&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;genes_selected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M_rank&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M_rank&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M_l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M_rank&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M_h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A_rank&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A_l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A_rank&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A_h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genes_selected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genes_selected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;M&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# Get TMM scaling factor for a expression matrix
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_scaling_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;scaling_factors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_TMM_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;scaling_factors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;scaling_factors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Series&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scaling_factors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;scaling_factors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scaling_factors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scaling_factors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scaling_factors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-
-
-&lt;span class=&quot;c1&quot;&gt;# example usage
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;TCGA-CRC-counts.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index_col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;scaling_factor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_scaling_factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expression_matrix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;TCGA-A6-5662-11A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;reference&quot;&gt;Reference&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;TMM’s publication: &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25&quot;&gt;https://genomebiology.biomedcentral.com/articles/10.1186/gb-2010-11-3-r25&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Source code in edgeR: &lt;a href=&quot;https://rdrr.io/bioc/edgeR/src/R/calcNormFactors.R&quot;&gt;https://rdrr.io/bioc/edgeR/src/R/calcNormFactors.R&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">TMM method in edgeR package is a popular method for RNA seq count matrix normalization, here I implement a python version</summary></entry><entry><title type="html">Hash and Approximate Similarity Search</title><link href="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html" rel="alternate" type="text/html" title="Hash and Approximate Similarity Search" /><published>2021-06-15T20:41:20+08:00</published><updated>2021-06-15T20:41:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/06/15/approximate-similarity-search.html">&lt;h2 id=&quot;locality-sensitive-hashing&quot;&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Locality-sensitive_hashing&quot;&gt;Locality sensitive hashing&lt;/a&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;A good tutorial &lt;a href=&quot;http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf&quot;&gt;http://infolab.stanford.edu/~ullman/mmds/ch3a.pdf&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Also see &lt;a href=&quot;https://randorithms.com/2019/09/19/Visual-LSH.html&quot;&gt;4 Pictures that Explain LSH - Locality Sensitive Hashing Tutorial&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.stat.ucdavis.edu/~chohsieh/teaching/ECS289G_Fall2016/lecture10.pdf&quot;&gt;http://www.stat.ucdavis.edu/~chohsieh/teaching/ECS289G_Fall2016/lecture10.pdf&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;approximation-for-hamming-distance&quot;&gt;Approximation for Hamming Distance&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Bit sampling LSH, that is random choose a subset of bits&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;approximation-for-jaccard-distance&quot;&gt;Approximation for Jaccard Distance&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;minhash&lt;/strong&gt; can be utilized to approximate &lt;strong&gt;Jaccard distance&lt;/strong&gt; between k-mer sets of two large genome, see &lt;a href=&quot;https://uaauaguga.github.io/jekyll/update/2021/05/15/Alignment-free-method-for-sequence-comparison.html&quot;&gt;https://uaauaguga.github.io/jekyll/update/2021/05/15/Alignment-free-method-for-sequence-comparison.html&lt;/a&gt;. The same technique can be applied to estimate the similarity between tow document, or large sparse binary vector.&lt;/li&gt;
-  &lt;li&gt;我们如果随机取k行出来，近似的不是Jaccard距离，而是Hamming距离&lt;/li&gt;
-  &lt;li&gt;“min” here means set with smallest hash value&lt;/li&gt;
-  &lt;li&gt;If we encode k-mer sets with binary table, a minhash function h that maps sets to rows, or a implicit reordering of the table rows&lt;/li&gt;
-  &lt;li&gt;minhash直接输出的结果称为signature matrix,每一列是一个sample，每一行是不同的哈希值&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;approximation-for-cosine-distance&quot;&gt;Approximation for Cosine Distance&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;“Signed Random Projections”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reading&quot;&gt;Reading&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;2014,&lt;a href=&quot;https://arxiv.org/pdf/1408.2927.pdf&quot;&gt;Hashing for Similarity Search: A Survey&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;2017,&lt;a href=&quot;https://arxiv.org/pdf/1702.05425.pdf&quot;&gt;Exact clustering in linear time&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Locality sensitive hashing</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">docker basics</summary></entry></feed>

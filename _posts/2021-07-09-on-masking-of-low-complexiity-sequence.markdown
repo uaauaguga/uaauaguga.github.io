@@ -46,3 +46,6 @@ dust sequences.fasta {cutoff} > sequences.masked.fasta
 - sequence complexity (entropy and dust) based read filter in [prinseq](http://prinseq.sourceforge.net/), also see <https://chipster.csc.fi/manual/prinseq-complexity-filter.html>
 
 - I write a small script that assign a single 3-mer count based dust or entropy score to each reads in fastq file, see <https://github.com/uaauaguga/NGS-Analysis-Notes/blob/master/scripts/sequence-complexity.py>
+
+
+- 2011, *NAR*, [A new repeat-masking method enables specific detection of homologous sequences](https://academic.oup.com/nar/article/39/4/e23/1006710)
