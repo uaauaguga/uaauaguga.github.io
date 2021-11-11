@@ -87,14 +87,14 @@ categories: jekyll update
 
 - Krona plot
   - 2011, *BMC Bioinformatics* [Interactive metagenomic visualization in a Web browser](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-385)
-  - https://github.com/marbl/Krona/tree/master/KronaTools
-  - https://github.com/khyox/recentrifuge
+  - <https://github.com/marbl/Krona/tree/master/KronaTools>
+  - <https://github.com/khyox/recentrifuge>
 
 
 - Visualization of phylogenetic tree and taxonomy tree
-  - https://github.com/joey711/phyloseq
+  - <https://github.com/joey711/phyloseq>
   - ggtree
-  - http://etetoolkit.org/
+  - <http://etetoolkit.org/>
     ```conda install -c conda-forge pyqt=4```
   - sankey diagram
 
@@ -103,12 +103,12 @@ categories: jekyll update
 - CDS prediction for prokaryotes
 - CDS prediction for eukaryotes
 
-- https://github.com/nextgenusfs/funannotate
+- <https://github.com/nextgenusfs/funannotate>
 
 ### Useful Resources
 - sequence id to taxo-id mapping
-- ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/
-- https://github.com/joey711/phyloseq
+- <ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/>
+- <https://github.com/joey711/phyloseq>
 
 
 ### Antibiotic resistence gene finding
