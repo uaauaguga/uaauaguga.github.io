@@ -28,7 +28,7 @@ categories: jekyll update
 
 ### Data Structure for Exact Search
 
-- kd-tree
+- [kd-tree](https://en.wikipedia.org/wiki/K-d_tree): binary tree for efficient search Euclidean space 
 - hierarchical k-means tree
 
 
