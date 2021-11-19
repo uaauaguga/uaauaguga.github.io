@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-19T00:22:27+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;h2 id=&quot;hmm&quot;&gt;HMM&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-19T20:21:58+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;h2 id=&quot;hmm&quot;&gt;HMM&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -168,10 +168,21 @@ max \left\{
       &lt;li&gt;MAP (maximum &lt;em&gt;a posteriori&lt;/em&gt;)&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">HMM</summary></entry><entry><title type="html">Deal with Overflow and Underflow</title><link href="http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability.html" rel="alternate" type="text/html" title="Deal with Overflow and Underflow" /><published>2021-11-16T09:41:20+08:00</published><updated>2021-11-16T09:41:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability.html"></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Notes On Linux System Administration</title><link href="http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management.html" rel="alternate" type="text/html" title="Notes On Linux System Administration" /><published>2021-11-11T20:54:12+08:00</published><updated>2021-11-11T20:54:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management.html">&lt;h3 id=&quot;check-avaiable-resources&quot;&gt;Check avaiable resources&lt;/h3&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">HMM</summary></entry><entry><title type="html">Deal with Overflow and Underflow</title><link href="http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability.html" rel="alternate" type="text/html" title="Deal with Overflow and Underflow" /><published>2021-11-16T09:41:20+08:00</published><updated>2021-11-16T09:41:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability.html">&lt;h2 id=&quot;probablistic-modeling&quot;&gt;Probablistic modeling&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Avaliable memory: in ` /proc/meminfo`&lt;/li&gt;
+  &lt;li&gt;Hidden Markov Model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;neural-network-training&quot;&gt;Neural network training&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tricks for handling large number / small number&lt;/li&gt;
+  &lt;li&gt;Gradient cliping&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Probablistic modeling</summary></entry><entry><title type="html">Notes On Linux System Administration</title><link href="http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management.html" rel="alternate" type="text/html" title="Notes On Linux System Administration" /><published>2021-11-11T20:54:12+08:00</published><updated>2021-11-11T20:54:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management.html">&lt;h3 id=&quot;check-avaiable-resources&quot;&gt;Check avaiable resources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Avaliable memory: in &lt;code class=&quot;highlighter-rouge&quot;&gt;/proc/meminfo&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; free &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt;
@@ -224,13 +235,50 @@ systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&l
   &lt;li&gt;Append local public key &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/id_rsa.pub&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/authorized_keys&lt;/code&gt; in remote machine should work&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&quot;crontab&quot;&gt;crontab&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Configuration: &lt;code class=&quot;highlighter-rouge&quot;&gt;minute(s) hour(s) day(s) month(s) weekday(s) command(s)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/var/spool/cron/crontabs&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;See &lt;a href=&quot;https://kb.iu.edu/d/afiz&quot;&gt;https://kb.iu.edu/d/afiz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;account-management&quot;&gt;Account management&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add account
+    &lt;ul&gt;
+      &lt;li&gt;adduser: a system command, not create home directory&lt;/li&gt;
+      &lt;li&gt;useradd: a perl wrapper for adduser, create home directory&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Remove account&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;userdel &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;user.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Change user group&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; usermod &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-G&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;group.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;user.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;ldap-and-single-sign-on&quot;&gt;LDAP and single sign on&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;LDAP (Lightweight Directory Access Protocol)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PAM (Pluggable Authentication Module system)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/developerinit/article/details/76141065&quot;&gt;https://blog.csdn.net/developerinit/article/details/76141065&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;security-related-topics&quot;&gt;Security related topics&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/var/log/secure&lt;/code&gt; provides very useful logging&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/var/log/secure&lt;/code&gt; provides useful loggings&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;Do not log in as root&lt;/strong&gt;&lt;/p&gt;

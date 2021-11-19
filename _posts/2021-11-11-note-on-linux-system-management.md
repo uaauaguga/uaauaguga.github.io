@@ -9,7 +9,7 @@ categories: jekyll update
 
 ### Check avaiable resources
 
-- Avaliable memory: in ` /proc/meminfo`
+- Avaliable memory: in `/proc/meminfo`
 
 ```bash
  free -h
