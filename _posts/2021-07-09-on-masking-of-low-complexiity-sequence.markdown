@@ -7,7 +7,7 @@ categories: jekyll update
 ---
 
 ### Handle low complexity sequence
-- masking low complexity regions in a long sequence
+- masking low complexity regions in a long sequence is sometimes favorable for database searching and motif finding, see <http://web.mit.edu/meme_v4.11.4/share/doc/glam2_tut.html>
 - filter read with low sequence complexity in NGS data
 
 ### Method

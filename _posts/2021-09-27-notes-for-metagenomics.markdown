@@ -41,7 +41,6 @@ categories: jekyll update
   - 2012, *Bioinformatics*, [IDBA-UD: a de novo assembler for single-cell and metagenomic sequencing data with highly uneven depth](https://academic.oup.com/bioinformatics/article/28/11/1420/266973)
 
 
-
 ### Strategy for removing contaminations
 
 - 2014, *BMC Biology*, [Reagent and laboratory contamination can critically impact sequence-based microbiome analyses](https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-014-0087-z)
@@ -51,10 +50,29 @@ categories: jekyll update
 - 2019, *Plos Computational Biology*, [Recentrifuge: Robust comparative analysis and contamination removal for metagenomics](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006967)
 
 
-### Genome similarity
+### Selection of marker gene
+
+
+### Taxonomic classification
+
+
+### Quality control
+
+- genome completeness
+- contamination
+
+- [checkM](https://github.com/Ecogenomics/CheckM)
+
+- 2017, *NBT*, [Minimum information about a single amplified genome (MISAG) and a metagenome-assembled genome (MIMAG) of bacteria and archaea](https://www.nature.com/articles/nbt.3893)
+
+### Genome similarity & clustering & remove redundant sequences
 
 - mash distance
-- whole genome alignment
+- MUMmer whole genome alignment
+
+
+- [drep](https://github.com/MrOlm/drep): identify nearly duplicate genome
+  - https://drep.readthedocs.io
 
 
 ### Distance metrics for microbe community
@@ -81,6 +99,40 @@ categories: jekyll update
 
 ### Functional annotation
 - eggnog: <http://eggnog.embl.de/>
+- InterPro
+- COG
+- KEGG
+
+### Pan-Genome Analysis
+
+
+### Rarefaction analysis
+
+- Subsampling
+
+
+### Genome annotation
+#### CDS prediction
+- prokaryotes
+  - Prokka
+  - prodigal
+- eukaryotes
+
+- <https://github.com/nextgenusfs/funannotate>
+
+### Useful Resources
+- sequence id to taxo-id mapping
+- <ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/>
+- <https://github.com/joey711/phyloseq>
+
+
+### Antibiotic resistence gene finding
+
+
+### Plasmid sequence prediction
+
+- 2018, *NAR*, [PlasFlow: predicting plasmid sequences in metagenomic data using genome signatures](https://academic.oup.com/nar/article/46/6/e35/4807335)
+
 
 
 ### Visualization
@@ -99,38 +151,20 @@ categories: jekyll update
   - sankey diagram
 
 
-### Genome annotation
-- CDS prediction for prokaryotes
-- CDS prediction for eukaryotes
-
-- <https://github.com/nextgenusfs/funannotate>
-
-### Useful Resources
-- sequence id to taxo-id mapping
-- <ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/>
-- <https://github.com/joey711/phyloseq>
-
-
-### Antibiotic resistence gene finding
-
-
-### Plasmid sequence prediction
-
-- 2018, *NAR*, [PlasFlow: predicting plasmid sequences in metagenomic data using genome signatures](https://academic.oup.com/nar/article/46/6/e35/4807335)
-
-
 ### A collection of workflows
 - 2021, *Plos Computational Biology*, [Metagenomics workflow for hybrid assembly, differential coverage binning, metatranscriptomics and pathway analysis (MUFFIN)](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008716) also see <https://github.com/RVanDamme/MUFFIN>
 - 2016, *Genome Biology*, [IMP: a pipeline for reproducible referenceindependent integrated metagenomic and metatranscriptomic analyses](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1116-8)
+
+- 2021, *Nature Protocol*, [Recovering prokaryotic genomes from hostassociated, short-read shotgun metagenomic sequencing data](https://www.nature.com/articles/s41596-021-00508-2) https://github.com/Finn-Lab/MAG_Snakemake_wf
+
+- EBI's pipeline <https://github.com/EBI-Metagenomics/genomes-pipeline>
+
 
 ### Reviews for reference
 - 2018, *Nature Review Microbiology*, [Best practices for analysing microbiomes](https://www.nature.com/articles/s41579-018-0029-9)
 
 - 2020, *Genome Biology*, [The promise and challenge of cancer microbiome research](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02037-9)
 
-
-
-- No update for a month ... Write something to demonstrate I still alive despite for its insiganificance...
 
 
 

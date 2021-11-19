@@ -61,17 +61,31 @@ categories: jekyll update
 - 2014,[Hashing for Similarity Search: A Survey](https://arxiv.org/pdf/1408.2927.pdf)
 - 2017,[Exact clustering in linear time](https://arxiv.org/pdf/1702.05425.pdf)
 
-- <https://www.csc2.ncsu.edu/faculty/nfsamato/practical-graph-mining-with-R/slides/pdf/Graph_Cluster_Analysis.pdf>
 
 
-## Clustering with pairwise distance
 
-## Clustering without explicit pairwise distance calculation
+## Clustering methods
+- See <https://en.wikipedia.org/wiki/Cluster_analysis>
 
-### Repeatedly take advantage of locality sensitive hashing 
-- <https://chanzuckerberg.github.io/ExpressionMatrix2/doc/LshSlides-Nov2017.pdf>
+### K-means
+
+
+### Spectral clustering
+
+
+### Single linkage clustering
+
 
 ### Start from an affinity graph
 
 - <https://web.iitd.ac.in/~bspanda/graphclustering.pdf>
 - <https://www.csc2.ncsu.edu/faculty/nfsamato/practical-graph-mining-with-R/slides/pdf/Graph_Cluster_Analysis.pdf>
+
+
+- Bron–Kerbosch algorithm finds maximal cliques in an undirected graph
+
+
+
+### Repeatedly take advantage of locality sensitive hashing 
+- <https://chanzuckerberg.github.io/ExpressionMatrix2/doc/LshSlides-Nov2017.pdf>
+

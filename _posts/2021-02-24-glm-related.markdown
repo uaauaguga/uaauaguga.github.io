@@ -135,8 +135,3 @@ categories: jekyll update
 - <https://stats.stackexchange.com/questions/247624/dispersion-parameter-for-gamma-family>
 - <https://stackoverflow.com/questions/60215085/calculating-scale-dispersion-of-gamma-glm-using-statsmodels>
 - <https://en.wikipedia.org/wiki/Gamma_distribution>
-
- 
-1,$ s/RF\d\{5,\}:://g
-
-1,$ s/(\([+-]\))/:\1/g
