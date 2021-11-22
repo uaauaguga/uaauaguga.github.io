@@ -6,34 +6,222 @@ usemathjax: true
 categories: jekyll update
 ---
 
-## HMM
-
 - 看了不知道多少遍总是记不清楚，详细记录一下，希望别再忘了:)
 
-- Hidden state at time $$i$$: $$\pi_{i}$$
-- Emitted symbol at time $$i$$: $$x_{i}$$
-- Transition probability from state $$s$$ to $$t$$
+## EM algorithm for motif finding
+- Input data: $$n$$ sequences $$X_1,X_2,...,X_n$$ with different lengths
+- Find ungapped motif with fixed length $$w$$ 
+- $$\theta$$ is the motif paramter and background paramater
+- There are $$m_i=L_i-w+1$$ possible staring position in sequence $$X_i$$ with length $$L_i$$
+- $$Z_{ij}$$ is a binary indicator variable, indicate whether there is a motif start at position $$j$$ in sequence $$i$$ 
+- Denote number of motifs in sequence $$i$$ as $$Q_i=\sum_{j=1}^{m_i}Z_{ij}$$. 
+- A sequence may contains 0 motifs, 1 motifs or more than one motifs.
+- OOPS (assume one occurrence per sequence)
+
+$$P(X_i,Z_i|\theta)=P(X_i|Z_i,\theta)P(Z_i|\theta)=\prod_{j=1}^{m_{i}}[P(X_i|Z_{ij}=1,\theta)P(Z_{ij}=1|\theta)]^{Z_{ij}}$$
+
+$$
+\begin{align*}
+\log P(X_i,Z_i \mid \theta) &=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+\sum_{j=1}^{m_{i}}Z_{ij}\log P(Z_{ij}=1|\theta) \\
+&=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+ \log \frac{1}{m_i}
+\end{align*}
+$$
+
+
+- ZOOPS (assume zero or one motif occurrences per dataset sequence), add parameter $$\gamma$$, probability that a sequence contains a motif. $$\lambda_i=\frac{\gamma}{m_i}$$ is prior probabaility that any position in a sequence is start of a motif
+
+$$P(Q_i \mid \theta, \gamma) = \gamma^{Q_i}(1-\gamma)^{1-Q_i}$$
+
+$$P(Z_{ij}=1 \mid Q_i=1, \theta)=\frac{1}{m_i}$$
+
+$$
+\begin{align*}
+P(X_i,Z_i|\theta,\gamma)&=P(X_i,Z_i,Q_i|\theta,\gamma)\\
+&=P(Q_i|\theta,\gamma)P(X_i,Z_i|Q_i,\theta,\gamma) \\
+&=(1-\gamma)^{1-Q_i}P(X_i \mid Q_i=0)^{1-Q_i}\gamma^{Q_i}\prod_{j=1}^{m_{i}}[P(Z_{ij}=1 \mid Q_i=1,\theta)P(X_i \mid Z_{ij}=1,Q_i=1,\theta)]^{Z_{ij}} \\
+&=(1-\gamma)^{1-Q_i}P(X_i \mid Q_i=0)^{1-Q_i}\gamma^{Q_i}\prod_{j=1}^{m_{i}}[\frac{1}{m_i} P(X_i \mid Z_{ij}=1,\theta)]^{Z_{ij}} 
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\log P(X_i,Z_i|\theta,\gamma)&=Q_i \log \frac{\gamma}{m_i} + (1-Q_i )\log (1-\gamma) + (1-Q_i) \log P(X_i|Q_i=0) \\
+& + \sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta) 
+\end{align*}
+$$
+
+- TCM (assume two component mixture)
+
+$$
+\begin{align*}
+P(X_i,Z_i|\theta,\lambda)&=P(X_i,Z_i|\theta,\lambda)\\
+&=\prod_{j=1}^{m_i}\lambda^{Z_{ij}}(1-\lambda)^{1-Z_{ij}}P(X_{ij} \mid Z_{ij}=1)^{Z_{ij}}P(X_{ij} \mid Z_{ij}=0)^{1-Z_{ij}} 
+\end{align*}
+$$
+
+
+$$
+\begin{align*}
+\log P(X_i,Z_i|\theta,\lambda) =  \sum_{j=1}^{m} [Z_{ij} \log \lambda +(1- Z_{ij}) \log (1-\lambda) + (1-Z_{ij}) \log P(X_{ij} \mid Z_{ij}=0) + Z_{ij} \log P(X_{ij} \mid Z_{ij}=1)]
+\end{align*}
+$$
+## HMM
+
+- $$N$$ is length of the observation
+
+- $$n$$ is number of hidden states
+
+- Hidden state $$Q$$: 
+
+$$q_{1},q_{2},...,q_{t},...q_{N}$$
+
+- Emitted symbol $$O$$: 
+
+$$o_{1},o_{2},...,o_{t},...,o_{N}$$
+
+- Transition probability matrix $$A_{N \times N}$$. $$a_{st} = A_{st}$$ is transition probability from state $$s$$ to $$t$$
  
-  $$a_{st} = P(x_{i}=t \mid x_{i-1}=s)$$
+  $$a_{st} = P(q_{i}=t \mid q_{i-1}=s)$$
+
+- Initial probability distribution of hidden states $$\pi$$ or transition probability from a slilent starting state to state $$p_i$$
+
+$$\pi_{1},\pi_{2},...,\pi_{t},...\pi_{N}$$
 
 - Probability of emitting symbol $$b$$ at state $$k$$
 
-$$e_{k}(b)=P(x_{i}=b \mid \pi_{i}=k)$$
+$$e_{k}(b)=P(x_{i}=b \mid q_{i}=k)$$
+
+### Forward algorithm (inference)
+- Determine the likelihood of an observed series, marginalized for all possible hidden states
+- Define the forward variable $$\alpha_{t}(j)$$, that is given model parameter, the joint probability of being state $$j$$ at time $$t$$ with observation series $$o_1,o_2,...,o_t$$ 
+
+$$\alpha_{t}(j)=P(o_1,o_2,...,o_t,q_t=j \mid \lambda)$$
+
+- We have ($$\lambda$$ is omitted)
+
+$$
+\begin{align*}
+
+P(o_1,o_2,...,o_t,q_t=j) =& \sum_{i=1}^{N} P(o_1,o_2,...,o_{t-1},o_t,q_{t-1}=i, q_t=j) \\
+=& \sum_{i=1}^{N} P(o_1,o_2,...,o_{t-1},q_{t-1}=i \mid \lambda)P(q_t = j \mid q_{t-1}=i)P(o_t \mid q_t = j) \\
+=& \sum_{i=1}^{N} \alpha_{t-1}(i)a_{ij} e_{i}(o_t)
+\end{align*}
+$$
+
+- Initialization
+
+$$\alpha_{1}(j)= \pi_{j}e_{j}(o_1)$$
+
+- $$\alpha_{t}(j)$$ can be determined by dynamic programming
+
+$$\alpha_{t}(j)=\sum_{i=1}^{N} \alpha_{t-1}(i)a_{ij} e_{i}(o_t)$$
+
+- Marginalize across last hidden state
+
+$$P(O|\lambda) = \sum_{i=1}^{N}\alpha_{T}(i)$$
+
 
 ### Viterbi algorithm (decoding)
 - Find the most probable path of hidden states, given the model and observation
 
-### Forward algorithm (inference)
-- Determine the likelihood of an observed series, marginalized for all possible hidden states
+- Define the Viterbi variable
 
-### Impose sparsity to the transition matrix
+$$V_{t}(j)=\max_{q_1,q_2,...,q_{t-1}}P(o_1,o_2,...,o_t,q_t=j \mid \lambda)$$
+
+- The intialization is same as forward algorithm 
+
+$$V_{1}(j)= \pi_{j}e_{j}(o_1)$$
+
+- A dynamic programming similar to forward algorithm (the difference is replace $$\sum$$ operator with $$\max$$ operator) is used to calculate viterbi variable
+
+$$V_t(j)=\max_{i=1}^{N}V_{t-1}(i)a_{ij} e_{i}(o_t)$$
+
+- Keep track of the "best" hidden state, main a backtrace pointer matrix
+
 
 ### Model training
 - Estimation HMM parameter from observations
-- Direct optimize for the likelihood by gradient descent
-- Baum–Welch algorithm: forward-backward algorithm based, expectation maximization style training
-- Viterbi training: viterbi algorithm based model training
 
+#### Baum–Welch algorithm: forward-backward algorithm based, EM style training
+
+- Define backward variable $$\beta_{t}(i)$$
+
+$$\beta_{t}(i)=P(o_{t+1},o_{t+2},...,o_{T}|q_{t}=i,\lambda)$$
+
+- Similar to forward variable, we have
+
+$$
+\begin{align*}
+
+P(o_{t+1},o_{t+2},...,o_{T}|q_{t}=i) =& \sum_{j=1}^{N} P(o_{t+1},o_{t+2},...,o_T,q_{t+1}=j \mid q_t=i) \\
+=& \sum_{j=1}^{N} P(o_{t+1},o_{t+2},...,o_T \mid q_{t+1}=j, q_t=i)  P(q_{t+1}=j \mid q_{t}=i) \\
+=& \sum_{j=1}^{N} P(o_{t+1},o_{t+2},...,o_T \mid q_{t+1}=j)  P(q_{t+1}=j \mid q_{t}=i) \\
+=&  \sum_{j=1}^{N}  P(o_{t+2},...,o_T \mid q_{t+1}=j) P(o_{t+1} \mid q_{t+1}=j) P(q_{t+1}=j \mid q_{t}=i) \\
+= & \sum_{j=1}^{N} \beta_{t+1}(j) e_{j}(o_{t+1}) a_{ij}
+
+\end{align*}
+$$
+
+- We can use backward algorithm as an alternative to forward algorithm for calculating $$P(O \mid \lambda)$$
+
+- Initialization (last observation in each instance always transit to ending state with probability 1 regardless of the hidden state $$q_T$$)
+
+$$\beta_{T}(i) = 1$$
+
+- Recursion
+
+$$\beta_{t}(i)=\sum_{j=1}^{N} \beta_{t+1}(j) e_{j}(o_{t+1}) a_{ij}$$
+
+- Termination (exact same as the recursion fumula if we add a silent starting state corresponds to $$t=0$$)
+
+$$P(O|\lambda)=\sum_{j=1}^{N} \beta_{1}(j)e_{j}(o_{1})\pi_j $$
+
+- The forward-backward algorithm
+
+$$\hat{a}_{ij} = \frac{E(count\,of\,i \Rightarrow j\,transitions)}{E(count\,of\,i \Rightarrow .\,transitions)}$$
+
+- To compute such expectation, we define a forward-backward variable 
+
+$$\xi_{t}(i,j)=P(q_t=i,q_{t+1}=j \mid O,\lambda)$$
+
+- Note 
+
+$$
+
+\begin{align*}
+P(q_t=i,q_{t+1}=j, O\mid \lambda) 
+=&P(o_1,o_2,...,o_t,q_t=j \mid \lambda) \\ &(q_{t+1}=j|q_t=i)P(o_{t+1}|q_{t+1}=j) \\ &P(o_{t+2},...,o_{T}|q_{t+1}=i,\lambda) \\
+=&\alpha_{t}(i)a_{ij}b_j(o_{t+1})\beta_{t+1}(j) \\
+\end{align*}
+$$
+
+
+$$
+\begin{align*}
+P(O\mid \lambda) =& \sum_{j=1}^{N} P(O,q_t =j \mid \lambda) \\
+=& P(o_1,o_2,...,o_t,q_t=j \mid \lambda) \\ &P(o_{t+1},o_{t+2},...,o_{T} \mid q_{t}=j,\lambda) \\
+=& \alpha_{t}(j)\beta_{t}(j)
+\end{align*}
+$$
+
+- Hence
+
+$$
+\begin{align*}
+\xi_{t}(i,j) 
+=& P(q_t=i,q_{t+1}=j \mid O,\lambda) \\
+=& \frac{P(q_t=i,q_{t+1}=j, O\mid \lambda)}{P(O \mid \lambda)} \\
+=& \frac{\alpha_{t}(i)a_{ij}b_j(o_{t+1})\beta_{t+1}(j)}{\sum_{j=1}^{N}\alpha_{t}(j)\beta_{t}(j)}
+
+\end{align*}
+$$
+
+
+#### Viterbi training: viterbi algorithm based model training
+
+#### Direct optimize for the likelihood by gradient descent
+
+### Impose sparsity to the transition matrix
 
 ## Profile HMM
 
@@ -115,7 +303,7 @@ $$
 
 $$
 \begin{equation}
-V_j^I(i) = 
+V_j^D(i) = 
 max \left\{
 \begin{aligned}
   V_{j-1}^M(i-1) + \log a_{M_{j-1}D_j} \\
@@ -141,6 +329,13 @@ $$
   - Manual
   - Heuristics: rule based assignment. For example, assigning all columns will more than a certain fraction of gap characters to insert states
   - MAP (maximum *a posteriori*)
+
+
+  ### Phylo-HMM
+
+
+
+  ### Dynamic baysian network
 
 
 

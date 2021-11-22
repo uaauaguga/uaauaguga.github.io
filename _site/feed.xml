@@ -1,40 +1,259 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-19T20:21:58+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;h2 id=&quot;hmm&quot;&gt;HMM&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-23T00:07:25+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;ul&gt;
+  &lt;li&gt;看了不知道多少遍总是记不清楚，详细记录一下，希望别再忘了:)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;em-algorithm-for-motif-finding&quot;&gt;EM algorithm for motif finding&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Input data: \(n\) sequences \(X_1,X_2,...,X_n\) with different lengths&lt;/li&gt;
+  &lt;li&gt;Find ungapped motif with fixed length \(w\)&lt;/li&gt;
+  &lt;li&gt;\(\theta\) is the motif paramter and background paramater&lt;/li&gt;
+  &lt;li&gt;There are \(m_i=L_i-w+1\) possible staring position in sequence \(X_i\) with length \(L_i\)&lt;/li&gt;
+  &lt;li&gt;\(Z_{ij}\) is a binary indicator variable, indicate whether there is a motif start at position \(j\) in sequence \(i\)&lt;/li&gt;
+  &lt;li&gt;Denote number of motifs in sequence \(i\) as \(Q_i=\sum_{j=1}^{m_i}Z_{ij}\).&lt;/li&gt;
+  &lt;li&gt;A sequence may contains 0 motifs, 1 motifs or more than one motifs.&lt;/li&gt;
+  &lt;li&gt;OOPS (assume one occurrence per sequence)&lt;/li&gt;
+&lt;/ul&gt;
+
+\[P(X_i,Z_i|\theta)=P(X_i|Z_i,\theta)P(Z_i|\theta)=\prod_{j=1}^{m_{i}}[P(X_i|Z_{ij}=1,\theta)P(Z_{ij}=1|\theta)]^{Z_{ij}}\]
+
+\[\begin{align*}
+\log P(X_i,Z_i \mid \theta) &amp;amp;=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+\sum_{j=1}^{m_{i}}Z_{ij}\log P(Z_{ij}=1|\theta) \\
+&amp;amp;=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+ \log \frac{1}{m_i}
+\end{align*}\]
+
+&lt;ul&gt;
+  &lt;li&gt;ZOOPS (assume zero or one motif occurrences per dataset sequence), add parameter \(\gamma\), probability that a sequence contains a motif. \(\lambda_i=\frac{\gamma}{m_i}\) is prior probabaility that any position in a sequence is start of a motif&lt;/li&gt;
+&lt;/ul&gt;
+
+\[P(Q_i \mid \theta, \gamma) = \gamma^{Q_i}(1-\gamma)^{1-Q_i}\]
+
+\[P(Z_{ij}=1 \mid Q_i=1, \theta)=\frac{1}{m_i}\]
+
+\[\begin{align*}
+P(X_i,Z_i|\theta,\gamma)&amp;amp;=P(X_i,Z_i,Q_i|\theta,\gamma)\\
+&amp;amp;=P(Q_i|\theta,\gamma)P(X_i,Z_i|Q_i,\theta,\gamma) \\
+&amp;amp;=(1-\gamma)^{1-Q_i}P(X_i \mid Q_i=0)^{1-Q_i}\gamma^{Q_i}\prod_{j=1}^{m_{i}}[P(Z_{ij}=1 \mid Q_i=1,\theta)P(X_i \mid Z_{ij}=1,Q_i=1,\theta)]^{Z_{ij}} \\
+&amp;amp;=(1-\gamma)^{1-Q_i}P(X_i \mid Q_i=0)^{1-Q_i}\gamma^{Q_i}\prod_{j=1}^{m_{i}}[\frac{1}{m_i} P(X_i \mid Z_{ij}=1,\theta)]^{Z_{ij}} 
+\end{align*}\]
+
+\[\begin{align*}
+\log P(X_i,Z_i|\theta,\gamma)&amp;amp;=Q_i \log \frac{\gamma}{m_i} + (1-Q_i )\log (1-\gamma) + (1-Q_i) \log P(X_i|Q_i=0) \\
+&amp;amp; + \sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta) 
+\end{align*}\]
+
+&lt;ul&gt;
+  &lt;li&gt;TCM (assume two component mixture)&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\begin{align*}
+P(X_i,Z_i|\theta,\lambda)&amp;amp;=P(X_i,Z_i|\theta,\lambda)\\
+&amp;amp;=\prod_{j=1}^{m_i}\lambda^{Z_{ij}}(1-\lambda)^{1-Z_{ij}}P(X_{ij} \mid Z_{ij}=1)^{Z_{ij}}P(X_{ij} \mid Z_{ij}=0)^{1-Z_{ij}} 
+\end{align*}\]
+
+&lt;p&gt;\(\begin{align*}
+\log P(X_i,Z_i|\theta,\lambda) =  \sum_{j=1}^{m} [Z_{ij} \log \lambda +(1- Z_{ij}) \log (1-\lambda) + (1-Z_{ij}) \log P(X_{ij} \mid Z_{ij}=0) + Z_{ij} \log P(X_{ij} \mid Z_{ij}=1)]
+\end{align*}\)&lt;/p&gt;
+&lt;h2 id=&quot;hmm&quot;&gt;HMM&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;看了不知道多少遍总是记不清楚，详细记录一下，希望别再忘了:)&lt;/p&gt;
+    &lt;p&gt;\(N\) is length of the observation&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;Hidden state at time \(i\): \(\pi_{i}\)&lt;/li&gt;
-  &lt;li&gt;Emitted symbol at time \(i\): \(x_{i}\)&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Transition probability from state \(s\) to \(t\)&lt;/p&gt;
-
-\[a_{st} = P(x_{i}=t \mid x_{i-1}=s)\]
+    &lt;p&gt;\(n\) is number of hidden states&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hidden state \(Q\):&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[q_{1},q_{2},...,q_{t},...q_{N}\]
+
+&lt;ul&gt;
+  &lt;li&gt;Emitted symbol \(O\):&lt;/li&gt;
+&lt;/ul&gt;
+
+\[o_{1},o_{2},...,o_{t},...,o_{N}\]
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Transition probability matrix \(A_{N \times N}\). \(a_{st} = A_{st}\) is transition probability from state \(s\) to \(t\)&lt;/p&gt;
+
+\[a_{st} = P(q_{i}=t \mid q_{i-1}=s)\]
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Initial probability distribution of hidden states \(\pi\) or transition probability from a slilent starting state to state \(p_i\)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[\pi_{1},\pi_{2},...,\pi_{t},...\pi_{N}\]
+
+&lt;ul&gt;
   &lt;li&gt;Probability of emitting symbol \(b\) at state \(k\)&lt;/li&gt;
 &lt;/ul&gt;
 
-\[e_{k}(b)=P(x_{i}=b \mid \pi_{i}=k)\]
-
-&lt;h3 id=&quot;viterbi-algorithm-decoding&quot;&gt;Viterbi algorithm (decoding)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Find the most probable path of hidden states, given the model and observation&lt;/li&gt;
-&lt;/ul&gt;
+\[e_{k}(b)=P(x_{i}=b \mid q_{i}=k)\]
 
 &lt;h3 id=&quot;forward-algorithm-inference&quot;&gt;Forward algorithm (inference)&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Determine the likelihood of an observed series, marginalized for all possible hidden states&lt;/li&gt;
+  &lt;li&gt;Define the forward variable \(\alpha_{t}(j)\), that is given model parameter, the joint probability of being state \(j\) at time \(t\) with observation series \(o_1,o_2,...,o_t\)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;impose-sparsity-to-the-transition-matrix&quot;&gt;Impose sparsity to the transition matrix&lt;/h3&gt;
+\[\alpha_{t}(j)=P(o_1,o_2,...,o_t,q_t=j \mid \lambda)\]
+
+&lt;ul&gt;
+  &lt;li&gt;We have (\(\lambda\) is omitted)&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\begin{align*}
+
+P(o_1,o_2,...,o_t,q_t=j) =&amp;amp; \sum_{i=1}^{N} P(o_1,o_2,...,o_{t-1},o_t,q_{t-1}=i, q_t=j) \\
+=&amp;amp; \sum_{i=1}^{N} P(o_1,o_2,...,o_{t-1},q_{t-1}=i \mid \lambda)P(q_t = j \mid q_{t-1}=i)P(o_t \mid q_t = j) \\
+=&amp;amp; \sum_{i=1}^{N} \alpha_{t-1}(i)a_{ij} e_{i}(o_t)
+\end{align*}\]
+
+&lt;ul&gt;
+  &lt;li&gt;Initialization&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\alpha_{1}(j)= \pi_{j}e_{j}(o_1)\]
+
+&lt;ul&gt;
+  &lt;li&gt;\(\alpha_{t}(j)\) can be determined by dynamic programming&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\alpha_{t}(j)=\sum_{i=1}^{N} \alpha_{t-1}(i)a_{ij} e_{i}(o_t)\]
+
+&lt;ul&gt;
+  &lt;li&gt;Marginalize across last hidden state&lt;/li&gt;
+&lt;/ul&gt;
+
+\[P(O|\lambda) = \sum_{i=1}^{N}\alpha_{T}(i)\]
+
+&lt;h3 id=&quot;viterbi-algorithm-decoding&quot;&gt;Viterbi algorithm (decoding)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Find the most probable path of hidden states, given the model and observation&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Define the Viterbi variable&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[V_{t}(j)=\max_{q_1,q_2,...,q_{t-1}}P(o_1,o_2,...,o_t,q_t=j \mid \lambda)\]
+
+&lt;ul&gt;
+  &lt;li&gt;The intialization is same as forward algorithm&lt;/li&gt;
+&lt;/ul&gt;
+
+\[V_{1}(j)= \pi_{j}e_{j}(o_1)\]
+
+&lt;ul&gt;
+  &lt;li&gt;A dynamic programming similar to forward algorithm (the difference is replace \(\sum\) operator with \(\max\) operator) is used to calculate viterbi variable&lt;/li&gt;
+&lt;/ul&gt;
+
+\[V_t(j)=\max_{i=1}^{N}V_{t-1}(i)a_{ij} e_{i}(o_t)\]
+
+&lt;ul&gt;
+  &lt;li&gt;Keep track of the “best” hidden state, main a backtrace pointer matrix&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;model-training&quot;&gt;Model training&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Estimation HMM parameter from observations&lt;/li&gt;
-  &lt;li&gt;Direct optimize for the likelihood by gradient descent&lt;/li&gt;
-  &lt;li&gt;Baum–Welch algorithm: forward-backward algorithm based, expectation maximization style training&lt;/li&gt;
-  &lt;li&gt;Viterbi training: viterbi algorithm based model training&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h4 id=&quot;baumwelch-algorithm-forward-backward-algorithm-based-em-style-training&quot;&gt;Baum–Welch algorithm: forward-backward algorithm based, EM style training&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Define backward variable \(\beta_{t}(i)\)&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\beta_{t}(i)=P(o_{t+1},o_{t+2},...,o_{T}|q_{t}=i,\lambda)\]
+
+&lt;ul&gt;
+  &lt;li&gt;Similar to forward variable, we have&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\begin{align*}
+
+P(o_{t+1},o_{t+2},...,o_{T}|q_{t}=i) =&amp;amp; \sum_{j=1}^{N} P(o_{t+1},o_{t+2},...,o_T,q_{t+1}=j \mid q_t=i) \\
+=&amp;amp; \sum_{j=1}^{N} P(o_{t+1},o_{t+2},...,o_T \mid q_{t+1}=j, q_t=i)  P(q_{t+1}=j \mid q_{t}=i) \\
+=&amp;amp; \sum_{j=1}^{N} P(o_{t+1},o_{t+2},...,o_T \mid q_{t+1}=j)  P(q_{t+1}=j \mid q_{t}=i) \\
+=&amp;amp;  \sum_{j=1}^{N}  P(o_{t+2},...,o_T \mid q_{t+1}=j) P(o_{t+1} \mid q_{t+1}=j) P(q_{t+1}=j \mid q_{t}=i) \\
+= &amp;amp; \sum_{j=1}^{N} \beta_{t+1}(j) e_{j}(o_{t+1}) a_{ij}
+
+\end{align*}\]
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;We can use backward algorithm as an alternative to forward algorithm for calculating \(P(O \mid \lambda)\)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Initialization (last observation in each instance always transit to ending state with probability 1 regardless of the hidden state \(q_T\))&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[\beta_{T}(i) = 1\]
+
+&lt;ul&gt;
+  &lt;li&gt;Recursion&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\beta_{t}(i)=\sum_{j=1}^{N} \beta_{t+1}(j) e_{j}(o_{t+1}) a_{ij}\]
+
+&lt;ul&gt;
+  &lt;li&gt;Termination (exact same as the recursion fumula if we add a silent starting state corresponds to \(t=0\))&lt;/li&gt;
+&lt;/ul&gt;
+
+\[P(O|\lambda)=\sum_{j=1}^{N} \beta_{1}(j)e_{j}(o_{1})\pi_j\]
+
+&lt;ul&gt;
+  &lt;li&gt;The forward-backward algorithm&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\hat{a}_{ij} = \frac{E(count\,of\,i \Rightarrow j\,transitions)}{E(count\,of\,i \Rightarrow .\,transitions)}\]
+
+&lt;ul&gt;
+  &lt;li&gt;To compute such expectation, we define a forward-backward variable&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\xi_{t}(i,j)=P(q_t=i,q_{t+1}=j \mid O,\lambda)\]
+
+&lt;ul&gt;
+  &lt;li&gt;Note&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\begin{align*}
+P(q_t=i,q_{t+1}=j, O\mid \lambda) 
+=&amp;amp;P(o_1,o_2,...,o_t,q_t=j \mid \lambda) \\ &amp;amp;(q_{t+1}=j|q_t=i)P(o_{t+1}|q_{t+1}=j) \\ &amp;amp;P(o_{t+2},...,o_{T}|q_{t+1}=i,\lambda) \\
+=&amp;amp;\alpha_{t}(i)a_{ij}b_j(o_{t+1})\beta_{t+1}(j) \\
+\end{align*}\]
+
+\[\begin{align*}
+P(O\mid \lambda) =&amp;amp; \sum_{j=1}^{N} P(O,q_t =j \mid \lambda) \\
+=&amp;amp; P(o_1,o_2,...,o_t,q_t=j \mid \lambda) \\ &amp;amp;P(o_{t+1},o_{t+2},...,o_{T} \mid q_{t}=j,\lambda) \\
+=&amp;amp; \alpha_{t}(j)\beta_{t}(j)
+\end{align*}\]
+
+&lt;ul&gt;
+  &lt;li&gt;Hence&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\begin{align*}
+\xi_{t}(i,j) 
+=&amp;amp; P(q_t=i,q_{t+1}=j \mid O,\lambda) \\
+=&amp;amp; \frac{P(q_t=i,q_{t+1}=j, O\mid \lambda)}{P(O \mid \lambda)} \\
+=&amp;amp; \frac{\alpha_{t}(i)a_{ij}b_j(o_{t+1})\beta_{t+1}(j)}{\sum_{j=1}^{N}\alpha_{t}(j)\beta_{t}(j)}
+
+\end{align*}\]
+
+&lt;h4 id=&quot;viterbi-training-viterbi-algorithm-based-model-training&quot;&gt;Viterbi training: viterbi algorithm based model training&lt;/h4&gt;
+
+&lt;h4 id=&quot;direct-optimize-for-the-likelihood-by-gradient-descent&quot;&gt;Direct optimize for the likelihood by gradient descent&lt;/h4&gt;
+
+&lt;h3 id=&quot;impose-sparsity-to-the-transition-matrix&quot;&gt;Impose sparsity to the transition matrix&lt;/h3&gt;
 
 &lt;h2 id=&quot;profile-hmm&quot;&gt;Profile HMM&lt;/h2&gt;
 
@@ -135,7 +354,7 @@ max \left\{
 \end{equation}\]
 
 \[\begin{equation}
-V_j^I(i) = 
+V_j^D(i) = 
 max \left\{
 \begin{aligned}
   V_{j-1}^M(i-1) + \log a_{M_{j-1}D_j} \\
@@ -167,8 +386,12 @@ max \left\{
       &lt;li&gt;Heuristics: rule based assignment. For example, assigning all columns will more than a certain fraction of gap characters to insert states&lt;/li&gt;
       &lt;li&gt;MAP (maximum &lt;em&gt;a posteriori&lt;/em&gt;)&lt;/li&gt;
     &lt;/ul&gt;
+
+    &lt;h3 id=&quot;phylo-hmm&quot;&gt;Phylo-HMM&lt;/h3&gt;
+
+    &lt;h3 id=&quot;dynamic-baysian-network&quot;&gt;Dynamic baysian network&lt;/h3&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">HMM</summary></entry><entry><title type="html">Deal with Overflow and Underflow</title><link href="http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability.html" rel="alternate" type="text/html" title="Deal with Overflow and Underflow" /><published>2021-11-16T09:41:20+08:00</published><updated>2021-11-16T09:41:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability.html">&lt;h2 id=&quot;probablistic-modeling&quot;&gt;Probablistic modeling&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">看了不知道多少遍总是记不清楚，详细记录一下，希望别再忘了:)</summary></entry><entry><title type="html">Deal with Overflow and Underflow</title><link href="http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability.html" rel="alternate" type="text/html" title="Deal with Overflow and Underflow" /><published>2021-11-16T09:41:20+08:00</published><updated>2021-11-16T09:41:20+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/16/on-numeracial-stability.html">&lt;h2 id=&quot;probablistic-modeling&quot;&gt;Probablistic modeling&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Hidden Markov Model&lt;/li&gt;
@@ -247,8 +470,8 @@ systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&l
 &lt;ul&gt;
   &lt;li&gt;Add account
     &lt;ul&gt;
-      &lt;li&gt;adduser: a system command, not create home directory&lt;/li&gt;
-      &lt;li&gt;useradd: a perl wrapper for adduser, create home directory&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;adduser&lt;/code&gt;: a system command, not create home directory&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;useradd&lt;/code&gt;: a perl wrapper for adduser, create home directory&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Remove account&lt;/li&gt;
@@ -264,7 +487,9 @@ systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&l
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; usermod &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-G&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;group.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;user.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;ldap-and-single-sign-on&quot;&gt;LDAP and single sign on&lt;/h3&gt;
+&lt;h3 id=&quot;network-file-system-nfs&quot;&gt;Network file system (NFS)&lt;/h3&gt;
+
+&lt;h3 id=&quot;nis-ldap-and-single-sign-on&quot;&gt;NIS, LDAP and single sign on&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;LDAP (Lightweight Directory Access Protocol)&lt;/li&gt;
@@ -272,6 +497,7 @@ systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&l
     &lt;p&gt;PAM (Pluggable Authentication Module system)&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/developerinit/article/details/76141065&quot;&gt;https://blog.csdn.net/developerinit/article/details/76141065&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.cnblogs.com/lfdblog/p/9803276.html&quot;&gt;https://www.cnblogs.com/lfdblog/p/9803276.html&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;security-related-topics&quot;&gt;Security related topics&lt;/h3&gt;

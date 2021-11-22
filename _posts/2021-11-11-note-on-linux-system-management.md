@@ -58,11 +58,10 @@ journalctl
 
 
 
-
 ### Account management
 - Add account
-  - adduser: a system command, not create home directory 
-  - useradd: a perl wrapper for adduser, create home directory
+  - `adduser`: a system command, not create home directory 
+  - `useradd`: a perl wrapper for adduser, create home directory
 - Remove account
 
 ```bash
@@ -75,13 +74,16 @@ userdel -r {user.name}
  usermod -a -G {group.name} {user.name}
 ```
 
-### LDAP and single sign on
+### Network file system (NFS)
+
+
+### NIS, LDAP and single sign on
 
 - LDAP (Lightweight Directory Access Protocol)
 - PAM (Pluggable Authentication Module system)
 
 - <https://blog.csdn.net/developerinit/article/details/76141065>
-
+- <https://www.cnblogs.com/lfdblog/p/9803276.html>
 
 ### Security related topics
 
