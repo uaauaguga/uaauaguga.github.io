@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-23T00:07:25+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-16T09:50:49+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;ul&gt;
   &lt;li&gt;看了不知道多少遍总是记不清楚，详细记录一下，希望别再忘了:)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -11,23 +11,89 @@
   &lt;li&gt;\(Z_{ij}\) is a binary indicator variable, indicate whether there is a motif start at position \(j\) in sequence \(i\)&lt;/li&gt;
   &lt;li&gt;Denote number of motifs in sequence \(i\) as \(Q_i=\sum_{j=1}^{m_i}Z_{ij}\).&lt;/li&gt;
   &lt;li&gt;A sequence may contains 0 motifs, 1 motifs or more than one motifs.&lt;/li&gt;
-  &lt;li&gt;OOPS (assume one occurrence per sequence)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;oops&quot;&gt;OOPS&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;assume one occurrence per sequence&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Likelihood of a sequence given the motif position&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[\log P(X_i \mid Z_{ij}=1,\theta) = \sum_{k=0}^{w-1}I(i,j+k)^T \log p_k + \sum_{k \in \Delta_{i,j}}I(i,k)^T \log p_0\]
+
+&lt;ul&gt;
+  &lt;li&gt;Prior probability that \(Z_{ij}=1\) (motif in sequence \(i\) starts at \(j\))&lt;/li&gt;
+&lt;/ul&gt;
+
+\[P(Z_{ij} \mid \theta) = \frac{1}{m_i}\]
+
+&lt;ul&gt;
+  &lt;li&gt;Joint likelihood of sequence and motif start pisition for each seuence&lt;/li&gt;
 &lt;/ul&gt;
 
 \[P(X_i,Z_i|\theta)=P(X_i|Z_i,\theta)P(Z_i|\theta)=\prod_{j=1}^{m_{i}}[P(X_i|Z_{ij}=1,\theta)P(Z_{ij}=1|\theta)]^{Z_{ij}}\]
 
+&lt;ul&gt;
+  &lt;li&gt;Joint log likelihood for each seuence&lt;/li&gt;
+&lt;/ul&gt;
+
 \[\begin{align*}
 \log P(X_i,Z_i \mid \theta) &amp;amp;=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+\sum_{j=1}^{m_{i}}Z_{ij}\log P(Z_{ij}=1|\theta) \\
-&amp;amp;=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+ \log \frac{1}{m_i}
+&amp;amp;=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+ \log \frac{1}{m_i} \\
+
 \end{align*}\]
 
 &lt;ul&gt;
-  &lt;li&gt;ZOOPS (assume zero or one motif occurrences per dataset sequence), add parameter \(\gamma\), probability that a sequence contains a motif. \(\lambda_i=\frac{\gamma}{m_i}\) is prior probabaility that any position in a sequence is start of a motif&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;EM for motif finding. Denote model paramters at step \(t\) as \(\theta^{(t)}\)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;E step: calculate \(\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}\),&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[\begin{align*}
+\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij} &amp;amp;= 1*P(Z_{ij}=1 \mid X_i,\theta^{(t)})+0*P(Z_{ij}=0 \mid X_i,\theta^{(t)}) \\
+&amp;amp;=P(Z_{ij}=1 \mid X_i,\theta^{(t)}) =\frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{P(X_i \mid \theta^{(t)})} \\
+&amp;amp;=\frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{\sum_{k=1}^{m}P(X_i,Z_{ij}=1 \mid \theta^{(t)})} \\
+&amp;amp;=\frac{P(X_i \mid Z_{ij}=1,\theta^{(t)})P(Z_{ij}=1 \mid \theta^{(t)})}{\sum_{k=1}^{m}P(X_i \mid Z_{ik}=1,\theta^{(t)})P(Z_{ik}=1 \mid \theta^{(t)})}  \\
+&amp;amp;=\frac{P(X_i \mid Z_{ij}=1,\theta^{(t)})}{\sum_{k=1}^{m}P(X_i \mid Z_{ik}=1,\theta^{(t)})} 
+\end{align*}\]
+
+&lt;ul&gt;
+  &lt;li&gt;M step: replace \(Z_{ij}\) in \(\log P(X_i,Z_i \mid \theta)\) with \(\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}\), perform standard MLE to update \(\theta^{(t)}\) to \(\theta^{(t+1)}\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;zoops&quot;&gt;ZOOPS&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;assume zero or one motif occurrences per dataset sequence), add parameter \(\gamma\), probability that a sequence contains a motif. \(\lambda_i=\frac{\gamma}{m_i}\) is prior probabaility that any position in a sequence is start of a motif&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Likelihood of a sequence contain one motif, given the motif position is same as OOPS&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Likelihood of a sequence without a motif&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[P(X_i \mid Q_i=0,\theta) = \prod_{k=1}^{L}p_{X_{i,k},0}\]
+
+&lt;ul&gt;
+  &lt;li&gt;Joint likelihood of sequence and motif start pisition for each seuence&lt;/li&gt;
 &lt;/ul&gt;
 
 \[P(Q_i \mid \theta, \gamma) = \gamma^{Q_i}(1-\gamma)^{1-Q_i}\]
 
 \[P(Z_{ij}=1 \mid Q_i=1, \theta)=\frac{1}{m_i}\]
+
+&lt;ul&gt;
+  &lt;li&gt;Joint log-likelihood&lt;/li&gt;
+&lt;/ul&gt;
 
 \[\begin{align*}
 P(X_i,Z_i|\theta,\gamma)&amp;amp;=P(X_i,Z_i,Q_i|\theta,\gamma)\\
@@ -42,17 +108,41 @@ P(X_i,Z_i|\theta,\gamma)&amp;amp;=P(X_i,Z_i,Q_i|\theta,\gamma)\\
 \end{align*}\]
 
 &lt;ul&gt;
-  &lt;li&gt;TCM (assume two component mixture)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;EM for motif finding&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;E step: calculate \(\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}\)&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 \[\begin{align*}
-P(X_i,Z_i|\theta,\lambda)&amp;amp;=P(X_i,Z_i|\theta,\lambda)\\
-&amp;amp;=\prod_{j=1}^{m_i}\lambda^{Z_{ij}}(1-\lambda)^{1-Z_{ij}}P(X_{ij} \mid Z_{ij}=1)^{Z_{ij}}P(X_{ij} \mid Z_{ij}=0)^{1-Z_{ij}} 
+\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij} 
+&amp;amp;= P(Z_{ij}=1 \mid X_i,\theta^{(t)}) = \frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{P(X_i \mid \theta^{(t)})} \\
+&amp;amp;= \frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{P(X_i, Q_i=0 \mid \theta^{(t)}) + P(X_i, Q_i=1 \mid \theta^{(t)})} \\
+&amp;amp;= \frac{\frac{\gamma}{m_i} P(X_i \mid Z_{ij}=1,\theta^{(t)})}{P(X_i \mid Q_i=0, \theta^{(t)})(1-\gamma) + \frac{\gamma}{m_i} \sum_{k}^{m_i} P(X_i \mid Z_{ik}=1, \theta^{(t)})}
 \end{align*}\]
 
-&lt;p&gt;\(\begin{align*}
+&lt;h3 id=&quot;tcm&quot;&gt;TCM&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;two component mixture, motif can start at any feasible positions&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Joint likelihood of sequence and motif start pisition for each seuence
+\(\begin{align*}
+P(X_i,Z_i|\theta,\lambda)&amp;amp;=P(X_i,Z_i|\theta,\lambda)\\
+&amp;amp;=\prod_{j=1}^{m_i}\lambda^{Z_{ij}}(1-\lambda)^{1-Z_{ij}}P(X_{ij} \mid Z_{ij}=1)^{Z_{ij}}P(X_{ij} \mid Z_{ij}=0)^{1-Z_{ij}} 
+\end{align*}\)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Joint log-likelihood
+\(\begin{align*}
 \log P(X_i,Z_i|\theta,\lambda) =  \sum_{j=1}^{m} [Z_{ij} \log \lambda +(1- Z_{ij}) \log (1-\lambda) + (1-Z_{ij}) \log P(X_{ij} \mid Z_{ij}=0) + Z_{ij} \log P(X_{ij} \mid Z_{ij}=1)]
 \end{align*}\)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;hmm&quot;&gt;HMM&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -357,9 +447,9 @@ max \left\{
 V_j^D(i) = 
 max \left\{
 \begin{aligned}
-  V_{j-1}^M(i-1) + \log a_{M_{j-1}D_j} \\
-  V_{j-1}^I(i-1) + \log a_{I_{j-1}D_j}   \\
-  V_{j-1}^D(i-1) + \log a_{D_{j-1}D_j}  \\
+  V_{j-1}^M(i) + \log a_{M_{j-1}D_j} \\
+  V_{j-1}^I(i) + \log a_{I_{j-1}D_j}   \\
+  V_{j-1}^D(i) + \log a_{D_{j-1}D_j}  \\
 \end{aligned}
 \right.
 \end{equation}\]

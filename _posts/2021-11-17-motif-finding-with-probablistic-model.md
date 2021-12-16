@@ -16,23 +16,64 @@ categories: jekyll update
 - $$Z_{ij}$$ is a binary indicator variable, indicate whether there is a motif start at position $$j$$ in sequence $$i$$ 
 - Denote number of motifs in sequence $$i$$ as $$Q_i=\sum_{j=1}^{m_i}Z_{ij}$$. 
 - A sequence may contains 0 motifs, 1 motifs or more than one motifs.
-- OOPS (assume one occurrence per sequence)
+
+### OOPS 
+- assume one occurrence per sequence
+
+- Likelihood of a sequence given the motif position
+
+$$\log P(X_i \mid Z_{ij}=1,\theta) = \sum_{k=0}^{w-1}I(i,j+k)^T \log p_k + \sum_{k \in \Delta_{i,j}}I(i,k)^T \log p_0$$
+
+- Prior probability that $$Z_{ij}=1$$ (motif in sequence $$i$$ starts at $$j$$)
+
+$$P(Z_{ij} \mid \theta) = \frac{1}{m_i}$$
+
+- Joint likelihood of sequence and motif start pisition for each seuence
 
 $$P(X_i,Z_i|\theta)=P(X_i|Z_i,\theta)P(Z_i|\theta)=\prod_{j=1}^{m_{i}}[P(X_i|Z_{ij}=1,\theta)P(Z_{ij}=1|\theta)]^{Z_{ij}}$$
+
+- Joint log likelihood for each seuence
 
 $$
 \begin{align*}
 \log P(X_i,Z_i \mid \theta) &=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+\sum_{j=1}^{m_{i}}Z_{ij}\log P(Z_{ij}=1|\theta) \\
-&=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+ \log \frac{1}{m_i}
+&=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+ \log \frac{1}{m_i} \\
+
+\end{align*} 
+$$
+
+- EM for motif finding. Denote model paramters at step $$t$$ as $$\theta^{(t)}$$
+
+- E step: calculate $$\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}$$, 
+
+$$
+\begin{align*}
+\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij} &= 1*P(Z_{ij}=1 \mid X_i,\theta^{(t)})+0*P(Z_{ij}=0 \mid X_i,\theta^{(t)}) \\
+&=P(Z_{ij}=1 \mid X_i,\theta^{(t)}) =\frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{P(X_i \mid \theta^{(t)})} \\
+&=\frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{\sum_{k=1}^{m}P(X_i,Z_{ij}=1 \mid \theta^{(t)})} \\
+&=\frac{P(X_i \mid Z_{ij}=1,\theta^{(t)})P(Z_{ij}=1 \mid \theta^{(t)})}{\sum_{k=1}^{m}P(X_i \mid Z_{ik}=1,\theta^{(t)})P(Z_{ik}=1 \mid \theta^{(t)})}  \\
+&=\frac{P(X_i \mid Z_{ij}=1,\theta^{(t)})}{\sum_{k=1}^{m}P(X_i \mid Z_{ik}=1,\theta^{(t)})} 
 \end{align*}
 $$
 
+- M step: replace $$Z_{ij}$$ in $$\log P(X_i,Z_i \mid \theta)$$ with $$\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}$$, perform standard MLE to update $$\theta^{(t)}$$ to $$\theta^{(t+1)}$$
 
-- ZOOPS (assume zero or one motif occurrences per dataset sequence), add parameter $$\gamma$$, probability that a sequence contains a motif. $$\lambda_i=\frac{\gamma}{m_i}$$ is prior probabaility that any position in a sequence is start of a motif
+### ZOOPS 
+- assume zero or one motif occurrences per dataset sequence), add parameter $$\gamma$$, probability that a sequence contains a motif. $$\lambda_i=\frac{\gamma}{m_i}$$ is prior probabaility that any position in a sequence is start of a motif
+
+- Likelihood of a sequence contain one motif, given the motif position is same as OOPS
+
+- Likelihood of a sequence without a motif
+
+$$P(X_i \mid Q_i=0,\theta) = \prod_{k=1}^{L}p_{X_{i,k},0}$$
+
+- Joint likelihood of sequence and motif start pisition for each seuence
 
 $$P(Q_i \mid \theta, \gamma) = \gamma^{Q_i}(1-\gamma)^{1-Q_i}$$
 
 $$P(Z_{ij}=1 \mid Q_i=1, \theta)=\frac{1}{m_i}$$
+
+- Joint log-likelihood
 
 $$
 \begin{align*}
@@ -50,8 +91,25 @@ $$
 \end{align*}
 $$
 
-- TCM (assume two component mixture)
 
+- EM for motif finding
+
+- E step: calculate $$\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}$$
+
+$$
+\begin{align*}
+\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij} 
+&= P(Z_{ij}=1 \mid X_i,\theta^{(t)}) = \frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{P(X_i \mid \theta^{(t)})} \\
+&= \frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{P(X_i, Q_i=0 \mid \theta^{(t)}) + P(X_i, Q_i=1 \mid \theta^{(t)})} \\
+&= \frac{\frac{\gamma}{m_i} P(X_i \mid Z_{ij}=1,\theta^{(t)})}{P(X_i \mid Q_i=0, \theta^{(t)})(1-\gamma) + \frac{\gamma}{m_i} \sum_{k}^{m_i} P(X_i \mid Z_{ik}=1, \theta^{(t)})}
+\end{align*}
+$$
+
+### TCM 
+- two component mixture, motif can start at any feasible positions
+
+
+- Joint likelihood of sequence and motif start pisition for each seuence
 $$
 \begin{align*}
 P(X_i,Z_i|\theta,\lambda)&=P(X_i,Z_i|\theta,\lambda)\\
@@ -59,12 +117,14 @@ P(X_i,Z_i|\theta,\lambda)&=P(X_i,Z_i|\theta,\lambda)\\
 \end{align*}
 $$
 
-
+- Joint log-likelihood
 $$
 \begin{align*}
 \log P(X_i,Z_i|\theta,\lambda) =  \sum_{j=1}^{m} [Z_{ij} \log \lambda +(1- Z_{ij}) \log (1-\lambda) + (1-Z_{ij}) \log P(X_{ij} \mid Z_{ij}=0) + Z_{ij} \log P(X_{ij} \mid Z_{ij}=1)]
 \end{align*}
 $$
+
+
 ## HMM
 
 - $$N$$ is length of the observation
@@ -80,7 +140,7 @@ $$q_{1},q_{2},...,q_{t},...q_{N}$$
 $$o_{1},o_{2},...,o_{t},...,o_{N}$$
 
 - Transition probability matrix $$A_{N \times N}$$. $$a_{st} = A_{st}$$ is transition probability from state $$s$$ to $$t$$
- 
+
   $$a_{st} = P(q_{i}=t \mid q_{i-1}=s)$$
 
 - Initial probability distribution of hidden states $$\pi$$ or transition probability from a slilent starting state to state $$p_i$$
@@ -187,7 +247,6 @@ $$\xi_{t}(i,j)=P(q_t=i,q_{t+1}=j \mid O,\lambda)$$
 - Note 
 
 $$
-
 \begin{align*}
 P(q_t=i,q_{t+1}=j, O\mid \lambda) 
 =&P(o_1,o_2,...,o_t,q_t=j \mid \lambda) \\ &(q_{t+1}=j|q_t=i)P(o_{t+1}|q_{t+1}=j) \\ &P(o_{t+2},...,o_{T}|q_{t+1}=i,\lambda) \\
@@ -306,9 +365,9 @@ $$
 V_j^D(i) = 
 max \left\{
 \begin{aligned}
-  V_{j-1}^M(i-1) + \log a_{M_{j-1}D_j} \\
-  V_{j-1}^I(i-1) + \log a_{I_{j-1}D_j}   \\
-  V_{j-1}^D(i-1) + \log a_{D_{j-1}D_j}  \\
+  V_{j-1}^M(i) + \log a_{M_{j-1}D_j} \\
+  V_{j-1}^I(i) + \log a_{I_{j-1}D_j}   \\
+  V_{j-1}^D(i) + \log a_{D_{j-1}D_j}  \\
 \end{aligned}
 \right.
 \end{equation}
