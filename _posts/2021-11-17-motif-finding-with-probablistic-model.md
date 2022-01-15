@@ -43,7 +43,7 @@ $$
 $$
 
 - EM for motif finding. Denote model paramters at step $$t$$ as $$\theta^{(t)}$$
-
+s
 - E step: calculate $$\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}$$, 
 
 $$
@@ -275,13 +275,6 @@ $$
 \end{align*}
 $$
 
-
-#### Viterbi training: viterbi algorithm based model training
-
-#### Direct optimize for the likelihood by gradient descent
-
-### Impose sparsity to the transition matrix
-
 ## Profile HMM
 
 - A spacial HMM primarily used for protein homolog modeling
@@ -388,13 +381,6 @@ $$
   - Manual
   - Heuristics: rule based assignment. For example, assigning all columns will more than a certain fraction of gap characters to insert states
   - MAP (maximum *a posteriori*)
-
-
-  ### Phylo-HMM
-
-
-
-  ### Dynamic baysian network
 
 
 

@@ -85,6 +85,13 @@ userdel -r {user.name}
 - <https://blog.csdn.net/developerinit/article/details/76141065>
 - <https://www.cnblogs.com/lfdblog/p/9803276.html>
 
+- Show password specific to LDAP
+
+```bash
+getent passwd --service=ldap
+```
+
+
 ### Security related topics
 
 - `/var/log/secure` provides useful loggings
