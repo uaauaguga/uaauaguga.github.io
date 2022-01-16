@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-15T12:55:51+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-16T09:47:49+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;ul&gt;
   &lt;li&gt;看了不知道多少遍总是记不清楚，详细记录一下，希望别再忘了:)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -566,6 +566,13 @@ systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&l
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/lfdblog/p/9803276.html&quot;&gt;https://www.cnblogs.com/lfdblog/p/9803276.html&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;Show all user with access&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;getent passwd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
   &lt;li&gt;Show password specific to LDAP&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -737,7 +744,29 @@ systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&l
 
 &lt;h3 id=&quot;selection-of-marker-gene&quot;&gt;Selection of marker gene&lt;/h3&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;2012, &lt;em&gt;Nature Method&lt;/em&gt;, &lt;a href=&quot;https://www.nature.com/articles/nmeth.2066&quot;&gt;Metagenomic microbial community profiling using unique clade-specific marker genes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Clade-specific markers are
+    &lt;ul&gt;
+      &lt;li&gt;coding sequences (CDSs)&lt;/li&gt;
+      &lt;li&gt;strongly conserved within the clade’s genomes&lt;/li&gt;
+      &lt;li&gt;not possessing substantial local similarity with any sequence outside the clade&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;taxonomic-classification&quot;&gt;Taxonomic classification&lt;/h3&gt;
+
+&lt;h4 id=&quot;shutgun-dna-seq-and-rna-seq&quot;&gt;Shutgun DNA-seq and RNA-seq&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;marker gene based method&lt;/li&gt;
+  &lt;li&gt;kmer based method&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;16s-amplicon-sequencing&quot;&gt;16S amplicon sequencing&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;quality-control&quot;&gt;Quality control&lt;/h3&gt;
 
@@ -809,16 +838,8 @@ systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&l
   &lt;li&gt;KEGG&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;pan-genome-analysis&quot;&gt;Pan-Genome Analysis&lt;/h3&gt;
-
-&lt;h3 id=&quot;rarefaction-analysis&quot;&gt;Rarefaction analysis&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Subsampling&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;h3 id=&quot;genome-annotation&quot;&gt;Genome annotation&lt;/h3&gt;
-&lt;h4 id=&quot;cds-prediction&quot;&gt;CDS prediction&lt;/h4&gt;
+
 &lt;ul&gt;
   &lt;li&gt;prokaryotes
     &lt;ul&gt;

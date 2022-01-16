@@ -52,9 +52,20 @@ categories: jekyll update
 
 ### Selection of marker gene
 
+- 2012, *Nature Method*, [Metagenomic microbial community profiling using unique clade-specific marker genes](https://www.nature.com/articles/nmeth.2066)
+- Clade-specific markers are 
+  - coding sequences (CDSs)
+  - strongly conserved within the clade's genomes
+  - not possessing substantial local similarity with any sequence outside the clade
 
 ### Taxonomic classification
 
+#### Shutgun DNA-seq and RNA-seq
+- marker gene based method
+- kmer based method
+
+#### 16S amplicon sequencing
+-    
 
 ### Quality control
 
@@ -103,16 +114,9 @@ categories: jekyll update
 - COG
 - KEGG
 
-### Pan-Genome Analysis
-
-
-### Rarefaction analysis
-
-- Subsampling
-
 
 ### Genome annotation
-#### CDS prediction
+
 - prokaryotes
   - Prokka
   - prodigal
