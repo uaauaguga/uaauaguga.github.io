@@ -1,4 +1,201 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-16T09:47:49+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-25T17:10:57+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on rRNA annotation</title><link href="http://localhost:4000/jekyll/update/2022/01/25/notes-on-rRNA-annotation.html" rel="alternate" type="text/html" title="Notes on rRNA annotation" /><published>2022-01-25T15:37:11+08:00</published><updated>2022-01-25T15:37:11+08:00</updated><id>http://localhost:4000/jekyll/update/2022/01/25/notes-on-rRNA-annotation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/01/25/notes-on-rRNA-annotation.html">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Ribosomal_RNA&quot;&gt;https://en.wikipedia.org/wiki/Ribosomal_RNA&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Ribosome_biogenesis&quot;&gt;https://en.wikipedia.org/wiki/Ribosome_biogenesis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ssu-rrna-and-lsu-rrna&quot;&gt;SSU rRNA and LSU rRNA&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/SSU_rRNA&quot;&gt;SSU rRNA&lt;/a&gt; (small subunit rRNA)
+    &lt;ul&gt;
+      &lt;li&gt;16S rRNA in bacteria, archea and plastid&lt;/li&gt;
+      &lt;li&gt;18S rRNA in eukaryotes&lt;/li&gt;
+      &lt;li&gt;12S rRNA in mitochondria&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/LSU_rRNA&quot;&gt;LSU rRNA&lt;/a&gt; (large subunit rRNA)
+    &lt;ul&gt;
+      &lt;li&gt;23S rRNA in bacteria, archea and plastid&lt;/li&gt;
+      &lt;li&gt;5.8S &amp;amp; 28S rRNA in eukaryotes. The 5.8S rRNA is homologous to the 5’ end of non-eukaryotic LSU rRNA. In eukaryotes, the insertion of ITS2 breaks LSU rRNA into 5.8S and 28S rRNAs.&lt;/li&gt;
+      &lt;li&gt;16S in Mitochondria&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Biogenesis
+    &lt;ul&gt;
+      &lt;li&gt;In bacteria, 16S rRNA, 23S rRNA, and 5S rRNA are typically organized as a co-transcribed operon.&lt;/li&gt;
+      &lt;li&gt;In eukaryotes, the 28S, 5.8S, and 18S rRNAs are encoded by a single transcription unit (45S) separated by 2 internally transcribed spacers, and transcribed by RNA polymerase I. 5S rRNA is transcribed independetly by RNA polymerase III.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;where-to-get-rrna-data&quot;&gt;Where to get rRNA data&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tseemann/barrnap&quot;&gt;barrnap&lt;/a&gt; is widely used tool for rRNA annotation, &lt;a href=&quot;https://github.com/biocore/sortmerna/tree/master/data/rRNA_databases&quot;&gt;SortMeRNA&lt;/a&gt; is a tool to sort out rRNA from NGS data. Here list data resources used by these two tools
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tseemann/barrnap&quot;&gt;barrnap&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/biocore/sortmerna/tree/master/data/rRNA_databases&quot;&gt;SortMeRNA&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;We can see two major sources of rRNA information come from:
+    &lt;ul&gt;
+      &lt;li&gt;The &lt;a href=&quot;https://www.arb-silva.de/&quot;&gt;silva&lt;/a&gt; database. Provide sequence alignments.&lt;/li&gt;
+      &lt;li&gt;The &lt;a href=&quot;https://rfam.xfam.org/&quot;&gt;Rfam&lt;/a&gt; database. Provide sequence alignments, reference structure and covariance model.
+        &lt;ul&gt;
+          &lt;li&gt;5S and 5.8S rRNA presents in ribosome large subunit, but not included in SILVA LSU. barrnap and SortMeRNA use Rfam for 5S and 5.8S rRNA annotation.&lt;/li&gt;
+          &lt;li&gt;5S rRNA: RF00001&lt;/li&gt;
+          &lt;li&gt;5.8S rRNA: RF00002&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;rrna-sequence-in-reference-genome-assembly&quot;&gt;rRNA sequence in reference genome assembly&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;rRNA is generally recognized as repeat sequence in eukaryotic genomes, and abscent from some genome assemblies.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Human genome&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;5S, 5.8S, 18S, 28S rRNAs are all presents in hg38 aseembly (&lt;a href=&quot;http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/GRCh38.primary_assembly.genome.fa.gz&quot;&gt;http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/GRCh38.primary_assembly.genome.fa.gz&lt;/a&gt;).&lt;/li&gt;
+      &lt;li&gt;gencode v38 annotation ( &lt;a href=&quot;http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.annotation.gtf.gz&quot;&gt;http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.annotation.gtf.gz&lt;/a&gt; ) contains two types of genomic rRNA (5S, 5.8S)and two types of mitochondrial rRNA (16S, 12S), but not genomic 16S and 28S rRNA.&lt;/li&gt;
+      &lt;li&gt;refseq (&lt;a href=&quot;https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.gff.gz&quot;&gt;https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.gff.gz&lt;/a&gt;) provides annotations for all 4 types of rRNAs.&lt;/li&gt;
+      &lt;li&gt;See discussion in here: &lt;a href=&quot;http://seqanswers.com/forums/showthread.php?t=41868&quot;&gt;http://seqanswers.com/forums/showthread.php?t=41868&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">https://en.wikipedia.org/wiki/Ribosomal_RNA https://en.wikipedia.org/wiki/Ribosome_biogenesis</summary></entry><entry><title type="html">Notes on v2ray Configuration</title><link href="http://localhost:4000/jekyll/update/2022/01/16/v2ray-configuration.html" rel="alternate" type="text/html" title="Notes on v2ray Configuration" /><published>2022-01-16T10:42:56+08:00</published><updated>2022-01-16T10:42:56+08:00</updated><id>http://localhost:4000/jekyll/update/2022/01/16/v2ray-configuration</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/01/16/v2ray-configuration.html">&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Some notes on v2ray configuration, 以备不时之需&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Scripts for installation&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://git.io/v2ray.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;v2ray中的数据流向(摘自&lt;a href=&quot;https://toutyrater.github.io/&quot;&gt;https://toutyrater.github.io/&lt;/a&gt;)。可以看出，直接交互的是客户端的outbound和服务器的inbound。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;浏览器&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &amp;lt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;socks&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;V2Ray 客户端 inbound &amp;lt;-&amp;gt; V2Ray 客户端 outbound&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &amp;lt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;VMess&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;V2Ray 服务器 inbound &amp;lt;-&amp;gt; V2Ray 服务器 outbound&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &amp;lt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Freedom&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;目标网站&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;几种出口协议
+    &lt;ul&gt;
+      &lt;li&gt;VMess&lt;/li&gt;
+      &lt;li&gt;shadowsocks&lt;/li&gt;
+      &lt;li&gt;freedom: 直连&lt;/li&gt;
+      &lt;li&gt;blackhole: 只吞入数据,相当于阻止访问&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;explaination-for-the-configuration-file&quot;&gt;Explaination for the configuration file&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;See &lt;a href=&quot;https://www.v2ray.com/en/configuration/overview.html&quot;&gt;https://www.v2ray.com/en/configuration/overview.html&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;log, where to save logging information, here is an example, similar in both client and server&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;log&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;loglevel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;warning&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;access&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/var/log/v2ray/access.log&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;error&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/var/log/v2ray/error.log&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;For server side:&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;inbounds&lt;/li&gt;
+  &lt;li&gt;a list, each item is a dict, for each item,
+    &lt;ul&gt;
+      &lt;li&gt;port: 提供v2ray服务的端口号&lt;/li&gt;
+      &lt;li&gt;protocol: “vmess”, 即v2ray的协议名称。另一个选项是”shadowsocks”&lt;/li&gt;
+      &lt;li&gt;settings: a dict
+        &lt;ul&gt;
+          &lt;li&gt;clients: list客户端信息&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;outbounds
+    &lt;ul&gt;
+      &lt;li&gt;a list&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;routing
+    &lt;ul&gt;
+      &lt;li&gt;a dict&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For client side&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;See &lt;a href=&quot;https://stackoverflow.com/questions/20778771/what-is-the-difference-between-0-0-0-0-127-0-0-1-and-localhost&quot;&gt;https://stackoverflow.com/questions/20778771/what-is-the-difference-between-0-0-0-0-127-0-0-1-and-localhost&lt;/a&gt; difference between &lt;code class=&quot;highlighter-rouge&quot;&gt;0.0.0.0&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;localhost&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;不同的client使用v2ray&quot;&gt;不同的client使用v2ray&lt;/h3&gt;
+
+&lt;h4 id=&quot;浏览器&quot;&gt;浏览器&lt;/h4&gt;
+
+&lt;h4 id=&quot;终端应用&quot;&gt;终端应用&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;github&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#这里的socks5://127.0.0.1:10808应当和本地v2ray配置文件的inbound一致&lt;/span&gt;
+git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; http.https://github.com.proxy socks5://127.0.0.1:10808
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;curl&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#这里的socks5h://localhost:10808应当和本地v2ray配置文件的inbound一致&lt;/span&gt;
+curl &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; socks5h://localhost:10808 www.google.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;wget 默认不支持socks5代理…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tips&quot;&gt;Tips&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;注意系统时间设置，如果VPS和本地机系统时间不一致v2ray无法正确使用&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Generate uuid in linux terminal : &lt;code class=&quot;highlighter-rouge&quot;&gt;uuidgen&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;some-useful-resources&quot;&gt;Some useful resources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://toutyrater.github.io/&quot;&gt;https://toutyrater.github.io/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/233boy/v2ray/wiki/V2Ray%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B&quot;&gt;https://github.com/233boy/v2ray/wiki/V2Ray%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/v2fly/v2ray-examples&quot;&gt;https://github.com/v2fly/v2ray-examples&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Some notes on v2ray configuration, 以备不时之需</summary></entry><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;ul&gt;
   &lt;li&gt;看了不知道多少遍总是记不清楚，详细记录一下，希望别再忘了:)&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -665,251 +862,7 @@ systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&l
       &lt;li&gt;&lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0076687996660297?via%3Dihub&quot;&gt;https://www.sciencedirect.com/science/article/pii/S0076687996660297?via%3Dihub&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Karlin-Altschul statistics Evaluate statistical significance of hits in blast search 1990, PNAS, S Karlin &amp;amp; S F Altschul, Methods for assessing the statistical significance of molecular sequence features by using general scoring schemes The expected number of ungapped alignments with score \(S\) found with random sequences \(E\) was demostrated to be \[E(S) = Kmne^{-\lambda S}\]</summary></entry><entry><title type="html">Tools for Annotate Genomes</title><link href="http://localhost:4000/jekyll/update/2021/10/08/tools-for-annotate-genomes.html" rel="alternate" type="text/html" title="Tools for Annotate Genomes" /><published>2021-10-08T20:17:12+08:00</published><updated>2021-10-08T20:17:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/10/08/tools-for-annotate-genomes</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/10/08/tools-for-annotate-genomes.html">&lt;h2 id=&quot;notes-on-prokaryotic-and-eukaryotic-genome-annotation&quot;&gt;Notes on Prokaryotic and Eukaryotic Genome Annotation&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Fixed Order Markov Model and Interoplated Markov Model&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Hidden Markov model&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Homolog searching&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Notes on Prokaryotic and Eukaryotic Genome Annotation</summary></entry><entry><title type="html">Notes on Metagenomics</title><link href="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html" rel="alternate" type="text/html" title="Notes on Metagenomics" /><published>2021-09-27T20:14:51+08:00</published><updated>2021-09-27T20:14:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/09/27/notes-for-metagenomics.html">&lt;h3 id=&quot;metagenomic-profiling&quot;&gt;Metagenomic profiling&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Assign reads to reference sequences&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;alignment based methods vs. kmer based methods
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://huttenhower.sph.harvard.edu/metaphlan2/&quot;&gt;metaphlan2&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;kraken2&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;marker gene based methods vs. marker gene independent methods
-    &lt;ul&gt;
-      &lt;li&gt;metaphylan2, krakenunique&lt;/li&gt;
-      &lt;li&gt;kraken2&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;nucleotide level analysis vs. protein level analysis
-    &lt;ul&gt;
-      &lt;li&gt;kraken2&lt;/li&gt;
-      &lt;li&gt;Kaiju&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;benchmark study&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;assembly&quot;&gt;Assembly&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;metaspades: memory intensive
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://cab.spbu.ru/software/meta-spades/&quot;&gt;https://cab.spbu.ru/software/meta-spades/&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;2017, &lt;em&gt;Genome Research&lt;/em&gt;,&lt;a href=&quot;https://genome.cshlp.org/content/27/5/824.long&quot;&gt;metaSPAdes: a new versatile metagenomic assembler&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;megahit
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/voutcn/megahit&quot;&gt;https://github.com/voutcn/megahit&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;2015, &lt;em&gt;Bioinformatics&lt;/em&gt;, &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/31/10/1674/177884&quot;&gt;MEGAHIT: an ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;idba-ud
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/loneknightpy/idba&quot;&gt;https://github.com/loneknightpy/idba&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;2012, &lt;em&gt;Bioinformatics&lt;/em&gt;, &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/28/11/1420/266973&quot;&gt;IDBA-UD: a de novo assembler for single-cell and metagenomic sequencing data with highly uneven depth&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;strategy-for-removing-contaminations&quot;&gt;Strategy for removing contaminations&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;2014, &lt;em&gt;BMC Biology&lt;/em&gt;, &lt;a href=&quot;https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-014-0087-z&quot;&gt;Reagent and laboratory contamination can critically impact sequence-based microbiome analyses&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;2019, &lt;em&gt;Trends in Microbiology&lt;/em&gt;, &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0966842X18302531&quot;&gt;Contamination in Low Microbial Biomass Microbiome Studies: Issues and Recommendations&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;2019, &lt;em&gt;Plos Computational Biology&lt;/em&gt;, &lt;a href=&quot;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006967&quot;&gt;Recentrifuge: Robust comparative analysis and contamination removal for metagenomics&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;selection-of-marker-gene&quot;&gt;Selection of marker gene&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2012, &lt;em&gt;Nature Method&lt;/em&gt;, &lt;a href=&quot;https://www.nature.com/articles/nmeth.2066&quot;&gt;Metagenomic microbial community profiling using unique clade-specific marker genes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Clade-specific markers are
-    &lt;ul&gt;
-      &lt;li&gt;coding sequences (CDSs)&lt;/li&gt;
-      &lt;li&gt;strongly conserved within the clade’s genomes&lt;/li&gt;
-      &lt;li&gt;not possessing substantial local similarity with any sequence outside the clade&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;taxonomic-classification&quot;&gt;Taxonomic classification&lt;/h3&gt;
-
-&lt;h4 id=&quot;shutgun-dna-seq-and-rna-seq&quot;&gt;Shutgun DNA-seq and RNA-seq&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;marker gene based method&lt;/li&gt;
-  &lt;li&gt;kmer based method&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;16s-amplicon-sequencing&quot;&gt;16S amplicon sequencing&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;quality-control&quot;&gt;Quality control&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;genome completeness&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;contamination&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/Ecogenomics/CheckM&quot;&gt;checkM&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;2017, &lt;em&gt;NBT&lt;/em&gt;, &lt;a href=&quot;https://www.nature.com/articles/nbt.3893&quot;&gt;Minimum information about a single amplified genome (MISAG) and a metagenome-assembled genome (MIMAG) of bacteria and archaea&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;genome-similarity--clustering--remove-redundant-sequences&quot;&gt;Genome similarity &amp;amp; clustering &amp;amp; remove redundant sequences&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;mash distance&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;MUMmer whole genome alignment&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/MrOlm/drep&quot;&gt;drep&lt;/a&gt;: identify nearly duplicate genome
-    &lt;ul&gt;
-      &lt;li&gt;https://drep.readthedocs.io&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;distance-metrics-for-microbe-community&quot;&gt;Distance metrics for microbe community&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Bray%E2%80%93Curtis_dissimilarity&quot;&gt;Bray-Curtis distance&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/UniFrac&quot;&gt;unifrac distance&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;weighted unifrac distance&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;community-analysis-based-on-pairwise-distance&quot;&gt;Community analysis based on pairwise distance&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Multidimensional_scaling&quot;&gt;PCoA&lt;/a&gt; Analysis
-    &lt;ul&gt;
-      &lt;li&gt;PCoA (principle coordinate analysis) and MDS (multi-dimesional scaling) are essentially the same thing (but this seems the term MDS is seldom used by the microbiology community …)&lt;/li&gt;
-      &lt;li&gt;project each sample in a distance matrix to a low dimensional space, attempt to preserve the pairwise distances&lt;/li&gt;
-      &lt;li&gt;See
-        &lt;ul&gt;
-          &lt;li&gt;&lt;a href=&quot;https://www.stat.pitt.edu/sungkyu/course/2221Fall13/lec8_mds_combined.pdf&quot;&gt;https://www.stat.pitt.edu/sungkyu/course/2221Fall13/lec8_mds_combined.pdf&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;https://repository.upenn.edu/cgi/viewcontent.cgi?article=1000&amp;amp;context=cis_papers&quot;&gt;https://repository.upenn.edu/cgi/viewcontent.cgi?article=1000&amp;amp;context=cis_papers&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Permutational_analysis_of_variance&quot;&gt;permanova&lt;/a&gt; analysis
-    &lt;ul&gt;
-      &lt;li&gt;For a given grouping (real grouping or shuffled grouping), a pseudo F statistics can be calculated&lt;/li&gt;
-      &lt;li&gt;&lt;em&gt;P&lt;/em&gt; value can be calculated by shuffling group labels&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;differential-analysis&quot;&gt;Differential analysis&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;2020, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02104-1&quot;&gt;Assessment of statistical methods from single cell, bulk RNA-seq, and metagenomics applied to microbiome data&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;functional-annotation&quot;&gt;Functional annotation&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;eggnog: &lt;a href=&quot;http://eggnog.embl.de/&quot;&gt;http://eggnog.embl.de/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;InterPro&lt;/li&gt;
-  &lt;li&gt;COG&lt;/li&gt;
-  &lt;li&gt;KEGG&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;genome-annotation&quot;&gt;Genome annotation&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;prokaryotes
-    &lt;ul&gt;
-      &lt;li&gt;Prokka&lt;/li&gt;
-      &lt;li&gt;prodigal&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;eukaryotes&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/nextgenusfs/funannotate&quot;&gt;https://github.com/nextgenusfs/funannotate&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;useful-resources&quot;&gt;Useful Resources&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;sequence id to taxo-id mapping&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/&quot;&gt;ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/accession2taxid/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/joey711/phyloseq&quot;&gt;https://github.com/joey711/phyloseq&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;antibiotic-resistence-gene-finding&quot;&gt;Antibiotic resistence gene finding&lt;/h3&gt;
-
-&lt;h3 id=&quot;plasmid-sequence-prediction&quot;&gt;Plasmid sequence prediction&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;2018, &lt;em&gt;NAR&lt;/em&gt;, &lt;a href=&quot;https://academic.oup.com/nar/article/46/6/e35/4807335&quot;&gt;PlasFlow: predicting plasmid sequences in metagenomic data using genome signatures&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;visualization&quot;&gt;Visualization&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Krona plot
-    &lt;ul&gt;
-      &lt;li&gt;2011, &lt;em&gt;BMC Bioinformatics&lt;/em&gt; &lt;a href=&quot;https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-385&quot;&gt;Interactive metagenomic visualization in a Web browser&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/marbl/Krona/tree/master/KronaTools&quot;&gt;https://github.com/marbl/Krona/tree/master/KronaTools&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/khyox/recentrifuge&quot;&gt;https://github.com/khyox/recentrifuge&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Visualization of phylogenetic tree and taxonomy tree
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/joey711/phyloseq&quot;&gt;https://github.com/joey711/phyloseq&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;ggtree&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;http://etetoolkit.org/&quot;&gt;http://etetoolkit.org/&lt;/a&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;conda install -c conda-forge pyqt=4&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;sankey diagram&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;a-collection-of-workflows&quot;&gt;A collection of workflows&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;2021, &lt;em&gt;Plos Computational Biology&lt;/em&gt;, &lt;a href=&quot;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008716&quot;&gt;Metagenomics workflow for hybrid assembly, differential coverage binning, metatranscriptomics and pathway analysis (MUFFIN)&lt;/a&gt; also see &lt;a href=&quot;https://github.com/RVanDamme/MUFFIN&quot;&gt;https://github.com/RVanDamme/MUFFIN&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;2016, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1116-8&quot;&gt;IMP: a pipeline for reproducible referenceindependent integrated metagenomic and metatranscriptomic analyses&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;2021, &lt;em&gt;Nature Protocol&lt;/em&gt;, &lt;a href=&quot;https://www.nature.com/articles/s41596-021-00508-2&quot;&gt;Recovering prokaryotic genomes from hostassociated, short-read shotgun metagenomic sequencing data&lt;/a&gt; https://github.com/Finn-Lab/MAG_Snakemake_wf&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;EBI’s pipeline &lt;a href=&quot;https://github.com/EBI-Metagenomics/genomes-pipeline&quot;&gt;https://github.com/EBI-Metagenomics/genomes-pipeline&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;reviews-for-reference&quot;&gt;Reviews for reference&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;2018, &lt;em&gt;Nature Review Microbiology&lt;/em&gt;, &lt;a href=&quot;https://www.nature.com/articles/s41579-018-0029-9&quot;&gt;Best practices for analysing microbiomes&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;2020, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02037-9&quot;&gt;The promise and challenge of cancer microbiome research&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Metagenomic profiling</summary></entry><entry><title type="html">latent Dirichlet allocation in genetics</title><link href="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html" rel="alternate" type="text/html" title="latent Dirichlet allocation in genetics" /><published>2021-08-13T20:01:38+08:00</published><updated>2021-08-13T20:01:38+08:00</updated><id>http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html">&lt;ul&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Karlin-Altschul statistics Evaluate statistical significance of hits in blast search 1990, PNAS, S Karlin &amp;amp; S F Altschul, Methods for assessing the statistical significance of molecular sequence features by using general scoring schemes The expected number of ungapped alignments with score \(S\) found with random sequences \(E\) was demostrated to be \[E(S) = Kmne^{-\lambda S}\]</summary></entry><entry><title type="html">latent Dirichlet allocation in genetics</title><link href="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html" rel="alternate" type="text/html" title="latent Dirichlet allocation in genetics" /><published>2021-08-13T20:01:38+08:00</published><updated>2021-08-13T20:01:38+08:00</updated><id>http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html">&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf&quot;&gt;Probabilistic topic models&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;2003, &lt;em&gt;Journal of Machine Learning Research 3&lt;/em&gt;, &lt;a href=&quot;https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf&quot;&gt;Latent Dirichlet allocation&lt;/a&gt;&lt;/li&gt;
