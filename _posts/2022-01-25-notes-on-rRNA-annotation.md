@@ -77,6 +77,4 @@ categories: jekyll update
       - U13369.1
       - X12811.1
 
-GenBank IDs of the rDNA prototypes used were U13369.1 and X12811.1
-(human) and  (mouse).
 

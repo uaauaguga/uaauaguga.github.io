@@ -50,7 +50,7 @@ for b in 0.0 0.2 0.4 0.6 0.8 1.0 ;do
 done
 done
 sem --wait
-
+# sem is an alias for parallel --semaphore
 ```
 
 ### Paralleling in workflow manager
