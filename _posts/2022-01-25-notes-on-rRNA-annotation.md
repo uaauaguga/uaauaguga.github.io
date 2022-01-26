@@ -36,9 +36,12 @@ categories: jekyll update
 
 
 - We can see two major sources of rRNA information come from:
-  - The [silva](https://www.arb-silva.de/) database. Provide sequence alignments.
+  - The [silva](https://www.arb-silva.de/) database. Provide sequence alignments, focus on metagenomics (16S rRNA is the most wildely used marker gene in metagenomics).
+  - Also see 
+    - [greengenes](https://greengenes.secondgenome.com/) for 16S rRNA
+    - [RDP](https://rdp.cme.msu.edu/) Bacterial and Archaeal 16S rRNA sequences, and Fungal 28S rRNA
   - The [Rfam](https://rfam.xfam.org/) database. Provide sequence alignments, reference structure and covariance model.
-    - 5S and 5.8S rRNA presents in ribosome large subunit, but not included in SILVA LSU. barrnap and SortMeRNA use Rfam for 5S and 5.8S rRNA annotation.
+    - 5S and 5.8S rRNA presents in ribosome large subunit, but not included in SILVA LSU. [barrnap](https://github.com/tseemann/barrnap) and [SortMeRNA](https://github.com/biocore/sortmerna/tree/master/data/rRNA_databases) use Rfam for 5S and 5.8S rRNA annotation.
     - 5S rRNA: RF00001
     - 5.8S rRNA: RF00002
 
@@ -49,8 +52,8 @@ categories: jekyll update
 - rRNA is generally recognized as repeat sequence in eukaryotic genomes, and abscent from some genome assemblies.
 
 - Human genome
-  - 5S, 5.8S, 18S, 28S rRNAs are all presents in hg38 aseembly (<http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/GRCh38.primary_assembly.genome.fa.gz>).
-  - gencode v38 annotation ( <http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.annotation.gtf.gz> ) contains two types of genomic rRNA (5S, 5.8S)and two types of mitochondrial rRNA (16S, 12S), but not genomic 16S and 28S rRNA.
-  - refseq (<https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.gff.gz>) provides annotations for all 4 types of rRNAs.
+  - 5S, 5.8S, 18S, 28S rRNAs are all presents in [hg38 assembly](http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/GRCh38.primary_assembly.genome.fa.gz).
+  - [gencode v38 annotation](http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.annotation.gtf.gz) contains two types of genomic rRNA (5S, 5.8S)and two types of mitochondrial rRNA (16S, 12S), but not genomic 16S and 28S rRNA.
+  - refseq provides annotations for all 4 types of rRNAs, see [this link](https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.gff.gz).
   - See discussion in here: <http://seqanswers.com/forums/showthread.php?t=41868> 
 
