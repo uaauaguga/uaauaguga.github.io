@@ -22,6 +22,7 @@ categories: jekyll update
   - 23S rRNA in bacteria, archea and plastid
   - 5.8S & 28S rRNA in eukaryotes. The 5.8S rRNA is homologous to the 5' end of non-eukaryotic LSU rRNA. In eukaryotes, the insertion of ITS2 breaks LSU rRNA into 5.8S and 28S rRNAs.
   - 16S in Mitochondria
+  - 5S rRNA
 
 - Biogenesis
   - In bacteria, 16S rRNA, 23S rRNA, and 5S rRNA are typically organized as a co-transcribed operon.
@@ -56,4 +57,26 @@ categories: jekyll update
   - [gencode v38 annotation](http://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_38/gencode.v38.annotation.gtf.gz) contains two types of genomic rRNA (5S, 5.8S)and two types of mitochondrial rRNA (16S, 12S), but not genomic 16S and 28S rRNA.
   - refseq provides annotations for all 4 types of rRNAs, see [this link](https://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.gff.gz).
   - See discussion in here: <http://seqanswers.com/forums/showthread.php?t=41868> 
+
+- rRNAs have considerable variation among populations
+  - See 2018, *Science Advances*, [Variant ribosomal RNA alleles are conserved and exhibit tissue-specific expression](https://www.science.org/doi/10.1126/sciadv.aao0665?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed)
+    - Mouse rRNA prototypes
+      - NR_003278.3
+      - NR_003279.1
+      - NR_003280.2
+      - NR_030686.1
+    - Mouse rDNA prototypes
+      - BK000964.3
+      - chromosome 8 [123538334,123539354]
+    - Human rRNA prototypes
+      - NR_003285.2
+      - NR_003286.2
+      - NR_003287.2
+      - NR_023379.1
+    - Human rDNA prototypes
+      - U13369.1
+      - X12811.1
+
+GenBank IDs of the rDNA prototypes used were U13369.1 and X12811.1
+(human) and  (mouse).
 
