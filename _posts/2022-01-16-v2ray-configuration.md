@@ -6,8 +6,7 @@ usemathjax: true
 categories: jekyll update
 ---
 
-- Some notes on v2ray configuration, 以备不时之需
-
+- Some notes on v2ray configuration
 
 - Scripts for installation
 
@@ -30,47 +29,10 @@ https://git.io/v2ray.sh
 ### Explaination for the configuration file
 
 - See <https://www.v2ray.com/en/configuration/overview.html>
-
-- log, where to save logging information, here is an example, similar in both client and server
-
-```json
- "log": {
-    "loglevel": "warning",
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log"
-  }
-```
-
-
-- For server side:
-
--  inbounds
-- a list, each item is a dict, for each item, 
-  - port: 提供v2ray服务的端口号
-  - protocol: "vmess", 即v2ray的协议名称。另一个选项是"shadowsocks"
-  - settings: a dict
-    - clients: list客户端信息
-    
-
-- outbounds
-  - a list
-
-
-- routing
-  - a dict
-
-
-- For client side
-
-
 - See <https://stackoverflow.com/questions/20778771/what-is-the-difference-between-0-0-0-0-127-0-0-1-and-localhost> difference between `0.0.0.0`, `localhost` and `127.0.0.1`
 
 
-### 不同的client使用v2ray
-
-#### 浏览器
-
-#### 终端应用
+### 终端应用
 
 - github
 
