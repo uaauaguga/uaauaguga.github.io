@@ -16,6 +16,10 @@ categories: jekyll update
 
 - [Preemption](https://en.wikipedia.org/wiki/Preemption_%28computing%29)
 
+- mutex (互斥锁)
+- conditional variable (条件变量)
+- semaphore (信号量)
+
 
 ## External tools for paralleling
 
@@ -94,3 +98,6 @@ sem --wait
 - <https://unix.stackexchange.com/questions/68146/what-are-guarantees-for-concurrent-writes-into-a-named-pipe>
 
 
+## Reading
+
+- <https://python-parallel-programmning-cookbook.readthedocs.io/zh_CN/latest/index.html>
