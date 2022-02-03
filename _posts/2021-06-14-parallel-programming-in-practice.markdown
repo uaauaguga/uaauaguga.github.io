@@ -57,9 +57,9 @@ sem --wait
 # sem is an alias for parallel --semaphore
 ```
 
-### Paralleling in workflow manager
+## Paralleling in workflow/pipeline manager
 
-- gnu make
+- [gnu make](https://www.gnu.org/software/make/manual/make.html)
 
 - [snakemake](https://snakemake.readthedocs.io/en/stable/)
 
