@@ -1,14 +1,17 @@
 ---
 layout: post
 title:  "Notes on ffmpeg"
-date:   2021-02-03 10:06:32 +0800
+date:   2022-02-03 10:06:32 +0800
 usemathjax: true
 categories: jekyll update
 ---
 
 - ffmpeg documentation: <https://www.ffmpeg.org/documentation.html>
 
-- Some examples <https://ostechnix.com/20-ffmpeg-commands-beginners/>
+- Several tutorials
+  - <https://ostechnix.com/20-ffmpeg-commands-beginners/>
+  - <https://www.ruanyifeng.com/blog/2020/01/ffmpeg.html>
+  - <https://www.zl-asica.com/2020/ffmpeg/#%E4%BB%8B%E7%BB%8D>
 
 ### Crop image size in a video
 
