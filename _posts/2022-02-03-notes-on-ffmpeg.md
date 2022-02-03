@@ -11,7 +11,7 @@ categories: jekyll update
 - Several tutorials
   - <https://ostechnix.com/20-ffmpeg-commands-beginners/>
   - <https://www.ruanyifeng.com/blog/2020/01/ffmpeg.html>
-  - <https://www.zl-asica.com/2020/ffmpeg/#%E4%BB%8B%E7%BB%8D>
+  - <https://www.zl-asica.com/2020/ffmpeg/>
 
 ### Crop image size in a video
 
