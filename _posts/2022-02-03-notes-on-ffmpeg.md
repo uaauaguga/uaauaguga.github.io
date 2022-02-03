@@ -57,6 +57,16 @@ ffprobe -v error -show_entries stream_tags=rotate:format=size,duration:stream=co
 # print as key value pair
 ```
 
+### Slice a video
+
+```bash
+ffmpeg -ss 00:00:30.0 -i input.mp4 -c copy -t 00:00:10.0 output.mp4
+# -ss: start time
+# -t: duration (-to also works, which accepts stop time)
+```
+
+
+
 ### Convert MP3 to MP4 by adding a static image
 
 ```bash
