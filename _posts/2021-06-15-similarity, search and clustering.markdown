@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Efficient Searching and Clustering"
+title:  "Searching and Clustering"
 date:   2021-06-15 20:41:20 +0800
 usemathjax: true
 categories: jekyll update
