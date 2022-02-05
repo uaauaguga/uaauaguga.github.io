@@ -41,21 +41,22 @@ categories: jekyll update
   - k-mer sampling has very wide applications in sequence comparisons
     - minimap, kraken, ...
   - further reading
+    - <https://www.cs.cmu.edu/~gmarcais/slides/PAG2019.pdf>
     - <https://homolog.us/blogs/bioinfo/2017/10/25/intro-minimizer/>
+    - <https://homolog.us/blogs/bioinfo/2014/04/06/2014-the-year-of-minimizers-in-bioinformatics/>
     - <https://genomeinformatics.github.io/mashmap/>
+    - <https://academic.oup.com/bioinformatics/article/37/17/2563/6162158?login=true>
+    - 2017, Plos Computational Biology, [Designing small universal k-mer hitting sets for improved analysis of high-throughput sequencing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005777)
 
-- Select m k-mers with lowest hash values 
+- Select m k-mers with smallest hash values 
   - Same as using m k-mers that corresponds to minhash sketches
   - See 2018, *Nature Communication*, [Clustering huge protein sequence sets in linear time](https://www.nature.com/articles/s41467-018-04964-5)
   - extract kmers such that the same k-mers tend to be extracted from homologous sequences.
   - avoid positional clustering of selected k-mers in order to be sensitive to detect local homologies in every region of a sequence
   - we would like to extract k-mers that tend to be conserved between homologous sequences
-  - A MinHash sketch of size 1 is equivalent to tminimizer, see the [mash](https://github.com/marbl/Mash) paper <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x> 
+  - A MinHash sketch of size 1 is equivalent to minimizer, see the [mash](https://github.com/marbl/Mash) paper <https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0997-x> 
 
 - 不同长度序列的minhash signature的大小是固定的，而minimizer的数量和序列的长度是正相关的
-
-- Some applications
-  - [MashMap](https://genomeinformatics.github.io/mashmap/)
 
 
 ### LSH in other fields
