@@ -25,6 +25,15 @@ categories: jekyll update
 - The biomaRt package is simply a way to programmatically access the Biomart server and get the results back into R
 
 
+### A tidy way for id conversion
+
+```{R}
+library(org.Mm.eg.db)
+# convert ensembl id to entrez id
+entrez.ids <- mapIds(org.Mm.eg.db, keys=gene.ids, column="ENTREZID", keytype="ENSEMBL", multiVals="first")
+```
+
+
 ### Mapping between homolog
 - <https://www.r-bloggers.com/2016/10/converting-mouse-to-human-gene-names-with-biomart-package/>
 
