@@ -16,3 +16,4 @@ categories: jekyll update
 - [spleeter](https://github.com/deezer/spleeter), Deezer source separation library with pretrained models written in Python and uses Tensorflow
 
 - <https://github.com/AIcrowd/music-demixing-challenge-starter-kit>
+- <https://sigsep.github.io/datasets/musdb.html#sisec-2018-evaluation-campaign>
