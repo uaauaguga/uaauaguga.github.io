@@ -146,7 +146,8 @@ categories: jekyll update
 
     - `transcriptLocs2refLocs `
 
-      
+
+- Get coordiante relative to a single transcript      
 
 ```R
     library(GenomicFeatures)
@@ -158,6 +159,22 @@ categories: jekyll update
     names(gr) <- rep("AT1G01010.1",length(gr))
     mapToTranscripts(gr,tx.used)
 ```
+
+- Map genomic intervals from genome coordiante to transcript coordinate
+
+
+```R
+#!/usr/bin/env Rscript
+library(GenomicFeatures)
+library(rtracklayer)
+peaks <- rtracklayer::import("bed/AtGRP7.x.sites.21nt.merged.bed","bed")
+txdb <- makeTxDbFromGFF(file="genome/gff/tair10.gff",format="gff")
+peaks.tx <- mapToTranscripts(peaks,txdb)
+tx.info <- select(txdb,keys =as.character(seqnames(peaks.tx)),columns=c("TXNAME"),keytype="TXID")
+mcols(peaks.tx)[["name"]] <- unlist(tx.info$TXNAME)
+export.bed(peaks.tx, con = 'peaks.tx.bed' )
+```
+
 
 
 ### Get CDS relative to transcript coordinate
