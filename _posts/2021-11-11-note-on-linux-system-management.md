@@ -106,3 +106,10 @@ getent passwd --service=ldap
 
 - <https://www.liquidweb.com/kb/how-do-i-set-up-setuid-setgid-and-sticky-bits-on-linux/>
 
+
+- modify timestamp
+
+```
+touch -t 202001010000.00  test.txt
+# use -t -h for symlink
+```

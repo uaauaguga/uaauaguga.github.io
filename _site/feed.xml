@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-02-05T18:42:54+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on ffmpeg</title><link href="http://localhost:4000/jekyll/update/2022/02/03/notes-on-ffmpeg.html" rel="alternate" type="text/html" title="Notes on ffmpeg" /><published>2022-02-03T10:06:32+08:00</published><updated>2022-02-03T10:06:32+08:00</updated><id>http://localhost:4000/jekyll/update/2022/02/03/notes-on-ffmpeg</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/02/03/notes-on-ffmpeg.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-10T21:21:51+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Sequence Motif Modeling Related</title><link href="http://localhost:4000/jekyll/update/2022/03/12/sequence-motif-discovery.html" rel="alternate" type="text/html" title="Sequence Motif Modeling Related" /><published>2022-03-12T09:34:19+08:00</published><updated>2022-03-12T09:34:19+08:00</updated><id>http://localhost:4000/jekyll/update/2022/03/12/sequence-motif-discovery</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/03/12/sequence-motif-discovery.html">&lt;h2 id=&quot;the-meme-suite&quot;&gt;The MEME suite&lt;/h2&gt;
+
+&lt;h2 id=&quot;motif-format-conversion&quot;&gt;Motif format conversion&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Extract motif from meme’s output&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;meme-get-motif &lt;span class=&quot;nt&quot;&gt;-all&lt;/span&gt; meme.txt &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; motifs.meme
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;resources-for-rbp-binding-preference&quot;&gt;Resources for RBP binding preference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://attract.cnic.es/index&quot;&gt;attract&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://rbpdb.ccbr.utoronto.ca/download.php&quot;&gt;rbpdb&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://cisbp-rna.ccbr.utoronto.ca/&quot;&gt;CISBP-RNA&lt;/a&gt; database&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">The MEME suite</summary></entry><entry><title type="html">Notes on audio track separation</title><link href="http://localhost:4000/jekyll/update/2022/03/08/notes-on-audio-track-separation.html" rel="alternate" type="text/html" title="Notes on audio track separation" /><published>2022-03-08T13:26:32+08:00</published><updated>2022-03-08T13:26:32+08:00</updated><id>http://localhost:4000/jekyll/update/2022/03/08/notes-on-audio-track-separation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/03/08/notes-on-audio-track-separation.html">&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/librosa/librosa&quot;&gt;librosa&lt;/a&gt;, A python package for music and audio analysis.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/deezer/spleeter&quot;&gt;spleeter&lt;/a&gt;, Deezer source separation library with pretrained models written in Python and uses Tensorflow&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/sigsep/open-unmix-pytorch&quot;&gt;https://github.com/sigsep/open-unmix-pytorch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/AIcrowd/music-demixing-challenge-starter-kit&quot;&gt;https://github.com/AIcrowd/music-demixing-challenge-starter-kit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sigsep.github.io/datasets/musdb.html#sisec-2018-evaluation-campaign&quot;&gt;https://sigsep.github.io/datasets/musdb.html#sisec-2018-evaluation-campaign&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Resources</summary></entry><entry><title type="html">Notes on ffmpeg</title><link href="http://localhost:4000/jekyll/update/2022/02/03/notes-on-ffmpeg.html" rel="alternate" type="text/html" title="Notes on ffmpeg" /><published>2022-02-03T10:06:32+08:00</published><updated>2022-02-03T10:06:32+08:00</updated><id>http://localhost:4000/jekyll/update/2022/02/03/notes-on-ffmpeg</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/02/03/notes-on-ffmpeg.html">&lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;ffmpeg documentation: &lt;a href=&quot;https://www.ffmpeg.org/documentation.html&quot;&gt;https://www.ffmpeg.org/documentation.html&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -953,110 +980,4 @@ systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&l
   &lt;li&gt;&lt;a href=&quot;http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf&quot;&gt;Probabilistic topic models&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;2003, &lt;em&gt;Journal of Machine Learning Research 3&lt;/em&gt;, &lt;a href=&quot;https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf&quot;&gt;Latent Dirichlet allocation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;2000, &lt;em&gt;Genetics&lt;/em&gt;, &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1461096/pdf/10835412.pdf&quot;&gt;Inference of Population Structure Using Multilocus Genotype Data&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation Probabilistic topic models 2003, Journal of Machine Learning Research 3, Latent Dirichlet allocation 2000, Genetics, Inference of Population Structure Using Multilocus Genotype Data</summary></entry><entry><title type="html">A tool for download musics from bandcamp</title><link href="http://localhost:4000/jekyll/update/2021/08/08/download-musics-from-bandcamp.html" rel="alternate" type="text/html" title="A tool for download musics from bandcamp" /><published>2021-08-08T10:24:12+08:00</published><updated>2021-08-08T10:24:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/08/08/download-musics-from-bandcamp</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/08/08/download-musics-from-bandcamp.html">&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/iheanyi/bandcamp-dl&quot;&gt;bandcamp-dl&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;There is also a more popular &lt;a href=&quot;https://github.com/ytdl-org/youtube-dl&quot;&gt;youtube-dl&lt;/a&gt; that inspires this tool …&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Worked on hongkong VPS&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;To be updated
-    &lt;ul&gt;
-      &lt;li&gt;Configure local proxy for downloading&lt;/li&gt;
-      &lt;li&gt;Learn their implementation&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">bandcamp-dl There is also a more popular youtube-dl that inspires this tool … Worked on hongkong VPS</summary></entry><entry><title type="html">Notes on SMTP</title><link href="http://localhost:4000/jekyll/update/2021/07/31/notes-on-SMTP.html" rel="alternate" type="text/html" title="Notes on SMTP" /><published>2021-07-31T21:30:12+08:00</published><updated>2021-07-31T21:30:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/07/31/notes-on-SMTP</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/07/31/notes-on-SMTP.html">&lt;h2 id=&quot;play-with-smtp&quot;&gt;Play with SMTP&lt;/h2&gt;
-
-&lt;h3 id=&quot;用telnet和smtp服务器交互在命令行发送邮件&quot;&gt;用telnet和SMTP服务器交互在命令行发送邮件&lt;/h3&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# connect to 163's SMTP server&lt;/span&gt;
-telnet smtp.163.com 25
-&lt;span class=&quot;c&quot;&gt;## Trying 220.181.12.18...&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## Connected to smtp.163.com.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## Escape character is '^]'.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## 220 163.com Anti-spam GT for Coremail System (163com[20141201])&lt;/span&gt;
-HELO fs &lt;span class=&quot;c&quot;&gt;# a shaking is required prior to sending email &lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## 250 OK&lt;/span&gt;
-auth login &lt;span class=&quot;c&quot;&gt;# login SMTP server&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## 334 dXNlcm5hbWU6 # this is a base64 encoding, validate this in python with base64.b64decode(&quot;dXNlcm5hbWU6&quot;), which return b'username:'&lt;/span&gt;
-xxxxxxxxxxxx &lt;span class=&quot;c&quot;&gt;# based 64 encoded user name&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## 334 UGFzc3dvcmQ6 # b'Password:'&lt;/span&gt;
-xxxxxxxxxxxx &lt;span class=&quot;c&quot;&gt;# based 64 encoded user password&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## 235 Authentication successful&lt;/span&gt;
-mail from:&amp;lt;jinyf1998@163.com&amp;gt; &lt;span class=&quot;c&quot;&gt;# input source email address&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## 250 Mail OK&lt;/span&gt;
-rcpt to:&amp;lt;jyf20@mails.tsinghua.edu.cn&amp;gt; &lt;span class=&quot;c&quot;&gt;# input target email adress&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## 250 Mail OK&lt;/span&gt;
-data &lt;span class=&quot;c&quot;&gt;# input email content&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## 354 End data with &amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;.&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;&lt;/span&gt;
-subject: hello hawaii
-from: &amp;lt;jinyf1998@163.com&amp;gt;
-to: &amp;lt;jyf20@mails.tsinghua.edu.cn&amp;gt;
-
-tell me, is some thing eluding you?
-sunshine?
-Is this not what you expected to see?
-If you wanna find out what is behind this cold eyes ...
-&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## 250 Mail OK queued as smtp14,EsCowADnavwKVwVhQPiWxQ--.36143S2 1627740013&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# 这时jyf20@mails.tsinghua.edu.cn会收到来自jinyf1998@163.com的邮件&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;在python中利用smtp发送邮件&quot;&gt;在python中利用SMTP发送邮件&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Send a email contains plain text&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Import required libraries
-&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;email&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;smtplib&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;email.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;formataddr&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;email.mime.text&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MIMEText&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# define content of the email
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MIMEText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'What is behind this cold eyes'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'plain'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'utf-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'From'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;formataddr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sender&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'To'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;formataddr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;receiver&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;receiver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Subject'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Test Python SMTP'&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# user information for login
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'xxx'&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;receiver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'xxx'&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'xxx'&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;smtpObj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;smtplib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SMTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
-&lt;span class=&quot;c1&quot;&gt;# connect to SMTP server
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smtpObj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;smtp.163.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    
-&lt;span class=&quot;n&quot;&gt;smtpObj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  
-
-&lt;span class=&quot;c1&quot;&gt;# send the email
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;smtpObj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receiver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Attatch a file to the email&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;email.utils&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;formataddr&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;email.mime.base&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MIMEBase&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;email.mime.text&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MIMEText&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;email.mime.multipart&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MIMEMultipart&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encoders&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MIMEMultipart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'From'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;formataddr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sender&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'To'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;formataddr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;receiver&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;receiver&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Subject'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Test Python SMTP with attachment'&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MIMEText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'hey you'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'plain'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'utf-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lyric.txt.gz'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mime&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MIMEBase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'application'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'x-gzip'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lyric.txt.gz'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Content-Disposition'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'attachment'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'lyric.txt.gz'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;encoders&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encode_base64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# ... send the message as for plain text
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Play with SMTP</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation Probabilistic topic models 2003, Journal of Machine Learning Research 3, Latent Dirichlet allocation 2000, Genetics, Inference of Population Structure Using Multilocus Genotype Data</summary></entry></feed>
