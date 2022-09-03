@@ -76,7 +76,15 @@ if __name__ == "__main__":
 
 - <https://bioinf.shenwei.me/taxonkit/> seems worth a try
 
+- also check this one <https://github.com/apcamargo/taxopy>
+
 
 - Visualization of taxonomy tree
   - [itol](https://itol.embl.de/): interactive tree of life, a web tool
   - [ggtree](https://yulab-smu.top/treedata-book/)
+
+
+
+- genome to phylogenetics tree
+  - https://github.com/AstrobioMike/GToTree
+  - https://github.com/lskatz/mashtree
