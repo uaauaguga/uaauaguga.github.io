@@ -3,7 +3,7 @@ import argparse
 import os
 from Bio import AlignIO
 
-def getLength(path):
+def get_length(path):
     totalLength = 0
     n = 0
     align = AlignIO.read(path, "stockholm")
@@ -14,7 +14,7 @@ def getLength(path):
     return int(totalLength/n),n
 
 def main():
-    parser = argparse.ArgumentParser(description='Get length of alignments in stockhold format')
+    parser = argparse.ArgumentParser(description='Get average lengths of alignments (stockholm format) in input directory ')
     parser.add_argument('--indir', '-i',required=True,help="Input dir contains stk files")
     parser.add_argument('--output','-o',required=True,help="Output table of average length")
     args = parser.parse_args()
@@ -23,7 +23,7 @@ def main():
     for stk in os.listdir(args.indir):
         rfamId = stk.split(".")[0]
         path = os.path.join(args.indir,stk)
-        l, n  = getLength(path)
+        l, n  = get_length(path)
         fout.write(rfamId + "\t" + str(l) + "\t" + str(n) + "\n")
     fout.close()
     

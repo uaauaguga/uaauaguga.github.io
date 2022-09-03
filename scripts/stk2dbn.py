@@ -48,7 +48,6 @@ def main():
     parser.add_argument('--output','-o',required=True,help="Output path, print to stdout by default.")
     parser.add_argument('--filter','-f',type=float,help="Should be a float between 0 and 1, sequence with identity higher than this value will be filtered")
     parser.add_argument("--sampling",'-s',type=int,help="Subsampling a given number of sequences")
-    parser.add_argument("--number",'-n',type=int,default=1000,help="Subsampling a given number of sequences")
     args = parser.parse_args()
 
     align = AlignIO.read(args.input, "stockholm")
