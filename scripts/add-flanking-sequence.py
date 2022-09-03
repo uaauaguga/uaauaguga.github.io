@@ -173,12 +173,11 @@ def getRandomSequence(L):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Add flanking sequence. If the structure information is provided in dot bracket format or ct format, the output could be ')
+    parser = argparse.ArgumentParser(description='Add flanking sequence to fasta or dbn files.')
     parser.add_argument('--input','-i',required=True, help="Input path. For fasta and dbn input, accept multiple record")
     parser.add_argument('--output', '-o', required=True, help = "Output path for fasta / ViennaRNA constraint, output directory for RNAstructure constraint ")
     parser.add_argument('--in-format','-if', type=str, default="dbn", choices = ["dbn","fasta"],help="Input format")
     parser.add_argument('--out-format','-of', type=str, default="ViennaRNA", choices = ["ViennaRNA","RNAstructure","fasta"], help="Output format")
-    #parser.add_argument('--database','-db', type=str,help="Data base of full length sequence. If not none, first attemp to retrieve sequence from this fasta file instead of random generate flanking sequence")
     parser.add_argument('--flanking-length', '-fl', type=int, help = "Flanking length of simulated sequence")
     parser.add_argument('--seed','-s',type=int,default=777, help = "Seed for random flanking sequencing generation")
     parser.add_argument('--fasta', '-f', type=str, help = "Whether / Where to write fasta file (if the specified output format is not fasta format)" )
