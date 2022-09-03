@@ -376,6 +376,90 @@ if __name__ == "__main__":
 
 - For more examples, see [python-parallel-programmning-cookbook](https://python-parallel-programmning-cookbook.readthedocs.io/zh_CN/latest/index.html)
 
+
+- Simple processing with Pool class
+
+```python
+#!/usr/bin/env python
+from multiprocessing import Pool,Manager
+import sys
+import logging 
+import argparse
+import os
+from tqdm import tqdm
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s] [%(levelname)s] %(name)s: %(message)s')
+logger = logging.getLogger('grouping')
+
+
+def load_fasta(path):
+    sequences_ = {}
+    with open(path) as f:
+        for line in f:
+            if line.startswith(">"):
+                seq_id = line.strip()[1:].split(" ")[0]
+                sequences_[seq_id] = ""
+            else:
+                sequences_[seq_id] += line.strip()
+    for seq_id in sequences_:
+        sequences[seq_id] = sequences_[seq_id]
+
+
+def main():
+    parser = argparse.ArgumentParser(description='group riboswitches by rfam')
+    parser.add_argument('--input-directory','-i',type=str,required=True,help="input directory")
+    parser.add_argument('--output-directory','-o',type=str,required=True,help="output directory")
+    parser.add_argument('--jobs','-j',type=int,default=8,help="Works used for data loading")
+    args = parser.parse_args()
+    logger.info("Load riboswitch sequences ...")
+    logger.info("Get fasta paths ... ")
+    fasta_paths = []
+    global sequences
+    sequences = Manager().dict() 
+    # note a normal dict() does not work here
+    # the Manager object is specifically designed to allow multiple processes to manipulate them
+    for fasta in os.listdir(args.input_directory):
+        fasta_path = args.input_directory + "/" + fasta
+        fasta_paths.append(fasta_path)
+    logger.info(f"{len(fasta_paths)} fasta files to load .")
+
+
+    logger.info(f"Load fasta files with {args.jobs} workers ...")
+    pool = Pool(processes=args.jobs) 
+    results = pool.map(load_fasta,fasta_paths) 
+    logger.info(f"{len(sequences)} are loaded .") 
+
+    if not os.path.exists(args.output_directory):
+        logger.info(f"{args.output_directory} does not exists, create it .")
+        os.mkdir(args.output_directory)
+    handles = {}
+    width = 70
+
+    n_duplicate = 0
+    encountered = set()
+    logger.info(f"Saving groupped sequences to {args.output_directory} ...")
+    for seq_id in tqdm(sequences):
+        fields = seq_id.split(":")
+        sequence = sequences[seq_id]
+        if sequence in encountered:
+            n_duplicate += 1
+            continue
+        encountered.add(sequence)
+        rfam_id, rfam_name = fields[-2:]
+        if rfam_id not in handles:
+            handles[rfam_id] = open(args.output_directory + "/" + rfam_id + "-" + rfam_name + ".fa","w")
+        handles[rfam_id].write(f">{seq_id}\n")
+        p = 0
+        while p < len(sequence):
+            handles[rfam_id].write(f"{sequence[p:p+width]}\n")
+            p += width
+    logger.info(f"{n_duplicate} sequences are skipped .")
+    for rfam_id in handles:
+        handles[rfam_id].close()    
+
+    logger.info("All done .")
+```
+
+
 - Parallel loading of gzipped files
   - see <https://www.blopig.com/blog/2016/08/processing-large-files-using-python/>
   - See cutadapt's implementation <https://github.com/marcelm/cutadapt/blob/main/src/cutadapt/pipeline.py>

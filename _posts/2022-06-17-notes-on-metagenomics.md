@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Sequence Motif Modeling Related"
+title:  "Notes on Metagenomics"
 date:   2022-06-17 15:15:41 +0800
 usemathjax: true
 categories: jekyll update
@@ -15,8 +15,6 @@ categories: jekyll update
   - kraken2
 
 - marker gene based methods vs. marker gene independent methods
-  - metaphylan, krakenunique
-  - kraken
   - metaphylan2, krakenunique
   - kraken2
 
@@ -31,7 +29,13 @@ categories: jekyll update
 ### Assembly
 
 - metaspades: memory intesive
-@@ -43,6 +46,12 @@ categories: jekyll update
+
+
+### Tools for binning
+
+- https://bitbucket.org/berkeleylab/metabat/src/master/
+
+
 
 ### Strategy for removing contaminations
 
@@ -86,3 +90,4 @@ categories: jekyll update
 
 - <https://github.com/ngs-docs/2017-ucsc-metagenomics>
 - <https://github.com/GenomicsAotearoa/metagenomics_summer_school>
+- <https://github.com/Finn-Lab/MAG_Snakemake_wf>
