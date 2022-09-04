@@ -18,6 +18,18 @@ categories: jekyll update
 - bed / bedgraph and bed12 format
   - bed: genome interval associate with some metadata
   - bed12: a specific bed, each line specify the structure of a transcript
+
+```bash
+# exampled bed12 record
+  1      2     3           4         5  6   7     8   9 10     11           12
+chr1	11868	14409	ENST00000456328.2	100	+	11868	11868	0	3	359,109,1189,	0,744,1352,
+
+# field 12 is block start, this coordinate is always relative to left most in the genome
+# for tx in forward strand, that is transcript start
+# for tx in reverse strand, that is transcript end
+```
+
+
 - vcf format
 - wiggle and bigwig
 - sam
@@ -140,10 +152,11 @@ categories: jekyll update
 
   - [GenomicFeatures](https://rdrr.io/bioc/GenomicFeatures/) package
 
-    - `mapToTranscripts`
+    - `mapToTranscripts`: map genome coordinate to tx coordinate
 
-    - `mapFromTranscripts`
-
+    - `mapFromTranscripts`: map transcript coordinate. 
+      - note that if the a input genomic interval spans two exons, it will output a genomic interval contains a intron
+      - may also take a look at <https://github.com/uaauaguga/NGS-Analysis-Notes/blob/master/scripts/genome-crd2tx-crd.py> (still need some test...)
     - `transcriptLocs2refLocs `
 
 
@@ -153,7 +166,7 @@ categories: jekyll update
     library(GenomicFeatures)
     gtf.path <- "annotation/gene-models/gtf/Arabidopsis_thaliana.TAIR10.46.gtf"
     txdb <- makeTxDbFromGFF(file=gtf.path,format="gtf")
-    tx.exons <- exonsBy(txdb, by="tx",use.names=TRUE)
+    tx.exons <- exonsBy(txdb, by="tx",use.names=TRUE) # use.names tells the function use tx name as key of the list
     tx.used <- tx.exons["AT1G01010.1"]
     gr <- GRanges(c("1","1","2","2"),IRanges(c(4000,4160,2000,3000), width=100),c("+","+","-","+"))
     names(gr) <- rep("AT1G01010.1",length(gr))
