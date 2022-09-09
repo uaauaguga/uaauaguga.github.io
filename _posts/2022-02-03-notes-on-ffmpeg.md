@@ -101,3 +101,12 @@ ffmpeg -i input.mp4 -vf fps=1 frames/out-%03d.jpg
 ```bash
 ffmpeg -i input.mp4 -vn output.mp3
 ```
+
+
+### mp4 to gih
+
+
+```bash
+#!/bin/bash 
+ffmpeg -i ${mp4} -r 5 -vf scale=256:-1 ${mp4%.*}.gif
+```
