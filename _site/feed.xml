@@ -1,4 +1,396 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-05-10T21:21:51+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Sequence Motif Modeling Related</title><link href="http://localhost:4000/jekyll/update/2022/03/12/sequence-motif-discovery.html" rel="alternate" type="text/html" title="Sequence Motif Modeling Related" /><published>2022-03-12T09:34:19+08:00</published><updated>2022-03-12T09:34:19+08:00</updated><id>http://localhost:4000/jekyll/update/2022/03/12/sequence-motif-discovery</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/03/12/sequence-motif-discovery.html">&lt;h2 id=&quot;the-meme-suite&quot;&gt;The MEME suite&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-23T10:58:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on Markov Random Field</title><link href="http://localhost:4000/jekyll/update/2023/01/22/notes-on-MRF.html" rel="alternate" type="text/html" title="Notes on Markov Random Field" /><published>2023-01-22T10:37:51+08:00</published><updated>2023-01-22T10:37:51+08:00</updated><id>http://localhost:4000/jekyll/update/2023/01/22/notes-on-MRF</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/01/22/notes-on-MRF.html">&lt;h1 id=&quot;notes-on-markov-random-field&quot;&gt;Notes on Markov Random Field&lt;/h1&gt;
+
+&lt;h2 id=&quot;definition-and-parameterization&quot;&gt;Definition and parameterization&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Consider random variables \(X=(X_1,X_2,...,X_n)\)&lt;/li&gt;
+  &lt;li&gt;These random variables have conditional dependency defined by a graph \(G\)&lt;/li&gt;
+  &lt;li&gt;The graph \(G\) have \(m\) cliques (fully connected subgraphs), denoted as \(D_1,...,D_m\)&lt;/li&gt;
+  &lt;li&gt;Then distribution of the random variable can be expressed as product of clique potentials:&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\large{P(X)=\frac{\prod_{i=1}^{m}\phi_{i}(D_i)}{Z}}\]
+
+&lt;ul&gt;
+  &lt;li&gt;\(\phi_{i}(D_i)\) is potential of clique \(D_i\)&lt;/li&gt;
+  &lt;li&gt;\(Z\) is called partition function&lt;/li&gt;
+&lt;/ul&gt;
+
+\[Z = \sum_{X}\prod_{i=1}^{m}\phi_{i}(D_i)\]
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Calculation of \(Z\) is generally computationally intractable&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It can also expressed as an log-linear model&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+\[\large{P(X)=\frac{1}{Z}\exp{[-\sum^{k}_{i}w_{i}f_{i}(D_{i})]}}\]
+
+&lt;ul&gt;
+  &lt;li&gt;\(w_{i}\) are weights&lt;/li&gt;
+  &lt;li&gt;\(f_{i}(D_{i})\) is the feature of complete subgraph \(D_{i}\)&lt;/li&gt;
+  &lt;li&gt;\(Z\) is the normalization constant, or partition function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;image-denoising&quot;&gt;Image denoising&lt;/h2&gt;
+
+&lt;h2 id=&quot;image-segmentation&quot;&gt;Image segmentation&lt;/h2&gt;
+
+&lt;h2 id=&quot;ising--potts-model-and-protein--rna-contact-prediction&quot;&gt;Ising / Potts model and protein / RNA contact prediction&lt;/h2&gt;
+
+&lt;h3 id=&quot;ising-model&quot;&gt;Ising model&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Random variable \(X_i\) takes value of either 1 or -1&lt;/li&gt;
+  &lt;li&gt;The energy of edge (i,j) is&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\epsilon_{i,j}(x_i,x_j)=w_{i,j}x_{i}x_{j}\]
+
+&lt;ul&gt;
+  &lt;li&gt;The energy of variable \(X_i\) is&lt;/li&gt;
+&lt;/ul&gt;
+
+\[u_{i}x_{i}\]
+
+&lt;ul&gt;
+  &lt;li&gt;The distribution takes the form&lt;/li&gt;
+&lt;/ul&gt;
+
+\[P(X_1,...,X_n) = \frac{1}{Z}\exp(-\sum_{i&amp;lt;j}w_{i,j}x_{i}x_{j}-\sum_{i}u_{i}x_{i})\]
+
+&lt;h3 id=&quot;potts-model-and-protein--rna-structure-modeling&quot;&gt;Potts model and protein / RNA structure modeling&lt;/h3&gt;
+
+&lt;h2 id=&quot;conditional-random-field&quot;&gt;Conditional random field&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Direct modeling the conditional distribution \(P(y\|X)\), that is given observations of a subset of variables \(X\), modeling the distribution remaining variables \(Y\) conditioned on \(X\)&lt;/li&gt;
+  &lt;li&gt;Combining the advantages of discriminative classification and graphical modeling&lt;/li&gt;
+  &lt;li&gt;Combining the ability to compactly model multivariate outputs y with the ability to leverage
+a large number of input features x for prediction&lt;/li&gt;
+&lt;/ul&gt;
+
+\[\large{P(Y|X)=\frac{\prod_{i=1}^{m}\phi_{i}(D_i)}{Z}}\]
+
+\[Z = \sum_{Y}\prod_{i=1}^{m}\phi_{i}(D_i)\]
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Note \(X\) is not involved in calculation of partition function&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Logistic regression is a special case of conditional random field&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/2023-01-23-logistic-regression.png&quot; alt=&quot;image&quot; width=&quot;30%&quot; /&gt;&lt;/p&gt;
+
+\[\large{
+    P(y_i|X) = \frac{\exp{(\beta_{y_{i}0}x_0+\sum_{1}^{m}\beta_{y_{i}k}x_k)}}{\sum_{y_{i}}\exp{(\beta_{y_{i}0}x_0+\sum_{1}^{m}\beta_{y_{i}k}x_k)}}
+    = \frac{1}{Z}\exp{-\sum_{0}^{k}w_{y_{i}k}f_{k}(y,X)}
+    }\]
+
+&lt;ul&gt;
+  &lt;li&gt;It takes a form same as log-linear model of markov random field&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;named-entity-recognition&quot;&gt;Named entity recognition&lt;/h2&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://homepages.inf.ed.ac.uk/csutton/publications/crftut-fnt.pdf&quot;&gt;An Introduction to Conditional Random Fields&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Notes on Markov Random Field</summary></entry><entry><title type="html">Notes on Taxonomy</title><link href="http://localhost:4000/jekyll/update/2022/09/03/notes-on-taxonomy.html" rel="alternate" type="text/html" title="Notes on Taxonomy" /><published>2022-09-03T10:39:16+08:00</published><updated>2022-09-03T10:39:16+08:00</updated><id>http://localhost:4000/jekyll/update/2022/09/03/notes-on-taxonomy</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/09/03/notes-on-taxonomy.html">&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Download mapping between genbank id and taxonomy &lt;a href=&quot;ftp://ftp.ncbi.nih.gov/pub/taxonomy/accession2taxid&quot;&gt;ftp://ftp.ncbi.nih.gov/pub/taxonomy/accession2taxid&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Extract taxnomy information from blast database&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;blastdbcmd &lt;span class=&quot;nt&quot;&gt;-entry_batch&lt;/span&gt; seq_ids.txt &lt;span class=&quot;nt&quot;&gt;-db&lt;/span&gt; nt &lt;span class=&quot;nt&quot;&gt;-dbtype&lt;/span&gt; nucl &lt;span class=&quot;nt&quot;&gt;-out&lt;/span&gt; taxo.info &lt;span class=&quot;nt&quot;&gt;-outfmt&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%a %i %T %L&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# AC189400.2 gb|AC189400.2| 51351 Chinese cabbage&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# %a means accession&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# %g means gi&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# %l means sequence length&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# %T means taxid&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# %X means leaf-node taxids (what does this mean?)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# %i means sequence id&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# %L means common taxonomic name&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# %C means common taxonomic names for leaf-node taxids&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A very useful module in &lt;a href=&quot;http://etetoolkit.org/&quot;&gt;ete&lt;/a&gt; toolkits &lt;a href=&quot;http://etetoolkit.org/docs/2.3/reference/reference_ncbi.html&quot;&gt;http://etetoolkit.org/docs/2.3/reference/reference_ncbi.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env python
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pickle&lt;/span&gt; 
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ete3&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NCBITaxa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Tree&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# taxo id of species you want to extract
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;species_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;taxo-ids-unique.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;species_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;species_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exists&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;plant-tree.pkl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Load ncbi taxo tree ...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ncbi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NCBITaxa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Get plant subtree ...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# get descendants of a nodes
+&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;plant_taxo_ids&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ncbi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_descendant_taxa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;58024&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ncbi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_topology&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plant_taxo_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;intermediate_nodes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Saving subtree to pickle file .&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;plant-tree.pkl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pickle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dump&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;plant-tree.pkl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pickle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;used_nodes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;genera_counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# traverse the tree to extract desired nodes
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;traverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rank&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;species&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;species_ids&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sci_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;genus&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sci_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genus&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genera_counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;genera_counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;genera_counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genera_counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                        &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;used_nodes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# only keep a subset of nodes and corresponding topology in extracted tree
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prune&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;used_nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;__main__&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://bioinf.shenwei.me/taxonkit/&quot;&gt;https://bioinf.shenwei.me/taxonkit/&lt;/a&gt; seems worth a try&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;also check this one &lt;a href=&quot;https://github.com/apcamargo/taxopy&quot;&gt;https://github.com/apcamargo/taxopy&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Visualization of taxonomy tree
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://itol.embl.de/&quot;&gt;itol&lt;/a&gt;: interactive tree of life, a web tool&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://yulab-smu.top/treedata-book/&quot;&gt;ggtree&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;genome to phylogenetics tree
+    &lt;ul&gt;
+      &lt;li&gt;https://github.com/AstrobioMike/GToTree&lt;/li&gt;
+      &lt;li&gt;https://github.com/lskatz/mashtree&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Download mapping between genbank id and taxonomy ftp://ftp.ncbi.nih.gov/pub/taxonomy/accession2taxid</summary></entry><entry><title type="html">Notes on distributed file system</title><link href="http://localhost:4000/jekyll/update/2022/08/30/distributed-file-systems.html" rel="alternate" type="text/html" title="Notes on distributed file system" /><published>2022-08-30T19:52:08+08:00</published><updated>2022-08-30T19:52:08+08:00</updated><id>http://localhost:4000/jekyll/update/2022/08/30/distributed-file-systems</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/08/30/distributed-file-systems.html">&lt;h1 id=&quot;lustre&quot;&gt;Lustre&lt;/h1&gt;
+
+&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;See &lt;a href=&quot;https://lustre.ornl.gov/lustre101-courses/content/C1/L1/LustreIntro.pdf&quot;&gt;https://lustre.ornl.gov/lustre101-courses/content/C1/L1/LustreIntro.pdf&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lustre server: servers for parallel storage
+    &lt;ul&gt;
+      &lt;li&gt;Object Storage Servers (OSS): Handles I/O requests for file data&lt;/li&gt;
+      &lt;li&gt;Object Storage Targets (OST): Block device used by OSS to store file data. Each OSS usually serves multiple OSTs&lt;/li&gt;
+      &lt;li&gt;Metadata Storage Servers (MDS): Manages filenames and directories, file stripe locations, locking, ACLs, etc&lt;/li&gt;
+      &lt;li&gt;Metadata Storage Targets (MDT):  Block device used by MDS to store metadata information&lt;/li&gt;
+      &lt;li&gt;MGS – Management server. Stores configuration information for one or more Lustre file systems.&lt;/li&gt;
+      &lt;li&gt;MGT - Block device used by MGS for data storage&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lustre clients: Compute Nodes that access data from lustre server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://wiki.lustre.org/Main_Page&lt;/li&gt;
+  &lt;li&gt;https://lustre.ornl.gov/lustre101-courses/&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Lustre</summary></entry><entry><title type="html">Tricks on file formating</title><link href="http://localhost:4000/jekyll/update/2022/06/17/tricks-in-file-format.html" rel="alternate" type="text/html" title="Tricks on file formating" /><published>2022-06-17T16:21:48+08:00</published><updated>2022-06-17T16:21:48+08:00</updated><id>http://localhost:4000/jekyll/update/2022/06/17/tricks-in-file-format</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/06/17/tricks-in-file-format.html">&lt;h2 id=&quot;manipulate-fasta-file&quot;&gt;Manipulate fasta file&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/lh3/seqtk&quot;&gt;https://github.com/lh3/seqtk&lt;/a&gt; is extremely useful&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Filter contigs shorter than 1000nt:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;seqtk &lt;span class=&quot;nb&quot;&gt;seq&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; 1000 contigs.fa &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; contigs.gt1000.fa
+&lt;span class=&quot;c&quot;&gt;# other functions include sampling sequence, etc.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Convert one line fasta to multiline fasta&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# reformat.sh provided in bbtools&lt;/span&gt;
+reformat.sh &lt;span class=&quot;nv&quot;&gt;fastawrap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;70 &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;input.fa &lt;span class=&quot;nv&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;output.fa
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;download-refseq-sequences&quot;&gt;Download refseq sequences&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env python
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Bio&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Entrez&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;os&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;logging&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Download genebank sequence'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'--query'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'-q'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Genebank id for download&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'--fasta'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-f'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Path to write the downloaded data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;basicConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INFO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'[&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%(asctime)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s] [&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%(levelname)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s] &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%(name)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%(message)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logging&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Retrieve sequence'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;Entrez&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;xxx&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fasta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;w&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Start retriving {} from ncbi nucleotide in fasta format ...&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;handle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Entrez&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;efetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;nucleotide&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rettype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fasta&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;retmode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;handle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;fout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Done.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Error retriving {}, skip ...&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;__main__&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Manipulate fasta file</summary></entry><entry><title type="html">Notes on Metagenomics</title><link href="http://localhost:4000/jekyll/update/2022/06/17/notes-on-metagenomics.html" rel="alternate" type="text/html" title="Notes on Metagenomics" /><published>2022-06-17T15:15:41+08:00</published><updated>2022-06-17T15:15:41+08:00</updated><id>http://localhost:4000/jekyll/update/2022/06/17/notes-on-metagenomics</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/06/17/notes-on-metagenomics.html">&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;alignment based methods vs. kmer based methods
+    &lt;ul&gt;
+      &lt;li&gt;metaphlan&lt;/li&gt;
+      &lt;li&gt;kraken&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://huttenhower.sph.harvard.edu/metaphlan2/&quot;&gt;metaphlan2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;kraken2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;marker gene based methods vs. marker gene independent methods
+    &lt;ul&gt;
+      &lt;li&gt;metaphylan2, krakenunique&lt;/li&gt;
+      &lt;li&gt;kraken2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;nucleotide level analysis vs. protein level analysis
+    &lt;ul&gt;
+      &lt;li&gt;kraken&lt;/li&gt;
+      &lt;li&gt;kraken2&lt;/li&gt;
+      &lt;li&gt;Kaiju&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;benchmark study&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;assembly&quot;&gt;Assembly&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;metaspades: memory intesive&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tools-for-binning&quot;&gt;Tools for binning&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://bitbucket.org/berkeleylab/metabat/src/master/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;strategy-for-removing-contaminations&quot;&gt;Strategy for removing contaminations&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;2014, &lt;em&gt;BMC Biology&lt;/em&gt;, &lt;a href=&quot;https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-014-0087-z&quot;&gt;Reagent and laboratory contamination can critically impact sequence-based microbiome analyses&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2019, &lt;em&gt;Trends in Microbiology&lt;/em&gt;, &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0966842X18302531&quot;&gt;Contamination in Low Microbial Biomass Microbiome Studies: Issues and Recommendations&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2019, &lt;em&gt;Plos Computational Biology&lt;/em&gt;, &lt;a href=&quot;https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006967&quot;&gt;Recentrifuge: Robust comparative analysis and contamination removal for metagenomics&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;genome-similarity&quot;&gt;Genome similarity&lt;/h3&gt;
+
+&lt;p&gt;@@ -55,25 +64,31 @@ categories: jekyll update&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/UniFrac&quot;&gt;unifrac distance&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;weighted unifrac distance&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PCoA Analysis&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;community-analysis-based-on-pairwise-distance&quot;&gt;Community analysis based on pairwise distance&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Multidimensional_scaling&quot;&gt;PCoA&lt;/a&gt; Analysis
+    &lt;ul&gt;
+      &lt;li&gt;PCoA (principle coordinate analysis) and MDS (multi-dimesional scaling) are essentially the same thing (but this seems the term MDS is seldom used by the microbiology community …)&lt;/li&gt;
+      &lt;li&gt;project each sample in a distance matrix to a low dimensional space, attempt to preserve the pairwise distances&lt;/li&gt;
+      &lt;li&gt;See
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Multidimensional_scaling&quot;&gt;https://en.wikipedia.org/wiki/Multidimensional_scaling&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.stat.pitt.edu/sungkyu/course/2221Fall13/lec8_mds_combined.pdf&quot;&gt;https://www.stat.pitt.edu/sungkyu/course/2221Fall13/lec8_mds_combined.pdf&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://repository.upenn.edu/cgi/viewcontent.cgi?article=1000&amp;amp;context=cis_papers&quot;&gt;https://repository.upenn.edu/cgi/viewcontent.cgi?article=1000&amp;amp;context=cis_papers&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Permutational_analysis_of_variance&quot;&gt;permanova analysis&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Permutational_analysis_of_variance&quot;&gt;permanova&lt;/a&gt; analysis
+    &lt;ul&gt;
+      &lt;li&gt;For a given grouping (real grouping or shuffled grouping), a pseudo F statistics can be calculated&lt;/li&gt;
+      &lt;li&gt;&lt;em&gt;P&lt;/em&gt; value can be calculated by shuffling group labels&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;differential-analysis&quot;&gt;Differential analysis&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;2020, &lt;em&gt;Genome Biology&lt;/em&gt;, &lt;a href=&quot;https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02104-1&quot;&gt;Assessment of statistical methods from single cell, bulk RNA-seq, and metagenomics applied to microbiome data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;functional-annotation&quot;&gt;Functional annotation&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;eggnog: &lt;a href=&quot;http://eggnog.embl.de/&quot;&gt;http://eggnog.embl.de/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;visualization&quot;&gt;Visualization&lt;/h3&gt;
+
+&lt;h3 id=&quot;genome-annotation&quot;&gt;Genome annotation&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;CDS prediction for prokaryotes&lt;/li&gt;
+  &lt;li&gt;CDS prediction for eukaryotes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;useful-resources&quot;&gt;Useful resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ngs-docs/2017-ucsc-metagenomics&quot;&gt;https://github.com/ngs-docs/2017-ucsc-metagenomics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/GenomicsAotearoa/metagenomics_summer_school&quot;&gt;https://github.com/GenomicsAotearoa/metagenomics_summer_school&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Finn-Lab/MAG_Snakemake_wf&quot;&gt;https://github.com/Finn-Lab/MAG_Snakemake_wf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Estimate abundance of different microbes from amplicon sequencing or shutgun sequencing</summary></entry><entry><title type="html">Sequence Motif Modeling Related</title><link href="http://localhost:4000/jekyll/update/2022/03/12/sequence-motif-discovery.html" rel="alternate" type="text/html" title="Sequence Motif Modeling Related" /><published>2022-03-12T09:34:19+08:00</published><updated>2022-03-12T09:34:19+08:00</updated><id>http://localhost:4000/jekyll/update/2022/03/12/sequence-motif-discovery</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/03/12/sequence-motif-discovery.html">&lt;h2 id=&quot;the-meme-suite&quot;&gt;The MEME suite&lt;/h2&gt;
 
 &lt;h2 id=&quot;motif-format-conversion&quot;&gt;Motif format conversion&lt;/h2&gt;
 
@@ -120,6 +512,12 @@ ffmpeg &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; input.mp4 &lt;span class
 &lt;h3 id=&quot;extract-audio-from-video&quot;&gt;Extract audio from video&lt;/h3&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ffmpeg &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; input.mp4 &lt;span class=&quot;nt&quot;&gt;-vn&lt;/span&gt; output.mp3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;mp4-to-gih&quot;&gt;mp4 to gih&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash &lt;/span&gt;
+ffmpeg &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;mp4&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; 5 &lt;span class=&quot;nt&quot;&gt;-vf&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;scale&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;256:-1 &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;mp4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%.*&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;.gif
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">ffmpeg documentation: https://www.ffmpeg.org/documentation.html</summary></entry><entry><title type="html">Notes on rRNA annotation</title><link href="http://localhost:4000/jekyll/update/2022/01/25/notes-on-rRNA-annotation.html" rel="alternate" type="text/html" title="Notes on rRNA annotation" /><published>2022-01-25T15:37:11+08:00</published><updated>2022-01-25T15:37:11+08:00</updated><id>http://localhost:4000/jekyll/update/2022/01/25/notes-on-rRNA-annotation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/01/25/notes-on-rRNA-annotation.html">&lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Ribosomal_RNA&quot;&gt;https://en.wikipedia.org/wiki/Ribosomal_RNA&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Ribosome_biogenesis&quot;&gt;https://en.wikipedia.org/wiki/Ribosome_biogenesis&lt;/a&gt;&lt;/li&gt;
@@ -312,672 +710,4 @@ curl &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; socks5h://localhost:10808 
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;https://github.com/v2fly/v2ray-examples&quot;&gt;https://github.com/v2fly/v2ray-examples&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Some notes on v2ray configuration</summary></entry><entry><title type="html">Probablistic Model for Sequence Analysis</title><link href="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html" rel="alternate" type="text/html" title="Probablistic Model for Sequence Analysis" /><published>2021-11-17T16:15:22+08:00</published><updated>2021-11-17T16:15:22+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/17/motif-finding-with-probablistic-model.html">&lt;ul&gt;
-  &lt;li&gt;看了不知道多少遍总是记不清楚，详细记录一下，希望别再忘了:)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;em-algorithm-for-motif-finding&quot;&gt;EM algorithm for motif finding&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Input data: \(n\) sequences \(X_1,X_2,...,X_n\) with different lengths&lt;/li&gt;
-  &lt;li&gt;Find ungapped motif with fixed length \(w\)&lt;/li&gt;
-  &lt;li&gt;\(\theta\) is the motif paramter and background paramater&lt;/li&gt;
-  &lt;li&gt;There are \(m_i=L_i-w+1\) possible staring position in sequence \(X_i\) with length \(L_i\)&lt;/li&gt;
-  &lt;li&gt;\(Z_{ij}\) is a binary indicator variable, indicate whether there is a motif start at position \(j\) in sequence \(i\)&lt;/li&gt;
-  &lt;li&gt;Denote number of motifs in sequence \(i\) as \(Q_i=\sum_{j=1}^{m_i}Z_{ij}\).&lt;/li&gt;
-  &lt;li&gt;A sequence may contains 0 motifs, 1 motifs or more than one motifs.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;oops&quot;&gt;OOPS&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;assume one occurrence per sequence&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Likelihood of a sequence given the motif position&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[\log P(X_i \mid Z_{ij}=1,\theta) = \sum_{k=0}^{w-1}I(i,j+k)^T \log p_k + \sum_{k \in \Delta_{i,j}}I(i,k)^T \log p_0\]
-
-&lt;ul&gt;
-  &lt;li&gt;Prior probability that \(Z_{ij}=1\) (motif in sequence \(i\) starts at \(j\))&lt;/li&gt;
-&lt;/ul&gt;
-
-\[P(Z_{ij} \mid \theta) = \frac{1}{m_i}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Joint likelihood of sequence and motif start pisition for each seuence&lt;/li&gt;
-&lt;/ul&gt;
-
-\[P(X_i,Z_i|\theta)=P(X_i|Z_i,\theta)P(Z_i|\theta)=\prod_{j=1}^{m_{i}}[P(X_i|Z_{ij}=1,\theta)P(Z_{ij}=1|\theta)]^{Z_{ij}}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Joint log likelihood for each seuence&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{align*}
-\log P(X_i,Z_i \mid \theta) &amp;amp;=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+\sum_{j=1}^{m_{i}}Z_{ij}\log P(Z_{ij}=1|\theta) \\
-&amp;amp;=\sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta)+ \log \frac{1}{m_i} \\
-
-\end{align*}\]
-
-&lt;ul&gt;
-  &lt;li&gt;EM for motif finding. Denote model paramters at step \(t\) as \(\theta^{(t)}\)
-s&lt;/li&gt;
-  &lt;li&gt;E step: calculate \(\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}\),&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{align*}
-\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij} &amp;amp;= 1*P(Z_{ij}=1 \mid X_i,\theta^{(t)})+0*P(Z_{ij}=0 \mid X_i,\theta^{(t)}) \\
-&amp;amp;=P(Z_{ij}=1 \mid X_i,\theta^{(t)}) =\frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{P(X_i \mid \theta^{(t)})} \\
-&amp;amp;=\frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{\sum_{k=1}^{m}P(X_i,Z_{ij}=1 \mid \theta^{(t)})} \\
-&amp;amp;=\frac{P(X_i \mid Z_{ij}=1,\theta^{(t)})P(Z_{ij}=1 \mid \theta^{(t)})}{\sum_{k=1}^{m}P(X_i \mid Z_{ik}=1,\theta^{(t)})P(Z_{ik}=1 \mid \theta^{(t)})}  \\
-&amp;amp;=\frac{P(X_i \mid Z_{ij}=1,\theta^{(t)})}{\sum_{k=1}^{m}P(X_i \mid Z_{ik}=1,\theta^{(t)})} 
-\end{align*}\]
-
-&lt;ul&gt;
-  &lt;li&gt;M step: replace \(Z_{ij}\) in \(\log P(X_i,Z_i \mid \theta)\) with \(\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}\), perform standard MLE to update \(\theta^{(t)}\) to \(\theta^{(t+1)}\)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;zoops&quot;&gt;ZOOPS&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;assume zero or one motif occurrences per dataset sequence), add parameter \(\gamma\), probability that a sequence contains a motif. \(\lambda_i=\frac{\gamma}{m_i}\) is prior probabaility that any position in a sequence is start of a motif&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Likelihood of a sequence contain one motif, given the motif position is same as OOPS&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Likelihood of a sequence without a motif&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[P(X_i \mid Q_i=0,\theta) = \prod_{k=1}^{L}p_{X_{i,k},0}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Joint likelihood of sequence and motif start pisition for each seuence&lt;/li&gt;
-&lt;/ul&gt;
-
-\[P(Q_i \mid \theta, \gamma) = \gamma^{Q_i}(1-\gamma)^{1-Q_i}\]
-
-\[P(Z_{ij}=1 \mid Q_i=1, \theta)=\frac{1}{m_i}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Joint log-likelihood&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{align*}
-P(X_i,Z_i|\theta,\gamma)&amp;amp;=P(X_i,Z_i,Q_i|\theta,\gamma)\\
-&amp;amp;=P(Q_i|\theta,\gamma)P(X_i,Z_i|Q_i,\theta,\gamma) \\
-&amp;amp;=(1-\gamma)^{1-Q_i}P(X_i \mid Q_i=0)^{1-Q_i}\gamma^{Q_i}\prod_{j=1}^{m_{i}}[P(Z_{ij}=1 \mid Q_i=1,\theta)P(X_i \mid Z_{ij}=1,Q_i=1,\theta)]^{Z_{ij}} \\
-&amp;amp;=(1-\gamma)^{1-Q_i}P(X_i \mid Q_i=0)^{1-Q_i}\gamma^{Q_i}\prod_{j=1}^{m_{i}}[\frac{1}{m_i} P(X_i \mid Z_{ij}=1,\theta)]^{Z_{ij}} 
-\end{align*}\]
-
-\[\begin{align*}
-\log P(X_i,Z_i|\theta,\gamma)&amp;amp;=Q_i \log \frac{\gamma}{m_i} + (1-Q_i )\log (1-\gamma) + (1-Q_i) \log P(X_i|Q_i=0) \\
-&amp;amp; + \sum_{j=1}^{m_{i}}Z_{ij}\log P(X_i|Z_{ij}=1,\theta) 
-\end{align*}\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;EM for motif finding&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;E step: calculate \(\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij}\)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{align*}
-\mathbb{E}_{Z_{ij} \mid X_i,\theta^{(t)}} Z_{ij} 
-&amp;amp;= P(Z_{ij}=1 \mid X_i,\theta^{(t)}) = \frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{P(X_i \mid \theta^{(t)})} \\
-&amp;amp;= \frac{P(X_i,Z_{ij}=1 \mid \theta^{(t)})}{P(X_i, Q_i=0 \mid \theta^{(t)}) + P(X_i, Q_i=1 \mid \theta^{(t)})} \\
-&amp;amp;= \frac{\frac{\gamma}{m_i} P(X_i \mid Z_{ij}=1,\theta^{(t)})}{P(X_i \mid Q_i=0, \theta^{(t)})(1-\gamma) + \frac{\gamma}{m_i} \sum_{k}^{m_i} P(X_i \mid Z_{ik}=1, \theta^{(t)})}
-\end{align*}\]
-
-&lt;h3 id=&quot;tcm&quot;&gt;TCM&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;two component mixture, motif can start at any feasible positions&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Joint likelihood of sequence and motif start pisition for each seuence
-\(\begin{align*}
-P(X_i,Z_i|\theta,\lambda)&amp;amp;=P(X_i,Z_i|\theta,\lambda)\\
-&amp;amp;=\prod_{j=1}^{m_i}\lambda^{Z_{ij}}(1-\lambda)^{1-Z_{ij}}P(X_{ij} \mid Z_{ij}=1)^{Z_{ij}}P(X_{ij} \mid Z_{ij}=0)^{1-Z_{ij}} 
-\end{align*}\)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Joint log-likelihood
-\(\begin{align*}
-\log P(X_i,Z_i|\theta,\lambda) =  \sum_{j=1}^{m} [Z_{ij} \log \lambda +(1- Z_{ij}) \log (1-\lambda) + (1-Z_{ij}) \log P(X_{ij} \mid Z_{ij}=0) + Z_{ij} \log P(X_{ij} \mid Z_{ij}=1)]
-\end{align*}\)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;hmm&quot;&gt;HMM&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;\(N\) is length of the observation&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;\(n\) is number of hidden states&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Hidden state \(Q\):&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[q_{1},q_{2},...,q_{t},...q_{N}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Emitted symbol \(O\):&lt;/li&gt;
-&lt;/ul&gt;
-
-\[o_{1},o_{2},...,o_{t},...,o_{N}\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Transition probability matrix \(A_{N \times N}\). \(a_{st} = A_{st}\) is transition probability from state \(s\) to \(t\)&lt;/p&gt;
-
-\[a_{st} = P(q_{i}=t \mid q_{i-1}=s)\]
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Initial probability distribution of hidden states \(\pi\) or transition probability from a slilent starting state to state \(p_i\)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[\pi_{1},\pi_{2},...,\pi_{t},...\pi_{N}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Probability of emitting symbol \(b\) at state \(k\)&lt;/li&gt;
-&lt;/ul&gt;
-
-\[e_{k}(b)=P(x_{i}=b \mid q_{i}=k)\]
-
-&lt;h3 id=&quot;forward-algorithm-inference&quot;&gt;Forward algorithm (inference)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Determine the likelihood of an observed series, marginalized for all possible hidden states&lt;/li&gt;
-  &lt;li&gt;Define the forward variable \(\alpha_{t}(j)\), that is given model parameter, the joint probability of being state \(j\) at time \(t\) with observation series \(o_1,o_2,...,o_t\)&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\alpha_{t}(j)=P(o_1,o_2,...,o_t,q_t=j \mid \lambda)\]
-
-&lt;ul&gt;
-  &lt;li&gt;We have (\(\lambda\) is omitted)&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{align*}
-
-P(o_1,o_2,...,o_t,q_t=j) =&amp;amp; \sum_{i=1}^{N} P(o_1,o_2,...,o_{t-1},o_t,q_{t-1}=i, q_t=j) \\
-=&amp;amp; \sum_{i=1}^{N} P(o_1,o_2,...,o_{t-1},q_{t-1}=i \mid \lambda)P(q_t = j \mid q_{t-1}=i)P(o_t \mid q_t = j) \\
-=&amp;amp; \sum_{i=1}^{N} \alpha_{t-1}(i)a_{ij} e_{i}(o_t)
-\end{align*}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Initialization&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\alpha_{1}(j)= \pi_{j}e_{j}(o_1)\]
-
-&lt;ul&gt;
-  &lt;li&gt;\(\alpha_{t}(j)\) can be determined by dynamic programming&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\alpha_{t}(j)=\sum_{i=1}^{N} \alpha_{t-1}(i)a_{ij} e_{i}(o_t)\]
-
-&lt;ul&gt;
-  &lt;li&gt;Marginalize across last hidden state&lt;/li&gt;
-&lt;/ul&gt;
-
-\[P(O|\lambda) = \sum_{i=1}^{N}\alpha_{T}(i)\]
-
-&lt;h3 id=&quot;viterbi-algorithm-decoding&quot;&gt;Viterbi algorithm (decoding)&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Find the most probable path of hidden states, given the model and observation&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Define the Viterbi variable&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[V_{t}(j)=\max_{q_1,q_2,...,q_{t-1}}P(o_1,o_2,...,o_t,q_t=j \mid \lambda)\]
-
-&lt;ul&gt;
-  &lt;li&gt;The intialization is same as forward algorithm&lt;/li&gt;
-&lt;/ul&gt;
-
-\[V_{1}(j)= \pi_{j}e_{j}(o_1)\]
-
-&lt;ul&gt;
-  &lt;li&gt;A dynamic programming similar to forward algorithm (the difference is replace \(\sum\) operator with \(\max\) operator) is used to calculate viterbi variable&lt;/li&gt;
-&lt;/ul&gt;
-
-\[V_t(j)=\max_{i=1}^{N}V_{t-1}(i)a_{ij} e_{i}(o_t)\]
-
-&lt;ul&gt;
-  &lt;li&gt;Keep track of the “best” hidden state, main a backtrace pointer matrix&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;model-training&quot;&gt;Model training&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Estimation HMM parameter from observations&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;baumwelch-algorithm-forward-backward-algorithm-based-em-style-training&quot;&gt;Baum–Welch algorithm: forward-backward algorithm based, EM style training&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Define backward variable \(\beta_{t}(i)\)&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\beta_{t}(i)=P(o_{t+1},o_{t+2},...,o_{T}|q_{t}=i,\lambda)\]
-
-&lt;ul&gt;
-  &lt;li&gt;Similar to forward variable, we have&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{align*}
-
-P(o_{t+1},o_{t+2},...,o_{T}|q_{t}=i) =&amp;amp; \sum_{j=1}^{N} P(o_{t+1},o_{t+2},...,o_T,q_{t+1}=j \mid q_t=i) \\
-=&amp;amp; \sum_{j=1}^{N} P(o_{t+1},o_{t+2},...,o_T \mid q_{t+1}=j, q_t=i)  P(q_{t+1}=j \mid q_{t}=i) \\
-=&amp;amp; \sum_{j=1}^{N} P(o_{t+1},o_{t+2},...,o_T \mid q_{t+1}=j)  P(q_{t+1}=j \mid q_{t}=i) \\
-=&amp;amp;  \sum_{j=1}^{N}  P(o_{t+2},...,o_T \mid q_{t+1}=j) P(o_{t+1} \mid q_{t+1}=j) P(q_{t+1}=j \mid q_{t}=i) \\
-= &amp;amp; \sum_{j=1}^{N} \beta_{t+1}(j) e_{j}(o_{t+1}) a_{ij}
-
-\end{align*}\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;We can use backward algorithm as an alternative to forward algorithm for calculating \(P(O \mid \lambda)\)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Initialization (last observation in each instance always transit to ending state with probability 1 regardless of the hidden state \(q_T\))&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[\beta_{T}(i) = 1\]
-
-&lt;ul&gt;
-  &lt;li&gt;Recursion&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\beta_{t}(i)=\sum_{j=1}^{N} \beta_{t+1}(j) e_{j}(o_{t+1}) a_{ij}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Termination (exact same as the recursion fumula if we add a silent starting state corresponds to \(t=0\))&lt;/li&gt;
-&lt;/ul&gt;
-
-\[P(O|\lambda)=\sum_{j=1}^{N} \beta_{1}(j)e_{j}(o_{1})\pi_j\]
-
-&lt;ul&gt;
-  &lt;li&gt;The forward-backward algorithm&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\hat{a}_{ij} = \frac{E(count\,of\,i \Rightarrow j\,transitions)}{E(count\,of\,i \Rightarrow .\,transitions)}\]
-
-&lt;ul&gt;
-  &lt;li&gt;To compute such expectation, we define a forward-backward variable&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\xi_{t}(i,j)=P(q_t=i,q_{t+1}=j \mid O,\lambda)\]
-
-&lt;ul&gt;
-  &lt;li&gt;Note&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{align*}
-P(q_t=i,q_{t+1}=j, O\mid \lambda) 
-=&amp;amp;P(o_1,o_2,...,o_t,q_t=j \mid \lambda) \\ &amp;amp;(q_{t+1}=j|q_t=i)P(o_{t+1}|q_{t+1}=j) \\ &amp;amp;P(o_{t+2},...,o_{T}|q_{t+1}=i,\lambda) \\
-=&amp;amp;\alpha_{t}(i)a_{ij}b_j(o_{t+1})\beta_{t+1}(j) \\
-\end{align*}\]
-
-\[\begin{align*}
-P(O\mid \lambda) =&amp;amp; \sum_{j=1}^{N} P(O,q_t =j \mid \lambda) \\
-=&amp;amp; P(o_1,o_2,...,o_t,q_t=j \mid \lambda) \\ &amp;amp;P(o_{t+1},o_{t+2},...,o_{T} \mid q_{t}=j,\lambda) \\
-=&amp;amp; \alpha_{t}(j)\beta_{t}(j)
-\end{align*}\]
-
-&lt;ul&gt;
-  &lt;li&gt;Hence&lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{align*}
-\xi_{t}(i,j) 
-=&amp;amp; P(q_t=i,q_{t+1}=j \mid O,\lambda) \\
-=&amp;amp; \frac{P(q_t=i,q_{t+1}=j, O\mid \lambda)}{P(O \mid \lambda)} \\
-=&amp;amp; \frac{\alpha_{t}(i)a_{ij}b_j(o_{t+1})\beta_{t+1}(j)}{\sum_{j=1}^{N}\alpha_{t}(j)\beta_{t}(j)}
-
-\end{align*}\]
-
-&lt;h2 id=&quot;profile-hmm&quot;&gt;Profile HMM&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;A spacial HMM primarily used for protein homolog modeling&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The hidden states in a profile HMM for local alignment, with N key positions
-    &lt;ul&gt;
-      &lt;li&gt;start state&lt;/li&gt;
-      &lt;li&gt;insertion state 0, modeling left flanking background sequence&lt;/li&gt;
-      &lt;li&gt;match state at key position 1, insertion state at key position 1, deletion state at key position 1&lt;/li&gt;
-      &lt;li&gt;…&lt;/li&gt;
-      &lt;li&gt;match state at key position N, insertion state at key position N (modeling right flanking background sequence), deletion state at key position N&lt;/li&gt;
-      &lt;li&gt;end state&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Possible transitions
-    &lt;ul&gt;
-      &lt;li&gt;begin \(\Rightarrow\) insertion state 0&lt;/li&gt;
-      &lt;li&gt;begin \(\Rightarrow\) deletion state at key position 1 (allow condition when first residue is missing)&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;begin \(\Rightarrow\)  match state at key position 1&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;insertion state 0 \(\Rightarrow\) insertion state 0
-        &lt;ul&gt;
-          &lt;li&gt;self looping for left flanking background sequence modeling&lt;/li&gt;
-          &lt;li&gt;The looping probability on the flanking states should be close to 1, since they must account for long stretches of sequence&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;insertion state 0 \(\Rightarrow\) deletion state at key position 1&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;insertion state 0 \(\Rightarrow\) match state at key position 1&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;match state at key position i-1 \(\Rightarrow\) match state at key position i&lt;/li&gt;
-      &lt;li&gt;insertion state at key position i-1 \(\Rightarrow\) match state at key position i&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;deletion state at key position i-1 \(\Rightarrow\) match state at key position i&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;match state at key position i-1 \(\Rightarrow\) deletion state at key position i&lt;/li&gt;
-      &lt;li&gt;insertion state at key position i-1 \(\Rightarrow\) deletion state at key position i&lt;/li&gt;
-      &lt;li&gt;
-        &lt;p&gt;deletion state at key position i-1 \(\Rightarrow\) deletion state at key position i&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;match state at key position i \(\Rightarrow\) insertion state at key position i&lt;/li&gt;
-      &lt;li&gt;insertion state at key position i \(\Rightarrow\) insertion state at key position i&lt;/li&gt;
-      &lt;li&gt;deletion state at key position i \(\Rightarrow\) insertion state at key position i
-        &lt;ul&gt;
-          &lt;li&gt;“We have added transitions between insert and delete states, as they did, although these are usually very improbable. &lt;strong&gt;Leaving them out has negligible effect on scoring a match, but can create problems when building the model from MSA&lt;/strong&gt;”&lt;/li&gt;
-          &lt;li&gt;In most cases, profile HMM is constructed from MSA. Consider Figure 5.7 in &lt;a href=&quot;https://www.cambridge.org/core/books/biological-sequence-analysis/921BB7B78B745198829EF96BC7E0F29D&quot;&gt;Biological Sequence Analysis&lt;/a&gt;. We can see given a column assignment for MSA, the \(D_i \Rightarrow I_i\) transition could occur&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img src=&quot;/images/bsa-figure-5.7.png&quot; alt=&quot;&quot; height=&quot;70%&quot; width=&quot;70%&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;match state at key position i \(\Rightarrow\) end&lt;/li&gt;
-  &lt;li&gt;insertion state at key position i \(\Rightarrow\) end
-    &lt;ul&gt;
-      &lt;li&gt;self looping for right flanking background sequence modeling, should be close to 1&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;deletion state at key position i \(\Rightarrow\) end&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;HMM Profile searching
-    &lt;ul&gt;
-      &lt;li&gt;Viterbi algorithm and forward algorithm can both be used for HMM profiling searching&lt;/li&gt;
-      &lt;li&gt;Viterbi: assign a mostly likely hidden state for each nucleotide, and report the corresponding likelihood&lt;/li&gt;
-      &lt;li&gt;Viterbi variable for matching, insertion and deletion states at key position j and sequence position i&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[\begin{equation}
-V_j^M(i) = \log{\frac{e_{M_j}(x_i)}{q_{x_i}}} + 
-max \left\{
-\begin{aligned}
-  V_{j-1}^M(i-1) + \log a_{M_{j-1}M_j} \\
-  V_{j-1}^I(i-1) + \log a_{I_{j-1}M_j}   \\
-  V_{j-1}^D(i-1) + \log a_{D_{j-1}M_j}  \\
-\end{aligned}
-\right.
-\end{equation}\]
-
-\[\begin{equation}
-V_j^I(i) = \log{\frac{e_{I_j}(x_i)}{q_{x_i}}} + 
-max \left\{
-\begin{aligned}
-  V_{j}^M(i-1) + \log a_{M_{j}I_j} \\
-  V_{j}^I(i-1) + \log a_{I_{j}I_j}   \\
-  V_{j}^D(i-1) + \log a_{D_{j}I_j}  \\
-\end{aligned}
-\right.
-\end{equation}\]
-
-\[\begin{equation}
-V_j^D(i) = 
-max \left\{
-\begin{aligned}
-  V_{j-1}^M(i) + \log a_{M_{j-1}D_j} \\
-  V_{j-1}^I(i) + \log a_{I_{j-1}D_j}   \\
-  V_{j-1}^D(i) + \log a_{D_{j-1}D_j}  \\
-\end{aligned}
-\right.
-\end{equation}\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;forward: assign a likelihood that the input sequence is generated from a HMM profile&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;See &lt;a href=&quot;https://notebook.community/jmschrei/pomegranate/tutorials/B_Model_Tutorial_3_Hidden_Markov_Models&quot;&gt;https://notebook.community/jmschrei/pomegranate/tutorials/B_Model_Tutorial_3_Hidden_Markov_Models&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;model-construction&quot;&gt;Model construction&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;To construct profile HMM from MSA, we have to make a decision. Each column in the MSA should either be assigned to a key position (marked column), or an insertion (unmarked column).&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;For columns marked as key positions, residues are assigned to match state, gaps are assigned to deletion state&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;For columns marked as insertions, residues are assigned to insertions, gaps are ignored&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;There are \(2^L\) ways to mark a MSA with \(L\) columns.&lt;/li&gt;
-  &lt;li&gt;Three ways for marking MSA columns
-    &lt;ul&gt;
-      &lt;li&gt;Manual&lt;/li&gt;
-      &lt;li&gt;Heuristics: rule based assignment. For example, assigning all columns will more than a certain fraction of gap characters to insert states&lt;/li&gt;
-      &lt;li&gt;MAP (maximum &lt;em&gt;a posteriori&lt;/em&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">看了不知道多少遍总是记不清楚，详细记录一下，希望别再忘了:)</summary></entry><entry><title type="html">Notes On Linux System Administration</title><link href="http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management.html" rel="alternate" type="text/html" title="Notes On Linux System Administration" /><published>2021-11-11T20:54:12+08:00</published><updated>2021-11-11T20:54:12+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/11/note-on-linux-system-management.html">&lt;h3 id=&quot;check-avaiable-resources&quot;&gt;Check avaiable resources&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Avaliable memory: in &lt;code class=&quot;highlighter-rouge&quot;&gt;/proc/meminfo&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; free &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#              total        used        free      shared  buff/cache   available&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#Mem:            30G        5.3G         18G        120M        7.4G         25G&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#Swap:          8.0G        2.0G        6.0G&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;daemon-process&quot;&gt;Daemon process&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Configuration files of systemd
-    &lt;ul&gt;
-      &lt;li&gt;Not modify
-        &lt;ul&gt;
-          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/systemd/system&lt;/code&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/lib/systemd/system&lt;/code&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Can be customized
-        &lt;ul&gt;
-          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/systemd/system&lt;/code&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/run/systemd/system&lt;/code&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;List avaiable service&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl list-units &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;service
-systemctl list-unit-files &lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;service
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Show logging&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;journalctl
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://askubuntu.com/questions/903354/difference-between-systemctl-and-service-commands&quot;&gt;https://askubuntu.com/questions/903354/difference-between-systemctl-and-service-commands&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ssh-login-without-typing-password&quot;&gt;ssh login without typing password&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Append local public key &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/id_rsa.pub&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.ssh/authorized_keys&lt;/code&gt; in remote machine should work&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;crontab&quot;&gt;crontab&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Configuration: &lt;code class=&quot;highlighter-rouge&quot;&gt;minute(s) hour(s) day(s) month(s) weekday(s) command(s)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/var/spool/cron/crontabs&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;See &lt;a href=&quot;https://kb.iu.edu/d/afiz&quot;&gt;https://kb.iu.edu/d/afiz&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;account-management&quot;&gt;Account management&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Add account
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;adduser&lt;/code&gt;: a system command, not create home directory&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;useradd&lt;/code&gt;: a perl wrapper for adduser, create home directory&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Remove account&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;userdel &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;user.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Change user group&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; usermod &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-G&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;group.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;user.name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;network-file-system-nfs&quot;&gt;Network file system (NFS)&lt;/h3&gt;
-
-&lt;h3 id=&quot;nis-ldap-and-single-sign-on&quot;&gt;NIS, LDAP and single sign on&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;LDAP (Lightweight Directory Access Protocol)&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;PAM (Pluggable Authentication Module system)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.csdn.net/developerinit/article/details/76141065&quot;&gt;https://blog.csdn.net/developerinit/article/details/76141065&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/lfdblog/p/9803276.html&quot;&gt;https://www.cnblogs.com/lfdblog/p/9803276.html&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Show all user with access&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;getent passwd
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Show password specific to LDAP&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;getent passwd &lt;span class=&quot;nt&quot;&gt;--service&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ldap
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;security-related-topics&quot;&gt;Security related topics&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/var/log/secure&lt;/code&gt; provides useful loggings&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Do not log in as root&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://www.liquidweb.com/kb/how-do-i-set-up-setuid-setgid-and-sticky-bits-on-linux/&quot;&gt;https://www.liquidweb.com/kb/how-do-i-set-up-setuid-setgid-and-sticky-bits-on-linux/&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Check avaiable resources</summary></entry><entry><title type="html">Manipulate Binary Data</title><link href="http://localhost:4000/jekyll/update/2021/11/11/manipulate-binary-data.html" rel="alternate" type="text/html" title="Manipulate Binary Data" /><published>2021-11-11T20:36:17+08:00</published><updated>2021-11-11T20:36:17+08:00</updated><id>http://localhost:4000/jekyll/update/2021/11/11/manipulate-binary-data</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/11/11/manipulate-binary-data.html">&lt;h3 id=&quot;in-native-python&quot;&gt;In native python&lt;/h3&gt;
-
-&lt;h3 id=&quot;in-numpy&quot;&gt;In numpy&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.packbits.html&quot;&gt;packbits&lt;/a&gt;: pack binary data into integer (np.uint8) by byte&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;low&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;high&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# generate some binary data
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X_packed8&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;packbits&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# pack every 8 bit by axis 1
-# X_packed8.shape
-# (1000, 4)
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X_packed32&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;X_packed8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uint32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# X_packed32.shape
-# (1000, 1)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tobytes.html&quot;&gt;tobyte&lt;/a&gt;: save numpy data to byte string&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;128&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;256&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;512&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;int16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tobytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# b'\x00\x00\x01\x00\x02\x00\x04\x00\x08\x00\x10\x00 \x00@\x00\x80\x00\x00\x01\x00\x02\x00\x04'
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://numpy.org/doc/stable/reference/generated/numpy.frombuffer.html&quot;&gt;frombuffer&lt;/a&gt;: load data from byte string&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">In native python</summary></entry><entry><title type="html">Statistics for Sequence Alignment</title><link href="http://localhost:4000/jekyll/update/2021/10/20/statistics-for-sequence-alignment.html" rel="alternate" type="text/html" title="Statistics for Sequence Alignment" /><published>2021-10-20T14:34:51+08:00</published><updated>2021-10-20T14:34:51+08:00</updated><id>http://localhost:4000/jekyll/update/2021/10/20/statistics-for-sequence-alignment</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/10/20/statistics-for-sequence-alignment.html">&lt;h3 id=&quot;karlin-altschul-statistics&quot;&gt;Karlin-Altschul statistics&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Evaluate statistical significance of hits in blast search&lt;/li&gt;
-  &lt;li&gt;1990, &lt;em&gt;PNAS&lt;/em&gt;, S Karlin &amp;amp; S F Altschul, &lt;a href=&quot;https://www.pnas.org/content/87/6/2264.long&quot;&gt;Methods for assessing the statistical significance of molecular sequence features by using general scoring schemes&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The expected number of &lt;strong&gt;ungapped alignments&lt;/strong&gt; with score \(S\) found with random sequences \(E\) was demostrated to be&lt;/li&gt;
-&lt;/ul&gt;
-
-\[E(S) = Kmne^{-\lambda S}\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;\(m\) is length of sequence 1, \(n\) is length of sequence 2, \(K\) is a constant&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Given the substitution matrix \(S_{i,j}\), and frequency of the character \(a_{i}\) and \(a_{j}\)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-\[\sum_{i,j=1}^{r}p_{i}p_{j}e^{s_{ij} \lambda}=1\]
-
-&lt;ul&gt;
-  &lt;li&gt;Alternatively, the alignment score \(S\) follows &lt;a href=&quot;https://en.wikipedia.org/wiki/Generalized_extreme_value_distribution&quot;&gt;extreme value distribution&lt;/a&gt; (EVD), where \(u=\frac{lnKmn}{\lambda}\)&lt;/li&gt;
-&lt;/ul&gt;
-
-\[P(S&amp;lt;x)=e^{-e^{-\lambda(x-u)}}=e^{-Kmne^{-{\lambda} x}}\]
-
-\[P(S{\geq}x)=1-P(S&amp;lt;x)=1-e^{-Kmne^{-{\lambda} x}}=1-e^{-E(x)}\]
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;\(E(S)\) can be interpreted as expected value in poisson distribution&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Readings:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;http://www.bioinfo.org.cn/lectures/index-47.html&quot;&gt;http://www.bioinfo.org.cn/lectures/index-47.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://personal.utdallas.edu/~prr105020/biol6385/2018/lecture/Stat_sig.pdf&quot;&gt;https://personal.utdallas.edu/~prr105020/biol6385/2018/lecture/Stat_sig.pdf&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;http://pedagogix-tagc.univ-mrs.fr/courses/bioinfo_intro_prev/articles/sequence_alignment/Korf_BLAST_essential_OReilly.pdf&quot;&gt;http://pedagogix-tagc.univ-mrs.fr/courses/bioinfo_intro_prev/articles/sequence_alignment/Korf_BLAST_essential_OReilly.pdf&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0076687996660297?via%3Dihub&quot;&gt;https://www.sciencedirect.com/science/article/pii/S0076687996660297?via%3Dihub&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Karlin-Altschul statistics Evaluate statistical significance of hits in blast search 1990, PNAS, S Karlin &amp;amp; S F Altschul, Methods for assessing the statistical significance of molecular sequence features by using general scoring schemes The expected number of ungapped alignments with score \(S\) found with random sequences \(E\) was demostrated to be \[E(S) = Kmne^{-\lambda S}\]</summary></entry><entry><title type="html">latent Dirichlet allocation in genetics</title><link href="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html" rel="alternate" type="text/html" title="latent Dirichlet allocation in genetics" /><published>2021-08-13T20:01:38+08:00</published><updated>2021-08-13T20:01:38+08:00</updated><id>http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/08/13/latent-dirichlet-allocation.html">&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.cs.columbia.edu/~blei/papers/Blei2012.pdf&quot;&gt;Probabilistic topic models&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;2003, &lt;em&gt;Journal of Machine Learning Research 3&lt;/em&gt;, &lt;a href=&quot;https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf&quot;&gt;Latent Dirichlet allocation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;2000, &lt;em&gt;Genetics&lt;/em&gt;, &lt;a href=&quot;https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1461096/pdf/10835412.pdf&quot;&gt;Inference of Population Structure Using Multilocus Genotype Data&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation Probabilistic topic models 2003, Journal of Machine Learning Research 3, Latent Dirichlet allocation 2000, Genetics, Inference of Population Structure Using Multilocus Genotype Data</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Some notes on v2ray configuration</summary></entry></feed>
