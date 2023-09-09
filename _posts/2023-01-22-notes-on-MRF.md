@@ -11,6 +11,7 @@ categories: jekyll update
 
 ## Definition and parameterization
 
+- Markov random field is an undirectional probablistic graph model
 - Consider random variables $$X=(X_1,X_2,...,X_n)$$
 - These random variables have conditional dependency defined by a graph $$G$$
 - The graph $$G$$ have $$m$$ cliques (fully connected subgraphs), denoted as $$D_1,...,D_m$$
@@ -64,8 +65,14 @@ $$P(X_1,...,X_n) = \frac{1}{Z}\exp(-\sum_{i<j}w_{i,j}x_{i}x_{j}-\sum_{i}u_{i}x_{
 
 ### Potts model and protein / RNA structure modeling
 
+- A protein sequence in multiple sequence alignment: $$(\sigma_1,\sigma_2,\sigma_3,...,\sigma_N)$$
+- $$\sigma_1$$ takes value from the protein/RNA alphabet and gap "-"
 
 
+- mfDCA (mean field direct coupling analysis)
+- plmDCA  (pseudolikelihood maximization direct coupling analysis)
+
+### Restricted bolzmann machine
 
 ## Conditional random field
 
@@ -102,7 +109,20 @@ $$
 - It takes a form same as log-linear model of markov random field
 
 
-## Named entity recognition
+## Linear chain CRF
+
+
+$$
+\large{
+p(y\|X) = \frac{1}{Z(X)}\exp{[\sum_{k=1}^{K}\lambda_{k}f_{k}(y_t,y_{t-1},x_t)]}
+}
+$$
+
+$$
+\large{
+Z(X) = \sum_{y}\exp{[\sum_{k=1}^{K}\lambda_{k}f_{k}(y_t,y_{t-1},x_t)]}
+}
+$$
 
 
 ## Reference

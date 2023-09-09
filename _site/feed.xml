@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-23T10:58:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on Markov Random Field</title><link href="http://localhost:4000/jekyll/update/2023/01/22/notes-on-MRF.html" rel="alternate" type="text/html" title="Notes on Markov Random Field" /><published>2023-01-22T10:37:51+08:00</published><updated>2023-01-22T10:37:51+08:00</updated><id>http://localhost:4000/jekyll/update/2023/01/22/notes-on-MRF</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/01/22/notes-on-MRF.html">&lt;h1 id=&quot;notes-on-markov-random-field&quot;&gt;Notes on Markov Random Field&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-09-09T11:25:59+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jin’s Post</title><subtitle>Notes &amp; blogs</subtitle><entry><title type="html">Notes on Markov Random Field</title><link href="http://localhost:4000/jekyll/update/2023/01/22/notes-on-MRF.html" rel="alternate" type="text/html" title="Notes on Markov Random Field" /><published>2023-01-22T10:37:51+08:00</published><updated>2023-01-22T10:37:51+08:00</updated><id>http://localhost:4000/jekyll/update/2023/01/22/notes-on-MRF</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/01/22/notes-on-MRF.html">&lt;h1 id=&quot;notes-on-markov-random-field&quot;&gt;Notes on Markov Random Field&lt;/h1&gt;
 
 &lt;h2 id=&quot;definition-and-parameterization&quot;&gt;Definition and parameterization&lt;/h2&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;Markov random field is an undirectional probablistic graph model&lt;/li&gt;
   &lt;li&gt;Consider random variables \(X=(X_1,X_2,...,X_n)\)&lt;/li&gt;
   &lt;li&gt;These random variables have conditional dependency defined by a graph \(G\)&lt;/li&gt;
   &lt;li&gt;The graph \(G\) have \(m\) cliques (fully connected subgraphs), denoted as \(D_1,...,D_m\)&lt;/li&gt;
@@ -64,6 +65,17 @@
 
 &lt;h3 id=&quot;potts-model-and-protein--rna-structure-modeling&quot;&gt;Potts model and protein / RNA structure modeling&lt;/h3&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;A protein sequence in multiple sequence alignment: \((\sigma_1,\sigma_2,\sigma_3,...,\sigma_N)\)&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;\(\sigma_1\) takes value from the protein/RNA alphabet and gap “-“&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;mfDCA (mean field direct coupling analysis)&lt;/li&gt;
+  &lt;li&gt;plmDCA  (pseudolikelihood maximization direct coupling analysis)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;restricted-bolzmann-machine&quot;&gt;Restricted bolzmann machine&lt;/h3&gt;
+
 &lt;h2 id=&quot;conditional-random-field&quot;&gt;Conditional random field&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -97,7 +109,15 @@ a large number of input features x for prediction&lt;/li&gt;
   &lt;li&gt;It takes a form same as log-linear model of markov random field&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;named-entity-recognition&quot;&gt;Named entity recognition&lt;/h2&gt;
+&lt;h2 id=&quot;linear-chain-crf&quot;&gt;Linear chain CRF&lt;/h2&gt;
+
+\[\large{
+p(y\|X) = \frac{1}{Z(X)}\exp{[\sum_{k=1}^{K}\lambda_{k}f_{k}(y_t,y_{t-1},x_t)]}
+}\]
+
+\[\large{
+Z(X) = \sum_{y}\exp{[\sum_{k=1}^{K}\lambda_{k}f_{k}(y_t,y_{t-1},x_t)]}
+}\]
 
 &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
 

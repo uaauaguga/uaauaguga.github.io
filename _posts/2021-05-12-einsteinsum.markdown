@@ -83,3 +83,4 @@ np.einsum('ji,jk->ik', a,b)
 ## pytorch
 - See <https://pytorch.org/docs/stable/generated/torch.einsum.html>
 - Also see <https://github.com/arogozhnikov/einops>
+
